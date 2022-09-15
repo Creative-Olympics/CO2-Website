@@ -4,8 +4,6 @@ TODO:
 - [x] Page brut listant les participants
 - [x] Page brut listant les staff
 - [x] Page brut listant les streamers
-- [ ] Pour les gens
-  - [ ] Ask what that means
 - [ ] Page “About”
 - [ ] Page participants
 - [ ] Page streamers avec streams actifs

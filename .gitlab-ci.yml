@@ -1,0 +1,17 @@
+image: node:latest
+before_script:
+  - npm i -g firebase-tools
+deploy-functions:
+  stage: deploy
+  script:
+    - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-kuizu"
+  only:
+    refs:
+      - main
+stages:
+- test
+- deploy
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml

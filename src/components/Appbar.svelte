@@ -29,7 +29,7 @@
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
-		<div class="px-4 shadow-lg navbar glass">
+		<div class="px-4 navbar glass">
 			<!-- shadow-lg -->
 			<div class="navbar-start">
 				<a class="gap-1 btn btn-ghost" href="/">

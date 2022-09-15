@@ -29,12 +29,12 @@
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
-		<div class="px-4 shadow-lg navbar bg-base-100">
+		<div class="px-4 shadow-lg navbar glass">
 			<!-- shadow-lg -->
 			<div class="navbar-start">
-				<a class="gap-1 btn btn-ghost" href="/"
-					>Kuizu
-					<div class="text-white badge badge-error badge-sm">BETA</div>
+				<a class="gap-1 btn btn-ghost" href="/">
+					Creative Olympics
+					<div class="text-white badge badge-error badge-sm">INDEV</div>
 				</a>
 			</div>
 			<div class="navbar-end">

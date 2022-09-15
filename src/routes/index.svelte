@@ -8,7 +8,7 @@
 	<title>Kuizu</title>
 </svelte:head>
 
-<Loader />
+<!--<Loader />-->
 <div id="stick" data-scroll-container>
 	<Appbar />
 	<div data-scroll-section>

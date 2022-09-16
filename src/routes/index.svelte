@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Kuizu</title>
+	<title>Creative Olympics</title>
 </svelte:head>
 
 <!--<Loader />-->

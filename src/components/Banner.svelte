@@ -1,5 +1,6 @@
 <script>
-	import { fade } from 'svelte/transition';
+	import { fly, fade } from 'svelte/transition';
+	import GradientButton from './GradientButton.svelte';
 
 	let imgIndex = 1;
 	let vidEnded = false;
@@ -10,7 +11,7 @@
 	}, 1000 / 10);
 </script>
 
-<div data-scroll-section class="relative">
+<div data-scroll-section>
 	<div
 		class="w-screen bg-cover bg-center"
 		style="background-image: url('banner/final.jpg'); height: calc(100vh + 120px)"
@@ -31,6 +32,28 @@
 				<source src="banner/in.mp4" type="video/mp4" />
 			</video>
 		{/if}
+
+		<div
+			class="absolute top-0 left-0 w-screen h-screen flex justify-center items-center gap-4 flex-col"
+			in:fly={{ delay: 1400, y: 50, duration: 700 }}
+		>
+			<img src="banner/co.png" alt="CO logo" class="w-56" data-scroll data-scroll-speed="2" />
+			<div class="flex flew-row gap-4">
+				<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
+					<!--Wrapper div to make scroll smoother on buttons-->
+					<button class="btn" in:fade={{ delay: 1800 }}>Join Discord</button>
+				</div>
+				<div data-scroll data-scroll-speed="2" data-scroll-delay="0.07">
+					<!--Wrapper div to make scroll smoother on buttons-->
+					<button
+						class="btn btn-secondary text-white border-transparent hover:border-transparent transition-all duration-500 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+						in:fade={{ delay: 2050 }}
+					>
+						Watch Trailer
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div data-scroll data-scroll-speed="8" data-scroll-position="top" data-scroll-offset="-120">
 		<svg
@@ -52,6 +75,6 @@
 				/>
 			</g>
 		</svg>
-		<div class="bg-white h-screen -mt-2"/>
+		<div class="bg-white h-screen -mt-2" />
 	</div>
 </div>

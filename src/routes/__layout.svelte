@@ -2,11 +2,11 @@
 	import '../app.css';
 	import LoginModal from '../components/LoginModal.svelte';
 	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
-	import { app } from '../firebase'
+	import { app } from '../firebase';
 
 	import LocomotiveScrollProvider from 'svelte-locomotive-scroll';
-	import { onMount } from 'svelte'
-	import { getAnalytics } from "firebase/analytics";
+	import { onMount } from 'svelte';
+	import { getAnalytics } from 'firebase/analytics';
 
 	onMount(() => {
 		getAnalytics(app);
@@ -15,7 +15,8 @@
 
 <LocomotiveScrollProvider
 	options={{
-		smooth: true
+		smooth: true,
+		smoothMobile: true
 	}}
 	watch={[
 		//..all the dependencies you want to watch to update the scroll.

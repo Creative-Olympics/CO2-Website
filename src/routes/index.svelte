@@ -15,6 +15,5 @@
 <div data-scroll-section>
 	<Banner />
 	<EventDesc />
-	<div class="h-screen" />
 	<DonationsBanner />
 </div>

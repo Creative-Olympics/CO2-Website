@@ -1,8 +1,8 @@
 <script>
-
 </script>
 
-<div data-scroll-section>
-	<div class="h-screen bg-red-500" data-scroll/>
+<div
+	data-scroll
+>
+	<div class="h-screen bg-red-500" />
 </div>
-<!--51035-->

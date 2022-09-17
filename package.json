@@ -39,7 +39,6 @@
 		"firebase": "^9.9.0",
 		"locomotive-scroll": "^4.1.4",
 		"rxfire": "^6.0.3",
-		"rxjs": "^7.5.6",
-		"svelte-locomotive-scroll": "^0.0.5"
+		"rxjs": "^7.5.6"
 	}
 }

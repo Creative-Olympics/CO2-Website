@@ -9,7 +9,7 @@
 </svelte:head>
 
 <!--<Loader />-->
-<div id="stick" data-scroll-container>
+<div id="stick">
 	<Appbar />
 	<Banner />
 	<div class="h-screen" />

@@ -4,6 +4,8 @@ before_script:
 deploy-functions:
   stage: deploy
   script:
+    - npm run build
+    - cp -r static/* public/
     - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-co"
   only:
     refs:

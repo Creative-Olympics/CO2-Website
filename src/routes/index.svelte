@@ -10,7 +10,7 @@
 	<title>Creative Olympics</title>
 </svelte:head>
 
-<Loader />
+<!--<Loader />-->
 <Appbar />
 <div data-scroll-section>
 	<Banner />

@@ -1,6 +1,7 @@
 image: node:latest
 before_script:
   - npm i -g firebase-tools
+  - npm install
 deploy-functions:
   stage: deploy
   script:

@@ -26,7 +26,10 @@ isSupported().then(supported => {
     fetchAndActivate(rc).then(() => {
       rc_discordInvite_url = getValue(rc, "discordInvite_url").asString();
       rc_eventDesc_article = getValue(rc, "eventDesc_article").asString();
-    })
+      //alert(rc_discordInvite_url)
+    }).catch((err) => {
+      console.log(err)
+    });
   }
 });
 

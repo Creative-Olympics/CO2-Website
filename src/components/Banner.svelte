@@ -48,7 +48,8 @@
 				<div data-scroll data-scroll-speed="2" data-scroll-delay="0.07">
 					<!--Wrapper div to make scroll smoother on buttons-->
 					<button
-						class="btn btn-secondary text-white border-transparent hover:border-transparent transition-all duration-500 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+						class="btn btn-secondary text-white border-transparent hover:border-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+						style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 						in:fade={{ delay: 2050 }}
 					>
 						Watch Trailer

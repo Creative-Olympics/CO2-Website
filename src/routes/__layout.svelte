@@ -30,13 +30,6 @@
 				});
 			} catch (error) {}
 		})();
-
-		/*import('locomotive-scroll').then((locomotiveModule) => {
-			const scroll = new locomotiveModule.default({
-				el: document.querySelector('[data-scroll-container]'),
-				smooth: true
-			});
-		});*/
 	});
 </script>
 

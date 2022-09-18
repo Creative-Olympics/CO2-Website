@@ -1,5 +1,5 @@
 <script>
-	import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+	import { signInWithPopup } from "firebase/auth";
 
 	import { auth, provider } from "../firebase"
 	import { toasts } from './toasts/toasts';

@@ -21,10 +21,13 @@
 					);
 				}
 
-				window.locomotive = new LocomotiveScroll({
+				let locomotive = new LocomotiveScroll({
 					el: dataScrollContainer ?? undefined,
 					smooth: true,
 					smartphone: {
+						smooth: true
+					},
+					tablet: {
 						smooth: true
 					}
 				});

@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { fetchAndActivate, getRemoteConfig, isSupported } from "firebase/remote-config";
+import { getValue } from "firebase/remote-config";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls",
@@ -13,8 +15,20 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
-
 export const db = getFirestore(app);
+
+isSupported().then(supported => {
+  if (supported) {
+    let rc = getRemoteConfig(app);
+    rc.settings.minimumFetchIntervalMillis = 3600000; //ONLY FOR DEV
+    fetchAndActivate(rc).then(() => {
+      rc_discordInvite_url = getValue(rc, "discordInvite_url").asString();
+      rc_eventDesc_article = getValue(rc, "eventDesc_article").asString();
+    })
+  }
+});
+
+export let rc_discordInvite_url = "null"
+export let rc_eventDesc_article = "<h1>Garlic bread with cheese: What the science tells us</h1><p>For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween.</p><blockquote>hey</blockquote><p>But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around the country.</p>"

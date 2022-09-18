@@ -1,6 +1,8 @@
 <script>
 	import { fly, fade } from 'svelte/transition';
+
 	import MediaQuery from './MediaQuery.svelte';
+	import { rc_discordInvite_url } from '../firebase';
 
 	let vidEnded = false;
 </script>
@@ -35,10 +37,14 @@
 		>
 			<img src="banner/co.png" alt="CO logo" class="w-56" data-scroll data-scroll-speed="2" />
 			<div class="flex flew-row gap-4">
-				<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
-					<!--Wrapper div to make scroll smoother on buttons-->
-					<button class="btn" in:fade={{ delay: 1800 }}>Join Discord</button>
-				</div>
+				{#if rc_discordInvite_url != 'null'}
+					<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
+						<!--Wrapper div to make scroll smoother on buttons-->
+						<a class="btn" in:fade={{ delay: 1800 }} href={rc_discordInvite_url} target="_blank"
+							>Join Discord</a
+						>
+					</div>
+				{/if}
 				<div data-scroll data-scroll-speed="2" data-scroll-delay="0.07">
 					<!--Wrapper div to make scroll smoother on buttons-->
 					<button

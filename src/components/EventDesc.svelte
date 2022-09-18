@@ -53,7 +53,7 @@
 	</div>
 	<div class="bg-white -mt-2 -mb-2 w-screen flex items-center justify-center flex-col">
 		<article class="prose py-20">
-			{rc_eventDesc_article}
+			{@html rc_eventDesc_article}
 		</article>
 	</div>
 	<div class="flex flex-row">

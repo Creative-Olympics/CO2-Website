@@ -43,7 +43,7 @@
 					{#if $rc_discordInvite_url != 'null'}
 						<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
 							<!--Wrapper div to make scroll smoother on buttons-->
-							<a class="btn" in:fade={{ delay: 1800 }} href={rc_discordInvite_url} target="_blank"
+							<a class="btn" in:fade={{ delay: 1800 }} href={$rc_discordInvite_url} target="_blank"
 								>Join Discord</a
 							>
 						</div>

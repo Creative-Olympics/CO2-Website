@@ -35,7 +35,7 @@
 		<div class="px-4 navbar glass">
 			<!-- shadow-lg -->
 			<div class="navbar-start">
-					{#if !showLogo}
+					{#if showLogo}
 						<div transition:fly={{ x: -36, duration: 1000, opacity: 1 }}>
 							<a class="btn btn-ghost gap-2" href="/">
 								<img src="banner/co.png" alt="Creative Olympics logo" class="w-7" transition:fade />

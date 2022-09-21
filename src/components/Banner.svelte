@@ -40,14 +40,14 @@
 			>
 				<img src="banner/co.png" alt="CO logo" class="w-56" data-scroll data-scroll-speed="2" />
 				<div class="flex flew-row gap-4">
-					{#if $rc_discordInvite_url != 'null'}
-						<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
-							<!--Wrapper div to make scroll smoother on buttons-->
+					<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
+						<!--Wrapper div to make scroll smoother on buttons-->
+						{#if $rc_discordInvite_url != 'null'}
 							<a class="btn" in:fade={{ delay: 1800 }} href={$rc_discordInvite_url} target="_blank"
 								>Join Discord</a
 							>
-						</div>
-					{/if}
+						{/if}
+					</div>
 					<div data-scroll data-scroll-speed="2" data-scroll-delay="0.07">
 						<!--Wrapper div to make scroll smoother on buttons-->
 						<button

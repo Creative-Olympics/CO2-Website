@@ -2,10 +2,14 @@
 	import '../app.css';
 	import LoginModal from '../components/LoginModal.svelte';
 	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
+	import Loader from '../components/Loader.svelte';
+	import Appbar from '../components/Appbar.svelte';
 	import { app } from '../firebase';
 
 	import { onMount } from 'svelte';
 	import { getAnalytics } from 'firebase/analytics';
+
+	let showLogo = false;
 
 	onMount(() => {
 		getAnalytics(app);
@@ -21,7 +25,7 @@
 					);
 				}
 
-				let locomotive = new LocomotiveScroll({
+				let n3scr = new LocomotiveScroll({
 					el: dataScrollContainer ?? undefined,
 					smooth: true,
 					smartphone: {
@@ -31,12 +35,18 @@
 						smooth: true
 					}
 				});
+
+				n3scr.on('call', (signal) => {
+					if (signal === 'appbar_showLogo') showLogo = !showLogo;
+				});
 			} catch (error) {}
 		})();
 	});
 </script>
 
 <div data-scroll-container>
+	<!--<Loader />-->
+	<Appbar showLogo={showLogo} />
 	<slot />
 </div>
 <LoginModal />

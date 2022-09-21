@@ -3,7 +3,7 @@
 	import { doc, getDoc } from 'firebase/firestore';
 	import { fly, fade } from 'svelte/transition';
 
-	import { db, auth } from '../firebase';
+	import { db, auth } from '../lib/firebase';
 	import { toasts } from './toasts/toasts';
 
 	export let showLogo = false;

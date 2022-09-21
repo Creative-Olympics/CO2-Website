@@ -4,12 +4,13 @@
 	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
 	import Loader from '../components/Loader.svelte';
 	import Appbar from '../components/Appbar.svelte';
-	import { app } from '../firebase';
+	import { app } from '../lib/firebase';
 
 	import { onMount } from 'svelte';
 	import { getAnalytics } from 'firebase/analytics';
+	import { writable } from 'svelte/store';
 
-	let showLogo = false;
+	let showLogo = writable(false);
 
 	onMount(() => {
 		getAnalytics(app);
@@ -37,7 +38,7 @@
 				});
 
 				n3scr.on('call', (signal) => {
-					if (signal === 'appbar_showLogo') showLogo = !showLogo;
+					showLogo.update(t => !t)
 				});
 			} catch (error) {}
 		})();
@@ -46,7 +47,7 @@
 
 <div data-scroll-container>
 	<!--<Loader />-->
-	<Appbar showLogo={showLogo} />
+	<Appbar showLogo={$showLogo} />
 	<slot />
 </div>
 <LoginModal />

@@ -1,7 +1,7 @@
 <script>
 	import { signInWithPopup } from "firebase/auth";
 
-	import { auth, provider } from "../firebase"
+	import { auth, provider } from "../lib/firebase"
 	import { toasts } from './toasts/toasts';
 
 	let loginModalOpened = false

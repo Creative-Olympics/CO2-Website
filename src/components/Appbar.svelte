@@ -1,9 +1,12 @@
 <script>
 	import { onAuthStateChanged, signOut } from 'firebase/auth';
 	import { doc, getDoc } from 'firebase/firestore';
+	import { fly, fade } from 'svelte/transition';
 
 	import { db, auth } from '../firebase';
 	import { toasts } from './toasts/toasts';
+
+	export let showLogo = false;
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user;
@@ -32,10 +35,18 @@
 		<div class="px-4 navbar glass">
 			<!-- shadow-lg -->
 			<div class="navbar-start">
-				<a class="gap-1 btn btn-ghost" href="/">
-					Creative Olympics
-					<div class="text-white badge badge-error badge-sm">INDEV</div>
-				</a>
+					{#if !showLogo}
+						<div transition:fly={{ x: -36, duration: 1000, opacity: 1 }}>
+							<a class="btn btn-ghost gap-2" href="/">
+								<img src="banner/co.png" alt="Creative Olympics logo" class="w-7" transition:fade />
+								Creative Olympics
+							</a>
+						</div>
+					{:else}
+						<div in:fade={{ delay: 1000, duration: 0 }}>
+							<a class="btn btn-ghost" href="/">Creative Olympics</a>
+						</div>
+					{/if}
 			</div>
 			<div class="navbar-end">
 				<div class="tooltip tooltip-bottom" data-tip="Send a bug report">

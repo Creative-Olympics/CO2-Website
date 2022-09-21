@@ -38,11 +38,13 @@
 				});
 
 				n3scr.on('call', (signal) => {
-					showLogo.update(t => !t)
+					showLogo.update((t) => !t);
 				});
 			} catch (error) {}
 		})();
 	});
+
+	let loaded = false;
 </script>
 
 <div data-scroll-container>

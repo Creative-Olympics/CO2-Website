@@ -20,8 +20,8 @@
 {#if step < 3}
 	<div
 		id="loader"
-		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden"
-		style="z-index: 100; background-color: #881229"
+		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20"
+		style="background-color: #881229"
 		out:fade={{ duration: 250 }}
 	>
 		<svg

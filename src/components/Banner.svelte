@@ -42,7 +42,6 @@
 			<div
 				class="absolute top-0 left-0 w-full h-full"
 			>
-				{#if frameWaited}
 					<div in:fly={{ delay: 1000, y: -450, duration: 900 }} class="flex w-full h-full gap-4 flex-col items-center justify-center">
 						<img src="banner/co.png" alt="CO logo" class="w-56" data-scroll data-scroll-speed="2" />
 						<div class="flex flew-row gap-4">
@@ -71,7 +70,6 @@
 							</div>
 						</div>
 					</div>
-				{/if}
 			</div>
 		</div>
 	</MediaQuery>

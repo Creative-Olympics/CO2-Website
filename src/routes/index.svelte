@@ -9,6 +9,7 @@
 	<title>Creative Olympics</title>
 </svelte:head>
 
+<Loader />
 <div data-scroll-section>
 	<Banner />
 	<EventDesc />

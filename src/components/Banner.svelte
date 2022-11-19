@@ -1,19 +1,46 @@
 <script>
 	import { rc_discordInvite_url } from '$lib/firebase';
 	import { fly, fade } from 'svelte/transition';
+	import { onMount } from 'svelte'
 
 	import MediaQuery from './MediaQuery.svelte';
 
+	export let setLoaded;
+	export let loaderReady;
+
+	let mountedRn = false;
 	let vidEnded = false;
-	let vidTime = 0;
+	let vidPreloaded = false;
+	let anLogoPreloaded = false;
+	let loaded = false;
 
 	let frameWaited = false;
 	setTimeout(() => {
 		frameWaited = true;
 	}, 1);
+
+	let checkPreload = () => {
+		if (vidPreloaded && anLogoPreloaded) {
+			setLoaded()
+			loaded = true;
+		}
+	}
+
+	onMount(() => {
+		let animatedLogo = new Image()
+		animatedLogo.onload = () => {anLogoPreloaded = true; checkPreload()}
+		animatedLogo.src = "banner/animated_logo.gif"
+		mountedRn = true;
+	})
 </script>
 
 <div>
+	{#if (loaded && loaderReady)}
+		<script>
+			document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+		</script>
+	{/if}
+
 	<MediaQuery query="(max-width: 480px)" let:matches>
 		<div
 			class="w-full bg-cover bg-center relative"
@@ -22,21 +49,21 @@
 				: ''}final.jpg'); height: calc(100vh + 120px)"
 			data-scroll
 		>
-			{#if true}
+			{#if !vidEnded && mountedRn}
 				<video
 					class="w-full object-cover"
+					id="RahNeil_N3:CO:hbgiapv"
 					playsinline
 					disableremoteplayback
 					muted
-					autoplay
 					aria-hidden="true"
 					style="height: calc(100vh + 120px)"
+					src="banner/{matches ? 'm_' : ''}in.mp4"
+					on:error={() => {vidPreloaded = true; checkPreload()}}
+					on:canplaythrough={() => {vidPreloaded = true; checkPreload()}}
 					bind:ended={vidEnded}
-					bind:currentTime={vidTime}
 					out:fade
-				>
-					<source src="banner/{matches ? 'm_' : ''}in.mp4" type="video/mp4" />
-				</video>
+				/>
 			{/if}
 
 			<div class="absolute top-0 left-0 w-full h-full">

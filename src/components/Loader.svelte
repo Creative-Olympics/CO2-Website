@@ -13,11 +13,15 @@
 		}, 2000);
 		setTimeout(() => {
 			step = 3;
+			setLoaderReady()
 		}, 4000);
 	});
+
+	export let loaded;
+	export let setLoaderReady;
 </script>
 
-{#if step < 3}
+{#if step < 3 || !loaded}
 	<div
 		id="loader"
 		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20"
@@ -28,7 +32,6 @@
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="100 100 870 870"
 			class="w-32 h-32 flex-auto"
-			style={step === 3 ? 'transform: scale(200) translateX(5px); transition: transform 1.2s' : ''}
 		>
 			{#if step == 1}
 				<path
@@ -48,5 +51,7 @@
 				/>
 			{/if}
 		</svg>
+
+		<span>Step: {step} / Loaded: {loaded}</span>
 	</div>
 {/if}

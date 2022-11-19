@@ -9,9 +9,14 @@
 	<title>Creative Olympics</title>
 </svelte:head>
 
-<Loader />
+<script>
+	let loaded = false
+	let loaderReady = false
+</script>
+
+<Loader {loaded} setLoaderReady={() => loaderReady = true}/>
 <div data-scroll-section>
-	<Banner />
+	<Banner {loaderReady} setLoaded={() => {loaded = true}} />
 	<EventDesc />
 	<DonationsBanner />
 </div>

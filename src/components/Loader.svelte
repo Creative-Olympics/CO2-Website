@@ -51,7 +51,5 @@
 				/>
 			{/if}
 		</svg>
-
-		<span>Step: {step} / Loaded: {loaded}</span>
 	</div>
 {/if}

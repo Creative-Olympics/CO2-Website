@@ -34,17 +34,17 @@
 		<!-- p-2 -->
 		<div class="px-4 navbar glass">
 			<!-- shadow-lg -->
-			<div class="navbar-start">
+			<div class="navbar-start relative">
 					{#if showLogo}
-						<div transition:fly={{ x: -36, duration: 1000, opacity: 1 }}>
-							<a class="btn btn-ghost gap-2" href="/">
-								<img src="banner/co.png" alt="Creative Olympics logo" class="w-7" transition:fade />
+						<div transition:fly={{ x: -36, duration: 100000, opacity: 1 }}>
+							<a class="btn btn-ghost gap-2 absolute -top-6 left-0 whitespace-nowrap" href="/">
+								<img src="banner/co.gif" alt="Creative Olympics logo" class="w-9" transition:fade />
 								Creative Olympics
 							</a>
 						</div>
 					{:else}
 						<div in:fade={{ delay: 1000, duration: 0 }}>
-							<a class="btn btn-ghost" href="/">Creative Olympics</a>
+							<a class="btn btn-ghost absolute -top-6 left-0" href="/">Creative Olympics</a>
 						</div>
 					{/if}
 			</div>

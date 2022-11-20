@@ -32,21 +32,24 @@
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
-		<div class="px-4 navbar glass">
+		<div class="px-4 navbar glass {showLogo && "bg-base-100 shadow-md"} transition-all duration-1000">
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">
-					{#if showLogo}
-						<div transition:fly={{ x: -36, duration: 100000, opacity: 1 }}>
-							<a class="btn btn-ghost gap-2 absolute -top-6 left-0 whitespace-nowrap" href="/">
-								<img src="banner/co.gif" alt="Creative Olympics logo" class="w-9" transition:fade />
-								Creative Olympics
-							</a>
-						</div>
-					{:else}
-						<div in:fade={{ delay: 1000, duration: 0 }}>
-							<a class="btn btn-ghost absolute -top-6 left-0" href="/">Creative Olympics</a>
-						</div>
-					{/if}
+				{#if showLogo}
+					<div
+						transition:fly={{ x: -52, duration: 1000, opacity: 1 }}
+						class="absolute -top-6 left-0"
+					>
+						<a class="btn btn-ghost gap-3 flex flex-row whitespace-nowrap normal-case" href="/">
+							<img src="banner/co.gif" alt="Creative Olympics logo" class="w-10" transition:fade />
+							<span out:fade={{ delay: 1000 }}>Creative Olympics</span>
+						</a>
+					</div>
+				{:else}
+					<div in:fade={{ delay: 1000, duration: 0 }} class="absolute -top-6 left-0">
+						<a class="btn btn-ghost whitespace-nowrap normal-case" href="/">Creative Olympics</a>
+					</div>
+				{/if}
 			</div>
 			<div class="navbar-end">
 				<div class="tooltip tooltip-bottom" data-tip="Send a bug report">
@@ -82,7 +85,12 @@
 						</ul>
 					</div>
 				{:else}
-					<label for="loginModal" class="btn modal-button">Login</label>
+				<label for="loginModal" class="btn btn-square modal-button md:hidden">
+					<span class="material-symbols-rounded">login</span>
+				</label>
+					<label for="loginModal" class="btn modal-button hidden md:flex">
+						<span class="">Login</span>
+					</label>
 				{/if}
 			</div>
 		</div>

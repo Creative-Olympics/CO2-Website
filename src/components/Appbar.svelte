@@ -32,7 +32,7 @@
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
-		<div class="px-4 navbar glass {showLogo && "bg-base-100 shadow-md"} transition-all duration-1000">
+		<div class="px-4 navbar glass {showLogo && "bg-white shadow-md"} transition-all duration-500 text-gray-800">
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">
 				{#if showLogo}
@@ -40,7 +40,7 @@
 						transition:fly={{ x: -52, duration: 1000, opacity: 1 }}
 						class="absolute -top-6 left-0"
 					>
-						<a class="btn btn-ghost gap-3 flex flex-row whitespace-nowrap normal-case" href="/">
+						<a class="btn btn-ghost gap-3 flex flex-col whitespace-nowrap normal-case" href="/">
 							<img src="banner/co.gif" alt="Creative Olympics logo" class="w-10" transition:fade />
 							<span out:fade={{ delay: 1000 }}>Creative Olympics</span>
 						</a>
@@ -86,9 +86,9 @@
 					</div>
 				{:else}
 				<label for="loginModal" class="btn btn-square modal-button md:hidden">
-					<span class="material-symbols-rounded">login</span>
+					<span class="material-symbols-rounded text-white">login</span>
 				</label>
-					<label for="loginModal" class="btn modal-button hidden md:flex">
+					<label for="loginModal" class="btn modal-button hidden md:flex text-white">
 						<span class="">Login</span>
 					</label>
 				{/if}

@@ -3,6 +3,9 @@
 	import Loader from '../components/Loader.svelte';
 	import DonationsBanner from '../components/DonationsBanner.svelte';
 	import EventDesc from '../components/EventDesc.svelte';
+	import CountdownBanner from "../components/CountdownBanner.svelte";
+
+	import { rc_eventTimestamp } from '$lib/firebase';
 </script>
 
 <svelte:head>
@@ -18,5 +21,10 @@
 <div data-scroll-section>
 	<Banner {loaderReady} setLoaded={() => {loaded = true}} />
 	<EventDesc />
-	<DonationsBanner />
+
+	{#if $rc_eventTimestamp != 'null'}
+		<CountdownBanner />
+	{:else}
+		<DonationsBanner />
+	{/if}
 </div>

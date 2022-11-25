@@ -23,7 +23,8 @@
 	<EventDesc />
 
 	{#if $rc_eventTimestamp != 'null'}
-		<CountdownBanner />
+		<!--<CountdownBanner />-->
+		<DonationsBanner />
 	{:else}
 		<DonationsBanner />
 	{/if}

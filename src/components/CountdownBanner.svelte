@@ -1,11 +1,12 @@
 <script>
 	import { onMount } from "svelte";
 
-
-	let seconds = 3600*24+15;
+	let seconds = 3600*24+15; //TODO !
+	let mounted = false;
 
 	onMount(() => {
 		var intervalID = window.setInterval(() => seconds--, 1000);
+		mounted = true;
 	})
 </script>
 
@@ -15,6 +16,7 @@
 		style="background-image: url('banner/final.jpg'); height: calc(100vh + 120px)"
 	>
 		<div class="hero-overlay bg-opacity-60" />
+		
 		<div class="hero-content text-center text-neutral-content mt-32 flex-col">
 			<span class="uppercase text-sm font-semibold font-sans mb-2">Event starts in</span>
 			<div class="grid grid-flow-col gap-8 text-center auto-cols-max font-bold mb-4">

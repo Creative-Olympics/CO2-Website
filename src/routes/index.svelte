@@ -30,5 +30,6 @@
 	{:else}
 		<DonationsBanner />
 	{/if}
+	
 	<Footer />
 </div>

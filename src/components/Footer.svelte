@@ -13,17 +13,9 @@
 				<img src="banner/co.gif" class="h-20" alt="Creative Oympics" />
 				<div class="flex flex-col mt-2 gap-1">
 					<span class="font-semibold mb-2">Creative Olympics</span>
-					<div class="flex align-middle gap-1">
+					<div class="flex align-middle gap-2">
 						<span class="material-symbols-rounded" style="font-size: 1.25rem">copyright</span>
 						<span class="font-light">Copyright 2022 - All right reserved</span>
-					</div>
-					<div class="flex align-middle gap-1">
-						<span class="material-symbols-rounded" style="font-size: 1.25rem">code</span>
-						<span class="font-light">Website by Neïl Rahmouni</span>
-					</div>
-					<div class="flex align-middle gap-1">
-						<span class="material-symbols-rounded" style="font-size: 1.25rem">palette</span>
-						<span class="font-light">Images & media by Chadrixy</span>
 					</div>
 				</div>
 			</div>
@@ -70,6 +62,18 @@
 						</svg>
 					</a>
 				</div>
+			</div>
+			<div>
+				<span class="footer-title">Credits</span>
+				<div class="flex align-middle gap-2">
+					<span class="material-symbols-rounded font-semibold" style="font-size: 1.25rem">code</span>
+					<span>Website by <a href="" class="link link-hover">Neïl Rahmouni</a></span>
+				</div>
+				<div class="flex align-middle gap-2 mb-2">
+					<span class="material-symbols-rounded font-semibold" style="font-size: 1.25rem">palette</span>
+					<span>Images & media by <a href="" class="link link-hover">Chadrixy</a></span>
+				</div>
+				<button class="btn btn-outline btn-xs border-white text-white hover:bg-white hover:text-neutral normal-case">About us</button>
 			</div>
 		</footer>
 	</div>

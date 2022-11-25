@@ -4,6 +4,7 @@
 	import DonationsBanner from '../components/DonationsBanner.svelte';
 	import EventDesc from '../components/EventDesc.svelte';
 	import CountdownBanner from "../components/CountdownBanner.svelte";
+	import Footer from "../components/Footer.svelte";
 
 	import { rc_eventTimestamp } from '$lib/firebase';
 </script>
@@ -20,12 +21,14 @@
 <Loader {loaded} setLoaderReady={() => loaderReady = true}/>
 <div data-scroll-section>
 	<Banner {loaderReady} setLoaded={() => {loaded = true}} />
+	
 	<EventDesc />
 
 	{#if $rc_eventTimestamp != 'null'}
 		<!--<CountdownBanner />-->
-		<DonationsBanner />
+		<CountdownBanner />
 	{:else}
 		<DonationsBanner />
 	{/if}
+	<Footer />
 </div>

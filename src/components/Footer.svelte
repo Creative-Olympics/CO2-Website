@@ -15,7 +15,7 @@
 					<span class="font-semibold mb-2">Creative Olympics</span>
 					<div class="flex align-middle gap-2">
 						<span class="material-symbols-rounded" style="font-size: 1.25rem">copyright</span>
-						<span class="font-light">Copyright 2022 - All right reserved</span>
+						<a class="font-light link link-hover" href="/">Copyright 2022 - All right reserved</a>
 					</div>
 				</div>
 			</div>

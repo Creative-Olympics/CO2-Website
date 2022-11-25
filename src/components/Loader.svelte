@@ -7,14 +7,14 @@
 	onMount(() => {
 		setTimeout(() => {
 			step = 1;
-		}, 1000);
+		}, 10);
 		setTimeout(() => {
 			step = 2;
-		}, 2000);
+		}, 400);
 		setTimeout(() => {
 			step = 3;
 			setLoaderReady()
-		}, 4000);
+		}, 1400);
 	});
 
 	export let loaded;

@@ -11,11 +11,11 @@
 
 <div data-scroll>
 	<div
-		class="hero bg-cover bg-center"
-		style="background-image: url('banner/final.jpg'); height: calc(100vh + 120px)"
+		class="hero bg-cover bg-center bottom-0"
+		style="background-image: url('banner/final.jpg'); height: calc(100vh + 178px)"
 	>
 		<span class="countdown font-mono text-7xl"> HEY </span>
-		<div class="hero-content text-center text-neutral-content mt-32 flex-col">
+		<div class="hero-content text-center text-neutral-content mt-32 flex-col relative">
 			<img class="absolute bottom-0" src="banner/podiums.png" alt="Creative Olympics Podiums" />
 			<div class="absolute bottom-0" style="margin-bottom: 6rem">
 				{#if mounted}

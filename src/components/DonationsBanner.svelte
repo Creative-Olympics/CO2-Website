@@ -1,8 +1,27 @@
 <script>
+	import PlayerModel from './PlayerModel.svelte';
+	import { onMount } from 'svelte';
+
+	let mounted = false;
+
+	onMount(() => {
+		mounted = true;
+	});
 </script>
 
-<div
-	data-scroll
->
-	<div class="h-screen bg-red-500" />
+<div data-scroll>
+	<div
+		class="hero bg-cover bg-center"
+		style="background-image: url('banner/final.jpg'); height: calc(100vh + 120px)"
+	>
+		<span class="countdown font-mono text-7xl"> HEY </span>
+		<div class="hero-content text-center text-neutral-content mt-32 flex-col">
+			<img class="absolute bottom-0" src="banner/podiums.png" alt="Creative Olympics Podiums" />
+			<div class="absolute bottom-0" style="margin-bottom: 6rem">
+				{#if mounted}
+					<PlayerModel class="absolute bottom-0" />
+				{/if}
+			</div>
+		</div>
+	</div>
 </div>

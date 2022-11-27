@@ -18,7 +18,7 @@
 	>
 		<div class="hero-overlay bg-opacity-60" />
 
-		<div class="hero-content text-center text-neutral-content mt-32 flex-col" style="height: calc(100vh + 120px)">
+		<div class="hero-content text-center text-neutral-content flex-col" style="height: calc(100vh + 240px)">
 			<span class="uppercase text-sm font-semibold font-sans mb-2">Event starts in</span>
 			<div class="grid grid-flow-col gap-8 text-center auto-cols-max font-bold mb-4">
 				<div class="flex flex-col">

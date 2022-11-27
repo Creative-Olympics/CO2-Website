@@ -2,9 +2,9 @@
 	import '../app.css';
 	import LoginModal from '../components/LoginModal.svelte';
 	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
-	import Loader from '../components/Loader.svelte';
 	import Appbar from '../components/Appbar.svelte';
 	import { app } from '../lib/firebase';
+	import ModalsOverlay from '../components/modals/ModalsOverlay.svelte';
 
 	import { onMount } from 'svelte';
 	import { getAnalytics } from 'firebase/analytics';
@@ -43,8 +43,6 @@
 			} catch (error) {}
 		})();
 	});
-
-	let loaded = false;
 </script>
 
 <div data-scroll-container>
@@ -54,3 +52,4 @@
 </div>
 <LoginModal />
 <ToastsOverlay />
+<ModalsOverlay />

@@ -21,7 +21,6 @@ function createModalStore() {
         subscribe,
         close: () => set(null),
         open: (val, content) => {
-            console.log(val)
             if (val == null) {
                 set(content)
             }else{

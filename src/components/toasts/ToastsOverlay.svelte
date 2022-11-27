@@ -2,7 +2,7 @@
 	import { toasts } from './toasts';
 </script>
 
-<div class="toast">
+<div class="toast" style="z-index: 1000;">
 	{#each $toasts as toast (toast.id)}
 		<div class="alert {toast.type} shadow-lg">
 			<div>

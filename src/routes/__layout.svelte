@@ -51,5 +51,5 @@
 	<slot />
 </div>
 <LoginModal />
-<ToastsOverlay />
 <ModalsOverlay />
+<ToastsOverlay />

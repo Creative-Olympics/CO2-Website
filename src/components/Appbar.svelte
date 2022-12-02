@@ -32,7 +32,10 @@
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
-		<div class="px-4 navbar glass {showLogo && "bg-white shadow-md"} transition-all duration-500 text-gray-800">
+		<div
+			class="px-4 navbar glass {showLogo &&
+				'bg-white shadow-md'} transition-all duration-500 text-gray-800"
+		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">
 				{#if showLogo}
@@ -64,7 +67,7 @@
 				{#if user}
 					<div class="dropdown dropdown-end">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>
-							<label tabindex="0" class="btn btn-ghost btn-circle avatar">
+							<label tabindex="0" class="btn btn-ghost btn-circle avatar" for="">
 								<div class="w-10 rounded-full">
 									<img
 										referrerpolicy="no-referrer"
@@ -85,10 +88,10 @@
 						</ul>
 					</div>
 				{:else}
-				<label for="loginModal" class="btn btn-square modal-button md:hidden">
-					<span class="material-symbols-rounded text-white">login</span>
-				</label>
-					<label for="loginModal" class="btn modal-button hidden md:flex text-white">
+					<label for="loginModal" class="btn btn-square modal-button md:hidden">
+						<span class="material-symbols-rounded text-white">login</span>
+					</label>
+					<label for="loginModal" class="btn modal-button hidden md:flex text-white" tabindex="0">
 						<span class="">Login</span>
 					</label>
 				{/if}

@@ -22,30 +22,39 @@
 		class="link"
 	>
 		Attribution-NonCommercial-NoDerivatives 4.0 International
-		<div class="flex gap-2 mt-4">
+	</a>
+</p>
+
+<div class="mt-4">
+	<a
+		href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
+		target="_blank"
+		rel="license noopener noreferrer"
+	>
+		<div class="inline-block">
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
+				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
 				alt="Copyright"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
+				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
 				alt="Attribution"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
+				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
 				alt="Non commercial"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
+				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
 				alt="No derivatives"
 			/>
 		</div>
 	</a>
-</p>
+</div>
 <div class="mt-6 flex gap-2 w-full justify-end">
 	<a
 		class="btn btn-outline"

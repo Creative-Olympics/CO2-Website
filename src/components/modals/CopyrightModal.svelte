@@ -26,18 +26,22 @@
 			<img
 				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
 				src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
+				alt="Copyright"
 			/>
 			<img
 				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
 				src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
+				alt="Attribution"
 			/>
 			<img
 				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
 				src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
+				alt="Non commercial"
 			/>
 			<img
 				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;"
 				src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
+				alt="No derivatives"
 			/>
 		</div>
 	</a>

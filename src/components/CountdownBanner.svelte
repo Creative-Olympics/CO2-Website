@@ -13,7 +13,7 @@
 </script>
 
 <div data-scroll>
-	<div class="hero bg-cover bg-center" style="background-image: url('banner/final.jpg')">
+	<div class="hero bg-cover bg-center" style="background-image: url('banner/donations.jpg')">
 		<div class="hero-overlay bg-opacity-60" />
 
 		<div class="flex flex-col relative">

@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { getApp, initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { fetchAndActivate, getRemoteConfig, isSupported } from 'firebase/remote-config';
@@ -7,7 +7,7 @@ import { writable } from 'svelte/store';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls',
-	authDomain: 'rahneil-n3-co.firebaseapp.com',
+	authDomain: 'auth.rahmouni.dev',
 	projectId: 'rahneil-n3-co',
 	storageBucket: 'rahneil-n3-co.appspot.com',
 	messagingSenderId: '924629805963',
@@ -15,7 +15,7 @@ const firebaseConfig = {
 	measurementId: 'G-345HMCZEHS'
 };
 
-export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig, "RahNeil_N3:FirebaseApp:v2");
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);

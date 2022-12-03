@@ -80,7 +80,7 @@
 		</div>
 	</div>
 	<div
-		class="-mt-2 -mb-2 w-screen flex items-center justify-center flex-col bg-base-100"
+		class="-mt-2 -mb-2 w-screen h-screen flex items-center justify-center flex-col bg-base-100"
 		data-scroll
 		data-scroll-repeat
 		data-scroll-call="appbar_showLogo"

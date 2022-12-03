@@ -36,7 +36,7 @@
 		<!-- p-2 -->
 		<div
 			class="px-4 navbar glass {showLogo &&
-				'bg-white shadow-md'} transition-all duration-500 text-gray-800"
+				'bg-white shadow-md hover:bg-white hover:shadow-md'} transition-all duration-500 text-gray-800"
 		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">

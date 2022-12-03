@@ -5,6 +5,8 @@
 
 	import { db, auth } from '../lib/firebase';
 	import { toasts } from './toasts/toasts';
+	import { modal } from './modals/modals';
+	import LoginModal from './LoginModal.svelte';
 
 	export let showLogo = false;
 
@@ -88,12 +90,12 @@
 						</ul>
 					</div>
 				{:else}
-					<label for="loginModal" class="btn btn-square modal-button md:hidden">
+					<button class="btn btn-square md:hidden" on:click={() => modal.open($modal, LoginModal)}>
 						<span class="material-symbols-rounded text-white">login</span>
-					</label>
-					<label for="loginModal" class="btn modal-button hidden md:flex text-white" tabindex="0">
-						<span class="">Login</span>
-					</label>
+					</button>
+					<button class="btn hidden md:flex text-white" on:click={() => modal.open($modal, LoginModal)}>
+						<span>Login</span>
+					</button>
 				{/if}
 			</div>
 		</div>

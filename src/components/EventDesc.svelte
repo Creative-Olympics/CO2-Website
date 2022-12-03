@@ -11,7 +11,7 @@
 	data-scroll-offset="-120"
 >
 	<div class="relative h-28">
-		<div class="flex flex-row">
+		<div class="flex flex-row absolute">
 			<svg
 				class="rotate-180"
 				xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@
 		</article>
 	</div>
 	<div class="relative h-28">
-		<div class="flex flex-row">
+		<div class="flex flex-row absolute">
 			<svg
 				class="-scale-y-100 rotate-180"
 				xmlns="http://www.w3.org/2000/svg"

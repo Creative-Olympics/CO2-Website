@@ -2,8 +2,6 @@
 	import { toasts } from '../toasts/toasts';
 	import { rc_neilRahmouni, rc_chadrixy } from '$lib/firebase';
 	import SocialLinks from '../SocialLinks.svelte';
-
-	console.log($rc_neilRahmouni);
 </script>
 
 <span class="text-md font-bold uppercase w-full">About us</span>

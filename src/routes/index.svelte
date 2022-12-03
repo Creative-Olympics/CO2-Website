@@ -4,7 +4,7 @@
 	import DonationsBanner from '../components/DonationsBanner.svelte';
 	import EventDesc from '../components/EventDesc.svelte';
 	import CountdownBanner from "../components/CountdownBanner.svelte";
-	import Footer from "../components/Footer.svelte";
+	import Footer from "../components/footer/Footer.svelte";
 
 	import { rc_eventTimestamp } from '$lib/firebase';
 </script>

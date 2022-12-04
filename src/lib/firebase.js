@@ -4,6 +4,7 @@ import { getFirestore } from 'firebase/firestore';
 import { fetchAndActivate, getRemoteConfig, isSupported } from 'firebase/remote-config';
 import { getValue } from 'firebase/remote-config';
 import { writable } from 'svelte/store';
+import { OAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls',
@@ -17,7 +18,8 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig, "RahNeil_N3:FirebaseApp:v2");
 export const auth = getAuth(app);
-export const provider = new GoogleAuthProvider();
+export const googleAuthProvider = new GoogleAuthProvider();
+export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
 export const db = getFirestore(app);
 
 isSupported().then((supported) => {

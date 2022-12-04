@@ -47,7 +47,7 @@
 			style="background-image: url('banner/{matches
 				? 'm_'
 				: ''}final.jpg'); height: calc(100vh + 120px)"
-			data-scroll
+			data-rahneiln3scroll
 		>
 			{#if !vidEnded && mountedRn}
 				<video
@@ -74,14 +74,14 @@
 							src="banner/animated_logo.gif"
 							alt="CO logo"
 							class="w-80"
-							data-scroll
-							data-scroll-speed="2"
+							data-rahneiln3scroll
+							data-rahneiln3scroll-speed="2"
 						/>
 					{/if}
 
 					<div class="flex flew-row gap-4">
 						<div>
-							<div data-scroll data-scroll-speed="2" data-scroll-delay="0.1">
+							<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.1">
 								<!--Wrapper div to make scroll smoother on buttons-->
 								<div class="pb-24 -mt-4">
 									{#if $rc_discordInvite_url != 'null' && frameWaited}
@@ -98,7 +98,7 @@
 							</div>
 						</div>
 						<div>
-							<div data-scroll data-scroll-speed="2" data-scroll-delay="0.07">
+							<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.07">
 								<!--Wrapper div to make scroll smoother on buttons-->
 								<div class="pb-24 -mt-4">
 									{#if frameWaited}

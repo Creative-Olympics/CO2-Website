@@ -5,10 +5,10 @@
 
 <div
 	class="absolute w-screen overflow-hidden z-10"
-	data-scroll
-	data-scroll-speed="8"
-	data-scroll-position="top"
-	data-scroll-offset="-120"
+	data-rahneiln3scroll
+	data-rahneiln3scroll-speed="8"
+	data-rahneiln3scroll-position="top"
+	data-rahneiln3scroll-offset="-120"
 >
 	<div class="relative h-28">
 		<div class="flex flex-row absolute">
@@ -81,9 +81,9 @@
 	</div>
 	<div
 		class="-mt-2 -mb-2 w-screen h-screen flex items-center justify-center flex-col bg-base-100"
-		data-scroll
-		data-scroll-repeat
-		data-scroll-call="appbar_showLogo"
+		data-rahneiln3scroll
+		data-rahneiln3scroll-repeat
+		data-rahneiln3scroll-call="appbar_showLogo"
 	>
 		<article class="prose py-20 px-10 prose-h1:text-center">
 			{@html $rc_eventDesc_article}

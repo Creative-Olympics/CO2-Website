@@ -103,7 +103,7 @@
 								<div class="pb-24 -mt-4">
 									{#if frameWaited}
 										<button
-											class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+											class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
 											style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 											in:fade={{ delay: 2050 }}
 										>

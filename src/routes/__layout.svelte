@@ -30,11 +30,12 @@
 					el: dataScrollContainer ?? undefined,
 					name: "rahneiln3scroll",
 					smooth: true,
+					touchMultiplier: 1.5,
 					smartphone: {
 						smooth: true
 					},
 					tablet: {
-						smooth: true
+						smooth: true,
 					}
 				});
 

@@ -18,16 +18,17 @@
 		(async () => {
 			try {
 				const LocomotiveScroll = (await import('locomotive-scroll')).default;
-				const dataScrollContainer = document.querySelector('[data-scroll-container]');
+				const dataScrollContainer = document.querySelector('[data-rahneiln3scroll-container]');
 
 				if (!dataScrollContainer) {
 					console.warn(
-						'locomotive-scroll: [data-scroll-container] dataset was not found. You likely forgot to add it which will prevent Locomotive Scroll to work.'
+						'locomotive-scroll: [data-rahneiln3scroll-container] dataset was not found. You likely forgot to add it which will prevent Locomotive Scroll to work.'
 					);
 				}
 
-				let n3scr = new LocomotiveScroll({
+				let RahNeil_N3_Scr = new LocomotiveScroll({
 					el: dataScrollContainer ?? undefined,
+					name: "rahneiln3scroll",
 					smooth: true,
 					smartphone: {
 						smooth: true
@@ -37,7 +38,7 @@
 					}
 				});
 
-				n3scr.on('call', (signal) => {
+				RahNeil_N3_Scr.on('call', (signal) => {
 					showLogo.update((t) => !t);
 				});
 			} catch (error) {}
@@ -45,11 +46,9 @@
 	});
 </script>
 
-<div data-scroll-container>
-	<!--<Loader />-->
+<div data-rahneiln3scroll-container>
 	<Appbar showLogo={$showLogo} />
 	<slot />
 </div>
-<LoginModal />
 <ModalsOverlay />
 <ToastsOverlay />

@@ -4,9 +4,9 @@
 
 <div class="relative">
 	<div
-		data-scroll
-		data-scroll-speed="8"
-		data-scroll-position="bottom"
+		data-rahneiln3scroll
+		data-rahneiln3scroll-speed="8"
+		data-rahneiln3scroll-position="bottom"
 		class="w-screen absolute bottom-0"
 	>
 		<FooterContent />

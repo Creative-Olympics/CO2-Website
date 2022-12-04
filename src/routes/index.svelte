@@ -19,7 +19,7 @@
 </script>
 
 <Loader {loaded} setLoaderReady={() => loaderReady = true}/>
-<div data-scroll-section>
+<div data-rahneiln3scroll-section>
 	<Banner {loaderReady} setLoaded={() => {loaded = true}} />
 	
 	<EventDesc />

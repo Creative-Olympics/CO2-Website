@@ -4,11 +4,9 @@
 	import FooterContent from './footer/FooterContent.svelte';
 
 	let seconds = 3600 * 24 + 15; //TODO !
-	let mounted = false;
 
 	onMount(() => {
 		var intervalID = window.setInterval(() => seconds--, 1000);
-		mounted = true;
 	});
 </script>
 

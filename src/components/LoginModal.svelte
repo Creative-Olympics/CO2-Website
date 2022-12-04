@@ -4,8 +4,6 @@
 	import { auth, provider } from '../lib/firebase';
 	import { toasts } from './toasts/toasts';
 
-	let loginModalOpened = false;
-
 	function loginGoogle() {
 		signInWithPopup(auth, provider)
 			.then((result) => {

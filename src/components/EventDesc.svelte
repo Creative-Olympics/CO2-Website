@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="absolute w-screen overflow-hidden"
+	class="absolute w-screen overflow-hidden z-10"
 	data-scroll
 	data-scroll-speed="8"
 	data-scroll-position="top"

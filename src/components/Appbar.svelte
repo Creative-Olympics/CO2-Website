@@ -3,10 +3,10 @@
 	import { doc, getDoc } from 'firebase/firestore';
 	import { fly, fade } from 'svelte/transition';
 
-	import { db, auth } from '../lib/firebase';
-	import { toasts } from './toasts/toasts';
-	import { modal } from './modals/modals';
-	import LoginModal from './LoginModal.svelte';
+	import { db, auth } from '$lib/firebase';
+	import { toasts } from '$lib/toasts';
+	import { modal } from '$lib/modals';
+	import LoginModal from './modals/LoginModal.svelte';
 
 	export let showLogo = false;
 

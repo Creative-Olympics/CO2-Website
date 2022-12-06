@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import LoginModal from '../components/LoginModal.svelte';
+	import LoginModal from '../components/modals/LoginModal.svelte';
 	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
 	import Appbar from '../components/Appbar.svelte';
 	import { app } from '../lib/firebase';

@@ -1,7 +1,7 @@
 <script>
 	import AboutUsModal from '../modals/AboutUsModal.svelte';
 	import CopyrightModal from '../modals/CopyrightModal.svelte';
-	import { modal } from '../modals/modals';
+	import { modal } from '$lib/modals';
 </script>
 
 <div class="footer p-5 px-10 bg-neutral text-neutral-content">

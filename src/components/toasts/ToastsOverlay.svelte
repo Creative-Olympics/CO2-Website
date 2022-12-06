@@ -1,5 +1,5 @@
 <script>
-	import { toasts } from './toasts';
+	import { toasts } from '$lib/toasts';
 </script>
 
 <div class="toast" style="z-index: 1000;">

@@ -1,10 +1,11 @@
-import { getApp, initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getAuth, GoogleAuthProvider, signInWithPopup, fetchSignInMethodsForEmail, OAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { fetchAndActivate, getRemoteConfig, isSupported } from 'firebase/remote-config';
 import { getValue } from 'firebase/remote-config';
 import { writable } from 'svelte/store';
-import { OAuthProvider } from "firebase/auth";
+import { modal } from '$lib/modals';
+import { toasts } from '$lib/toasts';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls',
@@ -39,6 +40,66 @@ isSupported().then((supported) => {
 			});
 	}
 });
+
+export let login = (provider, loginAndLinkModal) => {
+	signInWithPopup(auth, provider)
+		.then((result) => {
+			toasts.success('Welcome back ' + result.user.displayName);
+			modal.close();
+		})
+		.catch((error) => {
+			console.log(error);
+			if (error.code === 'auth/account-exists-with-different-credential') {
+				console.log(error);
+				var pendingCred = OAuthProvider.credentialFromError(error);
+				var email = error.customData.email;
+				fetchSignInMethodsForEmail(auth, email).then(function (methods) {
+					if (methods[0] === 'password') {
+						/*
+						var password = promptUserForPassword(); // TODO: implement promptUserForPassword.
+						auth
+							.signInWithEmailAndPassword(email, password)
+							.then(function (result) {
+								// Step 4a.
+								return result.user.linkWithCredential(pendingCred);
+							})
+							.then(function () {
+								// Microsoft account successfully linked to the existing Firebase user.
+								goToApp();
+							});
+						return;
+						*/
+						toasts.error('An unknown error occured');
+						modal.close();
+					} else if (methods[0] === 'google.com') {
+						modal.open(modal, loginAndLinkModal, {providerName: "Google", provider: GoogleAuthProvider})
+						
+						/*auth.signInWithPopup(provider).then(function (result) {
+						// Remember that the user may have signed in with an account that has a different email
+						// address than the first one. This can happen as Firebase doesn't control the provider's
+						// sign in flow and the user is free to login using whichever account they own.
+						// Step 4b.
+						// Link to Microsoft credential.
+						// As we have access to the pending credential, we can directly call the link method.
+						result.user.linkAndRetrieveDataWithCredential(pendingCred).then(function (usercred) {
+							// Microsoft account successfully linked to the existing Firebase user.
+							goToApp();
+						});
+					});*/
+					} else {
+						toasts.error('An unknown error occured');
+						modal.close();
+					}
+				});
+			} else {
+				console.log(error.code);
+				console.log(error.message);
+
+				toasts.error('An unknown error occured');
+				modal.close();
+			}
+		});
+}
 
 export let rc_discordInvite_url = writable('null');
 export let rc_eventDesc_article = writable(

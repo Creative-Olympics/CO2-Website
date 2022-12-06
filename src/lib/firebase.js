@@ -72,8 +72,8 @@ export let login = (provider, loginAndLinkModal) => {
 						toasts.error('An unknown error occured');
 						modal.close();
 					} else if (methods[0] === 'google.com') {
-						modal.open(modal, loginAndLinkModal, {providerName: "Google", provider: GoogleAuthProvider})
-						
+						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4" })
+
 						/*auth.signInWithPopup(provider).then(function (result) {
 						// Remember that the user may have signed in with an account that has a different email
 						// address than the first one. This can happen as Firebase doesn't control the provider's
@@ -87,14 +87,18 @@ export let login = (provider, loginAndLinkModal) => {
 						});
 					});*/
 					} else {
+						console.log(methods)
+						console.log(error.code);
+						console.log(error.message);
 						toasts.error('An unknown error occured');
 						modal.close();
 					}
 				});
+			} else if (error.code === "auth/popup-closed-by-user") {
+				toasts.warning('Login popup closed')
 			} else {
 				console.log(error.code);
 				console.log(error.message);
-
 				toasts.error('An unknown error occured');
 				modal.close();
 			}

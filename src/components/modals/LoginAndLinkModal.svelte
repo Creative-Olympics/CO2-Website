@@ -1,17 +1,34 @@
 <script>
-	import { login } from '../../lib/firebase';
+	import GoogleLoginButton from '$cmp/login/GoogleLoginButton.svelte';
+	import MicrosoftLoginButton from '$cmp/login/MicrosoftLoginButton.svelte';
+	import { googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
 
 	let thenLink = true;
 
-	/**  @type {String} */ export let providerName;
-	/** @type {any} */ export let provider;
+	/**  @type {String} */ export let providerID;
+	/**  @type {any} */ let data;
+	switch (providerID) {
+		case 'RahNeil_N3:ProviderID:Xr1pTDZIE4':
+			data = { providerName: 'Google', provider: googleAuthProvider, button: GoogleLoginButton };
+			break;
+		case 'RahNeil_N3:ProviderID:ZB8aogoHvU':
+			data = {
+				providerName: 'Microsoft',
+				provider: microsoftAuthProvider,
+				button: MicrosoftLoginButton
+			};
+			break;
+		default:
+			data = { providerName: 'null', provider: null, button: null };
+			break;
+	}
 </script>
 
 <span class="text-md font-bold uppercase w-full">Login</span>
 <div class="flex flex-col mt-4 gap-2">
 	<span>
 		Your email address is already associated with a different account logged in using
-		<b>{providerName}</b>
+		<b>{data.providerName}</b>
 		.
 	</span>
 	<div class="form-control mb-2">
@@ -20,15 +37,14 @@
 			<input type="checkbox" class="toggle" bind:checked={thenLink} />
 		</label>
 	</div>
-	<div
-		on:click={() => {
-			if (thenLink) {
 
+	<svelte:component
+		this={data.button}
+		onClick={() => {
+			if (thenLink) {
 			} else {
-				login(provider)
+				login(data.provider);
 			}
 		}}
-	>
-		<slot />
-	</div>
+	/>
 </div>

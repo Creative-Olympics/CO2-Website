@@ -72,20 +72,7 @@ export let login = (provider, loginAndLinkModal) => {
 						toasts.error('An unknown error occured');
 						modal.close();
 					} else if (methods[0] === 'google.com') {
-						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4" })
-
-						/*auth.signInWithPopup(provider).then(function (result) {
-						// Remember that the user may have signed in with an account that has a different email
-						// address than the first one. This can happen as Firebase doesn't control the provider's
-						// sign in flow and the user is free to login using whichever account they own.
-						// Step 4b.
-						// Link to Microsoft credential.
-						// As we have access to the pending credential, we can directly call the link method.
-						result.user.linkAndRetrieveDataWithCredential(pendingCred).then(function (usercred) {
-							// Microsoft account successfully linked to the existing Firebase user.
-							goToApp();
-						});
-					});*/
+						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
 					} else {
 						console.log(methods)
 						console.log(error.code);

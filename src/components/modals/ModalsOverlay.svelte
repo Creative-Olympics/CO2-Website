@@ -3,7 +3,7 @@
 	import { modal } from '$lib/modals';
 </script>
 
-{#if $modal.content != null}
+{#if $modal != null && $modal.content != null}
     <input type="checkbox" id="RahNeil_N3:CO:moci" class="modal-toggle" on:click={modal.close} />
 	<label class="modal modal-bottom sm:modal-middle modal-open cursor-pointer" transition:fade="{{ duration: 250 }}" for="RahNeil_N3:CO:moci">
 		<label class="modal-box relative w-full" transition:fly="{{ y: 200, duration: 250 }}" for="">
@@ -11,3 +11,4 @@
 		</label>
 	</label>
 {/if}
+=

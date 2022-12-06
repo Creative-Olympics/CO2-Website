@@ -1,11 +1,15 @@
 <script>
 	import GoogleLoginButton from '$cmp/login/GoogleLoginButton.svelte';
 	import MicrosoftLoginButton from '$cmp/login/MicrosoftLoginButton.svelte';
-	import { googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
+	import { auth, googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
+	import { linkWithCredential, signInWithPopup } from 'firebase/auth';
+	import { modal } from '$lib/modals';
+	import { toasts } from '$lib/toasts';
 
 	let thenLink = true;
 
 	/**  @type {String} */ export let providerID;
+	/**  @type {any} */ export let userCred;
 	/**  @type {any} */ let data;
 	switch (providerID) {
 		case 'RahNeil_N3:ProviderID:Xr1pTDZIE4':
@@ -42,6 +46,21 @@
 		this={data.button}
 		onClick={() => {
 			if (thenLink) {
+				signInWithPopup(auth, data.provider)
+					.then((result) => {
+						toasts.success('Welcome back ' + result.user.displayName);
+						modal.close();
+
+						linkWithCredential(result.user, userCred).then(() => {
+							toasts.success('Accounts successfully linked!');
+						});
+					})
+					.catch((error) => {
+						console.log(error.code);
+						console.log(error.message);
+						toasts.error('An unknown error occured');
+						modal.close();
+					});
 			} else {
 				login(data.provider);
 			}

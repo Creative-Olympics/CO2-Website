@@ -1,5 +1,5 @@
 <script>
-	import { modal } from '../modals/modals';
+	import { modal } from '$lib/modals';
 	import AboutUsModal from '../modals/AboutUsModal.svelte';
 </script>
 

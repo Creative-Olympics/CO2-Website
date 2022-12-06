@@ -1,7 +1,7 @@
 <script>
-	import { toasts } from '../toasts/toasts';
+	import { toasts } from '$lib/toasts';
 	import { rc_neilRahmouni, rc_chadrixy } from '$lib/firebase';
-	import SocialLinks from '../SocialLinks.svelte';
+	import SocialLinks from '$cmp/SocialLinks.svelte';
 </script>
 
 <span class="text-md font-bold uppercase w-full">About us</span>

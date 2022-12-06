@@ -9,23 +9,23 @@ function createModalStore() {
     const { subscribe } = modal2
 
     /**
-     * @param {String} message
-     * @param {String} type
+     * @param {any} content
+     * @param {any} props
      */
-     function set(content) {
-        _modal.set(content)
+    function set(content, props) {
+        _modal.set({ content: content, props: props })
     }
 
     return {
         set,
         subscribe,
-        close: () => set(null),
-        open: (val, content) => {
+        close: () => set(null, {}),
+        open: (val, content, props={}) => {
             if (val == null) {
-                set(content)
-            }else{
-                set(null)
-                setTimeout(() => set(content), 275)
+                set(content, props)
+            } else {
+                set(null, {})
+                setTimeout(() => set(content, props), 275)
             }
         }
     }

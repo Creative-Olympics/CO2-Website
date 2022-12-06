@@ -1,11 +1,12 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "immutable/start-e4d99ca0.js",
+    "file": "immutable/start-e24f4cc9.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-6e3b1ba6.js",
-      "_preload-helper-cb5b3f54.js"
+      "_index-ec02537e.js",
+      "_index-a9fc5cf6.js",
+      "_preload-helper-96c8edfa.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
@@ -14,54 +15,60 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "immutable/pages/__layout.svelte-8f56c833.js",
+    "file": "immutable/pages/__layout.svelte-9e400d7f.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_preload-helper-cb5b3f54.js",
-      "_index-6e3b1ba6.js",
-      "_index-a0e05387.js"
+      "_preload-helper-96c8edfa.js",
+      "_index-ec02537e.js",
+      "_index-9546bc7d.js",
+      "_index-a9fc5cf6.js"
     ],
     "dynamicImports": [
       "node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"
     ],
     "css": [
-      "immutable/assets/pages/__layout.svelte-097b913e.css"
+      "immutable/assets/pages/__layout.svelte-000c7119.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "immutable/error.svelte-6d685f9a.js",
+    "file": "immutable/error.svelte-811f718b.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-6e3b1ba6.js"
+      "_index-ec02537e.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "immutable/pages/index.svelte-5b7b45ee.js",
+    "file": "immutable/pages/index.svelte-4a968f5e.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-6e3b1ba6.js",
-      "_index-a0e05387.js"
+      "_index-ec02537e.js",
+      "_index-9546bc7d.js",
+      "_index-a9fc5cf6.js"
     ]
   },
-  "_index-6e3b1ba6.js": {
-    "file": "immutable/chunks/index-6e3b1ba6.js"
+  "_index-ec02537e.js": {
+    "file": "immutable/chunks/index-ec02537e.js"
   },
-  "_preload-helper-cb5b3f54.js": {
-    "file": "immutable/chunks/preload-helper-cb5b3f54.js",
+  "_index-a9fc5cf6.js": {
+    "file": "immutable/chunks/index-a9fc5cf6.js",
     "imports": [
-      "_index-6e3b1ba6.js"
+      "_index-ec02537e.js"
     ]
   },
-  "_index-a0e05387.js": {
-    "file": "immutable/chunks/index-a0e05387.js",
+  "_preload-helper-96c8edfa.js": {
+    "file": "immutable/chunks/preload-helper-96c8edfa.js"
+  },
+  "_index-9546bc7d.js": {
+    "file": "immutable/chunks/index-9546bc7d.js",
     "imports": [
-      "_index-6e3b1ba6.js"
+      "_index-a9fc5cf6.js",
+      "_index-ec02537e.js"
     ]
   },
   "node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js": {

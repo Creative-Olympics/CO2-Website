@@ -21,7 +21,7 @@ function createModalStore() {
         subscribe,
         close: () => set(null, {}),
         open: (val, content, props={}) => {
-            if (val == null) {
+            if (val == null || val.content == null) {
                 set(content, props)
             } else {
                 set(null, {})

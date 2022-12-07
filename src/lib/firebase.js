@@ -21,6 +21,7 @@ export const app = initializeApp(firebaseConfig, "RahNeil_N3:FirebaseApp:v2");
 export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
+export const discordAuthProvider = new OAuthProvider('discord.com');
 export const db = getFirestore(app);
 
 isSupported().then((supported) => {
@@ -48,7 +49,6 @@ export let login = (provider, loginAndLinkModal) => {
 			modal.close();
 		})
 		.catch((error) => {
-			console.log(error);
 			if (error.code === 'auth/account-exists-with-different-credential') {
 				console.log(error);
 				var pendingCred = OAuthProvider.credentialFromError(error);
@@ -73,7 +73,12 @@ export let login = (provider, loginAndLinkModal) => {
 						modal.close();
 					} else if (methods[0] === 'google.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
+					} else if (methods[0] === 'microsoft.com') {
+						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
+					} else if (methods[0] === 'discord.com') {
+						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:hgf671sqBC", userCred: pendingCred })
 					} else {
+						console.log("RahNeil_N3:Methods:")
 						console.log(methods)
 						console.log(error.code);
 						console.log(error.message);

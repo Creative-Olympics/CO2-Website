@@ -1,7 +1,7 @@
 <script>
 	import GoogleLoginButton from '$cmp/login/GoogleLoginButton.svelte';
 	import MicrosoftLoginButton from '$cmp/login/MicrosoftLoginButton.svelte';
-	import { auth, googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
+	import { auth, discordAuthProvider, googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
 	import { linkWithCredential, signInWithPopup } from 'firebase/auth';
 	import { modal } from '$lib/modals';
 	import { toasts } from '$lib/toasts';
@@ -20,6 +20,13 @@
 				providerName: 'Microsoft',
 				provider: microsoftAuthProvider,
 				button: MicrosoftLoginButton
+			};
+			break;
+		case 'RahNeil_N3:ProviderID:hgf671sqBC':
+			data = {
+				providerName: 'Discord',
+				provider: discordAuthProvider,
+				button: DiscordLoginButton
 			};
 			break;
 		default:

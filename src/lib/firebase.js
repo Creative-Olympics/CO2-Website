@@ -75,10 +75,7 @@ export let login = (provider, loginAndLinkModal) => {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
 					} else if (methods[0] === 'microsoft.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
-					} else if (methods[0] === 'discord.com') {
-						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:hgf671sqBC", userCred: pendingCred })
 					} else {
-						console.log("RahNeil_N3:Methods:")
 						console.log(methods)
 						console.log(error.code);
 						console.log(error.message);

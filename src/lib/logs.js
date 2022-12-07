@@ -1,7 +1,7 @@
 import { writable, derived } from "svelte/store"
 
 function createModalStore() {
-    const _logs = writable([])
+    /** @type {any} */ const _logs = writable([])
 
     const logs2 = derived(_logs, ($_logs, set) => {
         set($_logs)
@@ -13,10 +13,13 @@ function createModalStore() {
     }
 
     /**
-     * @param {any} content
+     * @param {object} content
+     * @param {string} type
      */
-    function add(content) {
-        _logs.update((cLogs) => cLogs.concat(content))
+    function add(content, type) {
+        _logs.update((cLogs) => {
+            return cLogs.concat({ content: content, type: type })
+        });
     }
 
     return {

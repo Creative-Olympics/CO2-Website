@@ -21,7 +21,7 @@ export const app = initializeApp(firebaseConfig, "RahNeil_N3:FirebaseApp:v2");
 export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
-export const discordAuthProvider = new OAuthProvider('discord.com');
+export const appleAuthProvider = new OAuthProvider('apple.com');
 export const db = getFirestore(app);
 
 isSupported().then((supported) => {
@@ -75,6 +75,8 @@ export let login = (provider, loginAndLinkModal) => {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
 					} else if (methods[0] === 'microsoft.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
+					}  else if (methods[0] === 'apple.com') {
+						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:QBK4b9Vv2y", userCred: pendingCred })
 					} else {
 						console.log(methods)
 						console.log(error.code);

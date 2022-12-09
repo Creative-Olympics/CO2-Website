@@ -8,7 +8,7 @@
 	} from '$lib/firebase';
 	import LoginAndLinkModal from '$cmp/modals/LoginAndLinkModal.svelte';
 	import MicrosoftLoginButton from '$cmp/login/MicrosoftLoginButton.svelte';
-	import AppleLoginButton from '$cmp/login/DiscordLoginButton.svelte';
+	import AppleLoginButton from '$cmp/login/AppleLoginButton.svelte';
 </script>
 
 <span class="text-md font-bold uppercase w-full">Login</span>

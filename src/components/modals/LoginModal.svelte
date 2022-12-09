@@ -12,7 +12,7 @@
 </script>
 
 <span class="text-md font-bold uppercase w-full">Login</span>
-<div class="flex flex-col mt-4 gap-2">f
+<div class="flex flex-col mt-4 gap-2">
 	<GoogleLoginButton onClick={() => login(googleAuthProvider, LoginAndLinkModal)} />
 	<MicrosoftLoginButton onClick={() => login(microsoftAuthProvider, LoginAndLinkModal)} />
 	<AppleLoginButton onClick={() => login(appleAuthProvider, LoginAndLinkModal)} />

@@ -1,13 +1,20 @@
 <script>
-	import { toasts } from '$lib/toasts';
-	import { rc_neilRahmouni, rc_chadrixy } from '$lib/firebase';
-	import SocialLinks from '$cmp/SocialLinks.svelte';
+	import { app } from '$lib/firebase';
 	import SelectTile from '$cmp/tiles/SelectTile.svelte';
 	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
 	import { fade } from 'svelte/transition';
+	import { getId, getInstallations } from 'firebase/installations';
+
+	let firebaseAppInstallationID = "Loading...";
+
+	getId(getInstallations(app)).then((id) => {
+		firebaseAppInstallationID = id
+	})
 
 	let category = 'null';
 	let location = 'null';
+	let description = '';
+	let sendFirebaseAppID = true;
 </script>
 
 <!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
@@ -36,7 +43,11 @@
 	</SelectTile>
 
 	<div class="form-control gap-1">
-		<textarea class="textarea textarea-bordered h-24" placeholder="Description" />
+		<textarea
+			class="textarea textarea-bordered h-24"
+			placeholder="Description"
+			bind:value={description}
+		/>
 		<div class="relative h-4">
 			<!-- Required for animations -->
 			{#if category == 'TRANSLATION'}
@@ -56,6 +67,15 @@
 	</div>
 
 	<span class="text-primary font-semibold text-sm mt-4">Additional info</span>
-	<SwitchTile title="Send Firebase App Installation ID" icon="tag" description={null}/>
-	<SwitchTile title="Accept contributor badge" icon="volunteer_activism" />
+	<SwitchTile
+		title="Send Firebase App Installation ID"
+		icon="tag"
+		description={firebaseAppInstallationID}
+		bind:value={sendFirebaseAppID}
+	/>
+	<SwitchTile
+		title="Accept contributor badge"
+		icon="volunteer_activism"
+		disabled={!sendFirebaseAppID}
+	/>
 </div>

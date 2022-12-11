@@ -58,12 +58,12 @@
 				{/if}
 			</div>
 			<div class="navbar-end">
-				<div class="tooltip tooltip-bottom" data-tip="Send a bug report">
+				<div class="tooltip tooltip-bottom" data-tip="Send feedback">
 					<button
 						class="mr-2 btn btn-circle btn-ghost"
 						on:click={() => modal.open($modal, SendFeedbackModal)}
 					>
-						<span class="material-symbols-rounded">bug_report</span>
+						<span class="material-symbols-rounded select-none">sms_failed</span>
 				</button>
 				</div>
 				{#if user}

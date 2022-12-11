@@ -137,7 +137,7 @@
 
 	<button
 		class="btn btn-block btn-primary gap-2 mt-4"
-		disabled={description == '' || location == '' || category == 'null'}
+		disabled={description == '' || location == 'null' || category == 'null'}
 		on:click={send}
 	>
 		Send

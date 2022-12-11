@@ -10,8 +10,8 @@
 
 <!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
-<div class="flex flex-col mt-6 gap-2">
-	<span class="text-primary font-semibold text-sm">General</span>
+<div class="flex flex-col mt-2 gap-2">
+	<span class="text-primary font-semibold text-sm mt-4">General</span>
 
 	<!-- Category Tile -->
 	<SelectTile title="Category" bind:value={category}>
@@ -35,6 +35,18 @@
 
 	<div class="form-control gap-1">
 		<textarea class="textarea textarea-bordered h-24" placeholder="Description" />
-		<span class="mx-4 text-xs">Describe where the error is and how it should be changed, if possible</span>
+		{#if category == 'TRANSLATION'}
+			<span class="mx-4 text-xs">
+				Describe where the error is and how it should be changed, if possible
+			</span>
+		{:else if category == 'FEATURE'}
+			<span class="mx-4 text-xs"> Describe the feature and how it would work </span>
+		{:else}
+			<span class="mx-4 text-xs">
+				Describe the issue, as well as steps to reproduce it if possible
+			</span>
+		{/if}
 	</div>
+
+	<span class="text-primary font-semibold text-sm mt-4">Additional info</span>
 </div>

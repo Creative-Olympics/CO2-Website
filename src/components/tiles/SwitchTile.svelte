@@ -9,11 +9,11 @@
 	class="form-control w-full rounded-lg transition-all {disabled &&
 		'opacity-50 bg-base-300'}"
 >
-	<label class="label cursor-pointer {disabled&&"cursor-not-allowed"}">
+	<label class="label cursor-pointer px-3 {disabled&&"cursor-not-allowed"}">
 		<div class="flex flex-row gap-2 items-center p-1">
-			<span class="material-symbols-rounded ml-3 select-none">{icon}</span>
+			<span class="material-symbols-rounded select-none">{icon}</span>
 			<span class="label-text ml-4 font-semibold">{title}</span>
 		</div>
-		<input type="checkbox" class="toggle mr-4" bind:checked={value} {disabled} />
+		<input type="checkbox" class="toggle" bind:checked={value} {disabled} />
 	</label>
 </div>

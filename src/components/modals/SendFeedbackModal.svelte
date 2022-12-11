@@ -1,5 +1,5 @@
 <script>
-	import { app } from '$lib/firebase';
+	import { app, rc_feedback_email } from '$lib/firebase';
 	import SelectTile from '$cmp/tiles/SelectTile.svelte';
 	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
 	import { fade } from 'svelte/transition';
@@ -24,7 +24,9 @@
 
 	let send = () => {
 		window.open(
-			'mailto:co@rahmouni.dev?subject=' +
+			'mailto:' +
+				$rc_feedback_email +
+				'?subject=' +
 				category +
 				'&body=' +
 				'SCREEN: ' +

@@ -32,9 +32,10 @@ isSupported().then((supported) => {
 			.then(() => {
 				rc_discordInvite_url.set(getValue(rc, 'discordInvite_url').asString());
 				rc_eventDesc_article.set(getValue(rc, 'eventDesc_article').asString());
-				rc_eventTimestamp.set(getValue(rc, 'rc_eventTimestamp').asString());
-				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'rc_neilRahmouni').asString()));
-				rc_chadrixy.set(JSON.parse(getValue(rc, 'rc_chadrixy').asString()));
+				rc_eventTimestamp.set(getValue(rc, 'eventTimestamp').asString());
+				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
+				rc_chadrixy.set(JSON.parse(getValue(rc, 'chadrixy').asString()));
+				rc_feedback_email.set(JSON.parse(getValue(rc, 'feedback_email').asString()));
 			})
 			.catch((err) => {
 				console.log(err);
@@ -103,3 +104,4 @@ export let rc_eventDesc_article = writable(
 export let rc_eventTimestamp = writable('120');
 export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":{"twitter":"https://twitter.com/neil_rahmouni","instagram":"https://www.instagram.com/neil_rahmouni","gitlab":"https://gitlab.com/neil3000"}}'));
 export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"https://www.artstation.com/chadrixy","links":{"twitter":"https://twitter.com/chadrixy","instagram":null,"gitlab":null}}'));
+export let rc_feedback_email = writable('co@rahmouni.dev');

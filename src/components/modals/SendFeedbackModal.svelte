@@ -1,0 +1,145 @@
+<script>
+	import { app, rc_feedback_email } from '$lib/firebase';
+	import SelectTile from '$cmp/tiles/SelectTile.svelte';
+	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
+	import { fade } from 'svelte/transition';
+	import { getId, getInstallations } from 'firebase/installations';
+
+	let firebaseAppID = 'Loading...';
+	let windowDimensions = innerWidth + ' x ' + innerHeight;
+
+	getId(getInstallations(app)).then((id) => {
+		firebaseAppID = id;
+	});
+
+	export let origin = 'null';
+
+	let category = 'null';
+	let location = 'null';
+	let description = '';
+	let sendBrowser = true;
+	let sendWindowDimensions = true;
+	let sendFirebaseAppID = true;
+	let contributor = true;
+
+	let send = () => {
+		window.open(
+			'mailto:' +
+				$rc_feedback_email +
+				'?subject=' +
+				category +
+				'&body=' +
+				'SCREEN: ' +
+				origin +
+				'%0ABROWSER: ' +
+				(sendBrowser ? navigator.userAgent : 'denied') +
+				'%0AWINDOW_SIZE: ' +
+				(sendWindowDimensions ? windowDimensions : 'denied') +
+				'%0ADESC: ' +
+				description +
+				'%0AFIREBASE: ' +
+				(sendFirebaseAppID ? firebaseAppID : 'denied') +
+				'%0ACONTRIBUTOR: ' +
+				(sendFirebaseAppID && contributor),
+			'_blank'
+		);
+	};
+</script>
+
+<!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
+<span class="text-md font-bold uppercase w-full">Send feedback</span>
+<div class="flex flex-col mt-4 gap-2">
+	<!-- Category Tile -->
+	<SelectTile title="Category" bind:value={category}>
+		<option value="BUG">Bug report</option>
+		<option value="FEATURE">Feature request</option>
+		<option value="TRANSLATION">Translation error</option>
+	</SelectTile>
+
+	<!-- Location Tile -->
+	<SelectTile
+		title={category == 'TRANSLATION' ? 'Error location' : 'Bug location'}
+		icon="web_asset"
+		bind:value={location}
+		disabled={category != 'BUG' && category != 'TRANSLATION'}
+	>
+		<option>Previous screen</option>
+		<option>Other screen</option>
+		<option>Widget</option>
+		<option>Notification</option>
+	</SelectTile>
+
+	<div class="form-control gap-1">
+		<textarea
+			class="textarea textarea-bordered h-24"
+			placeholder="Description"
+			bind:value={description}
+		/>
+		<div class="relative h-4">
+			<!-- Required for animations -->
+			{#if category == 'TRANSLATION'}
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
+					Describe where the error is and how it should be changed, if possible
+				</span>
+			{:else if category == 'FEATURE'}
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}
+					>Describe the feature and how it would work</span
+				>
+			{:else}
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
+					Describe the issue, as well as steps to reproduce it if possible
+				</span>
+			{/if}
+		</div>
+	</div>
+
+	<div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+		<input type="checkbox" />
+		<div class="collapse-title font-bold flex items-center">Additional info</div>
+		<div class="collapse-content flex flex-col gap-2">
+			<SwitchTile
+				title="Browser"
+				icon="web"
+				disabled={category != 'BUG'}
+				value={category == 'BUG' && sendBrowser}
+				onChange={() => {
+					sendBrowser = !sendBrowser;
+				}}
+			/>
+			<SwitchTile
+				title="Window dimensions"
+				icon="aspect_ratio"
+				description={windowDimensions}
+				disabled={category != 'BUG'}
+				value={category == 'BUG' && sendWindowDimensions}
+				onChange={() => {
+					sendWindowDimensions = !sendWindowDimensions;
+				}}
+			/>
+			<SwitchTile
+				title="Send Firebase App Installation ID"
+				icon="tag"
+				description={firebaseAppID}
+				bind:value={sendFirebaseAppID}
+			/>
+			<SwitchTile
+				title="Accept contributor badge"
+				icon="volunteer_activism"
+				description="Accept to potentially receive a contributor badge as a sign of gratitude for your help"
+				disabled={!sendFirebaseAppID}
+				value={sendFirebaseAppID && contributor}
+				onChange={() => {
+					contributor = !contributor;
+				}}
+			/>
+		</div>
+	</div>
+
+	<button
+		class="btn btn-block btn-primary gap-2 mt-4"
+		disabled={description == '' || location == 'null' || category == 'null'}
+		on:click={send}
+	>
+		Send
+	</button>
+</div>

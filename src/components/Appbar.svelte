@@ -61,7 +61,7 @@
 				<div class="tooltip tooltip-bottom" data-tip="Send feedback">
 					<button
 						class="mr-2 btn btn-circle btn-ghost"
-						on:click={() => modal.open($modal, SendFeedbackModal)}
+						on:click={() => modal.open($modal, SendFeedbackModal, {origin: "appbar"})}
 					>
 						<span class="material-symbols-rounded select-none">sms_failed</span>
 				</button>

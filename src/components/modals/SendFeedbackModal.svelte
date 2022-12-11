@@ -3,6 +3,7 @@
 	import { rc_neilRahmouni, rc_chadrixy } from '$lib/firebase';
 	import SocialLinks from '$cmp/SocialLinks.svelte';
 	import SelectTile from '$cmp/tiles/SelectTile.svelte';
+	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
 
 	let category = 'null';
 	let location = 'null';
@@ -49,4 +50,5 @@
 	</div>
 
 	<span class="text-primary font-semibold text-sm mt-4">Additional info</span>
+	<SwitchTile disabled />
 </div>

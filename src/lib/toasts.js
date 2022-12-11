@@ -1,6 +1,7 @@
+import SendFeedbackToastButton from "$cmp/toasts/SendFeedbackToastButton.svelte"
 import { writable, derived } from "svelte/store"
 
-const TIMEOUT = 5000
+const TIMEOUT = 7500
 
 /**
  * @param {Number} [timeout]
@@ -11,10 +12,12 @@ function createToastStore(timeout) {
     /**
      * @param {String} message
      * @param {String} type
+     * @param {any} content
+     * @param {object|null} props
      */
-    function send(message, type) {
+    function send(message, type, content = null, props = null) {
         _toasts.update(state => {
-            return [...state, { id: id(), type, message }]
+            return [...state, { id: id(), type, message, content, props }]
         })
     }
 
@@ -30,7 +33,7 @@ function createToastStore(timeout) {
                 })
             }, TIMEOUT)
             return () => {
-                clearTimeout(TIMEOUT)
+                clearTimeout(timer)
             }
         }
     })
@@ -39,11 +42,12 @@ function createToastStore(timeout) {
     return {
         subscribe,
         send,
-        default: (/** @type {string} */ msg, /** @type {Number} */) => send(msg, undefined),
-        error: (/** @type {string} */ msg, /** @type {Number} */) => send(msg, "alert-error"),
-        warning: (/** @type {string} */ msg, /** @type {Number} */) => send(msg, "alert-warning"),
-        info: (/** @type {string} */ msg, /** @type {Number} */) => send(msg, "alert-info"),
-        success: (/** @type {string} */ msg, /** @type {Number} */) => send(msg, "alert-success"),
+        default: (/** @type {string} */ msg) => send(msg, undefined),
+        error: (/** @type {string} */ msg) => send(msg, "alert-error"),
+        warning: (/** @type {string} */ msg) => send(msg, "alert-warning"),
+        info: (/** @type {string} */ msg) => send(msg, "alert-info"),
+        success: (/** @type {string} */ msg) => send(msg, "alert-success"),
+        feedbackError: (/** @type {string} */ msg, /** @type {string} */ origin) => send(msg, "alert-error", SendFeedbackToastButton, { origin: origin })
     }
 }
 

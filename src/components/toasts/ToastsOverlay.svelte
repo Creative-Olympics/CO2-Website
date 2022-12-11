@@ -65,6 +65,11 @@
 				{/if}
 				<span>{toast.message}</span>
 			</div>
+			{#if toast.content != null}
+				<div class="flex-none">
+					<svelte:component this={toast.content} {...toast.props} />
+				</div>
+			{/if}
 		</div>
 	{/each}
 </div>

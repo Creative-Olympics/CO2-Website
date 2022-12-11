@@ -1,6 +1,6 @@
 import { writable, derived } from "svelte/store"
 
-function createModalStore() {
+function createLogsStore() {
     /** @type {any} */ const _logs = writable([])
 
     const logs2 = derived(_logs, ($_logs, set) => {
@@ -29,4 +29,4 @@ function createModalStore() {
     }
 }
 
-export const modal = createModalStore()
+export const logs = createLogsStore()

@@ -58,13 +58,19 @@
 				{/if}
 			</div>
 			<div class="navbar-end">
+				<button
+					class="mr-2 btn btn-circle btn-ghost"
+					on:click={() => toasts.feedbackError("An unknown error occured", "Appbar test button")}
+				>
+					<span class="material-symbols-rounded select-none">send</span>
+				</button>
 				<div class="tooltip tooltip-bottom" data-tip="Send feedback">
 					<button
 						class="mr-2 btn btn-circle btn-ghost"
-						on:click={() => modal.open($modal, SendFeedbackModal, {origin: "appbar"})}
+						on:click={() => modal.open($modal, SendFeedbackModal, { origin: 'appbar' })}
 					>
 						<span class="material-symbols-rounded select-none">sms_failed</span>
-				</button>
+					</button>
 				</div>
 				{#if user}
 					<div class="dropdown dropdown-end">
@@ -93,7 +99,10 @@
 					<button class="btn btn-square md:hidden" on:click={() => modal.open($modal, LoginModal)}>
 						<span class="material-symbols-rounded text-white">login</span>
 					</button>
-					<button class="btn hidden md:flex text-white" on:click={() => modal.open($modal, LoginModal)}>
+					<button
+						class="btn hidden md:flex text-white"
+						on:click={() => modal.open($modal, LoginModal)}
+					>
 						<span>Login</span>
 					</button>
 				{/if}

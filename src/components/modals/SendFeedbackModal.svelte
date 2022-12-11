@@ -37,15 +37,18 @@
 
 	<div class="form-control gap-1">
 		<textarea class="textarea textarea-bordered h-24" placeholder="Description" />
-		<div class="relative h-4"> <!-- Required for animations -->
+		<div class="relative h-4">
+			<!-- Required for animations -->
 			{#if category == 'TRANSLATION'}
-				<span class="mx-4 text-xs absolute" transition:fade={{duration: 250}}>
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
 					Describe where the error is and how it should be changed, if possible
 				</span>
 			{:else if category == 'FEATURE'}
-				<span class="mx-4 text-xs absolute" transition:fade={{duration: 250}}>Describe the feature and how it would work</span>
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}
+					>Describe the feature and how it would work</span
+				>
 			{:else}
-				<span class="mx-4 text-xs absolute" transition:fade={{duration: 250}}>
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
 					Describe the issue, as well as steps to reproduce it if possible
 				</span>
 			{/if}
@@ -53,6 +56,6 @@
 	</div>
 
 	<span class="text-primary font-semibold text-sm mt-4">Additional info</span>
-	<SwitchTile title="Send Firebase App Installation ID" icon="tag" />
+	<SwitchTile title="Send Firebase App Installation ID" icon="tag" description={null}/>
 	<SwitchTile title="Accept contributor badge" icon="volunteer_activism" />
 </div>

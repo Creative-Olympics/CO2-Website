@@ -7,6 +7,7 @@
 	import { toasts } from '$lib/toasts';
 	import { modal } from '$lib/modals';
 	import LoginModal from './modals/LoginModal.svelte';
+	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
 
 	export let showLogo = false;
 
@@ -58,13 +59,12 @@
 			</div>
 			<div class="navbar-end">
 				<div class="tooltip tooltip-bottom" data-tip="Send a bug report">
-					<a
+					<button
 						class="mr-2 btn btn-circle btn-ghost"
-						href="mailto:kuizu@rahmouni.dev?subject=Bug%20report"
-						target="_blank"
+						on:click={() => modal.open($modal, SendFeedbackModal)}
 					>
 						<span class="material-symbols-rounded">bug_report</span>
-					</a>
+				</button>
 				</div>
 				{#if user}
 					<div class="dropdown dropdown-end">

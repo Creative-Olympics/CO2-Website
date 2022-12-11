@@ -4,6 +4,7 @@
 	/** @type string|null */ export let description = null;
 	export let value = false;
 	export let disabled = false;
+	export let onChange = () => {};
 </script>
 
 <div class="form-control w-full rounded-lg transition-all {disabled && 'opacity-50 bg-base-300'}">
@@ -13,10 +14,16 @@
 			<div class="ml-4 flex flex-col">
 				<span class="label-text font-semibold">{title}</span>
 				{#if description}
-					<span class="label-text" style="font-size:0.82rem">{description}</span>
+					<span class="label-text" style="font-size: 0.82rem">{description}</span>
 				{/if}
 			</div>
 		</div>
-		<input type="checkbox" class="toggle" bind:checked={value} {disabled} />
+		<input
+			type="checkbox"
+			class="toggle"
+			bind:checked={value}
+			{disabled}
+			on:input={onChange}
+		/>
 	</label>
 </div>

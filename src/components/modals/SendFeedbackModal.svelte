@@ -15,6 +15,7 @@
 	let location = 'null';
 	let description = '';
 	let sendFirebaseAppID = true;
+	let sendContributor = true;
 </script>
 
 <!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
@@ -77,5 +78,7 @@
 		title="Accept contributor badge"
 		icon="volunteer_activism"
 		disabled={!sendFirebaseAppID}
+		value={sendFirebaseAppID&&sendContributor}
+		onChange={() => {sendContributor = !sendContributor}}
 	/>
 </div>

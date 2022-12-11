@@ -58,12 +58,6 @@
 				{/if}
 			</div>
 			<div class="navbar-end">
-				<button
-					class="mr-2 btn btn-circle btn-ghost"
-					on:click={() => toasts.feedbackError("An unknown error occured", "Appbar test button")}
-				>
-					<span class="material-symbols-rounded select-none">send</span>
-				</button>
 				<div class="tooltip tooltip-bottom" data-tip="Send feedback">
 					<button
 						class="mr-2 btn btn-circle btn-ghost"

@@ -8,13 +8,13 @@
 </script>
 
 <div class="form-control w-full rounded-lg transition-all {disabled && 'opacity-50 bg-base-300'}">
-	<label class="label cursor-pointer px-3 h-12 {disabled && 'cursor-not-allowed'}">
-		<div class="flex flex-row gap-2 items-center">
+	<label class="label cursor-pointer px-3 min-h-12 {disabled && 'cursor-not-allowed'}">
+		<div class="flex flex-row gap-2 items-center pr-3">
 			<span class="material-symbols-rounded select-none">{icon}</span>
 			<div class="ml-4 flex flex-col">
 				<span class="label-text font-semibold">{title}</span>
 				{#if description}
-					<span class="label-text" style="font-size: 0.82rem">{description}</span>
+					<span class="label-text" style="padding-top:0.1rem;font-size: 0.82rem;line-height:1rem">{description}</span>
 				{/if}
 			</div>
 		</div>

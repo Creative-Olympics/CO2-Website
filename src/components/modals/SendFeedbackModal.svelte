@@ -5,24 +5,48 @@
 	import { fade } from 'svelte/transition';
 	import { getId, getInstallations } from 'firebase/installations';
 
-	let firebaseAppInstallationID = "Loading...";
+	let firebaseAppID = 'Loading...';
+	let windowDimensions = innerWidth + ' x ' + innerHeight;
 
 	getId(getInstallations(app)).then((id) => {
-		firebaseAppInstallationID = id
-	})
+		firebaseAppID = id;
+	});
+
+	export let origin = 'null';
 
 	let category = 'null';
 	let location = 'null';
 	let description = '';
+	let sendBrowser = true;
+	let sendWindowDimensions = true;
 	let sendFirebaseAppID = true;
-	let sendContributor = true;
+	let contributor = true;
+
+	let send = () => {
+		window.open(
+			'mailto:co@rahmouni.dev?subject=' +
+				category +
+				'&body=' +
+				'SCREEN: ' +
+				origin +
+				'%0ABROWSER: ' +
+				(sendBrowser ? navigator.userAgent : 'denied') +
+				'%0AWINDOW_SIZE: ' +
+				(sendWindowDimensions ? windowDimensions : 'denied') +
+				'%0ADESC: ' +
+				description +
+				'%0AFIREBASE: ' +
+				(sendFirebaseAppID ? firebaseAppID : 'denied') +
+				'%0ACONTRIBUTOR: ' +
+				(sendFirebaseAppID && contributor),
+			'_blank'
+		);
+	};
 </script>
 
 <!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
-<div class="flex flex-col mt-2 gap-2">
-	<span class="text-primary font-semibold text-sm mt-4">General</span>
-
+<div class="flex flex-col mt-4 gap-2">
 	<!-- Category Tile -->
 	<SelectTile title="Category" bind:value={category}>
 		<option value="BUG">Bug report</option>
@@ -67,18 +91,53 @@
 		</div>
 	</div>
 
-	<span class="text-primary font-semibold text-sm mt-4">Additional info</span>
-	<SwitchTile
-		title="Send Firebase App Installation ID"
-		icon="tag"
-		description={firebaseAppInstallationID}
-		bind:value={sendFirebaseAppID}
-	/>
-	<SwitchTile
-		title="Accept contributor badge"
-		icon="volunteer_activism"
-		disabled={!sendFirebaseAppID}
-		value={sendFirebaseAppID&&sendContributor}
-		onChange={() => {sendContributor = !sendContributor}}
-	/>
+	<div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+		<input type="checkbox" />
+		<div class="collapse-title font-bold flex items-center">Additional info</div>
+		<div class="collapse-content flex flex-col gap-2">
+			<SwitchTile
+				title="Browser"
+				icon="web"
+				disabled={category != 'BUG'}
+				value={category == 'BUG' && sendBrowser}
+				onChange={() => {
+					sendBrowser = !sendBrowser;
+				}}
+			/>
+			<SwitchTile
+				title="Window dimensions"
+				icon="aspect_ratio"
+				description={windowDimensions}
+				disabled={category != 'BUG'}
+				value={category == 'BUG' && sendWindowDimensions}
+				onChange={() => {
+					sendWindowDimensions = !sendWindowDimensions;
+				}}
+			/>
+			<SwitchTile
+				title="Send Firebase App Installation ID"
+				icon="tag"
+				description={firebaseAppID}
+				bind:value={sendFirebaseAppID}
+			/>
+			<SwitchTile
+				title="Accept contributor badge"
+				icon="volunteer_activism"
+				description="Accept to potentially receive a contributor badge as a sign of gratitude for your help"
+				disabled={!sendFirebaseAppID}
+				value={sendFirebaseAppID && contributor}
+				onChange={() => {
+					contributor = !contributor;
+				}}
+			/>
+		</div>
+	</div>
+
+	<button
+		class="btn btn-block btn-primary gap-2 mt-4"
+		disabled={description == '' || location == '' || category == 'null'}
+		on:click={send}
+	>
+		Send
+	</button>
 </div>

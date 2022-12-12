@@ -6,6 +6,7 @@ import { getValue } from 'firebase/remote-config';
 import { writable } from 'svelte/store';
 import { modal } from '$lib/modals';
 import { toasts } from '$lib/toasts';
+import { logs } from '$lib/logs';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls',
@@ -51,7 +52,6 @@ export let login = (provider, loginAndLinkModal) => {
 		})
 		.catch((error) => {
 			if (error.code === 'auth/account-exists-with-different-credential') {
-				console.log(error);
 				var pendingCred = OAuthProvider.credentialFromError(error);
 				var email = error.customData.email;
 				fetchSignInMethodsForEmail(auth, email).then(function (methods) {
@@ -70,28 +70,33 @@ export let login = (provider, loginAndLinkModal) => {
 							});
 						return;
 						*/
-						toasts.error('An unknown error occured');
+						console.log(error.code)
+						console.log(error.message)
+						logs.add(error, "error")
+						toasts.feedbackError("QursEsQa2C@RahNeil_N3:firebase:login:signInWithPopup:fetchSignInMethodsForEmail:methodPassword");
 						modal.close();
 					} else if (methods[0] === 'google.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
 					} else if (methods[0] === 'microsoft.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
-					}  else if (methods[0] === 'apple.com') {
+					} else if (methods[0] === 'apple.com') {
 						modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:QBK4b9Vv2y", userCred: pendingCred })
 					} else {
+						console.log(error.code)
+						console.log(error.message)
 						console.log(methods)
-						console.log(error.code);
-						console.log(error.message);
-						toasts.error('An unknown error occured');
+						logs.add({ error: error, methods: methods }, "error")
+						toasts.feedbackError("5da8CAQvJD@RahNeil_N3:firebase:login:signInWithPopup:fetchSignInMethodsForEmail:noMethodFound");
 						modal.close();
 					}
 				});
 			} else if (error.code === "auth/popup-closed-by-user") {
 				toasts.warning('Login popup closed')
 			} else {
-				console.log(error.code);
-				console.log(error.message);
-				toasts.error('An unknown error occured');
+				console.log(error.code)
+				console.log(error.message)
+				logs.add(error, "error")
+				toasts.feedbackError("07Lgio5RuM@RahNeil_N3:firebase:login:signInWithPopup:unknownError");
 				modal.close();
 			}
 		});

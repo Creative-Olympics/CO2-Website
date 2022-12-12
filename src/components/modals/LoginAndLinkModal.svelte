@@ -6,6 +6,7 @@
 	import { linkWithCredential, signInWithPopup } from 'firebase/auth';
 	import { modal } from '$lib/modals';
 	import { toasts } from '$lib/toasts';
+	import { logs } from '$lib/logs';
 
 	let thenLink = true;
 
@@ -66,7 +67,8 @@
 					.catch((error) => {
 						console.log(error.code);
 						console.log(error.message);
-						toasts.error('An unknown error occured');
+						logs.add(error.toString(), "error")
+						toasts.feedbackError("PPDqroReRZ@RahNeil_N3:LoginAndLinkModal:content:propsComponent:onClick:signInWithPopup");
 						modal.close();
 					});
 			} else {

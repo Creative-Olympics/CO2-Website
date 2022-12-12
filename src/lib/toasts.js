@@ -47,7 +47,7 @@ function createToastStore(timeout) {
         warning: (/** @type {string} */ msg) => send(msg, "alert-warning"),
         info: (/** @type {string} */ msg) => send(msg, "alert-info"),
         success: (/** @type {string} */ msg) => send(msg, "alert-success"),
-        feedbackError: (/** @type {string} */ msg, /** @type {string} */ origin) => send(msg, "alert-error", SendFeedbackToastButton, { origin: origin })
+        feedbackError: (/** @type {string} */ origin, /** @type {string} */ msg = "An unknown error occured") => send(msg, "alert-error", SendFeedbackToastButton, { origin: origin })
     }
 }
 

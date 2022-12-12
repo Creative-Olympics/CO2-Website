@@ -40,7 +40,7 @@
 				'%0ADESC:%0A' +
 				description +
 				'%0ALOGS:%0A' +
-				(sendLogs ? ($logs).toString() : 'denied') +
+				(sendLogs ? JSON.stringify($logs) : 'denied') +
 				'%0AFIREBASE: ' +
 				(sendFirebaseAppID ? firebaseAppID : 'denied') +
 				'%0ACONTRIBUTOR: ' +

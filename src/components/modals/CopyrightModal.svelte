@@ -1,8 +1,12 @@
 <script>
+	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
 	import { modal } from '$lib/modals';
 	import AboutUsModal from '../modals/AboutUsModal.svelte';
 </script>
 
+<div class="absolute top-2 right-2">
+	<SendFeedbackIconButton origin="d3lKAx0QrN@RahNeil_N3:CopyrightModal:content" tooltipDirection="left" />
+</div>
 <h3 class="text-lg font-bold self-center mb-4 uppercase">License</h3>
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
 	<span property="dct:title">The Creative Olympics website, imagery & assets</span> by

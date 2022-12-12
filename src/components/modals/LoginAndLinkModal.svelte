@@ -2,11 +2,18 @@
 	import GoogleLoginButton from '$cmp/login/GoogleLoginButton.svelte';
 	import MicrosoftLoginButton from '$cmp/login/MicrosoftLoginButton.svelte';
 	import AppleLoginButton from '$cmp/login/AppleLoginButton.svelte';
-	import { auth, appleAuthProvider, googleAuthProvider, login, microsoftAuthProvider } from '$lib/firebase';
+	import {
+		auth,
+		appleAuthProvider,
+		googleAuthProvider,
+		login,
+		microsoftAuthProvider
+	} from '$lib/firebase';
 	import { linkWithCredential, signInWithPopup } from 'firebase/auth';
 	import { modal } from '$lib/modals';
 	import { toasts } from '$lib/toasts';
 	import { logs } from '$lib/logs';
+	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
 
 	let thenLink = true;
 
@@ -37,6 +44,12 @@
 	}
 </script>
 
+<div class="absolute top-2 right-2">
+	<SendFeedbackIconButton
+		origin="M9YZKQ899I@RahNeil_N3:LoginAndLinkModal:content"
+		tooltipDirection="left"
+	/>
+</div>
 <span class="text-md font-bold uppercase w-full">Login</span>
 <div class="flex flex-col mt-4 gap-2">
 	<span>
@@ -67,8 +80,10 @@
 					.catch((error) => {
 						console.log(error.code);
 						console.log(error.message);
-						logs.add(error.toString(), "error")
-						toasts.feedbackError("PPDqroReRZ@RahNeil_N3:LoginAndLinkModal:content:propsComponent:onClick:signInWithPopup");
+						logs.add(error.toString(), 'error');
+						toasts.feedbackError(
+							'PPDqroReRZ@RahNeil_N3:LoginAndLinkModal:content:propsComponent:onClick:signInWithPopup'
+						);
 						modal.close();
 					});
 			} else {

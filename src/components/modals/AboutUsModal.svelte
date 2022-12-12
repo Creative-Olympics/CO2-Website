@@ -2,8 +2,15 @@
 	import { toasts } from '$lib/toasts';
 	import { rc_neilRahmouni, rc_chadrixy } from '$lib/firebase';
 	import SocialLinks from '$cmp/SocialLinks.svelte';
+	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
 </script>
 
+<div class="absolute top-2 right-2">
+	<SendFeedbackIconButton
+		origin="KaCB3PgAA6@RahNeil_N3:AboutUsModal:content"
+		tooltipDirection="left"
+	/>
+</div>
 <span class="text-md font-bold uppercase w-full">About us</span>
 <div class="grid grid-cols-3 sm:grid-cols-7 gap-1 w-full mt-6">
 	<div class="flex flex-col items-center col-span-3">

@@ -58,7 +58,7 @@
 <div class="mt-6 flex gap-2 w-full justify-end">
 	<a
 		class="btn btn-outline"
-		href="https://creativecommons.org/licenses/by-nc-nd/4.0/"
+		href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
 		target="_blank"
 		rel="license noopener noreferrer"
 	>

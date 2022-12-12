@@ -8,6 +8,7 @@
 	import { modal } from '$lib/modals';
 	import LoginModal from './modals/LoginModal.svelte';
 	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
+	import SendFeedbackIconButton from './SendFeedbackIconButton.svelte';
 
 	export let showLogo = false;
 
@@ -58,14 +59,7 @@
 				{/if}
 			</div>
 			<div class="navbar-end">
-				<div class="tooltip tooltip-bottom" data-tip="Send feedback">
-					<button
-						class="mr-2 btn btn-circle btn-ghost"
-						on:click={() => modal.open($modal, SendFeedbackModal, { origin: 'appbar' })}
-					>
-						<span class="material-symbols-rounded select-none">sms_failed</span>
-					</button>
-				</div>
+				<SendFeedbackIconButton origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end" tooltipDirection="bottom"/>
 				{#if user}
 					<div class="dropdown dropdown-end">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>

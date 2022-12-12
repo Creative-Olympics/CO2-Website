@@ -15,7 +15,7 @@
 		<div class="hero-overlay bg-opacity-60" />
 
 		<div class="flex flex-col relative">
-			<div class="absolute w-full h-full hero-content text-center flex-col text-white">
+			<div class="absolute w-screen h-full hero-content text-center flex-col text-white max-w-none">
 				<span class="uppercase text-sm font-semibold font-sans mb-1 sm:mb-2 mt-4">Event starts in</span>
 				<div class="grid grid-flow-col gap-6 sm:gap-8 text-center auto-cols-max font-bold mb-2 sm:mb-4">
 					<div class="flex flex-col">

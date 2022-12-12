@@ -4,6 +4,7 @@
 	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
 	import { fade } from 'svelte/transition';
 	import { getId, getInstallations } from 'firebase/installations';
+	import { logs } from '$lib/logs';
 
 	let firebaseAppID = 'Loading...';
 	let windowDimensions = innerWidth + ' x ' + innerHeight;
@@ -19,6 +20,7 @@
 	let description = '';
 	let sendBrowser = true;
 	let sendWindowDimensions = true;
+	let sendLogs = true;
 	let sendFirebaseAppID = true;
 	let contributor = true;
 
@@ -35,8 +37,10 @@
 				(sendBrowser ? navigator.userAgent : 'denied') +
 				'%0AWINDOW_SIZE: ' +
 				(sendWindowDimensions ? windowDimensions : 'denied') +
-				'%0ADESC: ' +
+				'%0ADESC:%0A' +
 				description +
+				'%0ALOGS:%0A' +
+				($logs).toString() +
 				'%0AFIREBASE: ' +
 				(sendFirebaseAppID ? firebaseAppID : 'denied') +
 				'%0ACONTRIBUTOR: ' +
@@ -114,6 +118,16 @@
 				value={category == 'BUG' && sendWindowDimensions}
 				onChange={() => {
 					sendWindowDimensions = !sendWindowDimensions;
+				}}
+			/>
+			<SwitchTile
+				title="Recent logs"
+				description="Send recent errors and warnings"
+				icon="breaking_news_alt_1"
+				disabled={category != 'BUG'}
+				value={category == 'BUG' && sendLogs}
+				onChange={() => {
+					sendLogs = !sendLogs;
 				}}
 			/>
 			<SwitchTile

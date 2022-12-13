@@ -37,6 +37,8 @@ isSupported().then((supported) => {
 				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
 				rc_chadrixy.set(JSON.parse(getValue(rc, 'chadrixy').asString()));
 				rc_feedback_email.set(JSON.parse(getValue(rc, 'feedback_email').asString()));
+
+				logs.add("Fetched RC values from server", "info")
 			})
 			.catch((err) => {
 				console.log(err);
@@ -45,13 +47,16 @@ isSupported().then((supported) => {
 });
 
 export let login = (provider, loginAndLinkModal) => {
+	logs.add("Opening sign in popup", "info")
 	signInWithPopup(auth, provider)
 		.then((result) => {
 			toasts.success('Welcome back ' + result.user.displayName);
 			modal.close();
+			logs.add("Signed in", "info")
 		})
 		.catch((error) => {
 			if (error.code === 'auth/account-exists-with-different-credential') {
+				logs.add("Account already exists with different credentials", "info")
 				var pendingCred = OAuthProvider.credentialFromError(error);
 				var email = error.customData.email;
 				fetchSignInMethodsForEmail(auth, email).then(function (methods) {
@@ -92,6 +97,9 @@ export let login = (provider, loginAndLinkModal) => {
 				});
 			} else if (error.code === "auth/popup-closed-by-user") {
 				toasts.warning('Login popup closed')
+				logs.add("Popup closed by user", "info")
+			} else if (error.code === "auth/cancelled-popup-request") {
+				logs.add("Cancelled popup request", "info")
 			} else {
 				console.log(error.code)
 				console.log(error.message)

@@ -1,5 +1,6 @@
 <script>
 	import { modal } from '$lib/modals';
+	import Icon from './Icon.svelte';
 	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
 
 	/** @type string */ export let origin = 'undefined';
@@ -14,6 +15,6 @@
 		class="mr-2 btn btn-circle btn-ghost"
 		on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
 	>
-		<span class="material-symbols-rounded select-none">sms_failed</span>
+		<Icon>sms_failed</Icon>
 	</button>
 </div>

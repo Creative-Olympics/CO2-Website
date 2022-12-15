@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte'
 
 	import MediaQuery from './MediaQuery.svelte';
+	import { logs } from '$lib/logs';
 
 	export let setLoaded;
 	export let loaderReady;
@@ -14,6 +15,8 @@
 	let anLogoPreloaded = false;
 	let loaded = false;
 
+	logs.add({msg: "Banner mounted"}, "info");
+
 	let frameWaited = false;
 	setTimeout(() => {
 		frameWaited = true;
@@ -23,6 +26,7 @@
 		if (vidPreloaded && anLogoPreloaded) {
 			setLoaded()
 			loaded = true;
+			logs.add({msg: "Banner loaded"}, "info");
 		}
 	}
 

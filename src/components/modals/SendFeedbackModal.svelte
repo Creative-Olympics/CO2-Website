@@ -32,7 +32,7 @@
 				category +
 				'&body=' +
 				'SCREEN: `' +
-				origin +
+				location=="PREVIEW"?origin:location +
 				'`%0A%0ABROWSER: `' +
 				(sendBrowser ? navigator.userAgent : 'denied') +
 				'`%0A%0AWINDOW_SIZE: `' +
@@ -68,7 +68,7 @@
 		bind:value={location}
 		disabled={category != 'BUG' && category != 'TRANSLATION'}
 	>
-		<option>Previous screen</option>
+		<option value="PREVIOUS">Previous screen</option>
 		<option>Other screen</option>
 		<option>Widget</option>
 		<option>Notification</option>

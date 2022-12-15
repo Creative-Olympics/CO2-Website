@@ -31,26 +31,27 @@
 				'?subject=' +
 				category +
 				'&body=' +
-				'SCREEN: ' +
+				'SCREEN: `' +
 				origin +
-				'%0ABROWSER: ' +
+				'`%0A%0ABROWSER: `' +
 				(sendBrowser ? navigator.userAgent : 'denied') +
-				'%0AWINDOW_SIZE: ' +
+				'`%0A%0AWINDOW_SIZE: `' +
 				(sendWindowDimensions ? windowDimensions : 'denied') +
-				'%0ADESC:%0A' +
+				'`%0A%0ADESC:%0A> ' +
 				description +
-				'%0ALOGS:%0A' +
+				'%0A%0ALOGS:%0A```json%0A' +
 				(sendLogs ? JSON.stringify($logs) : 'denied') +
-				'%0AFIREBASE: ' +
+				'%0A```%0A%0AFIREBASE: `' +
 				(sendFirebaseAppID ? firebaseAppID : 'denied') +
-				'%0ACONTRIBUTOR: ' +
-				(sendFirebaseAppID && contributor),
+				'`%0A%0ACONTRIBUTOR: `' +
+				(sendFirebaseAppID && contributor) +
+				'`',
 			'_blank'
 		);
 	};
 </script>
 
-<!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
+<!-- FOLLOWING GUIDELINES FROM RahNeil_N3:AndroidSendFeedbackActivity -->
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
 <div class="flex flex-col mt-4 gap-2">
 	<!-- Category Tile -->

@@ -53,3 +53,4 @@
 </div>
 <ModalsOverlay />
 <ToastsOverlay />
+<div class="invisible tooltip-bottom" />

@@ -31,26 +31,27 @@
 				'?subject=' +
 				category +
 				'&body=' +
-				'SCREEN: ' +
-				origin +
-				'%0ABROWSER: ' +
+				'SCREEN: `' +
+				location=="PREVIEW"?origin:location +
+				'`%0A%0ABROWSER: `' +
 				(sendBrowser ? navigator.userAgent : 'denied') +
-				'%0AWINDOW_SIZE: ' +
+				'`%0A%0AWINDOW_SIZE: `' +
 				(sendWindowDimensions ? windowDimensions : 'denied') +
-				'%0ADESC:%0A' +
+				'`%0A%0ADESC:%0A> ' +
 				description +
-				'%0ALOGS:%0A' +
+				'%0A%0ALOGS:%0A```json%0A' +
 				(sendLogs ? JSON.stringify($logs) : 'denied') +
-				'%0AFIREBASE: ' +
+				'%0A```%0A%0AFIREBASE: `' +
 				(sendFirebaseAppID ? firebaseAppID : 'denied') +
-				'%0ACONTRIBUTOR: ' +
-				(sendFirebaseAppID && contributor),
+				'`%0A%0ACONTRIBUTOR: `' +
+				(sendFirebaseAppID && contributor) +
+				'`',
 			'_blank'
 		);
 	};
 </script>
 
-<!-- FOLLOWING GUIDELINES FROM Neïl's ANDROID APPS -->
+<!-- FOLLOWING GUIDELINES FROM RahNeil_N3:AndroidSendFeedbackActivity -->
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
 <div class="flex flex-col mt-4 gap-2">
 	<!-- Category Tile -->
@@ -67,7 +68,7 @@
 		bind:value={location}
 		disabled={category != 'BUG' && category != 'TRANSLATION'}
 	>
-		<option>Previous screen</option>
+		<option value="PREVIOUS">Previous screen</option>
 		<option>Other screen</option>
 		<option>Widget</option>
 		<option>Notification</option>
@@ -151,7 +152,7 @@
 
 	<button
 		class="btn btn-block btn-primary gap-2 mt-4"
-		disabled={location == 'null' || category == 'null'}
+		disabled={category == 'null' || (category == 'BUG' && location == 'null') || (category == 'FEATURE' && description == '')}
 		on:click={send}
 	>
 		Send

@@ -2,6 +2,7 @@
 	import AboutUsModal from '../modals/AboutUsModal.svelte';
 	import CopyrightModal from '../modals/CopyrightModal.svelte';
 	import { modal } from '$lib/modals';
+	import Icon from '$cmp/Icon.svelte';
 </script>
 
 <div class="footer p-5 px-10 bg-neutral text-neutral-content">
@@ -63,7 +64,7 @@
 	<div>
 		<span class="footer-title">Credits</span>
 		<div class="flex align-middle gap-2">
-			<span class="material-symbols-rounded font-semibold" style="font-size: 1.25rem"> code </span>
+			<Icon spanClass="font-semibold" spanStyle="font-size: 1.25rem">code</Icon>
 			<span>
 				Website by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -72,9 +73,7 @@
 			</span>
 		</div>
 		<div class="flex align-middle gap-2 mb-2">
-			<span class="material-symbols-rounded font-semibold" style="font-size: 1.25rem">
-				palette
-			</span>
+			<Icon spanClass="font-semibold" spanStyle="font-size: 1.25rem">palette</Icon>
 			<span>
 				Imagery & assets by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -93,7 +92,7 @@
 		<span class="footer-title">Legal</span>
 		<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
 			<div class="flex align-middle gap-2 mb-1">
-				<span class="material-symbols-rounded" style="font-size: 1.25rem">copyright</span>
+				<Icon spanStyle="font-size: 1.25rem">copyright</Icon>
 				<span class="text-start">Copyright 2022</span>
 			</div>
 			<div>

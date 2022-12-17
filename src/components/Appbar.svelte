@@ -9,6 +9,7 @@
 	import LoginModal from './modals/LoginModal.svelte';
 	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
 	import SendFeedbackIconButton from './SendFeedbackIconButton.svelte';
+	import Icon from './Icon.svelte';
 
 	export let showLogo = false;
 
@@ -85,7 +86,7 @@
 					</div>
 				{:else}
 					<button class="btn btn-square md:hidden" on:click={() => modal.open($modal, LoginModal)}>
-						<span class="material-symbols-rounded text-white">login</span>
+						<Icon spanClass="text-white">login</Icon>
 					</button>
 					<button
 						class="btn hidden md:flex text-white"

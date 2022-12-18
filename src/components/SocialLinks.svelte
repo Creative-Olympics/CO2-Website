@@ -1,6 +1,5 @@
 <script>
 	export let links = {twitter: null, instagram: null, gitlab: null};
-	console.log(links)
 </script>
 
 <div class="flex gap-3">

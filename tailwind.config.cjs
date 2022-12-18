@@ -10,11 +10,27 @@ module.exports = {
         'pos-10': '10% 10%',
         'pos-90': '90% 90%',
       },
-      
+
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["cyberpunk", "dark"],
+    themes: [
+      {
+        "light": {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+        }
+      },
+      {
+        "dark": {
+          ...require("daisyui/src/colors/themes")["[data-theme=dark]"],
+          "base-content": "#fff",
+          '.btn:focus-visible': {
+            'outline-color': '#fff',
+          },
+        }
+      }
+    ],
+    logs: false
   }
 }

@@ -7,7 +7,7 @@
 	import { rc_neilRahmouni } from '$lib/firebase';
 </script>
 
-<div class="footer p-5 px-10 bg-neutral text-neutral-content">
+<div class="footer p-5 px-10" data-theme="dark">
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
@@ -44,7 +44,7 @@
 			</span>
 		</div>
 		<button
-			class="btn btn-outline btn-xs border-white text-white hover:bg-white hover:text-neutral normal-case"
+			class="btn btn-outline btn-xs normal-case"
 			on:click={() => modal.open($modal, AboutUsModal)}
 		>
 			About us
@@ -100,7 +100,7 @@
 			</div>
 			<div class="mt-2">
 				<button
-					class="btn btn-outline btn-xs border-white text-white hover:bg-white hover:text-neutral normal-case"
+					class="btn btn-outline btn-xs normal-case ring-500"
 					on:click={() => modal.open($modal, CopyrightModal)}
 				>
 					Learn more

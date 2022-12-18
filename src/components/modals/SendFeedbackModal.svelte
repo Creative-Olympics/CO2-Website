@@ -32,7 +32,7 @@
 				category +
 				'&body=' +
 				'SCREEN: `' +
-				location=="PREVIEW"?origin:location +
+				(location=="PREVIEW"?origin:location) +
 				'`%0A%0ABROWSER: `' +
 				(sendBrowser ? navigator.userAgent : 'denied') +
 				'`%0A%0AWINDOW_SIZE: `' +

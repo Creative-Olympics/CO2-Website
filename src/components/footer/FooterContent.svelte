@@ -4,7 +4,7 @@
 	import { modal } from '$lib/modals';
 	import Icon from '$cmp/Icon.svelte';
 	import SocialLinks from '$cmp/SocialLinks.svelte';
-	import { rc_neilRahmouni } from '$lib/firebase';
+	import { rc_footer } from '$lib/firebase';
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
@@ -21,7 +21,7 @@
 	</div>
 	<div>
 		<span class="footer-title">Social</span>
-		<SocialLinks links={$rc_neilRahmouni.links} />
+		<SocialLinks links={$rc_footer.links} />
 	</div>
 	<div>
 		<span class="footer-title">Credits</span>

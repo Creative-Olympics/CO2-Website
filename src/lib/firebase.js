@@ -37,6 +37,7 @@ isSupported().then((supported) => {
 				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
 				rc_chadrixy.set(JSON.parse(getValue(rc, 'chadrixy').asString()));
 				rc_feedback_email.set(JSON.parse(getValue(rc, 'feedback_email').asString()));
+				rc_footer.set(JSON.parse(getValue(rc, 'footer').asString()));
 
 				logs.add("Fetched RC values from server", "info")
 			})
@@ -118,3 +119,4 @@ export let rc_eventTimestamp = writable('120');
 export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":{"twitter":"https://twitter.com/neil_rahmouni","instagram":"https://www.instagram.com/neil_rahmouni","gitlab":"https://gitlab.com/neil3000"}}'));
 export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"https://www.artstation.com/chadrixy","links":{"twitter":"https://twitter.com/chadrixy","instagram":null,"gitlab":null}}'));
 export let rc_feedback_email = writable('co@rahmouni.dev');
+export let rc_footer = writable(JSON.parse('{"links":{"twitter":"lol","instagram":"test","gitlab":"pizza"}}'));

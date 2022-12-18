@@ -3,7 +3,7 @@
 	console.log(links)
 </script>
 
-<div class="flex gap-3 mt-3">
+<div class="flex gap-3">
 	{#if links.twitter != null}
 		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.twitter}>
 			<svg class="w-5" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@
 	</a>
 	{/if}
 	{#if links.gitlab != null}
-	<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gitlab}>
+	<a class="btn btn-circle btn-sm btn-outline btn-inversed" target="_blank" href={links.gitlab}>
 		<svg class="w-5" viewBox="0 0 24 24">
 			<path
 				fill="currentColor"

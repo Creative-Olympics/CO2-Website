@@ -10,7 +10,11 @@ module.exports = {
         'pos-10': '10% 10%',
         'pos-90': '90% 90%',
       },
+      
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: ["cyberpunk", "dark"],
+  }
 }

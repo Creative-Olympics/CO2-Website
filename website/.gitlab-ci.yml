@@ -3,8 +3,9 @@ before_script:
   - npm i -g firebase-tools
   - npm install
 deploy-functions:
-  stage: deploy
+  stage: deploy-website
   script:
+    - cd website
     - npm run build
     - cp -r static/* public/
     - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-co"
@@ -13,7 +14,7 @@ deploy-functions:
       - main
 stages:
 - test
-- deploy
+- deploy-website
 sast:
   stage: test
 include:

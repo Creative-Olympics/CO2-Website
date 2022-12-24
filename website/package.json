@@ -18,12 +18,12 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-static": "^1.0.0-next.38",
 		"@sveltejs/kit": "next",
-		"@tailwindcss/typography": "^0.5.3",
-		"autoprefixer": "^10.4.7",
+		"@tailwindcss/typography": "^0.5.8",
+		"autoprefixer": "^10.4.13",
 		"eslint": "^8.16.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
-		"postcss": "^8.4.14",
+		"postcss": "^8.4.20",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
 		"svelte": "^3.44.0",
@@ -36,12 +36,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^2.19.0",
-		"firebase": "^9.9.0",
+		"daisyui": "^2.46.0",
+		"firebase": "^9.15.0",
 		"locomotive-scroll": "^4.1.4",
 		"rxfire": "^6.0.3",
-		"rxjs": "^7.5.6",
+		"rxjs": "^7.8.0",
 		"skinview3d": "^3.0.0-alpha.1",
-		"three": "^0.144.0"
+		"three": "^0.148.0"
 	}
 }

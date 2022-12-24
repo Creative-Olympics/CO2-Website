@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "924629805963",
+    "project_id": "rahneil-n3-co",
+    "storage_bucket": "rahneil-n3-co.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924629805963:android:e755dd0880d9219c3c9d8e",
+        "android_client_info": {
+          "package_name": "rahmouni.neil.co_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924629805963-bmur7a094vrrsp9t4ccqou3bes5aige7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrwh7w9Q278V4fcI96JXVuh5PhynjC6bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924629805963-bmur7a094vrrsp9t4ccqou3bes5aige7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

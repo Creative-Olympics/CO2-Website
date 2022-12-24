@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
                 Firebase.dynamicLinks.shortLinkAsync(ShortDynamicLink.Suffix.SHORT) {
                     link = Uri.parse(text)
-                    domainUriPrefix = "https://creative-olympics.org"
+                    domainUriPrefix = "https://url.creative-olympics.org"
                 }.addOnSuccessListener { result ->
                     val intent = Intent(Intent.ACTION_SEND)
                     intent.type = "text/plain"

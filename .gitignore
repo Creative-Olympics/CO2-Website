@@ -23,3 +23,4 @@ android-admin/.externalNativeBuild
 android-admin/.cxx
 android-admin/local.properties
 android-admin/app/release
+android-admin/app/google-services.json

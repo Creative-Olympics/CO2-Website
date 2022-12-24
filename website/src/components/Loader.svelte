@@ -2,6 +2,8 @@
 	import { draw, fade } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
+	import { bannerLoaded, loaderReady } from '$lib/loader';
+	import { page } from '$app/stores';
 
 	let step = 0;
 	onMount(() => {
@@ -13,12 +15,9 @@
 		}, 400);
 		setTimeout(() => {
 			step = 3;
-			setLoaderReady();
+			loaderReady.set(true);
 		}, 2000);
 	});
-
-	export let loaded;
-	export let setLoaderReady;
 
 	let pathsBlocks = [
 		[
@@ -47,7 +46,7 @@
 			//FLAME UP MIDDLE INSIDE RING
 			'M923,472.7h90.47c-2.54,3.37-4.15,5.89-6.13,8.06-24.3,26.53-41.23,57.39-53.42,91-7.64,21.09-7.52,21.13-30.92,18.62Z',
 			//FLAME UP MIDDLE INSIDE RING2
-			'M1090.39,532c0,17-.21,33.91.11,50.86.11,6-1.28,8.69-7.91,8.38-21.64-1-18.11,4.65-23.13-19.34-6.28-30-3.23-59.69,3.41-89.32,1.83-8.17,5.27-10.89,13.56-10.45,15.75.83,13.83-1.69,13.94,13.8S1090.39,516.64,1090.39,532Z',
+			'M1090.39,532c0,17-.21,33.91.11,50.86.11,6-1.28,8.69-7.91,8.38-21.64-1-18.11,4.65-23.13-19.34-6.28-30-3.23-59.69,3.41-89.32,1.83-8.17,5.27-10.89,13.56-10.45,15.75.83,13.83-1.69,13.94,13.8S1090.39,516.64,1090.39,532Z'
 		],
 		[
 			//FLAME UP
@@ -56,7 +55,7 @@
 	];
 </script>
 
-{#if step < 3 || !loaded}
+{#if (!$bannerLoaded && $page.routeId == '') || !$loaderReady}
 	<div
 		id="loader"
 		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20 bg-gradient-to-br"
@@ -69,7 +68,7 @@
 					{#each paths as path, i2}
 						<path
 							in:draw={{ duration: 1500, easing: quintOut, delay: i * 250 + i2 * 50 }}
-							out:fade={{ duration: 500, delay: i * 250 + i2 * 50  }}
+							out:fade={{ duration: 500, delay: i * 250 + i2 * 50 }}
 							stroke="currentColor"
 							fill="none"
 							stroke-width="15px"

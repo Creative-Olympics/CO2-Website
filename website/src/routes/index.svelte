@@ -3,8 +3,8 @@
 	import Loader from '../components/Loader.svelte';
 	import DonationsBanner from '../components/DonationsBanner.svelte';
 	import EventDesc from '../components/EventDesc.svelte';
-	import CountdownBanner from "../components/CountdownBanner.svelte";
-	import Footer from "../components/footer/Footer.svelte";
+	import CountdownBanner from '../components/CountdownBanner.svelte';
+	import Footer from '../components/footer/Footer.svelte';
 
 	import { rc_eventTimestamp } from '$lib/firebase';
 </script>
@@ -13,15 +13,9 @@
 	<title>Creative Olympics</title>
 </svelte:head>
 
-<script>
-	let loaded = false
-	let loaderReady = false
-</script>
-
-<Loader {loaded} setLoaderReady={() => loaderReady = true}/>
 <div data-rahneiln3scroll-section>
-	<Banner {loaderReady} setLoaded={() => {loaded = true}} />
-	
+	<Banner />
+
 	<EventDesc />
 
 	{#if $rc_eventTimestamp != 'null'}
@@ -29,6 +23,6 @@
 	{:else}
 		<DonationsBanner />
 	{/if}
-	
+
 	<Footer />
 </div>

@@ -3,14 +3,13 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
-
 }
 
 android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "rahmouni.neil.url"
+        applicationId "rahmouni.neil.co_admin"
         minSdk 31
         targetSdk 33
         versionCode 1
@@ -52,7 +51,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'rahmouni.neil.url'
+    namespace 'rahmouni.neil.co_admin'
 }
 
 dependencies {

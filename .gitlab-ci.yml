@@ -1,11 +1,11 @@
 image: node:latest
 before_script:
+  - cd website
   - npm i -g firebase-tools
   - npm install
 deploy-functions:
   stage: deploy-website
   script:
-    - cd website
     - npm run build
     - cp -r static/* public/
     - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-co"

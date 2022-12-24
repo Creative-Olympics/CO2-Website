@@ -71,16 +71,16 @@
 				signInWithPopup(auth, data.provider)
 					.then((result) => {
 						toasts.success('Welcome back ' + result.user.displayName);
+						logs.add({ msg: 'User logged in' }, 'info');
 						modal.close();
 
 						linkWithCredential(result.user, userCred).then(() => {
 							toasts.success('Accounts successfully linked!');
+							logs.add({ msg: 'Accounts linked' }, 'info');
 						});
 					})
 					.catch((error) => {
-						console.log(error.code);
-						console.log(error.message);
-						logs.add(error.toString(), 'error');
+						logs.add(error, 'error');
 						toasts.feedbackError(
 							'PPDqroReRZ@RahNeil_N3:LoginAndLinkModal:content:propsComponent:onClick:signInWithPopup'
 						);

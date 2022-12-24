@@ -39,7 +39,7 @@ isSupported().then((supported) => {
 				rc_feedback_email.set(JSON.parse(getValue(rc, 'feedback_email').asString()));
 				rc_footer.set(JSON.parse(getValue(rc, 'footer').asString()));
 
-				logs.add("Fetched RC values from server", "info")
+				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})
 			.catch((err) => {
 				console.log(err);
@@ -47,17 +47,17 @@ isSupported().then((supported) => {
 	}
 });
 
-export let login = (provider, loginAndLinkModal) => {
-	logs.add("Opening sign in popup", "info")
+export let login = (/** @type {import("@firebase/auth").AuthProvider} */ provider, /** @type {any} */ loginAndLinkModal) => {
+	logs.add({ msg: "Opening sign in popup" }, "info")
 	signInWithPopup(auth, provider)
 		.then((result) => {
 			toasts.success('Welcome back ' + result.user.displayName);
 			modal.close();
-			logs.add("Signed in", "info")
+			logs.add({ msg: "Signed in" }, "info")
 		})
 		.catch((error) => {
 			if (error.code === 'auth/account-exists-with-different-credential') {
-				logs.add("Account already exists with different credentials", "info")
+				logs.add({ msg: "Account already exists with different credentials" }, "info")
 				var pendingCred = OAuthProvider.credentialFromError(error);
 				var email = error.customData.email;
 				fetchSignInMethodsForEmail(auth, email).then(function (methods) {
@@ -98,9 +98,9 @@ export let login = (provider, loginAndLinkModal) => {
 				});
 			} else if (error.code === "auth/popup-closed-by-user") {
 				toasts.warning('Login popup closed')
-				logs.add("Popup closed by user", "info")
+				logs.add({ msg: "Popup closed by user" }, "info")
 			} else if (error.code === "auth/cancelled-popup-request") {
-				logs.add("Cancelled popup request", "info")
+				logs.add({ msg: "Cancelled popup request" }, "info")
 			} else {
 				console.log(error.code)
 				console.log(error.message)
@@ -120,3 +120,4 @@ export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links
 export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"https://www.artstation.com/chadrixy","links":{"twitter":"https://twitter.com/chadrixy","instagram":null,"gitlab":null}}'));
 export let rc_feedback_email = writable('co@rahmouni.dev');
 export let rc_footer = writable(JSON.parse('{"links":{"twitter":"#","instagram":"#","gitlab":"#"}}'));
+export let rc_aboutPage_article = writable('rc_aboutPage_article')

@@ -1,54 +1,76 @@
 <script>
 	import '../app.css';
-	import LoginModal from '../components/modals/LoginModal.svelte';
-	import ToastsOverlay from '../components/toasts/ToastsOverlay.svelte';
-	import Appbar from '../components/Appbar.svelte';
-	import { app } from '../lib/firebase';
-	import ModalsOverlay from '../components/modals/ModalsOverlay.svelte';
-
-	import { onMount } from 'svelte';
+	import ToastsOverlay from '$cmp/toasts/ToastsOverlay.svelte';
+	import Appbar from '$cmp/Appbar.svelte';
+	import { app } from '$lib/firebase';
+	import ModalsOverlay from '$cmp/modals/ModalsOverlay.svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { getAnalytics } from 'firebase/analytics';
 	import { writable } from 'svelte/store';
+	import { page } from '$app/stores';
+	import { logs } from '$lib/logs';
+	import Loader from '$cmp/Loader.svelte';
 
 	let showLogo = writable(false);
 
-	onMount(() => {
-		getAnalytics(app);
+	/** @type any **/ let viewport;
+	/** @type any **/ let scrollInstance;
 
-		(async () => {
-			try {
-				const LocomotiveScroll = (await import('locomotive-scroll')).default;
-				const dataScrollContainer = document.querySelector('[data-rahneiln3scroll-container]');
+	const locationChange = () => {
+		logs.add({ msg: 'Page location changed', page: $page }, 'info');
 
-				if (!dataScrollContainer) {
-					console.warn(
-						'locomotive-scroll: [data-rahneiln3scroll-container] dataset was not found. You likely forgot to add it which will prevent Locomotive Scroll to work.'
-					);
-				}
+		if (scrollInstance) {
+			scrollInstance.destroy();
+			scrollInstance.init();
+			if ($page.routeId == '') {
+				showLogo.set(false);
 
-				let RahNeil_N3_Scr = new LocomotiveScroll({
-					el: dataScrollContainer ?? undefined,
-					name: "rahneiln3scroll",
-					smooth: true,
-					touchMultiplier: 1.5,
-					smartphone: {
-						smooth: true
-					},
-					tablet: {
-						smooth: true,
+				scrollInstance.on('call', (signal) => {
+					if ($page.routeId == '' && signal === 'appbar_showLogo') {
+						showLogo.update((t) => !t);
 					}
 				});
+			}
+			//scrollInstance.scrollTo('top', { duration: 0 });
+		}
+	};
 
-				RahNeil_N3_Scr.on('call', (signal) => {
-					showLogo.update((t) => !t);
-				});
-			} catch (error) {}
-		})();
+	$: $page, locationChange();
+
+	onMount(async () => {
+		getAnalytics(app);
+
+		const LocomotiveScroll = (await import('locomotive-scroll')).default;
+
+		scrollInstance = new LocomotiveScroll({
+			el: viewport,
+			name: 'rahneiln3scroll',
+			smooth: true,
+			touchMultiplier: 1.5,
+			smartphone: {
+				smooth: true
+			},
+			tablet: {
+				smooth: true
+			}
+		});
+
+		setTimeout(() => {
+			locationChange();
+			window.addEventListener('resize', () => {
+				scrollInstance.update();
+			});
+		}, 300);
+	});
+
+	onDestroy(() => {
+		scrollInstance?.destroy();
 	});
 </script>
 
-<div data-rahneiln3scroll-container>
-	<Appbar showLogo={$showLogo} />
+<Loader />
+<div bind:this={viewport} data-rahneiln3scroll-container>
+	<Appbar showLogo={$page.routeId != '' || $showLogo} />
 	<slot />
 </div>
 <ModalsOverlay />

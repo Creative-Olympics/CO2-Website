@@ -1,13 +1,11 @@
 <script>
 	import { rc_discordInvite_url } from '$lib/firebase';
 	import { fly, fade } from 'svelte/transition';
-	import { onMount } from 'svelte'
+	import { onMount } from 'svelte';
 
 	import MediaQuery from './MediaQuery.svelte';
 	import { logs } from '$lib/logs';
-
-	export let setLoaded;
-	export let loaderReady;
+	import { loaderReady, bannerLoaded } from '$lib/loader';
 
 	let mountedRn = false;
 	let vidEnded = false;
@@ -15,7 +13,7 @@
 	let anLogoPreloaded = false;
 	let loaded = false;
 
-	logs.add({msg: "Banner mounted"}, "info");
+	logs.add({ msg: 'Banner mounted' }, 'info');
 
 	let frameWaited = false;
 	setTimeout(() => {
@@ -24,24 +22,27 @@
 
 	let checkPreload = () => {
 		if (vidPreloaded && anLogoPreloaded) {
-			setLoaded()
+			bannerLoaded.set(true)
 			loaded = true;
-			logs.add({msg: "Banner loaded"}, "info");
+			logs.add({ msg: 'Banner loaded' }, 'info');
 		}
-	}
+	};
 
 	onMount(() => {
-		let animatedLogo = new Image()
-		animatedLogo.onload = () => {anLogoPreloaded = true; checkPreload()}
-		animatedLogo.src = "banner/animated_logo.gif"
+		let animatedLogo = new Image();
+		animatedLogo.onload = () => {
+			anLogoPreloaded = true;
+			checkPreload();
+		};
+		animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true;
-	})
+	});
 </script>
 
 <div>
-	{#if (loaded && loaderReady)}
+	{#if loaded && $loaderReady}
 		<script>
-			document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+			document.getElementById('RahNeil_N3:CO:hbgiapv')?.play();
 		</script>
 	{/if}
 
@@ -63,8 +64,14 @@
 					aria-hidden="true"
 					style="height: calc(100vh + 120px)"
 					src="banner/{matches ? 'm_' : ''}in.mp4"
-					on:error={() => {vidPreloaded = true; checkPreload()}}
-					on:canplaythrough={() => {vidPreloaded = true; checkPreload()}}
+					on:error={() => {
+						vidPreloaded = true;
+						checkPreload();
+					}}
+					on:canplaythrough={() => {
+						vidPreloaded = true;
+						checkPreload();
+					}}
 					bind:ended={vidEnded}
 					out:fade
 				/>
@@ -85,7 +92,11 @@
 
 					<div class="flex flew-row gap-4">
 						<div>
-							<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.1">
+							<div
+								data-rahneiln3scroll
+								data-rahneiln3scroll-speed="2"
+								data-rahneiln3scroll-delay="0.1"
+							>
 								<!--Wrapper div to make scroll smoother on buttons-->
 								<div class="pb-24 -mt-4">
 									{#if $rc_discordInvite_url != 'null' && frameWaited}
@@ -102,17 +113,22 @@
 							</div>
 						</div>
 						<div>
-							<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.07">
+							<div
+								data-rahneiln3scroll
+								data-rahneiln3scroll-speed="2"
+								data-rahneiln3scroll-delay="0.07"
+							>
 								<!--Wrapper div to make scroll smoother on buttons-->
 								<div class="pb-24 -mt-4">
 									{#if frameWaited}
-										<button
+										<a
 											class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
 											style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 											in:fade={{ delay: 2050 }}
+											href="about"
 										>
-											Watch Trailer
-										</button>
+											Learn about us
+										</a>
 									{/if}
 								</div>
 							</div>

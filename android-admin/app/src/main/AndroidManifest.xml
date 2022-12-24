@@ -8,7 +8,7 @@
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/manifest_appName"
-        android:theme="@style/Theme.Url"
+        android:theme="@style/Theme.CO"
         tools:targetApi="33">
         <activity
             android:name=".MainActivity"

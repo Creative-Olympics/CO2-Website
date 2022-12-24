@@ -14,6 +14,7 @@
 	import { toasts } from '$lib/toasts';
 	import { logs } from '$lib/logs';
 	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
+	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
 
 	let thenLink = true;
 
@@ -57,12 +58,7 @@
 		<b>{data.providerName}</b>
 		.
 	</span>
-	<div class="form-control mb-2">
-		<label class="label cursor-pointer">
-			<span class="label-text">Link both accounts once logged in</span>
-			<input type="checkbox" class="toggle" bind:checked={thenLink} />
-		</label>
-	</div>
+	<SwitchTile title="Link both accounts" icon="link" bind:value={thenLink} />
 
 	<svelte:component
 		this={data.button}

@@ -35,53 +35,50 @@
 		renderer.setClearColor(new THREE.Color(0, 0, 0), 0);
 		document.getElementById('three-container')?.appendChild(renderer.domElement);
 
-		new FontLoader().load(
-			'banner/test.typeface.json',
-			(font) => {
-				const textGeometry = new TextGeometry('404', {
-					font: font,
-					size: 80,
-					height: 20,
-					bevelThickness: 2,
-					bevelSize: 1.5,
-					bevelEnabled: true,
-					curveSegments: 4
-				});
+		new FontLoader().load('banner/test.typeface.json', (font) => {
+			const textGeometry = new TextGeometry('404', {
+				font: font,
+				size: 80,
+				height: 20,
+				bevelThickness: 2,
+				bevelSize: 1.5,
+				bevelEnabled: true,
+				curveSegments: 4
+			});
 
-				textMesh = new THREE.Mesh(textGeometry, [
-					new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
-					new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
-				]);
+			textMesh = new THREE.Mesh(textGeometry, [
+				new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
+				new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
+			]);
 
-				textGeometry.computeBoundingBox();
+			textGeometry.computeBoundingBox();
 
-				const centerXOffset =
-					-0.5 *
-					(textGeometry.boundingBox != null
-						? textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x
-						: 0);
+			const centerXOffset =
+				-0.5 *
+				(textGeometry.boundingBox != null
+					? textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x
+					: 0);
 
-				const centerYOffset =
-					-0.5 *
-					(textGeometry.boundingBox != null
-						? textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
-						: 0);
+			const centerYOffset =
+				-0.5 *
+				(textGeometry.boundingBox != null
+					? textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
+					: 0);
 
-				textGeometry.translate(centerXOffset, centerYOffset, 0);
-				textMesh.position.x = 0;
-				textMesh.position.y = 0;
-				textMesh.position.z = 0;
+			textGeometry.translate(centerXOffset, centerYOffset, 0);
+			textMesh.position.x = 0;
+			textMesh.position.y = 0;
+			textMesh.position.z = 0;
 
-				scene.add(textMesh);
-			}
-		);
+			scene.add(textMesh);
+		});
 
 		let mouseX = 0,
 			mouseY = 0;
 
 		document.addEventListener('mousemove', (event) => {
-			mouseX = ((event.clientX - window.innerWidth/2) / window.innerWidth) / 8;
-			mouseY = ((event.clientY - window.innerHeight/2) / window.innerHeight) / 8;
+			mouseX = (event.clientX - window.innerWidth / 2) / window.innerWidth / 8;
+			mouseY = (event.clientY - window.innerHeight / 2) / window.innerHeight / 8;
 		});
 
 		// Set up the render loop
@@ -92,8 +89,8 @@
 
 			//textMesh.rotation.y = mouseX * Math.PI;
 			//textMesh.rotation.x = mouseY * Math.PI;
-			textMesh.rotation.y += (mouseX * Math.PI - textMesh.rotation.y) * 0.08;
-			textMesh.rotation.x += (mouseY * Math.PI - textMesh.rotation.x) * 0.08;
+			textMesh.rotation.y += (mouseX * Math.PI - textMesh.rotation.y) * 0.1;
+			textMesh.rotation.x += (mouseY * Math.PI - textMesh.rotation.x) * 0.1;
 		};
 
 		requestAnimationFrame(() => {
@@ -120,7 +117,12 @@
 	>
 		<div class="flex flex-col relative">
 			<div class="absolute w-screen hero-content text-center flex-col text-white max-w-none">
-				<div id="three-container" />
+				<div
+					id="three-container"
+					data-rahneiln3scroll
+					data-rahneiln3scroll-speed="2"
+					data-rahneiln3scroll-delay="0.1"
+				/>
 			</div>
 
 			<div class="h-screen" />

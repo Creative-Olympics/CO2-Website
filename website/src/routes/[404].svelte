@@ -18,16 +18,16 @@
 
 		// Set up the camera
 		camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 1, 1500);
-		camera.position.set(0, 400, 700);
+		camera.position.set(0, 0, 800);
 		let cameraTarget = new THREE.Vector3(0, 0, 0);
 
-		const dirLight = new THREE.DirectionalLight(0xffffff, 0.125);
+		const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
 		dirLight.position.set(0, 0, 1).normalize();
 		scene.add(dirLight);
 
-		const pointLight = new THREE.PointLight(0xffffff, 1.5);
-		pointLight.position.set(0, 100, 90);
-		scene.add(pointLight);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+		ambientLight.position.set(0, 200, 0);
+		scene.add(ambientLight);
 
 		renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 		renderer.setPixelRatio(window.devicePixelRatio);
@@ -36,7 +36,7 @@
 		document.getElementById('three-container')?.appendChild(renderer.domElement);
 
 		new FontLoader().load(
-			'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json',
+			'banner/test.typeface.json',
 			(font) => {
 				const textGeometry = new TextGeometry('404', {
 					font: font,
@@ -55,13 +55,19 @@
 
 				textGeometry.computeBoundingBox();
 
-				const centerOffset =
+				const centerXOffset =
 					-0.5 *
 					(textGeometry.boundingBox != null
 						? textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x
 						: 0);
 
-				textGeometry.translate(centerOffset, 0, 0);
+				const centerYOffset =
+					-0.5 *
+					(textGeometry.boundingBox != null
+						? textGeometry.boundingBox.max.y - textGeometry.boundingBox.min.y
+						: 0);
+
+				textGeometry.translate(centerXOffset, centerYOffset, 0);
 				textMesh.position.x = 0;
 				textMesh.position.y = 0;
 				textMesh.position.z = 0;
@@ -74,8 +80,8 @@
 			mouseY = 0;
 
 		document.addEventListener('mousemove', (event) => {
-			mouseX = event.clientX / window.innerWidth / 4 - 1 / 8;
-			mouseY = event.clientY / window.innerHeight / 4 - 1 / 4;
+			mouseX = ((event.clientX - window.innerWidth/2) / window.innerWidth) / 8;
+			mouseY = ((event.clientY - window.innerHeight/2) / window.innerHeight) / 8;
 		});
 
 		// Set up the render loop
@@ -86,8 +92,8 @@
 
 			//textMesh.rotation.y = mouseX * Math.PI;
 			//textMesh.rotation.x = mouseY * Math.PI;
-			textMesh.rotation.y += (mouseX * Math.PI - textMesh.rotation.y) * 0.1;
-			textMesh.rotation.x += (mouseY * Math.PI - textMesh.rotation.x) * 0.1;
+			textMesh.rotation.y += (mouseX * Math.PI - textMesh.rotation.y) * 0.08;
+			textMesh.rotation.x += (mouseY * Math.PI - textMesh.rotation.x) * 0.08;
 		};
 
 		requestAnimationFrame(() => {

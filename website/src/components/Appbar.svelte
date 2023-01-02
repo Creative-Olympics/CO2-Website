@@ -7,7 +7,6 @@
 	import { toasts } from '$lib/toasts';
 	import { modal } from '$lib/modals';
 	import LoginModal from './modals/LoginModal.svelte';
-	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
 	import SendFeedbackIconButton from './SendFeedbackIconButton.svelte';
 	import Icon from './Icon.svelte';
 

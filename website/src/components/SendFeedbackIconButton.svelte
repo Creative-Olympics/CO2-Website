@@ -12,7 +12,7 @@
 	data-tip="Send feedback"
 >
 	<button
-		class="mr-2 btn btn-circle btn-ghost"
+		class="btn btn-circle btn-ghost"
 		on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
 	>
 		<Icon>sms_failed</Icon>

@@ -64,8 +64,19 @@
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
 				/>
+				{#if userData && userData['contributor']}
+					<button
+						class="btn btn-circle btn-ghost"
+						on:click={() =>
+							toasts.info(
+								'Thanks for contributing to the website, ' + userData['contributor'] + '!'
+							)}
+					>
+						<Icon>volunteer_activism</Icon>
+					</button>
+				{/if}
 				{#if user}
-					<div class="dropdown dropdown-end">
+					<div class="dropdown dropdown-end ml-2">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>
 							<label tabindex="0" class="btn btn-ghost btn-circle avatar" for="">
 								<div class="w-10 rounded-full">

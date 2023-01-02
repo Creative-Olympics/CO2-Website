@@ -59,7 +59,7 @@
 					</div>
 				{/if}
 			</div>
-			<div class="navbar-end">
+			<div class="navbar-end gap-0.5">
 				<SendFeedbackIconButton
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
@@ -68,7 +68,7 @@
 					<button
 						class="btn btn-circle btn-ghost"
 						on:click={() =>
-							toasts.info(
+							toasts.default(
 								'Thanks for contributing to the website, ' + userData['contributor'] + '!'
 							)}
 					>

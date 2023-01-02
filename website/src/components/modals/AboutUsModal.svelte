@@ -21,7 +21,7 @@
 		</div>
 		<span class="text-lg font-semibold">Neïl Rahmouni</span>
 		<span class="text-sm italic">Full stack developer</span>
-		<span class="text-sm italic">UI/UX Designer</span>
+		<span class="text-sm italic mb-2">UI/UX Designer</span>
 		<SocialLinks links={$rc_neilRahmouni.links} />
 		{#if $rc_neilRahmouni.main == null}
 			<button
@@ -61,7 +61,7 @@
 		</div>
 		<span class="text-lg font-semibold">Chadrixy</span>
 		<span class="text-sm italic">Graphic designer & Artist</span>
-		<span class="text-sm italic">3D Designer</span>
+		<span class="text-sm italic mb-2">3D Designer</span>
 		<SocialLinks links={$rc_chadrixy.links} />
 		<a
 			class="btn btn-sm my-4 gap-2 btn-accent normal-case"

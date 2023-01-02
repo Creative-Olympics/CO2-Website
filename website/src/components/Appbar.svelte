@@ -79,7 +79,7 @@
 						</div>
 						<ul
 							tabindex="0"
-							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content"
+							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"
 						>
 							{#if userData && userData['isAdmin']}
 								<li>

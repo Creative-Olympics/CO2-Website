@@ -60,7 +60,10 @@
 				{/if}
 			</div>
 			<div class="navbar-end">
-				<SendFeedbackIconButton origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end" tooltipDirection="bottom"/>
+				<SendFeedbackIconButton
+					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
+					tooltipDirection="bottom"
+				/>
 				{#if user}
 					<div class="dropdown dropdown-end">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>
@@ -76,12 +79,22 @@
 						</div>
 						<ul
 							tabindex="0"
-							class="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content"
 						>
 							{#if userData && userData['isAdmin']}
-								<li><a href="/create">Create</a></li>
+								<li>
+									<a href="/adminapp">
+										<Icon>admin_panel_settings</Icon>
+										Admin app
+									</a>
+								</li>
 							{/if}
-							<li><button on:click={authSignOut}>Logout</button></li>
+							<li>
+								<button on:click={authSignOut}>
+									<Icon>logout</Icon>
+									Logout
+								</button>
+							</li>
 						</ul>
 					</div>
 				{:else}

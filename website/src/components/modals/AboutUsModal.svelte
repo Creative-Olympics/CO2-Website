@@ -16,7 +16,7 @@
 	<div class="flex flex-col items-center col-span-3">
 		<div class="avatar mb-4">
 			<div class="w-20 mask mask-squircle">
-				<img src={$rc_neilRahmouni.pfp || 'banner/neil_rahmouni.png'} alt="Neïl Rahmouni" />
+				<img src={$rc_neilRahmouni.pfp || 'banner/neil_rahmouni.jpg'} alt="Neïl Rahmouni" />
 			</div>
 		</div>
 		<span class="text-lg font-semibold">Neïl Rahmouni</span>

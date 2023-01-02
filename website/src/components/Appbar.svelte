@@ -3,7 +3,7 @@
 	import { doc, getDoc } from 'firebase/firestore';
 	import { fly, fade } from 'svelte/transition';
 
-	import { db, auth } from '$lib/firebase';
+	import { db, auth, rc_adminApp_url } from '$lib/firebase';
 	import { toasts } from '$lib/toasts';
 	import { modal } from '$lib/modals';
 	import LoginModal from './modals/LoginModal.svelte';
@@ -83,7 +83,7 @@
 						>
 							{#if userData && userData['isAdmin']}
 								<li>
-									<a href="http://url.creative-olympics.org/admin-app" target="_blank">
+									<a href={$rc_adminApp_url} target="_blank">
 										<Icon>admin_panel_settings</Icon>
 										Admin app
 									</a>

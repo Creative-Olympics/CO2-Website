@@ -6,7 +6,6 @@
 	{#if links.matrix != null}
 		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.matrix}>
 			<svg class="w-5 h-5" viewBox="0 0 27.9 32">
-				<title>Matrix (protocol) logo</title>
 				<g transform="translate(-.095 .005)" fill="currentColor">
 					<path d="m27.1 31.2v-30.5h-2.19v-0.732h3.04v32h-3.04v-0.732z" />
 					<path

@@ -83,7 +83,7 @@
 						>
 							{#if userData && userData['isAdmin']}
 								<li>
-									<a href="/adminapp">
+									<a href="http://url.creative-olympics.org/admin-app" target="_blank">
 										<Icon>admin_panel_settings</Icon>
 										Admin app
 									</a>

@@ -64,6 +64,7 @@
 					aria-hidden="true"
 					style="height: calc(100vh + 120px)"
 					src="banner/{matches ? 'm_' : ''}in.mp4"
+					preload="none"
 					on:error={() => {
 						vidPreloaded = true;
 						checkPreload();

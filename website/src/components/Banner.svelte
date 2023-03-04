@@ -72,6 +72,10 @@
 						vidPreloaded = true;
 						checkPreload();
 					}}
+					on:loadedmetadata={() => {
+						vidPreloaded = true;
+						checkPreload();
+					}}
 					bind:ended={vidEnded}
 					out:fade
 				/>
@@ -79,16 +83,16 @@
 
 			<div class="absolute top-0 left-0 w-full h-full">
 				<div class="flex w-full h-full flex-col items-center justify-center pb-16">
-					{#if frameWaited}
-						<img
-							in:fly={{ delay: 1000, y: -450, duration: 900 }}
-							src="banner/animated_logo.gif"
-							alt="CO logo"
-							class="w-80"
-							data-rahneiln3scroll
-							data-rahneiln3scroll-speed="2"
-						/>
-					{/if}
+					<div data-rahneiln3scroll data-rahneiln3scroll-speed="2">
+						{#if mountedRn && loaded && $loaderReady}
+							<img
+								in:fly={{ delay: 1000, y: -450, duration: 900 }}
+								src="banner/animated_logo.gif"
+								alt="CO logo"
+								class="w-80"
+							/>
+						{/if}
+					</div>
 
 					<div class="flex flew-row gap-4">
 						<div>

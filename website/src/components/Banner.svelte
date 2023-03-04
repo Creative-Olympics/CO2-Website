@@ -68,7 +68,7 @@
 						vidPreloaded = true;
 						checkPreload();
 					}}
-					on:canplaythrough={() => {
+					on:canplay={() => {
 						vidPreloaded = true;
 						checkPreload();
 					}}

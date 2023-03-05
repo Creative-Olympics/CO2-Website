@@ -31,9 +31,9 @@ isSupported().then((supported) => {
 		rc.settings.minimumFetchIntervalMillis = 3600000; //ONLY FOR DEV
 		fetchAndActivate(rc)
 			.then(() => {
-				rc_discordInvite_url.set(getValue(rc, 'discordInvite_url').asString());
-				rc_eventDesc_article.set(getValue(rc, 'eventDesc_article').asString());
-				rc_eventTimestamp.set(getValue(rc, 'eventTimestamp').asString());
+				rc_discordInvite_url.set(JSON.parse(getValue(rc, 'discordInvite_url').asString()));
+				rc_eventDesc_article.set(JSON.parse(getValue(rc, 'eventDesc_article').asString()));
+				rc_eventTimestamp.set(JSON.parse(getValue(rc, 'eventTimestamp').asString()));
 				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
 				rc_chadrixy.set(JSON.parse(getValue(rc, 'chadrixy').asString()));
 				rc_feedback_email.set(JSON.parse(getValue(rc, 'feedback_email').asString()));

@@ -6,12 +6,14 @@
 	import MediaQuery from './MediaQuery.svelte';
 	import { logs } from '$lib/logs';
 	import { loaderReady, bannerLoaded } from '$lib/loader';
+	import { toasts } from '$lib/toasts';
 
 	let mountedRn = false;
 	let vidEnded = false;
 	let vidPreloaded = false;
 	let anLogoPreloaded = false;
 	let loaded = false;
+	let readyState = 0;
 
 	logs.add({ msg: 'Banner mounted' }, 'info');
 
@@ -22,7 +24,7 @@
 
 	let checkPreload = () => {
 		if (vidPreloaded && anLogoPreloaded) {
-			bannerLoaded.set(true)
+			bannerLoaded.set(true);
 			loaded = true;
 			logs.add({ msg: 'Banner loaded' }, 'info');
 		}
@@ -48,7 +50,7 @@
 
 	<MediaQuery query="(max-width: 480px)" let:matches>
 		<div
-			class="w-full bg-cover bg-center relative"
+			class="w-screen h-full bg-cover bg-center relative"
 			style="background-image: url('banner/{matches
 				? 'm_'
 				: ''}final.jpg'); height: calc(100vh + 120px)"
@@ -64,26 +66,28 @@
 					aria-hidden="true"
 					style="height: calc(100vh + 120px)"
 					src="banner/{matches ? 'm_' : ''}in.mp4"
-					preload="none"
 					on:error={() => {
 						vidPreloaded = true;
 						checkPreload();
+						toasts.info('RN3:error');
+					}}
+					on:canplaythrough={() => {
+						vidPreloaded = true;
+						checkPreload();
+						toasts.info('RN3:canplaythrough');
 					}}
 					on:canplay={() => {
 						vidPreloaded = true;
 						checkPreload();
-					}}
-					on:loadedmetadata={() => {
-						vidPreloaded = true;
-						checkPreload();
+						toasts.info('RN3:canplay');
 					}}
 					bind:ended={vidEnded}
 					out:fade
 				/>
 			{/if}
 
-			<div class="absolute top-0 left-0 w-full h-full">
-				<div class="flex w-full h-full flex-col items-center justify-center pb-16">
+			<div class="absolute top-0 left-0 w-full h-screen">
+				<div class="flex w-full h-full flex-col items-center justify-center">
 					<div data-rahneiln3scroll data-rahneiln3scroll-speed="2">
 						{#if mountedRn && loaded && $loaderReady}
 							<img
@@ -96,47 +100,37 @@
 					</div>
 
 					<div class="flex flew-row gap-4">
-						<div>
-							<div
-								data-rahneiln3scroll
-								data-rahneiln3scroll-speed="2"
-								data-rahneiln3scroll-delay="0.1"
-							>
-								<!--Wrapper div to make scroll smoother on buttons-->
-								<div class="pb-24 -mt-4">
-									{#if $rc_discordInvite_url != 'null' && frameWaited}
-										<a
-											class="btn"
-											in:fade={{ delay: 1800 }}
-											href={$rc_discordInvite_url}
-											target="_blank"
-										>
-											Join Discord
-										</a>
-									{/if}
-								</div>
-							</div>
+						<div
+							data-rahneiln3scroll
+							data-rahneiln3scroll-speed="2"
+							data-rahneiln3scroll-delay="0.1"
+						>
+							{#if mountedRn && loaded && $loaderReady}
+								<a
+									class="btn"
+									in:fade={{ delay: 1800 }}
+									href={$rc_discordInvite_url}
+									target="_blank"
+								>
+									Join Discord
+								</a>
+							{/if}
 						</div>
-						<div>
-							<div
-								data-rahneiln3scroll
-								data-rahneiln3scroll-speed="2"
-								data-rahneiln3scroll-delay="0.07"
-							>
-								<!--Wrapper div to make scroll smoother on buttons-->
-								<div class="pb-24 -mt-4">
-									{#if frameWaited}
-										<a
-											class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
-											style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
-											in:fade={{ delay: 2050 }}
-											href="about"
-										>
-											Learn about us
-										</a>
-									{/if}
-								</div>
-							</div>
+						<div
+							data-rahneiln3scroll
+							data-rahneiln3scroll-speed="2"
+							data-rahneiln3scroll-delay="0.07"
+						>
+							{#if mountedRn && loaded && $loaderReady}
+								<a
+									class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+									style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
+									in:fade={{ delay: 2050 }}
+									href="about"
+								>
+									Learn about us
+								</a>
+							{/if}
 						</div>
 					</div>
 				</div>

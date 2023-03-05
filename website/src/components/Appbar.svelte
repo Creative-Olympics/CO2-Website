@@ -47,9 +47,16 @@
 						transition:fly={{ x: -52, duration: 1000, opacity: 1 }}
 						class="absolute -top-6 left-0"
 					>
-						<a class="btn btn-ghost gap-3 flex flex-col whitespace-nowrap normal-case" href="/">
-							<img src="banner/co.gif" alt="Creative Olympics logo" class="w-10" transition:fade />
-							<span out:fade={{ delay: 1000 }}>Creative Olympics</span>
+						<a class="btn btn-ghost normal-case" href="/">
+							<div class="flex flex-row items-center gap-3">
+								<img
+									src="banner/co.gif"
+									alt="Creative Olympics logo"
+									class="w-10"
+									transition:fade
+								/>
+								<span out:fade={{ delay: 1000 }}>Creative Olympics</span>
+							</div>
 						</a>
 					</div>
 				{:else}

@@ -24,6 +24,8 @@
 		}
 	};
 
+	let isOnIOS = false
+
 	onMount(() => {
 		let animatedLogo = new Image();
 		animatedLogo.onload = () => {
@@ -33,14 +35,7 @@
 		animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true;
 
-		if (
-			['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(
-				navigator.platform
-			) ||
-			(navigator.userAgent.includes('Mac') && 'ontouchend' in document)
-		) {
-			toasts.success('hello Z');
-		}
+		isOnIOS = ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform)
 	});
 
 	let watchTrailer = () => {
@@ -80,6 +75,12 @@
 					on:canplaythrough={() => {
 						vidPreloaded = true;
 						checkPreload();
+					}}
+					on:loadedmetadata={() => {
+						if (isOnIOS) {
+							vidPreloaded = true;
+							checkPreload();
+						}
 					}}
 					bind:ended={vidEnded}
 					out:fade

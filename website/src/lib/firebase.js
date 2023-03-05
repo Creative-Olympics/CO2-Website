@@ -31,7 +31,7 @@ isSupported().then((supported) => {
 		rc.settings.minimumFetchIntervalMillis = 3600000; //ONLY FOR DEV
 		fetchAndActivate(rc)
 			.then(() => {
-				rc_discordInvite_url.set(JSON.parse(getValue(rc, 'discordInvite_url').asString()));
+				rc_discordInvite_url.set(getValue(rc, 'discordInvite_url').asString());
 				rc_eventDesc_article.set(JSON.parse(getValue(rc, 'eventDesc_article').asString()));
 				rc_eventTimestamp.set(JSON.parse(getValue(rc, 'eventTimestamp').asString()));
 				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
@@ -40,9 +40,12 @@ isSupported().then((supported) => {
 				rc_footer.set(JSON.parse(getValue(rc, 'footer').asString()));
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
+				toasts.warning("fetched!")
 			})
 			.catch((err) => {
 				console.log(err);
+				logs.add(err, "error")
+				toasts.feedbackError("31N7BwAzEw@RahNeil_N3:firebase:isSupported:supported:fetchAndActivateRC");
 			});
 	}
 });

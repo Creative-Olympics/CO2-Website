@@ -35,11 +35,13 @@ isSupported().then((supported) => {
 				rc_eventDesc_article.set(getValue(rc, 'eventDesc_article').asString());
 				rc_eventTimestamp.set(JSON.parse(getValue(rc, 'eventTimestamp').asString()));
 				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
-				rc_chadrixy.set(JSON.parse(getValue(rc, 'chadrixy').asString()));
-				rc_feedback_email.set(getValue(rc, 'feedback_email').asString());
-				rc_footer.set(JSON.parse(getValue(rc, 'footer').asString()));
+				rc_chadrixy.update((v) => JSON.parse(getValue(rc, 'chadrixy').asString()) || v);
+				rc_feedback_email.update((v) => getValue(rc, 'feedback_email').asString() || v);
+				rc_footer.update((v) => JSON.parse(getValue(rc, 'footer').asString()) || v);
 				rc_aboutPage_article.set(getValue(rc, 'aboutPage_article').asString());
 				rc_adminApp_url.set(getValue(rc, 'adminApp_url').asString());
+
+				console.log(getValue(rc, 'feedback_email').asString())
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})

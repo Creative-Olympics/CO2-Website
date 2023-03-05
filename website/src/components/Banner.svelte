@@ -13,14 +13,8 @@
 	let vidPreloaded = false;
 	let anLogoPreloaded = false;
 	let loaded = false;
-	let readyState = 0;
 
 	logs.add({ msg: 'Banner mounted' }, 'info');
-
-	let frameWaited = false;
-	setTimeout(() => {
-		frameWaited = true;
-	}, 1);
 
 	let checkPreload = () => {
 		if (vidPreloaded && anLogoPreloaded) {
@@ -73,17 +67,14 @@
 					on:error={() => {
 						vidPreloaded = true;
 						checkPreload();
-						toasts.info('RN3:error');
 					}}
 					on:canplaythrough={() => {
 						vidPreloaded = true;
 						checkPreload();
-						toasts.info('RN3:canplaythrough');
 					}}
 					on:canplay={() => {
 						vidPreloaded = true;
 						checkPreload();
-						toasts.info('RN3:canplay');
 					}}
 					bind:ended={vidEnded}
 					out:fade

@@ -32,11 +32,20 @@
 		};
 		animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true;
+
+		if (
+			['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(
+				navigator.platform
+			) ||
+			(navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+		) {
+			toasts.success('hello Z');
+		}
 	});
 
 	let watchTrailer = () => {
-		toasts.warning("trailer")
-	}
+		toasts.warning('trailer');
+	};
 </script>
 
 <div>

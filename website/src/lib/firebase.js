@@ -31,15 +31,15 @@ isSupported().then((supported) => {
 		rc.settings.minimumFetchIntervalMillis = 3600000; //ONLY FOR DEV
 		fetchAndActivate(rc)
 			.then(() => {
-				rc_discordInvite_url.set(getValue(rc, 'discordInvite_url').asString());
-				rc_eventDesc_article.set(getValue(rc, 'eventDesc_article').asString());
-				rc_eventTimestamp.set(JSON.parse(getValue(rc, 'eventTimestamp').asString()));
-				rc_neilRahmouni.set(JSON.parse(getValue(rc, 'neilRahmouni').asString()));
+				rc_discordInvite_url.update((v) => getValue(rc, 'discordInvite_url').asString() || v);
+				rc_eventDesc_article.update((v) => getValue(rc, 'eventDesc_article').asString() || v);
+				rc_eventTimestamp.update((v) => JSON.parse(getValue(rc, 'eventTimestamp').asString()) || v);
+				rc_neilRahmouni.update((v) => JSON.parse(getValue(rc, 'neilRahmouni').asString()) || v);
 				rc_chadrixy.update((v) => JSON.parse(getValue(rc, 'chadrixy').asString()) || v);
 				rc_feedback_email.update((v) => getValue(rc, 'feedback_email').asString() || v);
 				rc_footer.update((v) => JSON.parse(getValue(rc, 'footer').asString()) || v);
-				rc_aboutPage_article.set(getValue(rc, 'aboutPage_article').asString());
-				rc_adminApp_url.set(getValue(rc, 'adminApp_url').asString());
+				rc_aboutPage_article.update((v) => getValue(rc, 'aboutPage_article').asString() || v);
+				rc_adminApp_url.update((v) => getValue(rc, 'adminApp_url').asString() || v);
 
 				console.log(getValue(rc, 'feedback_email').asString())
 

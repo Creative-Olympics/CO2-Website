@@ -72,10 +72,6 @@
 						vidPreloaded = true;
 						checkPreload();
 					}}
-					on:canplay={() => {
-						vidPreloaded = true;
-						checkPreload();
-					}}
 					bind:ended={vidEnded}
 					out:fade
 				/>

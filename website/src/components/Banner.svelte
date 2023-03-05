@@ -13,14 +13,8 @@
 	let vidPreloaded = false;
 	let anLogoPreloaded = false;
 	let loaded = false;
-	let readyState = 0;
 
 	logs.add({ msg: 'Banner mounted' }, 'info');
-
-	let frameWaited = false;
-	setTimeout(() => {
-		frameWaited = true;
-	}, 1);
 
 	let checkPreload = () => {
 		if (vidPreloaded && anLogoPreloaded) {
@@ -39,6 +33,10 @@
 		animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true;
 	});
+
+	let watchTrailer = () => {
+		toasts.warning("trailer")
+	}
 </script>
 
 <div>
@@ -69,17 +67,10 @@
 					on:error={() => {
 						vidPreloaded = true;
 						checkPreload();
-						toasts.info('RN3:error');
 					}}
 					on:canplaythrough={() => {
 						vidPreloaded = true;
 						checkPreload();
-						toasts.info('RN3:canplaythrough');
-					}}
-					on:canplay={() => {
-						vidPreloaded = true;
-						checkPreload();
-						toasts.info('RN3:canplay');
 					}}
 					bind:ended={vidEnded}
 					out:fade
@@ -106,14 +97,7 @@
 							data-rahneiln3scroll-delay="0.1"
 						>
 							{#if mountedRn && loaded && $loaderReady}
-								<a
-									class="btn"
-									in:fade={{ delay: 1800 }}
-									href={$rc_discordInvite_url}
-									target="_blank"
-								>
-									Join Discord
-								</a>
+								<a class="btn" in:fade={{ delay: 1800 }} href="about"> Learn about us </a>
 							{/if}
 						</div>
 						<div
@@ -122,14 +106,14 @@
 							data-rahneiln3scroll-delay="0.07"
 						>
 							{#if mountedRn && loaded && $loaderReady}
-								<a
+								<button
 									class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
 									style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 									in:fade={{ delay: 2050 }}
-									href="about"
+									on:click={watchTrailer}
 								>
-									Learn about us
-								</a>
+									Watch Trailer
+								</button>
 							{/if}
 						</div>
 					</div>

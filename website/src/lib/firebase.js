@@ -42,7 +42,6 @@ isSupported().then((supported) => {
 				rc_adminApp_url.set(getValue(rc, 'adminApp_url').asString());
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
-				toasts.warning("fetched!")
 			})
 			.catch((err) => {
 				console.log(err);

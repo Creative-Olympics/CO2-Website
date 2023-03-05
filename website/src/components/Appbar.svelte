@@ -55,7 +55,7 @@
 									class="w-10"
 									transition:fade
 								/>
-								<span out:fade={{ delay: 1000 }}>Creative Olympics</span>
+								<span out:fade={{ delay: 1000 }} class="whitespace-nowrap">Creative Olympics</span>
 							</div>
 						</a>
 					</div>

@@ -1,10 +1,13 @@
 <script>
 	import { toasts } from '$lib/toasts';
+	import SendFeedbackToastButton from './SendFeedbackToastButton.svelte';
 </script>
 
 <div class="toast" style="z-index: 1000;">
 	{#each $toasts as toast (toast.id)}
-		<div class="alert {toast.type} shadow-lg">
+		<div
+			class="alert {toast.type === 'alert-feedbackError' ? 'alert-error' : toast.type} shadow-lg"
+		>
 			<div>
 				{#if toast.type == 'alert-info'}
 					<svg
@@ -65,7 +68,11 @@
 				{/if}
 				<span>{toast.message}</span>
 			</div>
-			{#if toast.content != null}
+			{#if toast.type === 'alert-feedbackError'}
+				<div class="flex-none">
+					<SendFeedbackToastButton {...toast.props} />
+				</div>
+			{:else if toast.content != null}
 				<div class="flex-none">
 					<svelte:component this={toast.content} {...toast.props} />
 				</div>

@@ -1,14 +1,18 @@
-TODO:
+```bash
+npm run dev
 
-- [x] Page brut (txt/json) affichant la liste des donateurs (page lu par les plugins et bots)
-- [x] Page brut listant les participants
-- [x] Page brut listant les staff
-- [x] Page brut listant les streamers
-- [ ] Page “About”
-- [ ] Page participants
-- [ ] Page streamers avec streams actifs
-  - [ ] Learn about Twitch API
-- [ ] Page de don (avec donateurs et podium)
-- [ ] Page programme (affichant le cours des événements)
-- [ ] Page cashprize
-- [ ] Page dédié à l’ONG
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

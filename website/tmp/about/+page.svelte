@@ -1,5 +1,5 @@
 <script context="module">
-	import Footer from '../components/footer/Footer.svelte';
+	import Footer from '$cmp/footer/Footer.svelte';
 	import { rc_aboutPage_article } from '$lib/firebase';
 	import FooterContent from '$cmp/footer/FooterContent.svelte';
 </script>

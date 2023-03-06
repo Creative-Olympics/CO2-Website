@@ -1,5 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
-import preprocess from "svelte-preprocess";
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,16 +10,12 @@ const config = {
 			fallback: null,
 			precompress: false
 		}),
-		prerender: {
-			// This can be false if you're using a fallback (i.e. SPA mode)
-			default: true
+		alias: {
+			'$lib': './src/lib',
+			'$cmp': './src/components'
 		}
 	},
-	preprocess: [
-		preprocess({
-			postcss: true,
-		}),
-	],
+	preprocess: vitePreprocess()
 };
 
 export default config;

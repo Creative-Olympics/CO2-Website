@@ -1,8 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, fetchSignInMethodsForEmail, OAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import { fetchAndActivate, getRemoteConfig, isSupported } from 'firebase/remote-config';
-import { getValue } from 'firebase/remote-config';
+import { fetchAndActivate, getRemoteConfig, isSupported, getValue } from 'firebase/remote-config';
 import { writable } from 'svelte/store';
 import { modal } from '$lib/modals';
 import { toasts } from '$lib/toasts';
@@ -23,6 +22,7 @@ export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
 export const appleAuthProvider = new OAuthProvider('apple.com');
+
 export const db = getFirestore(app);
 
 isSupported().then((supported) => {
@@ -40,8 +40,6 @@ isSupported().then((supported) => {
 				rc_footer.update((v) => JSON.parse(getValue(rc, 'footer').asString()) || v);
 				rc_aboutPage_article.update((v) => getValue(rc, 'aboutPage_article').asString() || v);
 				rc_adminApp_url.update((v) => getValue(rc, 'adminApp_url').asString() || v);
-
-				console.log(getValue(rc, 'feedback_email').asString())
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})

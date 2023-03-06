@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="absolute w-screen overflow-hidden z-10"
+	class="absolute w-screen overflow-hidden z-20"
 	data-rahneiln3scroll
 	data-rahneiln3scroll-speed="8"
 	data-rahneiln3scroll-position="top"

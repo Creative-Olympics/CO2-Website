@@ -9,29 +9,29 @@
 	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
 	import { logs } from '$lib/logs';
+	import { toasts } from '$lib/toasts';
 	import Loader from '$cmp/Loader.svelte';
+	import { scrollInstance } from '$lib/scroll';
 
 	let showLogo = writable(false);
 
 	/** @type any **/ let viewport;
-	/** @type any **/ let scrollInstance;
 
 	const locationChange = () => {
 		logs.add({ msg: 'Page location changed', page: $page }, 'info');
 
-		if (scrollInstance) {
-			scrollInstance.destroy();
-			scrollInstance.init();
+		if ($scrollInstance) {
+			$scrollInstance.destroy();
+			$scrollInstance.init();
 			if ($page.routeId == '') {
 				showLogo.set(false);
 
-				scrollInstance.on('call', (signal) => {
+				$scrollInstance.on('call', (signal) => {
 					if ($page.routeId == '' && signal === 'appbar_showLogo') {
 						showLogo.update((t) => !t);
 					}
 				});
 			}
-			//scrollInstance.scrollTo('top', { duration: 0 });
 		}
 	};
 
@@ -39,40 +39,44 @@
 
 	onMount(async () => {
 		getAnalytics(app);
-
+		
 		const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
-		scrollInstance = new LocomotiveScroll({
-			el: viewport,
-			name: 'rahneiln3scroll',
-			smooth: true,
-			touchMultiplier: 1.5,
-			smartphone: {
-				smooth: true
-			},
-			tablet: {
-				smooth: true
-			}
-		});
+		scrollInstance.set(
+			new LocomotiveScroll({
+				el: viewport,
+				name: 'rahneiln3scroll',
+				smooth: true,
+				touchMultiplier: 1.5,
+				smartphone: {
+					smooth: true
+				},
+				tablet: {
+					smooth: true
+				}
+			})
+		);
 
 		setTimeout(() => {
 			locationChange();
 			window.addEventListener('resize', () => {
-				scrollInstance.update();
+				$scrollInstance?.update();
 			});
 		}, 300);
 	});
 
 	onDestroy(() => {
-		scrollInstance?.destroy();
+		$scrollInstance?.destroy();
 	});
 </script>
 
 <Loader />
 <div bind:this={viewport} data-rahneiln3scroll-container>
 	<Appbar showLogo={$page.routeId != '' || $showLogo} />
+
 	<slot />
 </div>
+
 <ModalsOverlay />
 <ToastsOverlay />
 <div class="invisible tooltip-bottom" />

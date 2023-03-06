@@ -1,12 +1,14 @@
 <script>
-	import { rc_discordInvite_url } from '$lib/firebase';
 	import { fly, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import YouTube from 'svelte-youtube';
 
 	import MediaQuery from './MediaQuery.svelte';
 	import { logs } from '$lib/logs';
 	import { loaderReady, bannerLoaded } from '$lib/loader';
 	import { toasts } from '$lib/toasts';
+	import { scrollInstance } from '$lib/scroll';
+	import { goto } from '$app/navigation';
 
 	let mountedRn = false;
 	let vidEnded = false;
@@ -47,9 +49,11 @@
 
 	let showBackdrop = false;
 	let watchTrailer = () => {
-		toasts.warning('trailer');
-
-		showBackdrop = !showBackdrop;
+		$scrollInstance?.scrollTo('top', {
+			callback: function () {
+				goto('trailer')
+			}
+		});
 	};
 </script>
 
@@ -63,7 +67,9 @@
 	<MediaQuery query="(max-width: 480px)" let:matches>
 		<div class="relative" style="height: calc(100vh + 120px)" data-rahneiln3scroll>
 			{#if showBackdrop}
-				<div class="absolute h-full w-full bg-black z-10" transition:fade={{ duration: 1000 }} />
+				<div class="absolute h-full w-full bg-black z-10" transition:fade={{ duration: 1000 }}>
+					
+				</div>
 			{/if}
 			<div
 				class="w-screen h-full bg-cover bg-center relative"

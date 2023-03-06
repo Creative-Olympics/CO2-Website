@@ -1,4 +1,3 @@
-import SendFeedbackToastButton from "$cmp/toasts/SendFeedbackToastButton.svelte"
 import { writable, derived } from "svelte/store"
 
 const TIMEOUT = 7500
@@ -47,7 +46,7 @@ function createToastStore(timeout) {
         warning: (/** @type {string} */ msg) => send(msg, "alert-warning"),
         info: (/** @type {string} */ msg) => send(msg, "alert-info"),
         success: (/** @type {string} */ msg) => send(msg, "alert-success"),
-        feedbackError: (/** @type {string} */ origin, /** @type {string} */ msg = "An unknown error occured") => send(msg, "alert-error", SendFeedbackToastButton, { origin: origin })
+        feedbackError: (/** @type {string} */ origin, /** @type {string} */ msg = "An unknown error occured") => send(msg, "alert-feedbackError", null, { origin: origin })
     }
 }
 

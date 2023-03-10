@@ -6,28 +6,23 @@
 	import ModalsOverlay from '$cmp/modals/ModalsOverlay.svelte';
 	import { onMount, onDestroy } from 'svelte';
 	import { getAnalytics } from 'firebase/analytics';
-	import { writable } from 'svelte/store';
 	import { page } from '$app/stores';
 	import { logs } from '$lib/logs';
-	import { toasts } from '$lib/toasts';
 	import Loader from '$cmp/Loader.svelte';
-	import { scrollInstance } from '$lib/scroll';
-
-	let showLogo = writable(false);
+	import { scrollInstance, showLogo } from '$lib/scroll';
+	import { toasts } from '$lib/toasts';
 
 	/** @type any **/ let viewport;
 
 	const locationChange = () => {
-		logs.add({ msg: 'Page location changed', page: $page }, 'info');
+		logs.add({ msg: 'Page location changed', route: $page.route, url: $page.url.href }, 'info');
 
 		if ($scrollInstance) {
-			$scrollInstance.destroy();
-			$scrollInstance.init();
-			if ($page.routeId == '') {
+			if ($page.route.id == '/') {
 				showLogo.set(false);
 
 				$scrollInstance.on('call', (signal) => {
-					if ($page.routeId == '' && signal === 'appbar_showLogo') {
+					if ($page.route.id == '/' && signal === 'appbar_showLogo') {
 						showLogo.update((t) => !t);
 					}
 				});
@@ -72,7 +67,7 @@
 
 <Loader />
 <div bind:this={viewport} data-rahneiln3scroll-container>
-	<Appbar showLogo={$page.routeId != '' || $showLogo} />
+	<Appbar />
 
 	<slot />
 </div>

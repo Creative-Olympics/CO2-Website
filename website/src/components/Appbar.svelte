@@ -5,12 +5,11 @@
 
 	import { db, auth, rc_adminApp_url } from '$lib/firebase';
 	import { toasts } from '$lib/toasts';
+	import { showLogo } from '$lib/scroll';
 	import { modal } from '$lib/modals';
 	import LoginModal from './modals/LoginModal.svelte';
 	import SendFeedbackIconButton from './SendFeedbackIconButton.svelte';
 	import Icon from './Icon.svelte';
-
-	export let showLogo = false;
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user;
@@ -37,12 +36,12 @@
 	<div class="">
 		<!-- p-2 -->
 		<div
-			class="px-4 navbar glass {showLogo &&
+			class="px-4 navbar glass {$showLogo &&
 				'bg-white shadow-md hover:bg-white hover:shadow-md'} transition-all duration-500 text-gray-800"
 		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">
-				{#if showLogo}
+				{#if $showLogo}
 					<div
 						transition:fly={{ x: -52, duration: 1000, opacity: 1 }}
 						class="absolute -top-6 left-0"

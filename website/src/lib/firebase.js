@@ -123,6 +123,6 @@ export let rc_eventTimestamp = writable('120');
 export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":{"twitter":"http://neil.rahmouni.dev/twitter","instagram":"http://neil.rahmouni.dev/instagram","gitlab":"http://neil.rahmouni.dev/gitlab","matrix":"http://neil.rahmouni.dev/matrix"}}'));
 export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"https://www.artstation.com/chadrixy","links":{"twitter":"https://twitter.com/chadrixy","instagram":null,"gitlab":null,"matrix":null}}'));
 export let rc_feedback_email = writable('co@rahmouni.dev');
-export let rc_footer = writable(JSON.parse('{"links":{"twitter":"#","gunivers":"#"}}'));
+export let rc_footer = writable(JSON.parse('{"links":{"twitter":"#","gunivers":"#","discordServer":"#"}}'));
 export let rc_aboutPage_article = writable('rc_aboutPage_article')
 export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-app')

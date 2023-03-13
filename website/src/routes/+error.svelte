@@ -70,7 +70,7 @@
 
 			textGeometry.translate(centerXOffset, centerYOffset, 0);
 			textMesh.position.x = 0;
-			textMesh.position.y = 50;
+			textMesh.position.y = 40;
 			textMesh.position.z = 0;
 
 			scene.add(textMesh);
@@ -83,6 +83,14 @@
 			mouseX = (event.clientX - window.innerWidth / 2) / window.innerWidth / 8;
 			mouseY = (event.clientY - window.innerHeight / 2) / window.innerHeight / 8;
 		});
+
+		let gyroscope = new Gyroscope({ frequency: 30 });
+
+		gyroscope.addEventListener('reading', (e) => {
+			mouseX = gyroscope.x
+			mouseY = gyroscope.y
+		});
+		gyroscope.start();
 
 		// Set up the render loop
 		const render = () => {
@@ -130,24 +138,24 @@
 					Page not found
 				</span>
 				<div class="h-24" />
-				<span
-					class="text-md font-semibold pt-8"
-					data-rahneiln3scroll
-					data-rahneiln3scroll-speed="2"
-				>
-					We couldn't find the page you're looking for!
-				</span>
-				<span class="text-md" data-rahneiln3scroll data-rahneiln3scroll-speed="2">
-					You can try again later, or go back to the home page.<br />
-					If you think it's a mistake, send us feedack :)
-				</span>
+				<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" class="pt-8 flex flex-col gap-2">
+					<span class="text-md font-semibold"> We couldn't find the page you're looking for! </span>
+					<span class="text-md">
+						You can try again later, or go back to the home page.<br />
+						If you think it's a mistake, send us feedack :)
+					</span>
+				</div>
 				<div class="flex flew-row gap-4">
 					<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.1">
 						<button
 							class="btn"
-							on:click={() => modal.open($modal, SendFeedbackModal, { origin: "" })}
-							>Send Feedback</button
+							on:click={() =>
+								modal.open($modal, SendFeedbackModal, {
+									origin: '1WyKFczLKm@RahNeil_N3:+error:404:banner:button'
+								})}
 						>
+							Send Feedback
+						</button>
 					</div>
 					<div
 						data-rahneiln3scroll
@@ -157,7 +165,6 @@
 						<a
 							class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
 							style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
-							on:click={() => alert('todo')}
 							href="/"
 						>
 							Go back Home

@@ -4,8 +4,11 @@
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
 
-	import { FontLoader, Font } from 'three/examples/jsm/loaders/FontLoader.js';
+	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+	import Icon from '$cmp/Icon.svelte';
+	import { modal } from '$lib/modals';
+	import SendFeedbackModal from '$cmp/modals/SendFeedbackModal.svelte';
 
 	/** @type {THREE.WebGLRenderer} */ let renderer;
 	/** @type {THREE.Scene} */ let scene;
@@ -67,7 +70,7 @@
 
 			textGeometry.translate(centerXOffset, centerYOffset, 0);
 			textMesh.position.x = 0;
-			textMesh.position.y = 0;
+			textMesh.position.y = 50;
 			textMesh.position.z = 0;
 
 			scene.add(textMesh);
@@ -115,13 +118,60 @@
 		class="hero bg-cover bg-center place-items-start"
 		style="background-image: url('banner/final.jpg')"
 	>
-		<div class="flex flex-col relative">
-			<div class="absolute w-screen hero-content text-center flex-col text-white max-w-none">
+		<div class="relative">
+			<div
+				class="absolute w-screen h-screen hero-content text-center flex-col text-white max-w-none z-10"
+			>
+				<span
+					class="uppercase text-lg font-semibold font-sans mt-4"
+					data-rahneiln3scroll
+					data-rahneiln3scroll-speed="2"
+				>
+					Page not found
+				</span>
+				<div class="h-24" />
+				<span
+					class="text-md font-semibold pt-8"
+					data-rahneiln3scroll
+					data-rahneiln3scroll-speed="2"
+				>
+					We couldn't find the page you're looking for!
+				</span>
+				<span class="text-md" data-rahneiln3scroll data-rahneiln3scroll-speed="2">
+					You can try again later, or go back to the home page.<br />
+					If you think it's a mistake, send us feedack :)
+				</span>
+				<div class="flex flew-row gap-4">
+					<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.1">
+						<button
+							class="btn"
+							on:click={() => modal.open($modal, SendFeedbackModal, { origin: "" })}
+							>Send Feedback</button
+						>
+					</div>
+					<div
+						data-rahneiln3scroll
+						data-rahneiln3scroll-speed="2"
+						data-rahneiln3scroll-delay="0.07"
+					>
+						<a
+							class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+							style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
+							on:click={() => alert('todo')}
+							href="/"
+						>
+							Go back Home
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="absolute w-screen">
 				<div
 					id="three-container"
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="2"
 					data-rahneiln3scroll-delay="0.1"
+					style="-webkit-transform:rotate(360deg)"
 				/>
 			</div>
 

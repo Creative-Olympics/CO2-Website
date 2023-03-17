@@ -41,6 +41,7 @@
 				class="btn btn-sm my-4 gap-2 btn-accent normal-case"
 				target="_blank"
 				href={$rc_neilRahmouni.main}
+				rel="noreferrer"
 			>
 				<svg class="w-5" viewBox="0 0 24 24">
 					<path
@@ -67,6 +68,7 @@
 			class="btn btn-sm my-4 gap-2 btn-accent normal-case"
 			target="_blank"
 			href={$rc_chadrixy.main}
+			rel="noreferrer"
 		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path

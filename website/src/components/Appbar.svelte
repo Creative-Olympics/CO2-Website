@@ -99,7 +99,7 @@
 						>
 							{#if userData && userData['isAdmin']}
 								<li>
-									<a href={$rc_adminApp_url} target="_blank">
+									<a href={$rc_adminApp_url} target="_blank" rel="noreferrer">
 										<Icon>admin_panel_settings</Icon>
 										Admin app
 									</a>

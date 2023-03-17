@@ -1,10 +1,22 @@
 <script>
-	export let links = { twitter: null, instagram: null, gitlab: null, matrix: null, gunivers: null, discordServer: null };
+	export let links = {
+		twitter: null,
+		instagram: null,
+		gitlab: null,
+		matrix: null,
+		gunivers: null,
+		discordServer: null
+	};
 </script>
 
 <div class="flex gap-3">
 	{#if links.matrix != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.matrix}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.matrix}
+			rel="noreferrer"
+		>
 			<svg class="w-5 h-5" viewBox="0 0 27.9 32">
 				<g transform="translate(-.095 .005)" fill="currentColor">
 					<path d="m27.1 31.2v-30.5h-2.19v-0.732h3.04v32h-3.04v-0.732z" />
@@ -17,7 +29,12 @@
 		</a>
 	{/if}
 	{#if links.twitter != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.twitter}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.twitter}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"
@@ -27,7 +44,12 @@
 		</a>
 	{/if}
 	{#if links.instagram != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.instagram}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.instagram}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"
@@ -37,7 +59,12 @@
 		</a>
 	{/if}
 	{#if links.gitlab != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gitlab}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.gitlab}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"
@@ -47,7 +74,12 @@
 		</a>
 	{/if}
 	{#if links.discordServer != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.discordServer}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.discordServer}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 -28.5 256 256">
 				<path
 					fill="currentColor"
@@ -57,7 +89,12 @@
 		</a>
 	{/if}
 	{#if links.gunivers != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gunivers}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.gunivers}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 440 440">
 				<g transform="matrix(1,0,0,1,-2250,-480)">
 					<g transform="matrix(1.15847,0,0,2.58098,2216.12,426.499)">

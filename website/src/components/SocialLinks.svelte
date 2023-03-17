@@ -44,7 +44,12 @@
 		</a>
 	{/if}
 	{#if links.instagram != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.instagram}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.instagram}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"

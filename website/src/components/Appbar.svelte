@@ -51,7 +51,7 @@
 								<img
 									src="banner/co.gif"
 									alt="Creative Olympics logo"
-									class="w-10"
+									class="w-10 h-10"
 									transition:fade
 								/>
 								<span out:fade={{ delay: 1000 }} class="whitespace-nowrap">Creative Olympics</span>
@@ -60,7 +60,7 @@
 					</div>
 				{:else}
 					<div in:fade={{ delay: 1000, duration: 0 }} class="absolute -top-6 left-0">
-						<a class="btn btn-ghost whitespace-nowrap normal-case" href="/">Creative Olympics</a>
+						<a class="btn btn-ghost whitespace-nowrap normal-case flex flex-row items-center gap-3" href="/">Creative Olympics</a>
 					</div>
 				{/if}
 			</div>

@@ -1,5 +1,12 @@
 <script>
-	export let links = { twitter: null, instagram: null, gitlab: null, matrix: null, gunivers: null, discordServer: null };
+	export let links = {
+		twitter: null,
+		instagram: null,
+		gitlab: null,
+		matrix: null,
+		gunivers: null,
+		discordServer: null
+	};
 </script>
 
 <div class="flex gap-3">
@@ -17,7 +24,12 @@
 		</a>
 	{/if}
 	{#if links.twitter != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.twitter}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.twitter}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"

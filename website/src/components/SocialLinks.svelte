@@ -59,7 +59,12 @@
 		</a>
 	{/if}
 	{#if links.gitlab != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gitlab} rel="noreferrer">
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.gitlab}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"
@@ -69,7 +74,12 @@
 		</a>
 	{/if}
 	{#if links.discordServer != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.discordServer}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.discordServer}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 -28.5 256 256">
 				<path
 					fill="currentColor"
@@ -79,7 +89,12 @@
 		</a>
 	{/if}
 	{#if links.gunivers != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gunivers}>
+		<a
+			class="btn btn-circle btn-sm btn-outline"
+			target="_blank"
+			href={links.gunivers}
+			rel="noreferrer"
+		>
 			<svg class="w-5" viewBox="0 0 440 440">
 				<g transform="matrix(1,0,0,1,-2250,-480)">
 					<g transform="matrix(1.15847,0,0,2.58098,2216.12,426.499)">

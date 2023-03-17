@@ -59,7 +59,7 @@
 		</a>
 	{/if}
 	{#if links.gitlab != null}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gitlab}>
+		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={links.gitlab} rel="noreferrer">
 			<svg class="w-5" viewBox="0 0 24 24">
 				<path
 					fill="currentColor"

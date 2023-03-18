@@ -6,7 +6,6 @@
 
 	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
-	import Icon from '$cmp/Icon.svelte';
 	import { modal } from '$lib/modals';
 	import SendFeedbackModal from '$cmp/modals/SendFeedbackModal.svelte';
 
@@ -84,13 +83,14 @@
 			mouseY = (event.clientY - window.innerHeight / 2) / window.innerHeight / 8;
 		});
 
-		let gyroscope = new Gyroscope({ frequency: 30 });
-
-		gyroscope.addEventListener('reading', (e) => {
-			mouseX = gyroscope.x
-			mouseY = gyroscope.y
-		});
-		gyroscope.start();
+		window.addEventListener(
+			'deviceorientation',
+			function (event) {
+				mouseY = (event.beta || 0)/180-.5;
+				mouseX = (event.alpha || 0)/180;
+			},
+			true
+		);
 
 		// Set up the render loop
 		const render = () => {

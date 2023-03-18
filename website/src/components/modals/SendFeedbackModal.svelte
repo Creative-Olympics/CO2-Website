@@ -32,7 +32,7 @@
 				category +
 				'&body=' +
 				'SCREEN: `' +
-				(location=="PREVIOUS"?origin:location) +
+				(location == 'PREVIOUS' ? origin : location) +
 				'`%0A%0ABROWSER: `' +
 				(sendBrowser ? navigator.userAgent : 'denied') +
 				'`%0A%0AWINDOW_SIZE: `' +
@@ -98,10 +98,12 @@
 		</div>
 	</div>
 
-	<div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
-		<input type="checkbox" />
+	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+	<!-- Here a tabindex=0 is necessary so the div can be focused -->
+	<div class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+		<input type="checkbox" tabindex="-1" />
 		<div class="collapse-title font-bold flex items-center">Additional info</div>
-		<div class="collapse-content flex flex-col gap-2">
+		<div class="collapse-content flex flex-col gap-2 focus-within:max-h-screen">
 			<SwitchTile
 				title="Browser"
 				icon="web"
@@ -152,7 +154,9 @@
 
 	<button
 		class="btn btn-block btn-primary gap-2 mt-4"
-		disabled={category == 'null' || (category == 'BUG' && location == 'null') || (category == 'FEATURE' && description == '')}
+		disabled={category == 'null' ||
+			(category == 'BUG' && location == 'null') ||
+			(category == 'FEATURE' && description == '')}
 		on:click={send}
 	>
 		Send

@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	import { SkinViewer, WalkingAnimation } from 'skinview3d';
+	import { SkinViewer } from 'skinview3d';
 	import { onMount } from 'svelte';
 	import { Vector3 } from 'three';
 

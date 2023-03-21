@@ -19,7 +19,7 @@
 			<img class="absolute bottom-0" src="banner/podiums.png" alt="Creative Olympics Podiums" />
 			<div class="absolute bottom-0" style="margin-bottom: 6rem">
 				{#if mounted}
-					<PlayerModel class="absolute bottom-0" />
+					<PlayerModel />
 				{/if}
 			</div>
 		</div>

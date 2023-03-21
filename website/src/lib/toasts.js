@@ -6,6 +6,7 @@ const TIMEOUT = 7500
  * @param {Number} [timeout]
  */
 function createToastStore(timeout) {
+    /** @type {import("svelte/store").Writable<any[]|any>} */
     const _toasts = writable([])
 
     /**
@@ -14,7 +15,7 @@ function createToastStore(timeout) {
      * @param {any} content
      * @param {object|null} props
      */
-    function send(message, type, content = null, props = null) {
+    function send(message, /** @type string|undefined */ type, content = null, props = null) {
         _toasts.update(state => {
             return [...state, { id: id(), type, message, content, props }]
         })

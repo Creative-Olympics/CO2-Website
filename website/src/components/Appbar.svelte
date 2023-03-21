@@ -83,6 +83,9 @@
 				{#if user}
 					<div class="dropdown dropdown-end ml-2">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>
+							<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+							<!-- Here we use a <label tabindex="0"> instead of a <button> because Safari has a bug that prevents the button from being focused. -->
+							<!-- Using tabindex="0" is required so the dropdown can be focused. -->
 							<label tabindex="0" class="btn btn-ghost btn-circle avatar" for="">
 								<div class="w-10 rounded-full">
 									<img
@@ -93,6 +96,9 @@
 								</div>
 							</label>
 						</div>
+						<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+						<!-- Here we use a <label tabindex="0"> instead of a <button> because Safari has a bug that prevents the button from being focused. -->
+						<!-- Using tabindex="0" is required so the dropdown can be focused. -->
 						<ul
 							tabindex="0"
 							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"

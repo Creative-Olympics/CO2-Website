@@ -1,7 +1,8 @@
 import { writable, derived } from "svelte/store"
 
 function createLogsStore() {
-    /** @type {any} */ const _logs = writable([])
+    /** @type {import("svelte/store").Writable<object[]>} */
+    const _logs = writable([])
 
     const logs2 = derived(_logs, ($_logs, set) => {
         set($_logs)

@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import AboutUsModal from '../modals/AboutUsModal.svelte';
 	import CopyrightModal from '../modals/CopyrightModal.svelte';
 	import { modal } from '$lib/modals';

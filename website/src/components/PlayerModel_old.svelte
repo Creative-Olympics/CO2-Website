@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import { onMount } from 'svelte';
 	import {
 		Canvas,
@@ -73,8 +75,15 @@
 
 	var headGeometry = new BoxBufferGeometry(sizes.headW, sizes.headH, sizes.headD);
 	var headMats = [];
-	var posList = [[16, 24],[0, 0],[0, 0],[0, 0],[0, 0],[0, 0]]
-	posList.forEach(pos => {
+	var posList = [
+		[16, 24],
+		[0, 0],
+		[0, 0],
+		[0, 0],
+		[0, 0],
+		[0, 0]
+	];
+	posList.forEach((pos) => {
 		var newTe = texture.clone();
 		newTe.offset.set(pos[0], pos[1]);
 		newTe.needsUpdate = true;

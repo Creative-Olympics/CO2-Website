@@ -10,7 +10,6 @@
 	import { logs } from '$lib/logs';
 	import Loader from '$cmp/Loader.svelte';
 	import { scrollInstance, showLogo } from '$lib/scroll';
-	import { toasts } from '$lib/toasts';
 
 	/** @type any **/ let viewport;
 
@@ -21,7 +20,7 @@
 			if ($page.route.id == '/') {
 				showLogo.set(false);
 
-				$scrollInstance.on('call', (signal) => {
+				$scrollInstance.on('call', (/** @type {string|object} */ signal) => {
 					if ($page.route.id == '/' && signal === 'appbar_showLogo') {
 						showLogo.update((t) => !t);
 					}
@@ -35,6 +34,7 @@
 	onMount(async () => {
 		getAnalytics(app);
 		
+		/** @type any */
 		const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
 		scrollInstance.set(

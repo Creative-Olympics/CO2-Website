@@ -1,6 +1,7 @@
 import { writable, derived } from "svelte/store"
 
 function createModalStore() {
+    /** @type {import("svelte/store").Writable<{content: any, props: any}|null>} */
     const _modal = writable(null)
 
     const modal2 = derived(_modal, ($_modal, set) => {
@@ -20,7 +21,7 @@ function createModalStore() {
         set,
         subscribe,
         close: () => set(null, {}),
-        open: (val, content, props={}) => {
+        open: (/** @type any */ val, /** @type any */ content, props = {}) => {
             if (val == null || val.content == null) {
                 set(content, props)
             } else {

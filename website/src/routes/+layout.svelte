@@ -20,7 +20,7 @@
 			if ($page.route.id == '/') {
 				showLogo.set(false);
 
-				$scrollInstance.on('call', (signal) => {
+				$scrollInstance.on('call', (/** @type {string|object} */ signal) => {
 					if ($page.route.id == '/' && signal === 'appbar_showLogo') {
 						showLogo.update((t) => !t);
 					}
@@ -34,6 +34,7 @@
 	onMount(async () => {
 		getAnalytics(app);
 		
+		/** @type any */
 		const LocomotiveScroll = (await import('locomotive-scroll')).default;
 
 		scrollInstance.set(

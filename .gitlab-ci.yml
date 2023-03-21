@@ -1,10 +1,11 @@
 image: node:latest
+before_script:
+  - cd website
+  - npm i -g firebase-tools
+  - npm install
 deploy:
   stage: deploy
   script:
-    - cd website
-    - npm i -g firebase-tools
-    - npm install
     - npm run build
     - cp -r static/* public/
     - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-co"
@@ -15,7 +16,7 @@ lint:
   stage: test
   script:
     - npm install -g svelte-check
-    - svelte-check website
+    - svelte-check .
 stages:
 - test
 - deploy

@@ -1,6 +1,4 @@
 image: node:latest
-before_script:
-
 deploy:
   stage: deploy-website
   script:

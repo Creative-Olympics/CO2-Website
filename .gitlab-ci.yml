@@ -1,6 +1,6 @@
 image: node:latest
 deploy:
-  stage: deploy-website
+  stage: deploy
   script:
     - cd website
     - npm i -g firebase-tools

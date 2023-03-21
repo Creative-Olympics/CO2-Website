@@ -55,7 +55,7 @@
 	];
 </script>
 
-{#if (!$bannerLoaded && $page.routeId == '') || !$loaderReady}
+{#if (!$bannerLoaded && $page.route.id == '/') || !$loaderReady}
 	<div
 		id="loader"
 		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20 bg-gradient-to-br"

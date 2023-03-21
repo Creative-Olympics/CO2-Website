@@ -1,21 +1,23 @@
 image: node:latest
 before_script:
-  - cd website
-  - npm i -g firebase-tools
-  - npm install
-deploy-functions:
+
+deploy:
   stage: deploy-website
   script:
+    - cd website
+    - npm i -g firebase-tools
+    - npm install
     - npm run build
     - cp -r static/* public/
     - firebase deploy --only hosting --token $FIREBASE_TOKEN -P "rahneil-n3-co"
   only:
     refs:
       - main
+lint:
+  stage: test
+  script:
+    - npm install -g svelte-check
+    - svelte-check website
 stages:
 - test
-- deploy-website
-sast:
-  stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
+- deploy

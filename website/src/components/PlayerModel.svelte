@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import { SkinViewer, WalkingAnimation } from 'skinview3d';
 	import { onMount } from 'svelte';
 	import { Vector3 } from 'three';
@@ -35,11 +37,11 @@
 		// Zoom out
 		skinViewer.zoom = 0.5;
 
-		skinViewer.camera.setRotationFromAxisAngle(new Vector3(.5,0,0), Math.PI/2)
-		skinViewer.camera.updateMatrix()
-		skinViewer.camera.updateMatrixWorld()
-		skinViewer.camera.updateProjectionMatrix()
-		skinViewer.playerWrapper.rotateY(-Math.PI/16)
+		skinViewer.camera.setRotationFromAxisAngle(new Vector3(0.5, 0, 0), Math.PI / 2);
+		skinViewer.camera.updateMatrix();
+		skinViewer.camera.updateMatrixWorld();
+		skinViewer.camera.updateProjectionMatrix();
+		skinViewer.playerWrapper.rotateY(-Math.PI / 16);
 		// Apply an animation
 		//skinViewer.animation = new WalkingAnimation();
 	});

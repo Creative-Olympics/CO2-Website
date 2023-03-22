@@ -6,7 +6,7 @@
 	import SocialLinks from '$cmp/SocialLinks.svelte';
 	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
 	import { credits } from '$lib/credit';
-	import SocialIcons from '$cmp/footer/SocialIcons.svelte';
+	import Icon from '$cmp/Icon.svelte';
 
 	//const credit = credits[0];
 </script>
@@ -35,7 +35,7 @@
 			class="btn btn-sm my-4 gap-2 btn-accent normal-case"
 			on:click={() => toasts.info('Portfolio available soon :)')}
 		>
-			<SocialIcons type={credits[0].link.type} />
+			<Icon type={credits[0].link.type} />
 			{credits[0].link.name}
 		</button>
 	</div>
@@ -61,7 +61,7 @@
 				rel="noreferrer"
 				target="_blank"
 			>
-				<SocialIcons type={credit.link.type} />
+				<Icon type={credit.link.type} />
 				{credit.link.name}
 			</a>
 		</div>

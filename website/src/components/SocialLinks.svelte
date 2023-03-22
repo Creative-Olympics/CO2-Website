@@ -1,5 +1,5 @@
 <script>
-	import SocialIcons from './footer/SocialIcons.svelte';
+	import Icon from './Icon.svelte';
 
 	export let links = {
 		twitter: null,
@@ -20,7 +20,7 @@
 			href={links.website}
 			rel="noreferrer"
 		>
-			<SocialIcons type="website" />
+			<Icon type="website" />
 		</a>
 	{/if}
 	{#if links.matrix != null}
@@ -30,7 +30,7 @@
 			href={links.matrix}
 			rel="noreferrer"
 		>
-			<SocialIcons type="matrix" />
+			<Icon type="matrix" />
 		</a>
 	{/if}
 	{#if links.twitter != null}
@@ -40,7 +40,7 @@
 			href={links.twitter}
 			rel="noreferrer"
 		>
-			<SocialIcons type="twitter" />
+			<Icon type="twitter" />
 		</a>
 	{/if}
 	{#if links.instagram != null}
@@ -50,7 +50,7 @@
 			href={links.instagram}
 			rel="noreferrer"
 		>
-			<SocialIcons type="instagram" />
+			<Icon type="instagram" />
 		</a>
 	{/if}
 	{#if links.gitlab != null}
@@ -60,7 +60,7 @@
 			href={links.gitlab}
 			rel="noreferrer"
 		>
-			<SocialIcons type="gitlab" />
+			<Icon type="gitlab" />
 		</a>
 	{/if}
 	{#if links.discordServer != null}
@@ -70,7 +70,7 @@
 			href={links.discordServer}
 			rel="noreferrer"
 		>
-			<SocialIcons type="discordServer" />
+			<Icon type="discordServer" />
 		</a>
 	{/if}
 	{#if links.gunivers != null}
@@ -80,7 +80,7 @@
 			href={links.gunivers}
 			rel="noreferrer"
 		>
-			<SocialIcons type="gunivers" />
+			<Icon type="gunivers" />
 		</a>
 	{/if}
 </div>

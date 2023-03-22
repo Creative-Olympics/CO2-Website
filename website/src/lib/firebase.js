@@ -40,6 +40,8 @@ isSupported().then((supported) => {
 				rc_footer.update((v) => JSON.parse(getValue(rc, 'footer').asString()) || v);
 				rc_aboutPage_article.update((v) => getValue(rc, 'aboutPage_article').asString() || v);
 				rc_adminApp_url.update((v) => getValue(rc, 'adminApp_url').asString() || v);
+				rc_adminIssueBoard_url.update((v) => getValue(rc, 'adminIssueBoard_url').asString() || v);
+				rc_adminCurrentSprint_url.update((v) => getValue(rc, 'adminCurrentSprint_url').asString() || v);
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})
@@ -126,3 +128,5 @@ export let rc_feedback_email = writable('co@rahmouni.dev');
 export let rc_footer = writable(JSON.parse('{"links":{"twitter":"#","gunivers":"#","discordServer":"#"}}'));
 export let rc_aboutPage_article = writable('rc_aboutPage_article')
 export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-app')
+export let rc_adminIssueBoard_url = writable('http://url.creative-olympics.org/board')
+export let rc_adminCurrentSprint_url = writable('http://url.creative-olympics.org/sprint')

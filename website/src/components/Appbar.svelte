@@ -3,7 +3,7 @@
 	import { doc, getDoc } from 'firebase/firestore';
 	import { fly, fade } from 'svelte/transition';
 
-	import { db, auth, rc_adminApp_url } from '$lib/firebase';
+	import { db, auth, rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from '$lib/firebase';
 	import { toasts } from '$lib/toasts';
 	import { showLogo } from '$lib/scroll';
 	import { modal } from '$lib/modals';
@@ -104,11 +104,29 @@
 							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"
 						>
 							{#if userData && userData['isAdmin']}
+								<li class="menu-title">
+									<span>Admin tools</span>
+								</li>
 								<li>
 									<a href={$rc_adminApp_url} target="_blank" rel="noreferrer">
 										<Icon>admin_panel_settings</Icon>
 										Admin app
 									</a>
+								</li>
+								<li>
+									<a href={$rc_adminIssueBoard_url} target="_blank" rel="noreferrer">
+										<Icon>style</Icon>
+										Issue board
+									</a>
+								</li>
+								<li>
+									<a href={$rc_adminCurrentSprint_url} target="_blank" rel="noreferrer">
+										<Icon>sprint</Icon>
+										Current sprint
+									</a>
+								</li>
+								<li class="menu-title">
+									<span>Others</span>
 								</li>
 							{/if}
 							<li>

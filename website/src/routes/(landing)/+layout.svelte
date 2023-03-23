@@ -14,6 +14,8 @@
 </svelte:head>
 
 <div data-rahneiln3scroll-section>
+	<slot/>
+
 	<Banner />
 
 	<EventDesc />

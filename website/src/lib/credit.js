@@ -29,3 +29,16 @@ export const credits = [
         }
     }
 ]
+
+export const us = [
+    {
+        name: 'Les Builders',
+        text: 'Lorem ipsum',
+        ids: [ 'Hello', 'World' ]
+    },
+    {
+        name: 'Les Développeurs',
+        text: 'Qui ont passé des nuits blanches a transformer de la caféine en ligne de code',
+        ids: [ 'Neil', 'TretinV3', 'Laizo' ]
+    }
+]

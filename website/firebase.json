@@ -12,6 +12,7 @@
         "destination": "/index.html"
       }
     ],
+    "cleanUrls": true,
     "headers": [
       {
         "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",

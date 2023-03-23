@@ -1,14 +1,9 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
 
 	import { loaderReady } from '$lib/loader';
 
 	export let loaded = true;
-
-	onMount(() => {
-		mounted = true;
-	});
 </script>
 
 	<div

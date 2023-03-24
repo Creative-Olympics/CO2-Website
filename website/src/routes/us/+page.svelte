@@ -108,20 +108,32 @@
 		>
 			<article class="prose py-20 px-10 prose-h1:text-center">
 				{#each us as part}
-				<div class="mb-10">
-					<h1>{part.name}</h1>
-					<p class="text-center">{part.text}</p>
+					<div class="mb-10">
+						<h1>{part.name}</h1>
+						<p class="text-center">{part.text}</p>
 
-					<div class="grid grid-cols-3">
-						{#each part.ids as player}
-								<div class={'flex items-center justify-center align-middle flex-col'}>
-									<picture class={`flex overflow-hidden aspect-square w-20 h-20 mx-2`}>
-										<img src={`https://mc-heads.net/head/${player}`} alt={player} class="w-full h-full m-0"/>
-									</picture>
-									<span class="font-heading">{player}</span>
-								</div>
-						{/each}
-					</div>
+						<div class="flex flex-row justify-around items-center">
+							{#each part.ids as player}
+								<button class="bg-none group w-20 h-20">
+									<div
+										class="relative top-0 left-0 w-full h-full preserve-3d transition group-hover:my-rotate-y-180 duration-500"
+									>
+										<div class="absolute w-full h-full overflow-hidden backface-hidden">
+											<img
+												src={`https://mc-heads.net/head/${player}`}
+												alt={player}
+												class="w-full h-full m-0"
+											/>
+										</div>
+										<div
+											class="absolute w-full h-full overflow-hidden backface-hidden my-rotate-y-180 rounded-xl bg-opacity-60 bg-primary flex items-center justify-center"
+										>
+											<p class="text-xl font-heading">{player}</p>
+										</div>
+									</div>
+								</button>
+							{/each}
+						</div>
 					</div>
 				{/each}
 
@@ -129,55 +141,48 @@
 					<h1>Et vous</h1>
 					<p class="text-center">Grace a vos dons, a votre participation et votre engoument</p>
 
-					<div class="grid grid-cols-3">
-						
-						<div class={'flex items-center justify-center align-middle flex-col'}>
-							<picture class={`flex rounded-full overflow-hidden aspect-square w-20 h-20 mx-2`}>
-								<img src={`https://mc-heads.net/head/donator`} alt={'donator'} class="w-full h-full m-0"/>
-							</picture>
-							<span class="font-heading">donator</span>
-						</div>
-						<div class={'flex items-center justify-center align-middle flex-col'}>
-							<picture class={`flex rounded-full overflow-hidden aspect-square w-20 h-20 mx-2`}>
-								<img src={`https://mc-heads.net/head/donator1`} alt={'donator1'} class="w-full h-full m-0"/>
-							</picture>
-							<span class="font-heading">donator1</span>
-						</div>
-						<div class={'flex items-center justify-center align-middle flex-col'}>
-							<picture class={`flex rounded-full overflow-hidden aspect-square w-20 h-20 mx-2`}>
-								<img src={`https://mc-heads.net/head/random`} alt={'random'} class="w-full h-full m-0"/>
-							</picture>
-							<span class="font-heading">random</span>
-						</div>
-						
+					<div class="flex flex-col">
+						{#each ['donator', 'donator1', 'random'] as donator}
+							<div class="bg-none group w-20 h-20">
+								<div
+									class="relative top-0 left-0 w-full h-full preserve-3d transition group-hover:my-rotate-y-180 duration-500"
+								>
+									<div class="absolute w-full h-full overflow-hidden backface-hidden">
+										<img
+											src={`https://mc-heads.net/head/${donator}`}
+											alt={donator}
+											class="w-full h-full m-0"
+										/>
+									</div>
+									<div
+										class="absolute w-full h-full overflow-hidden backface-hidden my-rotate-y-180 rounded-xl bg-opacity-60 bg-primary flex items-center justify-center"
+									>
+										<p class="text-xl font-heading">{donator}</p>
+									</div>
+								</div>
+							</div>
+						{/each}
 					</div>
 
-					<p class="text-center">Et à eux, tous précisement, toi, vous, elle, ceux-là encore. </p>
+					<p class="text-center">Et à eux, tous précisement, toi, vous, elle, ceux-là encore.</p>
 
 					<div class="flex flew-row gap-4 justify-center">
-						<div
-						>
-								<button
-									class="btn"
-									in:fade={{ delay: 1800 }}
-									out:fade={{ duration: 1500 }}
-								>
-									Donation list
-					</button>
+						<div>
+							<button class="btn" in:fade={{ delay: 1800 }} out:fade={{ duration: 1500 }}>
+								Donation list
+							</button>
 						</div>
-						<div
-						>
-								<button
-									class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
-									style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
-									in:fade={{ delay: 2050 }}
-									out:fade={{ duration: 1500 }}
-								>
-									Make a donation too
-								</button>
+						<div>
+							<button
+								class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+								style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
+								in:fade={{ delay: 2050 }}
+								out:fade={{ duration: 1500 }}
+							>
+								Make a donation too
+							</button>
 						</div>
 					</div>
-					
 				</div>
 			</article>
 		</div>

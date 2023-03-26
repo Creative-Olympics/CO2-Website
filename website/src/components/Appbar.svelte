@@ -132,7 +132,7 @@
 							<li>
 								<button on:click={authSignOut}>
 									<Icon>logout</Icon>
-									Logout
+									Sign out
 								</button>
 							</li>
 						</ul>

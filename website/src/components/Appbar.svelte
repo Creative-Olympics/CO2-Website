@@ -37,7 +37,7 @@
 		<!-- p-2 -->
 		<div
 			class="px-4 navbar glass {$showLogo &&
-				'bg-white shadow-md hover:bg-white hover:shadow-md'} transition-all duration-500 text-gray-800"
+				'bg-base-100 shadow-md hover:bg-base-100 hover:shadow-md'} transition-all duration-500"
 		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">
@@ -101,7 +101,7 @@
 						<!-- Using tabindex="0" is required so the dropdown can be focused. -->
 						<ul
 							tabindex="0"
-							class="p-2 mt-3 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"
+							class="p-2 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"
 						>
 							{#if userData && userData['isAdmin']}
 								<li class="menu-title">

@@ -55,11 +55,11 @@
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
 <div class="flex flex-col mt-4 gap-2">
 	<!-- Category Tile -->
-	<SelectTile title="Category" bind:value={category}>
-		<option value="BUG">Bug report</option>
-		<option value="FEATURE">Feature request</option>
-		<option value="TRANSLATION">Translation error</option>
-	</SelectTile>
+	<SelectTile
+		title="Category"
+		bind:value={category}
+		options={{ BUG: 'Bug report', FEATURE: 'Feature request', TRANSLATION: 'Translation error' }}
+	/>
 
 	<!-- Location Tile -->
 	<SelectTile

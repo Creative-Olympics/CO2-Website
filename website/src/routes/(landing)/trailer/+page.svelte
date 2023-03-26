@@ -15,9 +15,11 @@
 	in:fade={{ duration: 1000, delay: 1000 }}
 	out:fade={{ duration: 1000 }}
 >
-	<YouTube
-		videoId="2g811Eo7K8U"
-		options={{ width: '100%', height: '100%', playerVars: { autoplay: 1 } }}
-		class="relative w-screen h-screen"
-	/>
+	{#if $loaderReady && loaded}
+		<YouTube
+			videoId="2g811Eo7K8U"
+			options={{ width: '100%', height: '100%', playerVars: { autoplay: 1 } }}
+			class="relative w-screen h-screen"
+		/>
+	{/if}
 </div>

@@ -67,12 +67,13 @@
 		icon="web_asset"
 		bind:value={location}
 		disabled={category != 'BUG' && category != 'TRANSLATION'}
-	>
-		<option value="PREVIOUS">Previous screen</option>
-		<option>Other screen</option>
-		<option>Widget</option>
-		<option>Notification</option>
-	</SelectTile>
+		options={{
+			PREVIOUS: 'Previous screen',
+			OTHER_SCREEN: 'Other screen',
+			WIDGET: 'Widget',
+			NOTIFICATION: 'Notification'
+		}}
+	/>
 
 	<div class="form-control gap-1">
 		<textarea

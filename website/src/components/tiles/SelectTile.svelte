@@ -22,8 +22,8 @@
 	>
 		<div class="flex flex-row gap-2 items-center pr-3">
 			<Icon>{icon}</Icon>
-			<div class="ml-4 flex flex-col">
-				<span class="label-text font-semibold text-left">{title}</span>
+			<div class="ml-4 flex flex-col text-left">
+				<span class="label-text font-semibold">{title}</span>
 				<span class="label-text" style="padding-top:0.1rem;font-size: 0.82rem;line-height:1rem">
 					{value == 'null' ? placeholder : options[value]}
 				</span>

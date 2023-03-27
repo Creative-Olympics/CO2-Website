@@ -9,7 +9,10 @@
 	export let onChange = () => {};
 </script>
 
-<div class="form-control w-full rounded-lg transition-all {disabled && 'opacity-50 bg-base-300'}">
+<div
+	class="form-control w-full rounded-lg transition-all hover:bg-base-200 {disabled &&
+		'opacity-50 bg-base-200'}"
+>
 	<label class="label px-3 min-h-12 {disabled ? 'cursor-not-allowed' : 'cursor-pointer'}">
 		<div class="flex flex-row gap-2 items-center pr-3">
 			<Icon>{icon}</Icon>

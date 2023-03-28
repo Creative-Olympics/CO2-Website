@@ -42,6 +42,7 @@ isSupported().then((supported) => {
 				rc_adminApp_url.update((v) => getValue(rc, 'adminApp_url').asString() || v);
 				rc_adminIssueBoard_url.update((v) => getValue(rc, 'adminIssueBoard_url').asString() || v);
 				rc_adminCurrentSprint_url.update((v) => getValue(rc, 'adminCurrentSprint_url').asString() || v);
+				rc_trailer_ytbID.update((v) => getValue(rc, 'trailer_ytbID').asString() || v);
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})
@@ -130,3 +131,4 @@ export let rc_aboutPage_article = writable('rc_aboutPage_article')
 export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-app')
 export let rc_adminIssueBoard_url = writable('http://url.creative-olympics.org/board')
 export let rc_adminCurrentSprint_url = writable('http://url.creative-olympics.org/sprint')
+export let rc_trailer_ytbID = writable('2g811Eo7K8U')

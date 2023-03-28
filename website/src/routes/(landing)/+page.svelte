@@ -10,10 +10,10 @@
 	let watchTrailer = () => {
 		$scrollInstance?.scrollTo('top', {
 			callback: function () {
-				//goto('trailer');
+				$scrollInstance.update();
 			}
 		});
-        goto('trailer');
+		goto('trailer');
 	};
 </script>
 
@@ -23,17 +23,25 @@
 			<img
 				in:fly={{ delay: 1000, y: -450, duration: 900 }}
 				out:fade={{ duration: 750 }}
+				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
+				on:introend={() => $scrollInstance.update()}
 				src="banner/animated_logo.gif"
 				alt="CO logo"
-				class="w-80"
+				class="w-80 h-80 -mb-6"
 			/>
 		{/if}
 	</div>
 
-	<div class="flex flew-row gap-4">
+	<div class="flex flew-row gap-4 h-12">
 		<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.1">
 			{#if loaded && $loaderReady}
-				<a class="btn" in:fade={{ delay: 1800 }} out:fade={{ duration: 1000 }} href="about">
+				<a
+					class="btn"
+					in:fade={{ delay: 1800 }}
+					out:fade={{ duration: 1000 }}
+					on:introend={() => $scrollInstance.update()}
+					href="about"
+				>
 					Learn about us
 				</a>
 			{/if}
@@ -46,6 +54,7 @@
 					in:fade={{ delay: 2050 }}
 					out:fade={{ duration: 1000 }}
 					on:click={watchTrailer}
+					on:introend={() => $scrollInstance.update()}
 				>
 					Watch Trailer
 				</button>

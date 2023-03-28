@@ -3,7 +3,13 @@
 	import { doc, getDoc } from 'firebase/firestore';
 	import { fly, fade } from 'svelte/transition';
 
-	import { db, auth, rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from '$lib/firebase';
+	import {
+		db,
+		auth,
+		rc_adminApp_url,
+		rc_adminIssueBoard_url,
+		rc_adminCurrentSprint_url
+	} from '$lib/firebase';
 	import { toasts } from '$lib/toasts';
 	import { showLogo } from '$lib/scroll';
 	import { modal } from '$lib/modals';

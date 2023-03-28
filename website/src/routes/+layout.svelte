@@ -10,7 +10,6 @@
 	import { logs } from '$lib/logs';
 	import Loader from '$cmp/Loader.svelte';
 	import { scrollInstance, showLogo } from '$lib/scroll';
-	import { toasts } from '$lib/toasts';
 
 	/** @type any **/ let viewport;
 
@@ -18,9 +17,8 @@
 		logs.add({ msg: 'Page location changed', route: $page.route, url: $page.url.href }, 'info');
 		if ($scrollInstance) {
 			$scrollInstance.update()
-			if ($page.route.id == '/') {
-				showLogo.set(false);
-
+			showLogo.set(!$page.route.id?.startsWith('/(landing)') && true);
+			if ($page.route.id == '/(landing)') {
 				$scrollInstance.on('call', (/** @type {string|object} */ signal) => {
 					if ($page.route.id == '/' && signal === 'appbar_showLogo') {
 						showLogo.update((t) => !t);

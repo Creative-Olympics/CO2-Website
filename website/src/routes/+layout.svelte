@@ -10,8 +10,12 @@
 	import { logs } from '$lib/logs';
 	import Loader from '$cmp/Loader.svelte';
 	import { scrollInstance, showLogo } from '$lib/scroll';
+	import { toasts } from '$lib/toasts';
 
 	/** @type any **/ let viewport;
+
+	toasts.info("Test loooooooong")
+	toasts.warning("short")
 
 	const locationChange = () => {
 		logs.add({ msg: 'Page location changed', route: $page.route, url: $page.url.href }, 'info');

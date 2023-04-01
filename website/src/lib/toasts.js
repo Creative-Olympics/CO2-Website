@@ -27,10 +27,10 @@ function createToastStore(timeout) {
         set($_toasts)
         if ($_toasts.length > 0) {
             const timer = setTimeout(() => {
-                /*_toasts.update(state => {
+                _toasts.update(state => {
                     state.shift()
                     return state
-                })*/
+                })
             }, TIMEOUT)
             return () => {
                 clearTimeout(timer)

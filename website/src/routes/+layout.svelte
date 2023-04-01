@@ -14,9 +14,6 @@
 
 	/** @type any **/ let viewport;
 
-	toasts.info("Test loooooooong")
-	toasts.warning("short")
-
 	const locationChange = () => {
 		logs.add({ msg: 'Page location changed', route: $page.route, url: $page.url.href }, 'info');
 		if ($scrollInstance) {

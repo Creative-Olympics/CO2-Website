@@ -10,7 +10,6 @@
 	import { logs } from '$lib/logs';
 	import Loader from '$cmp/Loader.svelte';
 	import { scrollInstance, showLogo } from '$lib/scroll';
-	import { toasts } from '$lib/toasts';
 
 	/** @type any **/ let viewport;
 

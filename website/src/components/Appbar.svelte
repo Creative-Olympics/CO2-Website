@@ -86,8 +86,9 @@
 						<Icon>volunteer_activism</Icon>
 					</button>
 				{/if}
+				<div class="ml-2">
 				{#if user}
-					<div class="dropdown dropdown-end ml-2">
+					<div class="dropdown dropdown-end">
 						<div class="tooltip tooltip-left" data-tip={user.displayName}>
 							<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 							<!-- Here we use a <label tabindex="0"> instead of a <button> because Safari has a bug that prevents the button from being focused. -->
@@ -154,6 +155,7 @@
 						<span>Login</span>
 					</button>
 				{/if}
+			</div>
 			</div>
 		</div>
 	</div>

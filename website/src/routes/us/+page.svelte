@@ -4,8 +4,10 @@
 
 	import FooterContent from '$cmp/footer/FooterContent.svelte';
 	import MediaQuery from '$cmp/MediaQuery.svelte';
+	import UserInfoModal from '$cmp/modals/UserInfoModal.svelte';
 
 	import { us } from '$lib/credit';
+	import { modal } from '$lib/modals';
 	import { fade } from 'svelte/transition';
 </script>
 
@@ -114,7 +116,7 @@
 
 						<div class="flex flex-row justify-around items-center">
 							{#each part.ids as player}
-								<button class="bg-none group w-20 h-20">
+								<button class="bg-none group w-20 h-20" on:click={() => {modal.open($modal, UserInfoModal); console.log('hello')}}>
 									<div
 										class="relative top-0 left-0 w-full h-full preserve-3d transition group-hover:my-rotate-y-180 duration-500"
 									>
@@ -141,7 +143,7 @@
 					<h1>Et vous</h1>
 					<p class="text-center">Grace a vos dons, a votre participation et votre engoument</p>
 
-					<div class="flex flex-col">
+					<div class="flex flex-row justify-around items-center">
 						{#each ['donator', 'donator1', 'random'] as donator}
 							<div class="bg-none group w-20 h-20">
 								<div

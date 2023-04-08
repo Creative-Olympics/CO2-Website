@@ -3,6 +3,7 @@
 export const credits = [
     {
         name: 'Neïl Rahmouni',
+        id: 'neil',
         image: 'banner/neil_rahmouni.jpg',
         fonctions: ['Full stack developer', 'UI/UX Designer'],
         contact: {
@@ -19,6 +20,7 @@ export const credits = [
     },
     {
         name: 'Chadrixy',
+        id: 'chadrixy',
         image: 'banner/chadrixy.png',
         fonctions: ['Graphic designer & Artist', '3D Designer'],
         contact: { twitter: 'http://url.creative-olympics.org/chadrixy_twitter' },
@@ -34,11 +36,11 @@ export const us = [
     {
         name: 'Les Builders',
         text: 'Lorem ipsum',
-        ids: [ 'Hello', 'World' ]
+        ids: [ 'chadrixy', 'World' ]
     },
     {
         name: 'Les Développeurs',
         text: 'Qui ont passé des nuits blanches a transformer de la caféine en ligne de code',
-        ids: [ 'Neil', 'TretinV3', 'Laizo' ]
+        ids: [ 'neil', 'tretinV3', 'laizo' ]
     }
 ]

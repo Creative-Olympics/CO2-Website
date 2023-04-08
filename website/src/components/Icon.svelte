@@ -1,13 +1,10 @@
 <script>
 	export let spanClass = '';
 	export let spanStyle = '';
-	export let type = '';
+	export let type = 'website';
 </script>
 
 {#if type != ''}
-	<script>
-		export let type = 'website';
-	</script>
 
 	{#if type == 'website'}
 		<svg class="w-5" viewBox="0 0 24 24">

@@ -6,6 +6,7 @@ website/.svelte-kit
 website/package
 website/.env
 website/.env.*
+website/credential.json
 website/!.env.example
 android-admin/*.iml
 android-admin/.gradle

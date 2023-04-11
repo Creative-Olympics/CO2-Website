@@ -5,8 +5,17 @@
 	import { bannerLoaded, loaderReady } from '$lib/loader';
 	import { page } from '$app/stores';
 
+	/** @type {boolean} */
+	export const indefinitely = $page.route.id?.split('/').includes('(infiniteLoading)') || false;
+
+	console.log();
+
 	let step = 0;
 	onMount(() => {
+		anim();
+	});
+
+	function anim(){
 		setTimeout(() => {
 			step = 1;
 		}, 10);
@@ -15,9 +24,14 @@
 		}, 400);
 		setTimeout(() => {
 			step = 3;
-			loaderReady.set(true);
+			
+			if(!indefinitely){
+				loaderReady.set(true);
+			}else{
+				anim()
+			}
 		}, 2000);
-	});
+	}
 
 	let pathsBlocks = [
 		[

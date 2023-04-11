@@ -1,13 +1,14 @@
-import { adminApp } from '$lib/fireadmin';
+import { adminApp } from '$lib/server/fireadmin';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { json } from '@sveltejs/kit'
 import { setDoc } from 'firebase/firestore';
+import { env } from '$env/dynamic/private';
 
-const DISCORD_CLIENT_ID = import.meta.env.VITE_DISCORD_CLIENT_ID;
-const DISCORD_CLIENT_SECRET = import.meta.env.VITE_DISCORD_CLIENT_SECRET;
-const DISCORD_REDIRECT_URI = import.meta.env.VITE_DISCORD_REDIRECT_URI;
-const DISCORD_API_URL = import.meta.env.VITE_DISCORD_API_URL;
+const DISCORD_CLIENT_ID = env.DISCORD_CLIENT_ID;
+const DISCORD_CLIENT_SECRET = env.DISCORD_CLIENT_SECRET;
+const DISCORD_REDIRECT_URI = env.DISCORD_REDIRECT_URI;
+const DISCORD_API_URL = env.DISCORD_API_URL;
 
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
@@ -62,22 +63,19 @@ export async function GET(event) {
     const responseUserInfo = await requestUserInfo.json();
     //console.log(responseUserInfo)
 
+    /** @type {any} */
     let userInfo = {};
 
-    if (responseUserInfo.id) {
+    if (responseUserInfo.id && responseUserInfo.verified) {
         userInfo = responseUserInfo
 
         //console.log(userInfo);
 
-        // @ts-ignore
         let userId = userInfo.id;
 
         const additionalClaims = {
-            // @ts-ignore
             email: userInfo.email,
-            // @ts-ignore
             displayName: userInfo.username,
-            // @ts-ignore
             photoURL: `https://cdn.discordapp.com/avatars/${userId}/${userInfo.avatar}.png`,
         };
 
@@ -86,7 +84,9 @@ export async function GET(event) {
             existingUser = await adminApp.auth().getUserByEmail(additionalClaims.email);
         } catch (e) { }
 
+        //console.log(existingUser)
         if (!existingUser) {
+            //console.log('dont exist')
             await adminApp.auth().createUser({
                 uid: userId,
                 ...additionalClaims,
@@ -96,16 +96,29 @@ export async function GET(event) {
                     ...additionalClaims
                 }
             })
+
+            const userRef = getFirestore(adminApp).collection('users').doc(userId);
+
+            await userRef.set({
+                'discord': userInfo.id
+            });
         } else {
+            //console.log('exist')
+
             userId = existingUser.uid;
 
 
             const userRef = getFirestore(adminApp).collection('users').doc(userId);
 
-            await userRef.update({
-                //@ts-ignore
-                'discord': userInfo.id
-            });
+            try {
+                await userRef.update({
+                    'discord': userInfo.id
+                });
+            } catch (e) {
+                await userRef.set({
+                    'discord': userInfo.id
+                });
+            }
 
 
             // await adminApp.auth().updateUser(userId, {

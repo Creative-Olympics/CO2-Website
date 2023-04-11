@@ -3,9 +3,18 @@
 	import { page } from '$app/stores';
 	import { auth } from '$lib/firebase';
 	import { signInWithCustomToken } from 'firebase/auth';
+	import Loader from '$cmp/Loader.svelte';
 
 	onMount(async () => {
+		const url = new URL(window.location.toString());
+
 		const code = $page.url.searchParams.get('code');
+
+		if (code) {
+			url.searchParams.delete('code');
+		}
+
+		history.replaceState({}, '', url);
 
 		const request = await fetch(`/api/discord/token?code=${code}`);
 		console.log(request);
@@ -32,5 +41,3 @@
 			});
 	});
 </script>
-
-Loading

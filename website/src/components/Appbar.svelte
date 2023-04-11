@@ -55,7 +55,7 @@
 						<a class="btn btn-ghost normal-case" href="/">
 							<div class="flex flex-row items-center gap-3">
 								<img
-									src="banner/co.gif"
+									src="/banner/co.gif"
 									alt="Creative Olympics logo"
 									class="w-10"
 									transition:fade

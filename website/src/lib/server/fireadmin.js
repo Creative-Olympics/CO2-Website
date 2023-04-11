@@ -1,5 +1,5 @@
 import { credential, initializeApp } from 'firebase-admin';
-import * as keyDoNotShare from '../../credential.json'
+import * as keyDoNotShare from '../../../credential.json'
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD8HzripA_M0tkPAZVRd6Rzyxt6Gd052Ls',

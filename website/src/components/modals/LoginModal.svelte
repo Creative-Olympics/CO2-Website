@@ -21,16 +21,16 @@
 	function loginDiscord() {
 		discordLogged = true;
 		window.open('/api/discord/auth', undefined, 'popup,width=500,height=800');
-
-		onAuthStateChanged(auth, (u) => {
-			console.log(!!(discordLogged && u));
-			if (u && discordLogged) {
-				toasts.success("You've been successfully logged in!");
-				modal.close();
-				discordLogged = false;
-			}
-		});
 	}
+
+	onAuthStateChanged(auth, (u) => {
+		console.log(!!(discordLogged && u));
+		if (u && discordLogged) {
+			toasts.success("You've been successfully logged in!");
+			modal.close();
+			discordLogged = false;
+		}
+	});
 </script>
 
 <div class="absolute top-2 right-2">

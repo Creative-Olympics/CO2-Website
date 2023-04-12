@@ -18,14 +18,35 @@
 
 	let discordLogged = false;
 
+
+	/**
+	 * @type {NodeJS.Timer}
+	 */
+	let errorChangeLoop;
+
 	function loginDiscord() {
 		discordLogged = true;
 		window.open('/api/discord/auth', undefined, 'popup,width=500,height=800');
+
+		errorChangeLoop = setInterval(() => {
+			const isError = localStorage.getItem('discord_error');
+			if(isError) {
+				clearInterval(errorChangeLoop);
+				localStorage.removeItem('discord_error');
+
+				toasts.error(`${isError} (during discord authentification)`);
+			}
+		}, 500)
+		
 	}
+
+	
 
 	onAuthStateChanged(auth, (u) => {
 		console.log(!!(discordLogged && u));
 		if (u && discordLogged) {
+			clearInterval(errorChangeLoop);
+
 			toasts.success("You've been successfully logged in!");
 			modal.close();
 			discordLogged = false;

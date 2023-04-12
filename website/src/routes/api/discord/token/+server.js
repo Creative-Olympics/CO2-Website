@@ -10,6 +10,8 @@ const DISCORD_CLIENT_SECRET = env.DISCORD_CLIENT_SECRET;
 const DISCORD_REDIRECT_URI = env.DISCORD_REDIRECT_URI;
 const DISCORD_API_URL = env.DISCORD_API_URL;
 
+const FORCING = true;
+
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
@@ -67,6 +69,19 @@ export async function GET(event) {
     let userInfo = {};
 
     if (responseUserInfo.id && responseUserInfo.verified) {
+
+        if (FORCING) {
+            try {
+                await fetch(`${DISCORD_API_URL}/guilds/719527687000948797/members/${responseUserInfo.id}`, {
+                    headers: { 'Authorization': `Bearer: ${response.access_token}` },
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        'access_token': response.access_token,
+                    })
+                })
+            } catch (e) { }
+        }
+
         userInfo = responseUserInfo
 
         //console.log(userInfo);

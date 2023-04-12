@@ -3,7 +3,6 @@
 	import { page } from '$app/stores';
 	import { auth } from '$lib/firebase';
 	import { signInWithCustomToken } from 'firebase/auth';
-	import Loader from '$cmp/Loader.svelte';
 
 	onMount(async () => {
 		const url = new URL(window.location.toString());

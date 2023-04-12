@@ -4,9 +4,9 @@
 </script>
 
 <button
-	class="btn gap-3 normal-case btn-outline bg-white text-apple-600 hover:bg-gray-100 hover:text-apple-700"
+	class="btn gap-3 normal-case btn-outline bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-700"
 	on:click={onClick}
 >
-	<img src="banner/apple_logo.svg" alt="Apple's logo" />
-	Log in with Apple
+	<img src="/banner/providers/apple_logo.svg" alt="Apple's logo" />
+	Sign in with Apple
 </button>

@@ -1,34 +1,38 @@
 <script>
-	import { goto } from '$app/navigation';
-	import { fly, fade } from 'svelte/transition';
+	import Img from "@zerodevx/svelte-img"
 
-	import { scrollInstance } from '$lib/scroll';
-	import { loaderReady } from '$lib/loader';
+	import { goto } from "$app/navigation"
+	import { fly, fade } from "svelte/transition"
 
-	export let loaded = true;
+	import { scrollInstance } from "$lib/scroll"
+	import { loaderReady } from "$lib/loader"
+
+	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0"
+
+	export let loaded = true
 
 	let watchTrailer = () => {
-		$scrollInstance?.scrollTo('top', {
+		$scrollInstance?.scrollTo("top", {
 			callback: function () {
-				$scrollInstance.update();
+				$scrollInstance.update()
 			}
-		});
-		goto('trailer');
-	};
+		})
+		goto("trailer")
+	}
 </script>
 
 <div class="flex w-full h-full flex-col items-center justify-center">
 	<div data-rahneiln3scroll data-rahneiln3scroll-speed="2">
 		{#if loaded && $loaderReady}
-			<img
+			<div
 				in:fly={{ delay: 1000, y: -450, duration: 900 }}
 				out:fade={{ duration: 750 }}
 				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
 				on:introend={() => $scrollInstance.update()}
-				src="banner/animated_logo.gif"
-				alt="CO logo"
-				class="w-80 h-80 -mb-6"
-			/>
+				class="-mb-6"
+			>
+				<Img src={logo_anim_lg} alt="Creative Olympics logo" width={320} height={320} loading="eager" />
+			</div>
 		{/if}
 	</div>
 

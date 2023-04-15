@@ -33,10 +33,11 @@
 	onMount(() => {
 		let animatedLogo = new Image();
 		animatedLogo.onload = () => {
-			anLogoPreloaded = true;
-			checkPreload();
+			
 		};
-		animatedLogo.src = 'banner/animated_logo.gif';
+		anLogoPreloaded = true;
+		checkPreload();
+		//animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true;
 
 		isOnIOS = [

@@ -1,20 +1,28 @@
 <script>
 	// @ts-nocheck
+	import Img from "@zerodevx/svelte-img"
 
-	import AboutUsModal from '../modals/AboutUsModal.svelte';
-	import CopyrightModal from '../modals/CopyrightModal.svelte';
-	import { modal } from '$lib/modals';
-	import Icon from '$cmp/Icon.svelte';
-	import SocialLinks from '$cmp/SocialLinks.svelte';
-	import { rc_footer } from '$lib/firebase';
+	import AboutUsModal from "../modals/AboutUsModal.svelte"
+	import CopyrightModal from "../modals/CopyrightModal.svelte"
+	import { modal } from "$lib/modals"
+	import Icon from "$cmp/Icon.svelte"
+	import SocialLinks from "$cmp/SocialLinks.svelte"
+	import { rc_footer } from "$lib/firebase"
+
+	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0"
+	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
-			<img src="banner/co.gif" class="h-20 swap-off" alt="Creative Olympics" />
-			<img src="banner/turtle.png" class="h-20 swap-on" alt="Creative Olympics's Turtle" />
+			<div class="swap-off">
+				<Img src={logo_anim_sm} alt="Creative Olympics logo" width={80} height={80} />
+			</div>
+			<div class="swap-on">
+				<Img src={turtle} alt="Turtle <3" width={80} height={80} />
+			</div>
 		</label>
 		<div class="flex flex-col mt-4 gap-2">
 			<span class="font-semibold">Creative Olympics</span>

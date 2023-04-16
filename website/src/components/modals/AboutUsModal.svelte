@@ -39,7 +39,7 @@
 				href={$rc_neilRahmouni.main}
 				rel="noreferrer"
 			>
-				<Icon spanClass="w-5">language</Icon>
+				<Icon>language</Icon>
 				Portfolio
 			</a>
 		{/if}
@@ -61,7 +61,7 @@
 			href={$rc_chadrixy.main}
 			rel="noreferrer"
 		>
-			<Icon icon="artstation" spanClass="w-5"/>
+			<Icon class="w-5">artstation</Icon>
 			ArtStation
 		</a>
 	</div>

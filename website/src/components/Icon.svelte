@@ -29,7 +29,7 @@
 			<path d="m0.936 0.732v30.5h2.19v0.732h-3.04v-32h3.03v0.732z" />
 		</g>
 	</svg>
-{:else if slotObj && slotObj.textContent == "matrix"}
+{:else if slotObj && slotObj.textContent == "twitter"}
 	<svg class={className} {style} viewBox="0 0 24 24">
 		<path
 			fill="currentColor"

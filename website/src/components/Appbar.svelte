@@ -159,7 +159,7 @@
 							class="btn btn-square md:hidden"
 							on:click={() => modal.open($modal, LoginModal)}
 						>
-							<Icon spanClass="text-white">login</Icon>
+							<Icon class="text-white">login</Icon>
 						</button>
 						<button
 							class="btn hidden md:flex text-white"

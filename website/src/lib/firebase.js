@@ -123,12 +123,12 @@ export let rc_eventDesc_article = writable(
 	'<h1>Garlic bread with cheese: What the science tells us</h1><p>For years parents have espoused the health benefits of eating garlic bread with cheese to their children, with the food earning such an iconic status in our culture that kids will often dress up as warm, cheesy loaf for Halloween.</p><blockquote>hey</blockquote><p>But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases springing up around the country.</p>'
 );
 export let rc_eventTimestamp = writable('120');
-export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":{"twitter":"http://neil.rahmouni.dev/twitter","instagram":"http://neil.rahmouni.dev/instagram","gitlab":"http://neil.rahmouni.dev/gitlab","matrix":"http://neil.rahmouni.dev/matrix"}}'));
-export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"https://www.artstation.com/chadrixy","links":{"twitter":"https://twitter.com/chadrixy","instagram":null,"gitlab":null,"matrix":null}}'));
-export let rc_feedback_email = writable('co@rahmouni.dev');
-export let rc_footer = writable(JSON.parse('{"links":{"twitter":"#","gunivers":"#","discordServer":"#"}}'));
+export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":[{"icon":"twitter","url":"http://neil.rahmouni.dev/twitter"},{"icon":"instagram","url":"http://neil.rahmouni.dev/instagram"},{"icon":"gitlab","url":"http://neil.rahmouni.dev/gitlab"},{"icon":"matrix","url":"http://neil.rahmouni.dev/matrix"}]}'));
+export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"http://url.creative-olympics.org/chadrixy_artstation","links":[{"icon":"twitter","url":"http://url.creative-olympics.org/chadrixy_twitter"}]}'));
+export let rc_footer = writable(JSON.parse('{"links":[{"icon":"twitter","url":"http://url.creative-olympics.org/gunivers_twitter"},{"icon":"gunivers","url":"http://url.creative-olympics.org/gunivers_website"},{"icon":"discordServer","url":"http://url.creative-olympics.org/discord2"}]}'));
 export let rc_aboutPage_article = writable('rc_aboutPage_article')
 export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-app')
 export let rc_adminIssueBoard_url = writable('http://url.creative-olympics.org/board')
 export let rc_adminCurrentSprint_url = writable('http://url.creative-olympics.org/sprint')
 export let rc_trailer_ytbID = writable('2g811Eo7K8U')
+export let rc_feedback_email = writable('co@rahmouni.dev');

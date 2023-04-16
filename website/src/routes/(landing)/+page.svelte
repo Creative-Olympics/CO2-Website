@@ -7,7 +7,7 @@
 	import { scrollInstance } from "$lib/scroll"
 	import { loaderReady } from "$lib/loader"
 
-	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0"
+	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0&gif"
 
 	export let loaded = true
 

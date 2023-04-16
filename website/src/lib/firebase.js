@@ -131,3 +131,4 @@ export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-ap
 export let rc_adminIssueBoard_url = writable('http://url.creative-olympics.org/board')
 export let rc_adminCurrentSprint_url = writable('http://url.creative-olympics.org/sprint')
 export let rc_trailer_ytbID = writable('2g811Eo7K8U')
+export let rc_feedback_email = writable('co@rahmouni.dev');

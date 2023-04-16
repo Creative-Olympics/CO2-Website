@@ -2,8 +2,8 @@
 	// @ts-nocheck
 	import Img from "@zerodevx/svelte-img"
 
-	import AboutUsModal from "../modals/AboutUsModal.svelte"
-	import CopyrightModal from "../modals/CopyrightModal.svelte"
+	import AboutUsModal from "$cmp/modals/AboutUsModal.svelte"
+	import CopyrightModal from "$cmp/modals/CopyrightModal.svelte"
 	import { modal } from "$lib/modals"
 	import Icon from "$cmp/Icon.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"

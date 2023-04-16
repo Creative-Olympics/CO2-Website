@@ -5,7 +5,7 @@
 
 	import { rc_eventTimestamp } from "$lib/firebase"
 	import { logs } from "$lib/logs"
-	import { loaderReady, bannerLoaded } from "$lib/loader"
+	import { loaderReady, vidLoaded } from "$lib/loader"
 
 	import DonationsBanner from "$cmp/DonationsBanner.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
@@ -18,28 +18,12 @@
 
 	let mountedRn = false
 	let vidEnded = false
-	let vidPreloaded = false
-	let anLogoPreloaded = false
-	let loaded = false
 
 	logs.add({ msg: "Banner mounted" }, "info")
-
-	let checkPreload = () => {
-		if (vidPreloaded && anLogoPreloaded) {
-			bannerLoaded.set(true)
-			loaded = true
-			logs.add({ msg: "Banner loaded" }, "info")
-		}
-	}
 
 	let isOnIOS = false
 
 	onMount(() => {
-		let animatedLogo = new Image()
-		animatedLogo.onload = () => {}
-		anLogoPreloaded = true
-		checkPreload()
-		//animatedLogo.src = 'banner/animated_logo.gif';
 		mountedRn = true
 
 		isOnIOS = [
@@ -59,7 +43,7 @@
 
 <div data-rahneiln3scroll-section>
 	<div>
-		{#if loaded && $loaderReady}
+		{#if $loaderReady}
 			<script>
 				document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 			</script>
@@ -81,19 +65,10 @@
 						aria-hidden="true"
 						style="height: calc(100vh + 120px)"
 						src="banner/{matches ? 'm_' : ''}in.mp4"
-						on:error={() => {
-							vidPreloaded = true
-							checkPreload()
-						}}
-						on:canplaythrough={() => {
-							vidPreloaded = true
-							checkPreload()
-						}}
+						on:error={() => vidLoaded.set(true)}
+						on:canplaythrough={() => vidLoaded.set(true)}
 						on:loadedmetadata={() => {
-							if (isOnIOS) {
-								vidPreloaded = true
-								checkPreload()
-							}
+							if (isOnIOS) vidLoaded.set(true)
 						}}
 						bind:ended={vidEnded}
 						out:fade
@@ -101,7 +76,7 @@
 				{/if}
 
 				<div class="absolute top-0 left-0 w-full h-screen z-30">
-					<slot {loaded} />
+					<slot />
 				</div>
 			</div>
 		</MediaQuery>

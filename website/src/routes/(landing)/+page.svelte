@@ -5,7 +5,7 @@
 	import { fly, fade } from "svelte/transition"
 
 	import { scrollInstance } from "$lib/scroll"
-	import { loaderReady } from "$lib/loader"
+	import { loaderReady, logoLoaded } from "$lib/loader"
 
 	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0&gif"
 
@@ -31,7 +31,14 @@
 				on:introend={() => $scrollInstance.update()}
 				class="-mb-6"
 			>
-				<Img src={logo_anim_lg} alt="Creative Olympics logo" width={320} height={320} loading="eager" />
+				<Img
+					src={logo_anim_lg}
+					alt="Creative Olympics logo"
+					width={320}
+					height={320}
+					loading="eager"
+					on:load={() => logoLoaded.set(true)}
+				/>
 			</div>
 		{/if}
 	</div>

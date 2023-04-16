@@ -26,7 +26,7 @@
 		</label>
 		<div class="flex flex-col mt-4 gap-2">
 			<span class="font-semibold">Creative Olympics</span>
-			<span class="">2023 Edition</span>
+			<span>2023 Edition</span>
 		</div>
 	</div>
 	<div>

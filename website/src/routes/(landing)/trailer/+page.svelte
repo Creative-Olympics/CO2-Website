@@ -8,8 +8,6 @@
 	import { loaderReady } from '$lib/loader';
 	import { scrollInstance } from '$lib/scroll';
 	import { rc_trailer_ytbID } from '$lib/firebase';
-
-	export let loaded = true;
 </script>
 
 <div class="relative w-full h-full">
@@ -21,7 +19,7 @@
 		on:introend={() => $scrollInstance.update()}
 		on:outroend={() => $scrollInstance.update()}
 	>
-		{#if $loaderReady && loaded}
+		{#if $loaderReady}
 			<YouTube
 				videoId={$rc_trailer_ytbID}
 				options={{ width: '100%', height: '100%', playerVars: { autoplay: 1 } }}

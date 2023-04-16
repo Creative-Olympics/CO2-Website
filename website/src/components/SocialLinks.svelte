@@ -1,13 +1,35 @@
 <script>
-	import Icon from "./Icon.svelte"
+	import Icon from "$cmp/Icon.svelte"
+
+	export let className = ""
+	export let style = ""
+	export { className as class }
+
+	export let tooltipDirection = "up"
 
 	export let links = [{ icon: "home", url: "https://test.com/", tooltip: "Tooltip" }]
 </script>
 
-<div class="flex gap-3">
+<div class="flex gap-3 {className}" {style}>
 	{#each links as item}
-		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={item.url} rel="noreferrer">
-			<Icon class="w-5 h-5">{item.icon}</Icon>
-		</a>
+		{#if item.tooltip}
+			<div
+				class="tooltip {tooltipDirection != 'up' && 'tooltip-' + tooltipDirection}"
+				data-tip={item.tooltip}
+			>
+				<a
+					class="btn btn-circle btn-sm btn-outline"
+					target="_blank"
+					href={item.url}
+					rel="noreferrer"
+				>
+					<Icon class="w-5 h-5">{item.icon}</Icon>
+				</a>
+			</div>
+		{:else}
+			<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={item.url} rel="noreferrer">
+				<Icon class="w-5 h-5">{item.icon}</Icon>
+			</a>
+		{/if}
 	{/each}
 </div>

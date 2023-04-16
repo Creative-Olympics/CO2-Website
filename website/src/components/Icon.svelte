@@ -1,11 +1,10 @@
 <script>
 	export let className = ""
 	export let style = ""
+	export { className as class }
 
 	/** @type {HTMLSpanElement} */
 	let slotObj
-
-	export { className as class }
 </script>
 
 <span bind:this={slotObj} class="hidden">

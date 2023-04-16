@@ -7,7 +7,7 @@
 <div class="flex gap-3">
 	{#each links as item}
 		<a class="btn btn-circle btn-sm btn-outline" target="_blank" href={item.url} rel="noreferrer">
-			<Icon>{item.icon}</Icon>
+			<Icon class="w-5 h-5">{item.icon}</Icon>
 		</a>
 	{/each}
 </div>

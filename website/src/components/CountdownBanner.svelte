@@ -2,12 +2,20 @@
 	import { onMount } from 'svelte';
 
 	import FooterContent from './footer/FooterContent.svelte';
+  import { onDestroy } from 'svelte/types/runtime/internal/lifecycle'
 
 	let seconds = 3600 * 24 + 15; //TODO !
 
+	/** @type {number | null} */
+	let intervalID = null;
+
 	onMount(() => {
-		var intervalID = window.setInterval(() => seconds--, 1000);
+		intervalID = window.setInterval(() => seconds--, 1000);
 	});
+
+	onDestroy(() => {
+		if (intervalID) window.clearInterval(intervalID)
+	})
 </script>
 
 <div data-rahneiln3scroll>

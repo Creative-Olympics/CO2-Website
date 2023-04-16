@@ -9,18 +9,18 @@
 	import SocialLinks from "$cmp/SocialLinks.svelte"
 	import { rc_footer } from "$lib/firebase"
 
-	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0"
-	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0"
+	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0&w=80&h=80"
+	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80&h=80"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
-			<div class="swap-off">
+			<div class="swap-off w-20 h-20">
 				<Img src={logo_anim_sm} alt="Creative Olympics logo" width={80} height={80} />
 			</div>
-			<div class="swap-on">
+			<div class="swap-on w-20 h-20">
 				<Img src={turtle} alt="Turtle <3" width={80} height={80} />
 			</div>
 		</label>

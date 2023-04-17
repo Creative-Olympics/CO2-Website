@@ -159,6 +159,7 @@
 						<button
 							class="btn btn-square md:hidden"
 							on:click={() => modal.open($modal, LoginModal)}
+							aria-label="Login"
 						>
 							<Icon class="text-white">Login{#if isIos}Variant{/if}</Icon>
 						</button>
@@ -166,7 +167,7 @@
 							class="btn hidden md:flex text-white"
 							on:click={() => modal.open($modal, LoginModal)}
 						>
-							<span>Login</span>
+							Login
 						</button>
 					{/if}
 				</div>

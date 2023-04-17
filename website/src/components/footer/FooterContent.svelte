@@ -10,8 +10,8 @@
 	import SocialLinks from "$cmp/SocialLinks.svelte"
 	import { rc_footer } from "$lib/firebase"
 
-	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0&w=80&h=80"
-	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80&h=80"
+	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0&w=80"
+	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">

@@ -166,7 +166,7 @@
 							class="btn hidden md:flex text-white"
 							on:click={() => modal.open($modal, LoginModal)}
 						>
-							<span>Login</span>
+							Login
 						</button>
 					{/if}
 				</div>

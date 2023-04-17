@@ -11,6 +11,8 @@
 	<slot />
 </span>
 
+<!-- https://pictogrammers.com/library/mdi/ -->
+
 {#if slotObj && slotObj.textContent == "artstation"}
 	<svg class={className} {style} viewBox="0 0 24 24">
 		<path
@@ -68,8 +70,10 @@
 			</g>
 		</g>
 	</svg>
-{:else}
-	<span class="material-symbols-rounded select-none {className}" {style}>
-		<slot />
-	</span>
+{:else if slotObj}
+	{#await import("@mdi/js").then((C) => C["mdi" + (slotObj?.textContent || "home")[0].toUpperCase() + (slotObj?.textContent || "home").slice(1)]) then path}
+		<svg class="inline-block w-6 h-6 whitespace-nowrap leading-none {className}" {style} viewBox="0 0 24 24">
+			<path fill="currentColor" d={path ? path.toString() : ""} />
+		</svg>
+	{/await}
 {/if}

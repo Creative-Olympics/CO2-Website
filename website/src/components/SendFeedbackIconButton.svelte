@@ -9,9 +9,7 @@
 </script>
 
 {#if $finishedLoading}
-	{#await import("$cmp/modals/SendFeedbackModal.svelte").then(({default: C}) => C)}
-		<!-- promise is pending -->
-	{:then SendFeedbackModal}
+	{#await import("$cmp/modals/SendFeedbackModal.svelte").then(({default: C}) => C) then SendFeedbackModal}
 		<div
 			class="tooltip {tooltipDirection != 'up' && 'tooltip-' + tooltipDirection}"
 			data-tip="Send feedback"
@@ -20,7 +18,7 @@
 				class="btn btn-circle btn-ghost"
 				on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
 			>
-				<Icon>sms_failed</Icon>
+				<Icon>MessageAlertOutline</Icon>
 			</button>
 		</div>
 	{/await}

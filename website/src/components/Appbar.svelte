@@ -20,6 +20,7 @@
 	import Icon from "./Icon.svelte"
 
 	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0"
+  import isIos from "is-ios"
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user
@@ -93,7 +94,7 @@
 								"Thanks for contributing to the website, " + userData["contributor"] + "!"
 							)}
 					>
-						<Icon>volunteer_activism</Icon>
+						<Icon>HandHeartOutline</Icon>
 					</button>
 				{/if}
 				<div class="ml-2">
@@ -126,19 +127,19 @@
 									</li>
 									<li>
 										<a href={$rc_adminApp_url} target="_blank" rel="noreferrer">
-											<Icon>admin_panel_settings</Icon>
+											<Icon>ShieldHomeOutline</Icon>
 											Admin app
 										</a>
 									</li>
 									<li>
 										<a href={$rc_adminIssueBoard_url} target="_blank" rel="noreferrer">
-											<Icon>style</Icon>
+											<Icon>{#if isIos}Variant{/if}</Icon>
 											Issue board
 										</a>
 									</li>
 									<li>
 										<a href={$rc_adminCurrentSprint_url} target="_blank" rel="noreferrer">
-											<Icon>sprint</Icon>
+											<Icon>RunFast</Icon>
 											Current sprint
 										</a>
 									</li>
@@ -148,7 +149,7 @@
 								{/if}
 								<li>
 									<button on:click={authSignOut}>
-										<Icon>logout</Icon>
+										<Icon>Logout{#if isIos}Variant{/if}</Icon>
 										Sign out
 									</button>
 								</li>
@@ -159,7 +160,7 @@
 							class="btn btn-square md:hidden"
 							on:click={() => modal.open($modal, LoginModal)}
 						>
-							<Icon class="text-white">login</Icon>
+							<Icon class="text-white">Login{#if isIos}Variant{/if}</Icon>
 						</button>
 						<button
 							class="btn hidden md:flex text-white"

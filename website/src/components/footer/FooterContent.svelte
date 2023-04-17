@@ -1,6 +1,7 @@
 <script>
 	// @ts-nocheck
 	import Img from "@zerodevx/svelte-img"
+	import currentYear from "current-year"
 
 	import AboutUsModal from "$cmp/modals/AboutUsModal.svelte"
 	import CopyrightModal from "$cmp/modals/CopyrightModal.svelte"
@@ -30,13 +31,13 @@
 		</div>
 	</div>
 	<div>
-		<span class="footer-title">Social</span>
+		<span class="footer-title mb-1">Social</span>
 		<SocialLinks links={$rc_footer.links} />
 	</div>
 	<div>
-		<span class="footer-title">Credits</span>
-		<div class="flex align-middle gap-2">
-			<Icon class="font-semibold" style="font-size: 1.25rem">code</Icon>
+		<span class="footer-title mb-1">Credits</span>
+		<div class="flex gap-2 items-center">
+			<Icon>CodeTags</Icon>
 			<span>
 				Website by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -44,8 +45,8 @@
 				</button>
 			</span>
 		</div>
-		<div class="flex align-middle gap-2 mb-2">
-			<Icon class="font-semibold" style="font-size: 1.25rem">palette</Icon>
+		<div class="flex gap-2 items-center">
+			<Icon>PaletteOutline</Icon>
 			<span>
 				Imagery & assets by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -54,18 +55,18 @@
 			</span>
 		</div>
 		<button
-			class="btn btn-outline btn-xs normal-case"
+			class="btn btn-outline btn-xs normal-case mt-1"
 			on:click={() => modal.open($modal, AboutUsModal)}
 		>
 			About us
 		</button>
 	</div>
 	<div>
-		<span class="footer-title">Legal</span>
+		<span class="footer-title mb-1">Legal</span>
 		<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-			<div class="flex align-middle gap-2 mb-1">
-				<Icon style="font-size: 1.25rem">copyright</Icon>
-				<span class="text-start">Copyright 2022</span>
+			<div class="flex gap-2 items-center mb-1">
+				<Icon>copyright</Icon>
+				<span>Copyright 2022 - {currentYear()}</span>
 			</div>
 			<div>
 				<button

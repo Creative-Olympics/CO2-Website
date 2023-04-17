@@ -15,25 +15,15 @@
 
 	import banner_final from "$lib/assets/banner/final.jpg?run"
 	import banner_final_m from "$lib/assets/banner/m_final.jpg?run"
+  	import isIos from "is-ios"
 
 	let mountedRn = false
 	let vidEnded = false
 
 	logs.add({ msg: "Banner mounted" }, "info")
 
-	let isOnIOS = false
-
 	onMount(() => {
 		mountedRn = true
-
-		isOnIOS = [
-			"iPad Simulator",
-			"iPhone Simulator",
-			"iPod Simulator",
-			"iPad",
-			"iPhone",
-			"iPod"
-		].includes(navigator.platform)
 	})
 </script>
 
@@ -68,7 +58,7 @@
 						on:error={() => vidLoaded.set(true)}
 						on:canplaythrough={() => vidLoaded.set(true)}
 						on:loadedmetadata={() => {
-							if (isOnIOS) vidLoaded.set(true)
+							if (isIos) vidLoaded.set(true)
 						}}
 						bind:ended={vidEnded}
 						out:fade

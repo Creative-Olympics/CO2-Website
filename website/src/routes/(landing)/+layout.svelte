@@ -57,6 +57,7 @@
 						aria-hidden="true"
 						style="height: calc(100vh + 120px)"
 						src="banner/{matches ? 'm_' : ''}in.mp4"
+						preload='auto'
 						on:error={() => vidLoaded.set(true)}
 						on:canplaythrough={() => vidLoaded.set(true)}
 						on:loadedmetadata={() => {

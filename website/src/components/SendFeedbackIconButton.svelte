@@ -16,6 +16,7 @@
 		>
 			<button
 				class="btn btn-circle btn-ghost"
+				aria-describedby="Send feedback"
 				on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
 			>
 				<Icon>MessageAlertOutline</Icon>

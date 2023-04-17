@@ -15,7 +15,7 @@
 
 	import banner_final from "$lib/assets/banner/final.jpg?run"
 	import banner_final_m from "$lib/assets/banner/m_final.jpg?run"
-  	import isIos from "is-ios"
+	import isIos from "is-ios"
 
 	let mountedRn = false
 	let vidEnded = false
@@ -41,9 +41,11 @@
 
 		<MediaQuery query="(max-width: 480px)" let:matches>
 			<div class="relative" style="height: calc(100vh + 120px)" data-rahneiln3scroll>
+				<!-- Empty [alt] on purpose because decorative, doesn't need to be described -->
 				<Img
 					src={matches ? banner_final_m : banner_final}
 					class="absolute z-10 h-full w-screen object-center object-cover"
+					alt=""
 				/>
 				{#if !vidEnded && mountedRn}
 					<video

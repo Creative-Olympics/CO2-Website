@@ -21,7 +21,12 @@
 
 <div data-rahneiln3scroll>
 	<div class="hero relative">
-		<Img src={bg_countdown} class="absolute h-full w-screen object-center object-cover -z-10 top-0 left-0" />
+		<!-- Empty [alt] on purpose because decorative, doesn't need to be described -->
+		<Img
+			src={bg_countdown}
+			class="absolute h-full w-screen object-center object-cover -z-10 top-0 left-0"
+			alt=""
+		/>
 
 		<div class="hero-overlay bg-opacity-60" />
 

@@ -5,7 +5,7 @@
 
 	import { rc_eventTimestamp } from "$lib/firebase"
 	import { logs } from "$lib/logs"
-	import { loaderReady, vidLoaded } from "$lib/loader"
+	import { finishedLoading, loaderReady, vidLoaded } from "$lib/loader"
 
 	import DonationsBanner from "$cmp/DonationsBanner.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
@@ -33,7 +33,7 @@
 
 <div data-rahneiln3scroll-section>
 	<div>
-		{#if $loaderReady}
+		{#if $finishedLoading}
 			<script>
 				document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 			</script>

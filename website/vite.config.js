@@ -12,5 +12,16 @@ export default defineConfig({
 		alias: {
 			$cmp: path.resolve('src/components')
 		}
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				chunkFileNames: "RahNeil_N3-[hash].js",
+				compact: true
+			}
+		},
+		commonjsOptions: {
+			sourceMap: false
+		}
 	}
 });

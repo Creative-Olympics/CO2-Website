@@ -124,7 +124,7 @@ export let rc_eventDesc_article = writable(
 );
 export let rc_eventTimestamp = writable('120');
 export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":[{"icon":"twitter","url":"http://neil.rahmouni.dev/twitter","description":"Neïl Rahmouni\'s Twitter profile"},{"icon":"instagram","url":"http://neil.rahmouni.dev/instagram","description":"Neïl Rahmouni\'s Instagram profile"},{"icon":"gitlab","url":"http://neil.rahmouni.dev/gitlab","description":"Neïl Rahmouni\'s Gitlab profile"},{"icon":"matrix","url":"http://neil.rahmouni.dev/matrix","description":"Neïl Rahmouni\'s Matrix account"}]}'));
-export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"http://url.creative-olympics.org/chadrixy_artstation","links":[{"icon":"twitter","url":"http://url.creative-olympics.org/chadrixy_twitter"}]}'));
+export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"http://url.creative-olympics.org/chadrixy_artstation","links":[{"icon":"twitter","url":"http://url.creative-olympics.org/chadrixy_twitter","description":"Chadrixy\'s Twitter profile"}]}'));
 export let rc_footer = writable(JSON.parse('{"links":[{"icon":"twitter","url":"http://url.creative-olympics.org/gunivers_twitter"},{"icon":"gunivers","url":"http://url.creative-olympics.org/gunivers_website"},{"icon":"discord","url":"http://url.creative-olympics.org/discord2"}]}'));
 export let rc_aboutPage_article = writable('rc_aboutPage_article')
 export let rc_adminApp_url = writable('http://url.creative-olympics.org/admin-app')

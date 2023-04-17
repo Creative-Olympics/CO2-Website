@@ -20,7 +20,7 @@
 	import Icon from "./Icon.svelte"
 
 	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0"
-  import isIos from "is-ios"
+	import isIos from "is-ios"
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user
@@ -56,8 +56,14 @@
 					<a class="btn btn-ghost normal-case" href="/">
 						<div class="flex flex-row items-center">
 							{#if $showLogo}
-								<div in:slide={{ duration: 1000, axis: "x", easing: quintOut }} out:slide={{ duration: 1000, delay: 250, axis: "x", easing: quintOut }}>
-									<div in:fade={{delay: 500, duration: 500, easing: quintOut}} out:fade={{duration: 500, easing: quintOut}}>
+								<div
+									in:slide={{ duration: 1000, axis: "x", easing: quintOut }}
+									out:slide={{ duration: 1000, delay: 250, axis: "x", easing: quintOut }}
+								>
+									<div
+										in:fade={{ delay: 500, duration: 500, easing: quintOut }}
+										out:fade={{ duration: 500, easing: quintOut }}
+									>
 										<Img
 											src={logo_anim_sm}
 											alt="Creative Olympics logo"
@@ -68,7 +74,9 @@
 									</div>
 								</div>
 							{/if}
-							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap pt-1">Creative Olympics</span>
+							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap pt-1">
+								Creative Olympics
+							</span>
 						</div>
 					</a>
 				</div>
@@ -149,7 +157,9 @@
 								{/if}
 								<li>
 									<button on:click={authSignOut}>
-										<Icon>Logout{#if isIos}Variant{/if}</Icon>
+										<Icon>
+											Logout{#if isIos}Variant{/if}
+										</Icon>
 										Sign out
 									</button>
 								</li>
@@ -161,7 +171,9 @@
 							on:click={() => modal.open($modal, LoginModal)}
 							aria-label="Login"
 						>
-							<Icon class="text-white">Login{#if isIos}Variant{/if}</Icon>
+							<Icon class="text-white">
+								Login{#if isIos}Variant{/if}
+							</Icon>
 						</button>
 						<button
 							class="btn hidden md:flex text-white"

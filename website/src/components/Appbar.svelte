@@ -133,7 +133,7 @@
 									</li>
 									<li>
 										<a href={$rc_adminIssueBoard_url} target="_blank" rel="noreferrer">
-											<Icon>{#if isIos}Variant{/if}</Icon>
+											<Icon>PaletteSwatchOutline</Icon>
 											Issue board
 										</a>
 									</li>

@@ -15,7 +15,7 @@
 >
 	<label class="label px-3 min-h-12 {disabled ? 'cursor-not-allowed' : 'cursor-pointer'}">
 		<div class="flex flex-row gap-2 items-center pr-3">
-			<Icon>{icon}</Icon>
+			<Icon class="flex-shrink-0">{icon}</Icon>
 			<div class="ml-4 flex flex-col">
 				<span class="label-text font-semibold">{title}</span>
 				{#if description}

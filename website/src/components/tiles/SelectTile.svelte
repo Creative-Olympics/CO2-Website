@@ -2,7 +2,7 @@
 	import Icon from '$cmp/Icon.svelte';
 
 	export let title = 'Title';
-	export let icon = 'category';
+	export let icon = 'ShapeOutline';
 	/** @type string|null */ export let placeholder = 'Please select an option';
 	export let value = 'null';
 	export let disabled = false;

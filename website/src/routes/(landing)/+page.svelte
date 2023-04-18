@@ -29,9 +29,10 @@
 				out:fade={{ duration: 750 }}
 				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
 				on:introend={() => $scrollInstance.update()}
-				class="-mb-6"
+				class="-mb-6 relative w-80 h-80"
 			>
 				<Img
+					class="absolute w-80 h-80"
 					src={logo_anim_lg}
 					alt="Creative Olympics logo"
 					width={320}
@@ -39,6 +40,19 @@
 					loading="eager"
 					on:load={() => logoLoaded.set(true)}
 				/>
+				<picture>
+					<source
+						srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.webp"
+						type="image/webp"
+					/>
+					<img
+						class="absolute"
+						src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif"
+						alt="🔥"
+						width="160"
+						height="160"
+					/>
+				</picture>
 			</div>
 		{/if}
 	</div>

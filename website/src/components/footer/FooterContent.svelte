@@ -88,22 +88,22 @@
 				>
 					CC BY-NC-ND 4.0
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
 						alt="Copyright"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
 						alt="Attribution"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
 						alt="Non commercial"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
 						alt="No derivatives"
 					/>

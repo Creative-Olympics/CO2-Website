@@ -3,14 +3,15 @@
 	import Img from "@zerodevx/svelte-img"
 	import currentYear from "current-year"
 
+	import { rc_footer } from "$lib/firebase"
+	import { modal } from "$lib/modals"
+
 	import AboutUsModal from "$cmp/modals/AboutUsModal.svelte"
 	import CopyrightModal from "$cmp/modals/CopyrightModal.svelte"
-	import { modal } from "$lib/modals"
 	import Icon from "$cmp/Icon.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
-	import { rc_footer } from "$lib/firebase"
+	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
 
-	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0&w=80"
 	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80"
 </script>
 
@@ -18,8 +19,8 @@
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
-			<div class="swap-off w-20 h-20">
-				<Img src={logo_anim_sm} alt="Creative Olympics logo" width={80} height={80} />
+			<div class="swap-off">
+				<FlameLogo class="w-20 h-20" />
 			</div>
 			<div class="swap-on w-20 h-20">
 				<Img src={turtle} alt="Turtle <3" width={80} height={80} />

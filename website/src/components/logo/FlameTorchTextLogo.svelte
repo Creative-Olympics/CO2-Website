@@ -15,7 +15,7 @@
 	export { className as class }
 </script>
 
-<div class="relative {className}" {style}>
+<div class="relative w-72 h-80 {className}" {style}>
 	<!-- <Img
 		class="absolute w-80 h-80"
 		src={logo_anim_lg}
@@ -27,7 +27,7 @@
 	/> -->
 
 	<div class="absolute w-full h-full">
-		<FlameLogo class="left-0 right-0 ml-auto mr-auto" style="width: 55%; margin-top: 1%" />
+		<FlameLogo class="left-0 right-0 ml-auto mr-auto" size={10} style="margin-top: 1%" />
 	</div>
 
 	<svg
@@ -70,7 +70,10 @@
 		/>
 	</svg>
 	<div class="absolute w-full" style="padding: 5%; top: 58%">
-		<div class="flex justify-between w-full font-extrabold text-8xl font-sans" style="font-size: 500%">
+		<div
+			class="flex justify-between w-full font-extrabold text-8xl font-sans"
+			style="font-size: 500%"
+		>
 			<h1 style="color: #ffcd15">20</h1>
 			<h1 style="color: #ff9a01">23</h1>
 		</div>

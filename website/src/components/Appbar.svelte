@@ -71,7 +71,7 @@
 											class="pr-3"
 										/> -->
 
-										<FlameLogo class="w-10 h-10" />
+										<FlameLogo size={10} />
 									</div>
 								</div>
 							{/if}

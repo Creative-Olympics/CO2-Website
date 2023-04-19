@@ -5,7 +5,7 @@
 	import { scrollInstance } from "$lib/scroll"
 	import { loaderReady, logoLoaded } from "$lib/loader"
 
-	import LargeLogo from "$cmp/logo/LargeLogo.svelte"
+	import FlameTorchTextLogo from "$cmp/logo/FlameTorchTextLogo.svelte"
 
 	export let loaded = true
 
@@ -29,7 +29,7 @@
 				on:introend={() => $scrollInstance.update()}
 				class="-mb-6"
 			>
-				<LargeLogo on:load={() => logoLoaded.set(true)} />
+				<FlameTorchTextLogo on:load={() => logoLoaded.set(true)} />
 			</div>
 		{/if}
 	</div>

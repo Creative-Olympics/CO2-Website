@@ -1,13 +1,11 @@
 <script>
-	import Img from "@zerodevx/svelte-img"
-
 	import { goto } from "$app/navigation"
 	import { fly, fade } from "svelte/transition"
 
 	import { scrollInstance } from "$lib/scroll"
 	import { loaderReady, logoLoaded } from "$lib/loader"
 
-	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0&gif"
+	import LargeLogo from "$cmp/logo/LargeLogo.svelte"
 
 	export let loaded = true
 
@@ -29,30 +27,9 @@
 				out:fade={{ duration: 750 }}
 				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
 				on:introend={() => $scrollInstance.update()}
-				class="-mb-6 relative w-80 h-80"
+				class="-mb-6"
 			>
-				<Img
-					class="absolute w-80 h-80"
-					src={logo_anim_lg}
-					alt="Creative Olympics logo"
-					width={320}
-					height={320}
-					loading="eager"
-					on:load={() => logoLoaded.set(true)}
-				/>
-				<picture>
-					<source
-						srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.webp"
-						type="image/webp"
-					/>
-					<img
-						class="absolute"
-						src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif"
-						alt="🔥"
-						width="160"
-						height="160"
-					/>
-				</picture>
+				<LargeLogo on:load={() => logoLoaded.set(true)} />
 			</div>
 		{/if}
 	</div>

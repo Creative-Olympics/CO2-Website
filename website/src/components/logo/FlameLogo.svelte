@@ -10,21 +10,21 @@
 	export { className as class }
 </script>
 
-<div class="relative w-44 h-44 {className}" {style}>
+<div class="relative {className}" {style}>
 	<picture>
 		<source
 			srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.webp"
 			type="image/webp"
 		/>
 		<img
-			class="absolute w-3/4 h-3/4 left-0 right-0 ml-auto mr-auto"
+			class="absolute w-full left-0 right-0 ml-auto mr-auto"
 			src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif"
 			alt="🔥"
 		/>
 	</picture>
 	<svg
-		class="absolute w-10/12 left-0 right-0 ml-auto mr-auto"
-		style="top: 27%"
+		class="absolute left-0 right-0 ml-auto mr-auto w-full"
+		style="padding-top: 41%"
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 892.61 418.21"
 	>

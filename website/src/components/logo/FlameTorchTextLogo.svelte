@@ -1,10 +1,10 @@
 <script>
 	import { createEventDispatcher, onMount } from "svelte"
-	import Img from "@zerodevx/svelte-img"
+	//import Img from "@zerodevx/svelte-img"
 
 	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
 
-	import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0&gif"
+	//import logo_anim_lg from "$lib/assets/logo/anim_lg.gif?run&lqip=0&gif"
 
 	const dispatch = createEventDispatcher()
 
@@ -15,7 +15,7 @@
 	export { className as class }
 </script>
 
-<div class="relative w-80 h-80 {className}" {style}>
+<div class="relative {className}" {style}>
 	<!-- <Img
 		class="absolute w-80 h-80"
 		src={logo_anim_lg}
@@ -26,7 +26,9 @@
 		on:load={() => dispatch("load")}
 	/> -->
 
-	<FlameLogo class="absolute left-0 right-0 ml-auto mr-auto w-2/3 h-2/3" />
+	<div class="absolute w-full h-full">
+		<FlameLogo class="left-0 right-0 ml-auto mr-auto" style="width: 55%; margin-top: 1%" />
+	</div>
 
 	<svg
 		class="absolute left-0 right-0 w-1/4 mr-auto ml-auto"
@@ -67,14 +69,14 @@
 			d="M153.35,49.16c-4.14,.09-8.27-.53-12.2-1.84-3.69-1.02-6.22-4.41-6.16-8.24-.38-8.48,2-16.43,4.72-24.33,.26-.93,.98-1.67,1.91-1.95,8.41-2.8,16.82-3.08,25.24,0,1.25,.45,2.08,.85,.71,2.15-8.27,7.87-7.9,17.73-6.29,27.82,1,6.3,1.1,6.29-5.2,6.37l-2.73,.02Z"
 		/>
 	</svg>
-	<div class="absolute w-full" style="padding: 5%; top: 56%">
-		<div class="flex justify-between w-full font-extrabold text-8xl font-sans" style="font-size: 525%">
+	<div class="absolute w-full" style="padding: 5%; top: 58%">
+		<div class="flex justify-between w-full font-extrabold text-8xl font-sans" style="font-size: 500%">
 			<h1 style="color: #ffcd15">20</h1>
 			<h1 style="color: #ff9a01">23</h1>
 		</div>
 		<div
 			class="flex justify-between w-full font-extrabold uppercase font-sans text-8xl"
-			style="font-size: 130%"
+			style="font-size: 120%"
 		>
 			<h1 style="color: #ffcd15">Creative</h1>
 			<h1 style="color: #ff9a01">Olympics</h1>

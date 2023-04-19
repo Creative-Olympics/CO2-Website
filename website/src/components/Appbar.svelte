@@ -3,7 +3,7 @@
 	import { doc, getDoc } from "firebase/firestore"
 	import { fly, fade, slide } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
-	import Img from "@zerodevx/svelte-img"
+	import isIos from "is-ios"
 
 	import {
 		db,
@@ -15,12 +15,10 @@
 	import { toasts } from "$lib/toasts"
 	import { showLogo } from "$lib/scroll"
 	import { modal } from "$lib/modals"
-	import LoginModal from "./modals/LoginModal.svelte"
-	import SendFeedbackIconButton from "./SendFeedbackIconButton.svelte"
-	import Icon from "./Icon.svelte"
-
-	import logo_anim_sm from "$lib/assets/logo/anim_sm.gif?run&lqip=0"
-	import isIos from "is-ios"
+	import LoginModal from "$cmp/modals/LoginModal.svelte"
+	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
+	import Icon from "$cmp/Icon.svelte"
+  import FlameLogo from "./logo/FlameLogo.svelte"
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user
@@ -61,20 +59,23 @@
 									out:slide={{ duration: 1000, delay: 250, axis: "x", easing: quintOut }}
 								>
 									<div
+										class="pr-3 mb-2"
 										in:fade={{ delay: 500, duration: 500, easing: quintOut }}
 										out:fade={{ duration: 500, easing: quintOut }}
 									>
-										<Img
+										<!-- <Img
 											src={logo_anim_sm}
 											alt="Creative Olympics logo"
 											width={58}
 											height={58}
 											class="pr-3"
-										/>
+										/> -->
+
+										<FlameLogo class="w-10 h-10" />
 									</div>
 								</div>
 							{/if}
-							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap pt-1">
+							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap">
 								Creative Olympics
 							</span>
 						</div>

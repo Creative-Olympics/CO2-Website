@@ -8,16 +8,17 @@
 	export let className = ""
 	export let style = ""
 	export { className as class }
+	export let size = 20;
 </script>
 
-<div class="relative {className}" {style}>
+<div class="relative w-{size} h-{size} {className}" {style}>
 	<picture>
 		<source
 			srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.webp"
 			type="image/webp"
 		/>
 		<img
-			class="absolute w-full left-0 right-0 ml-auto mr-auto"
+			class="absolute w-{size} h-{size} left-0 right-0 ml-auto mr-auto"
 			src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif"
 			alt="🔥"
 		/>

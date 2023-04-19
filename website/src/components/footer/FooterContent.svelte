@@ -20,7 +20,7 @@
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
 			<div class="swap-off">
-				<FlameLogo class="w-20 h-20" />
+				<FlameLogo />
 			</div>
 			<div class="swap-on w-20 h-20">
 				<Img src={turtle} alt="Turtle <3" width={80} height={80} />

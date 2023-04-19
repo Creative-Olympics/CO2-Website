@@ -29,7 +29,7 @@
 				on:introend={() => $scrollInstance.update()}
 				class="-mb-6"
 			>
-				<FlameTorchTextLogo class="w-72 h-80" on:load={() => logoLoaded.set(true)} />
+				<FlameTorchTextLogo on:load={() => logoLoaded.set(true)} />
 			</div>
 		{/if}
 	</div>

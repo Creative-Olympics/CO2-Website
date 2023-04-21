@@ -18,7 +18,7 @@
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
-  import FlameLogo from "./logo/FlameLogo.svelte"
+	import FlameLogo from "./logo/FlameLogo.svelte"
 
 	/** @type {import("@firebase/auth").User | null} */
 	let user
@@ -71,13 +71,13 @@
 											class="pr-3"
 										/> -->
 
-										<FlameLogo size={10} />
+										<div class="relative w-10 h-10">
+											<FlameLogo />
+										</div>
 									</div>
 								</div>
 							{/if}
-							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap">
-								Creative Olympics
-							</span>
+							<span out:fade={{ delay: 1000 }} class="whitespace-nowrap">Creative Olympics</span>
 						</div>
 					</a>
 				</div>

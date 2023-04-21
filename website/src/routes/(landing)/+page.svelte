@@ -27,7 +27,6 @@
 				out:fade={{ duration: 750 }}
 				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
 				on:introend={() => $scrollInstance.update()}
-				class="-mb-6"
 			>
 				<FlameTorchTextLogo on:load={() => logoLoaded.set(true)} />
 			</div>

@@ -19,10 +19,10 @@
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
-			<div class="swap-off">
+			<div class="swap-off w-20 h-20">
 				<FlameLogo />
 			</div>
-			<div class="swap-on w-20 h-20">
+			<div class="swap-on w-20 h-20 flex flex-col justify-end">
 				<Img src={turtle} alt="Turtle <3" width={80} height={80} />
 			</div>
 		</label>

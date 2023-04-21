@@ -9,13 +9,9 @@
 	const dispatch = createEventDispatcher()
 
 	onMount(() => dispatch("load"))
-
-	export let className = ""
-	export let style = ""
-	export { className as class }
 </script>
 
-<div class="relative w-72 h-80 {className}" {style}>
+<div class="relative w-72 h-64">
 	<!-- <Img
 		class="absolute w-80 h-80"
 		src={logo_anim_lg}
@@ -26,8 +22,8 @@
 		on:load={() => dispatch("load")}
 	/> -->
 
-	<div class="absolute w-full h-full">
-		<FlameLogo class="left-0 right-0 ml-auto mr-auto" size={10} style="margin-top: 1%" />
+	<div class="relative left-0 right-0 ml-auto mr-auto w-32 h-32 mt-8">
+		<FlameLogo />
 	</div>
 
 	<svg

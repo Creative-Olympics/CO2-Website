@@ -1,9 +1,14 @@
 <script>
 	/** @type {any} */
-	export let onClick;
+	export let onClick
+	export let disabled = false
 </script>
 
-<button class="btn gap-3 normal-case btn-outline bg-white text-gray-800 hover:bg-gray-100 hover:text-gray-800" on:click={onClick}>
-	<img src="banner/google_logo.svg" alt="Google's logo"/>
+<button
+	class="btn gap-3 normal-case btn-outline bg-white text-gray-800 hover:bg-gray-100 hover:text-gray-800"
+	on:click={onClick}
+	{disabled}
+>
+	<img src="banner/google_logo.svg" alt="Google's logo" />
 	Sign in with Google
 </button>

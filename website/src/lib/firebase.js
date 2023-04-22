@@ -33,17 +33,17 @@ isSupported().then((supported) => {
 			.then(() => {
 				rc_discordInvite_url.update((v) => getValue(rc, 'discordInvite_url').asString() || v);
 				rc_eventDesc_article.update((v) => getValue(rc, 'eventDesc_article').asString() || v);
-				rc_eventTimestamp.update((v) => JSON.parse(getValue(rc, 'eventTimestamp').asString()) || v);
-				rc_neilRahmouni.update((v) => JSON.parse(getValue(rc, 'neilRahmouni').asString()) || v);
-				rc_chadrixy.update((v) => JSON.parse(getValue(rc, 'chadrixy').asString()) || v);
+				rc_eventTimestamp.update((v) => getValue(rc, 'eventTimestamp').asString() || v);
+				rc_neilRahmouni.update((v) => getValue(rc, 'neilRahmouni') ? JSON.parse(getValue(rc, 'neilRahmouni').asString()) : v);
+				rc_chadrixy.update((v) => getValue(rc, 'chadrixy') ? JSON.parse(getValue(rc, 'chadrixy').asString()) : v);
 				rc_feedback_email.update((v) => getValue(rc, 'feedback_email').asString() || v);
-				rc_footer.update((v) => JSON.parse(getValue(rc, 'footer').asString()) || v);
+				rc_footer.update((v) => getValue(rc, 'footer') ? JSON.parse(getValue(rc, 'footer').asString()) : v);
 				rc_aboutPage_article.update((v) => getValue(rc, 'aboutPage_article').asString() || v);
 				rc_adminApp_url.update((v) => getValue(rc, 'adminApp_url').asString() || v);
 				rc_adminIssueBoard_url.update((v) => getValue(rc, 'adminIssueBoard_url').asString() || v);
 				rc_adminCurrentSprint_url.update((v) => getValue(rc, 'adminCurrentSprint_url').asString() || v);
 				rc_trailer_ytbID.update((v) => getValue(rc, 'trailer_ytbID').asString() || v);
-				rc_loginProviders.update((v) => JSON.parse(getValue(rc, 'loginProviders').asString()) || v);
+				rc_loginProviders.update((v) => getValue(rc, 'loginProviders') ? JSON.parse(getValue(rc, 'loginProviders').asString()) : v);
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})

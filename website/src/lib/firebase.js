@@ -43,6 +43,7 @@ isSupported().then((supported) => {
 				rc_adminIssueBoard_url.update((v) => getValue(rc, 'adminIssueBoard_url').asString() || v);
 				rc_adminCurrentSprint_url.update((v) => getValue(rc, 'adminCurrentSprint_url').asString() || v);
 				rc_trailer_ytbID.update((v) => getValue(rc, 'trailer_ytbID').asString() || v);
+				rc_loginProviders.update((v) => JSON.parse(getValue(rc, 'loginProviders').asString()) || v);
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
 			})

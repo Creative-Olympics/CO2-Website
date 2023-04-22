@@ -30,6 +30,7 @@
 		"svelthree": "^0.119.0-5",
 		"tailwindcss": "^3.3.1",
 		"vite": "^4.2.1",
+		"vite-plugin-minify": "^1.5.2",
 		"vitest": "^0.25.8"
 	},
 	"type": "module",

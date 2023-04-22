@@ -13,7 +13,7 @@ const config = {
 		alias: {
 			'$lib': './src/lib',
 			'$cmp': './src/components'
-		}
+		},
 	},
 	preprocess: vitePreprocess()
 };

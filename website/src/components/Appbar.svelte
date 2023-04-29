@@ -1,44 +1,18 @@
 <script>
-	import { onAuthStateChanged, signOut } from "firebase/auth"
-	import { doc, getDoc } from "firebase/firestore"
 	import { fly, fade, slide } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 	import isIos from "is-ios"
 
-	import {
-		db,
-		auth,
-		rc_adminApp_url,
-		rc_adminIssueBoard_url,
-		rc_adminCurrentSprint_url
-	} from "$lib/firebase"
+	import { rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from "$lib/firebase"
 	import { toasts } from "$lib/toasts"
 	import { showLogo } from "$lib/scroll"
 	import { modal } from "$lib/modals"
+	import { privateData, userData, signOut, isAdmin } from "$lib/user"
+
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
-	import FlameLogo from "./logo/FlameLogo.svelte"
-
-	/** @type {import("@firebase/auth").User | null} */
-	let user
-	/** @type {any} */
-	let userData
-
-	onAuthStateChanged(auth, (u) => {
-		user = u
-		if (user) {
-			getDoc(doc(db, "users", user.uid)).then((ud) => {
-				userData = ud.data()
-			})
-		}
-	})
-
-	function authSignOut() {
-		signOut(auth).then(() => {
-			toasts.success("You've been successfully logged out!")
-		})
-	}
+	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -95,21 +69,21 @@
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
 				/>
-				{#if userData && userData["contributor"]}
+				{#if $privateData?.contributor || false}
 					<button
 						class="btn btn-circle btn-ghost"
 						on:click={() =>
 							toasts.default(
-								"Thanks for contributing to the website, " + userData["contributor"] + "!"
+								"Thanks for contributing to the website, " + $privateData.contributor + "!"
 							)}
 					>
 						<Icon>HandHeartOutline</Icon>
 					</button>
 				{/if}
 				<div class="ml-2">
-					{#if user}
+					{#if $userData}
 						<div class="dropdown dropdown-end">
-							<div class="tooltip tooltip-left" data-tip={user.displayName}>
+							<div class="tooltip tooltip-left" data-tip={$userData.displayName}>
 								<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 								<!-- Here we use a <label tabindex="0"> instead of a <button> because Safari has a bug that prevents the button from being focused. -->
 								<!-- Using tabindex="0" is required so the dropdown can be focused. -->
@@ -117,8 +91,8 @@
 									<div class="w-10 rounded-full">
 										<img
 											referrerpolicy="no-referrer"
-											src={user.photoURL}
-											alt={user.displayName + " profile picture"}
+											src={$userData.photoURL}
+											alt={$userData.displayName + " profile picture"}
 										/>
 									</div>
 								</label>
@@ -130,7 +104,7 @@
 								tabindex="0"
 								class="p-2 shadow-md menu menu-compact dropdown-content rounded-box w-52 bg-base-300 text-base-content gap-1"
 							>
-								{#if userData && userData["isAdmin"]}
+								{#if $isAdmin}
 									<li class="menu-title">
 										<span>Admin tools</span>
 									</li>
@@ -157,7 +131,13 @@
 									</li>
 								{/if}
 								<li>
-									<button on:click={authSignOut}>
+									<button on:click={() => toasts.warning("soon :>")}>
+										<Icon>AccountOutline</Icon>
+										Your profile
+									</button>
+								</li>
+								<li>
+									<button on:click={signOut}>
 										<Icon>
 											Logout{#if isIos}Variant{/if}
 										</Icon>

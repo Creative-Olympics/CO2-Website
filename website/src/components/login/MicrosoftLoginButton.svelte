@@ -1,7 +1,10 @@
 <script>
+	import { createEventDispatcher } from "svelte"
+
+	const dispatch = createEventDispatcher()
+
 	/** @type {any} */
-	export let onClick;
 	export let disabled = false
 </script>
 
-<button class="btn" on:click={onClick} {disabled}>Log in with Microsoft</button>
+<button class="btn" on:click={() => dispatch("click")} {disabled}>Log in with Microsoft</button>

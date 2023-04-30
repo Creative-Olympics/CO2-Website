@@ -3531,6 +3531,45 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   margin-left: 50%;
 }
+.card-goldenOutline {
+  overflow: hidden;
+  --tw-bg-opacity: 1;
+}
+.card-goldenOutline::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+}
+.card-goldenOutline::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+.card-goldenOutline:after {
+        background-image: linear-gradient(to bottom right in oklab,
+                oklch(100% 0.38 82) 0%,
+                oklch(72% 0.5 90) 100%);
+        animation: borderSpin 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        top: 50%;
+        left: -25%;
+        height: 2.5rem;
+        width: 200%}
+.card-goldenOutline .card-body {
+        padding: calc(var(--padding-card, 2rem) - 0.125rem);
+        z-index: 10;
+        margin: 0.125rem;
+        border-radius: .9rem;
+        background-color: inherit;
+        --tw-bg-opacity: 1}
+.card-compact.card-goldenOutline .card-body {
+        padding: 0.875rem;
+        z-index: 10;
+        margin: 0.125rem;
+        border-radius: .9rem;
+        background-color: inherit;
+        --tw-bg-opacity: 1}
 .\!invisible {
   visibility: hidden !important;
 }
@@ -3593,12 +3632,6 @@ html {
 }
 .col-span-7 {
   grid-column: span 7 / span 7;
-}
-.m-0 {
-  margin: 0px;
-}
-.m-0\.5 {
-  margin: 0.125rem;
 }
 .mx-4 {
   margin-left: 1rem;
@@ -3869,12 +3902,6 @@ html {
 .whitespace-nowrap {
   white-space: nowrap;
 }
-.rounded-2xl {
-  border-radius: 1rem;
-}
-.rounded-\[\.9rem\] {
-  border-radius: .9rem;
-}
 .rounded-full {
   border-radius: 9999px;
 }
@@ -3890,6 +3917,10 @@ html {
 }
 .border-transparent {
   border-color: transparent;
+}
+.\!bg-base-200 {
+  --tw-bg-opacity: 1 !important;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity)) !important;
 }
 .bg-\[\#f7b114\] {
   --tw-bg-opacity: 1;
@@ -4217,22 +4248,61 @@ html.has-scroll-dragging {
     bottom: 0;
 }
 
-@keyframes RahNeil-N3-goldernBorderRotate {
+@keyframes borderSpin {
     from {
-        transform: rotate(28deg);
+        transform: rotate(120deg)
     }
+
     to {
-        transform: rotate(388deg);
+        transform: rotate(480deg)
     }
 }
-#RahNeil-N3-goldenBorder:after {
-    background-image: linear-gradient(
-        to bottom right in oklab,
-        oklch(100% 0.38 82) 0%,
-        oklch(72% 0.5 90) 100%
-    );
-    animation: RahNeil-N3-goldernBorderRotate 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+.hover\:card-goldenOutline:hover {
+  overflow: hidden;
+  --tw-bg-opacity: 1;
 }
+
+.hover\:card-goldenOutline:hover::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+}
+
+.hover\:card-goldenOutline:hover::after {
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.hover\:card-goldenOutline:hover:after {
+        background-image: linear-gradient(to bottom right in oklab,
+                oklch(100% 0.38 82) 0%,
+                oklch(72% 0.5 90) 100%);
+        animation: borderSpin 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        top: 50%;
+        left: -25%;
+        height: 2.5rem;
+        width: 200%}
+
+.hover\:card-goldenOutline:hover .card-body {
+        padding: calc(var(--padding-card, 2rem) - 0.125rem);
+        z-index: 10;
+        margin: 0.125rem;
+        border-radius: .9rem;
+        background-color: inherit;
+        --tw-bg-opacity: 1}
+
+.hover\:card-goldenOutline:hover.card-compact .card-body {
+        padding: 0.875rem;
+        z-index: 10;
+        margin: 0.125rem;
+        border-radius: .9rem;
+        background-color: inherit;
+        --tw-bg-opacity: 1}
+
 @media (min-width: 640px) {
 
   .sm\:divider-horizontal {
@@ -4273,63 +4343,49 @@ html.has-scroll-dragging {
     border-bottom-right-radius: var(--rounded-box, 1rem);
   }
 }
-.after\:absolute::after {
-  content: var(--tw-content);
-  position: absolute;
-}
-.after\:-left-1\/4::after {
-  content: var(--tw-content);
-  left: -25%;
-}
-.after\:top-1\/4::after {
-  content: var(--tw-content);
-  top: 25%;
-}
-.after\:-z-10::after {
-  content: var(--tw-content);
-  z-index: -10;
-}
-.after\:h-10::after {
-  content: var(--tw-content);
-  height: 2.5rem;
-}
-.after\:w-\[200\%\]::after {
-  content: var(--tw-content);
-  width: 200%;
-}
+
 .focus-within\:max-h-screen:focus-within {
   max-height: 100vh;
 }
+
 .hover\:border-transparent:hover {
   border-color: transparent;
 }
+
 .hover\:bg-base-100:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
+
 .hover\:bg-base-200:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
 }
+
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+
 .hover\:bg-pos-90:hover {
   background-position: 90% 90%;
 }
+
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
+
 .hover\:shadow-md:hover {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
 .prose-h1\:text-center :is(:where(h1):not(:where([class~="not-prose"] *))) {
   text-align: center;
 }
+
 @media (min-width: 640px) {
 
   .sm\:col-span-1 {
@@ -4357,6 +4413,7 @@ html.has-scroll-dragging {
     line-height: 1;
   }
 }
+
 @media (min-width: 768px) {
 
   .md\:flex {

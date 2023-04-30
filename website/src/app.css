@@ -91,19 +91,36 @@ html.has-scroll-dragging {
     bottom: 0;
 }
 
-@keyframes RahNeil-N3-goldernBorderRotate {
+@keyframes borderSpin {
     from {
-        transform: rotate(28deg);
+        transform: rotate(120deg)
     }
+
     to {
-        transform: rotate(388deg);
+        transform: rotate(480deg)
     }
 }
-#RahNeil-N3-goldenBorder:after {
-    background-image: linear-gradient(
-        to bottom right in oklab,
-        oklch(100% 0.38 82) 0%,
-        oklch(72% 0.5 90) 100%
-    );
-    animation: RahNeil-N3-goldernBorderRotate 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+@layer components {
+    .card-goldenOutline {
+        @apply bg-opacity-100 overflow-hidden after:absolute before:w-full before:h-full before:absolute before:bg-inherit before:bg-opacity-100
+    }
+
+    .card-goldenOutline:after {
+        background-image: linear-gradient(to bottom right in oklab,
+                oklch(100% 0.38 82) 0%,
+                oklch(72% 0.5 90) 100%);
+        animation: borderSpin 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        @apply h-10 top-1/2 -left-1/4 w-[200%]
+    }
+
+    .card-goldenOutline .card-body {
+        padding: calc(var(--padding-card, 2rem) - 0.125rem);
+        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10
+    }
+
+    .card-compact.card-goldenOutline .card-body {
+        padding: 0.875rem;
+        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10
+    }
 }

@@ -8,12 +8,12 @@ module.exports = {
       animation: {
         fadeIn: 'fadeIn 5s ease-in-out',
       },
-      keyframes: theme => ({
+      keyframes: {
         fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         },
-      }),
+      },
       backgroundSize: {
         'size-200': '200% 200%',
       },

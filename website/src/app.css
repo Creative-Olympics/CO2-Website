@@ -90,3 +90,20 @@ html.has-scroll-dragging {
     right: auto;
     bottom: 0;
 }
+
+@keyframes RahNeil-N3-goldernBorderRotate {
+    from {
+        transform: rotate(28deg);
+    }
+    to {
+        transform: rotate(388deg);
+    }
+}
+#RahNeil-N3-goldenBorder:after {
+    background-image: linear-gradient(
+        to bottom right in oklab,
+        oklch(100% 0.38 82) 0%,
+        oklch(72% 0.5 90) 100%
+    );
+    animation: RahNeil-N3-goldernBorderRotate 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

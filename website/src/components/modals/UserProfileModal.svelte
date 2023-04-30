@@ -49,12 +49,17 @@
 		</div>
 
 		<!-- DONATIONS -->
-		<div class="card card-compact bg-base-200 col-span-5">
-			<div class="card-body">
-				<h2 class="card-title text-sm">Donations</h2>
-				<div class="stat p-0">
-					<div class="stat-value text-3xl">65€</div>
-					<!-- TODO use user amount -->
+		<div
+			class="card card-compact col-span-5 after:absolute after:w-[200%] after:h-10 after:-z-10 rounded-2xl overflow-hidden after:top-1/4 after:-left-1/4"
+			id="RahNeil-N3-goldenBorder"
+		>
+			<div class="card-body m-0.5 bg-base-200 rounded-[.9rem]">
+				<div class="">
+					<h2 class="card-title text-sm">Donations</h2>
+					<div class="stat p-0">
+						<div class="stat-value text-3xl">65€</div>
+						<!-- TODO use user amount -->
+					</div>
 				</div>
 			</div>
 		</div>

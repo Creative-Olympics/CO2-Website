@@ -12,5 +12,5 @@
 </div>
 <span class="text-md font-bold uppercase w-full">About us</span>
 <div class="w-full mt-6">
-	<span>hey</span>
+	<span>hey {userID}</span>
 </div>

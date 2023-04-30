@@ -132,7 +132,7 @@
 									</li>
 								{/if}
 								<li>
-									<button on:click={() => modal.open($modal, UserProfileModal)}>
+									<button on:click={() => modal.open($modal, UserProfileModal, {userID: $userData?.uid})}>
 										<Icon>AccountOutline</Icon>
 										Your profile
 									</button>
@@ -159,7 +159,7 @@
 						</button>
 						<button
 							class="btn hidden md:flex text-white"
-							on:click={() => modal.open($modal, LoginModal, {userID: $userData?.uid})}
+							on:click={() => modal.open($modal, LoginModal)}
 						>
 							Login
 						</button>

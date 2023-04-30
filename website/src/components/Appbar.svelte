@@ -13,6 +13,7 @@
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
 	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
+  import UserProfileModal from "./modals/UserProfileModal.svelte"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -131,7 +132,7 @@
 									</li>
 								{/if}
 								<li>
-									<button on:click={() => toasts.warning("soon :>")}>
+									<button on:click={() => modal.open($modal, UserProfileModal)}>
 										<Icon>AccountOutline</Icon>
 										Your profile
 									</button>
@@ -158,7 +159,7 @@
 						</button>
 						<button
 							class="btn hidden md:flex text-white"
-							on:click={() => modal.open($modal, LoginModal)}
+							on:click={() => modal.open($modal, LoginModal, {userID: $userData?.uid})}
 						>
 							Login
 						</button>

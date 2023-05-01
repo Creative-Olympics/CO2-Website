@@ -27,7 +27,7 @@ onAuthStateChanged(auth, (u) => {
         })
 
         u.getIdTokenResult().then((idTokenResult) => {
-            isAdmin.set(idTokenResult.claims.role === "admin")
+            isAdmin.set(idTokenResult.claims.isAdmin)
         })
     }else{
         privateData.set(null)

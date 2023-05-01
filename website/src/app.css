@@ -101,9 +101,10 @@ html.has-scroll-dragging {
     }
 }
 
+/* card-goldenOutline */
 @layer components {
     .card-goldenOutline {
-        @apply bg-opacity-100 overflow-hidden after:absolute before:w-full before:h-full before:absolute before:bg-inherit before:bg-opacity-100
+        @apply relative bg-opacity-100 overflow-hidden after:absolute before:w-full before:h-full before:absolute before:bg-inherit before:bg-opacity-100
     }
 
     .card-goldenOutline:after {
@@ -120,7 +121,6 @@ html.has-scroll-dragging {
     }
 
     .card-compact.card-goldenOutline .card-body {
-        padding: 0.875rem;
-        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10
+        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10 p-[.875rem]
     }
 }

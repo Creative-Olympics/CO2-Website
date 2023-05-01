@@ -1,8 +1,10 @@
 <script>
-	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
-	import SocialLinks from "$cmp/SocialLinks.svelte"
 	import { rc_neilRahmouni } from "$lib/firebase"
 	import { userData } from "$lib/user"
+
+	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
+	import SocialLinks from "$cmp/SocialLinks.svelte"
+	import UserTags from "$cmp/UserTags.svelte"
 
 	/**  @type {String} */ export let userID
 
@@ -25,16 +27,17 @@
 </div>
 <div class="flex flex-col gap-4">
 	<div class="w-full flex flex-row gap-4 items-center">
+		<!-- AVATAR -->
 		<div class="avatar online">
 			<div class="w-20 mask mask-circle">
 				<img src={data?.photoURL} alt="{data?.displayName} profile picture" />
 			</div>
 		</div>
-		<div class="flex flex-col gap-2">
-			<span class="text-md font-bold w-full">{data?.displayName}</span>
-			<div class="flex flex-row gap-1">
-				<span class="badge badge-sm badge-warning">Winner 2020</span>
-			</div>
+
+		<!-- Name & Badges -->
+		<div class="flex flex-col w-3/4 gap-1">
+			<span class="text-xl font-bold w-full">{data?.displayName}</span>
+			<UserTags tags={["McOR2oh4Rp", "ax9TMg2er9"]} size="sm" />
 		</div>
 	</div>
 

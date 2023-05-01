@@ -8,12 +8,13 @@
 	import { showLogo } from "$lib/scroll"
 	import { modal } from "$lib/modals"
 	import { privateData, userData, signOut, isAdmin } from "$lib/user"
+	import { currentThemeID, switchToNextTheme, themeList } from "$lib/theme"
 
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
 	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
-  import UserProfileModal from "./modals/UserProfileModal.svelte"
+	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -56,16 +57,14 @@
 						</div>
 					</a>
 				</div>
-				<!--<div in:fade={{ delay: 1000, duration: 0 }} class="absolute left-0 invisible" style="top: -1.6rem">
-						<a
-							class="btn btn-ghost whitespace-nowrap normal-case flex flex-row items-center gap-3"
-							href="/"
-						>
-							Creative Olympics
-						</a>
-					</div>-->
 			</div>
 			<div class="navbar-end gap-0.5">
+				<div class="tooltip tooltip-bottom" data-tip={themeList[$currentThemeID].buttonText}>
+					<button class="btn btn-circle btn-ghost" on:click={switchToNextTheme}>
+						<Icon>{themeList[$currentThemeID].buttonIcon}</Icon>
+					</button>
+				</div>
+
 				<SendFeedbackIconButton
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
@@ -132,7 +131,10 @@
 									</li>
 								{/if}
 								<li>
-									<button on:click={() => modal.open($modal, UserProfileModal, {userID: $userData?.uid})}>
+									<button
+										on:click={() =>
+											modal.open($modal, UserProfileModal, { userID: $userData?.uid })}
+									>
 										<Icon>AccountOutline</Icon>
 										Your profile
 									</button>

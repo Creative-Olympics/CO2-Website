@@ -4,6 +4,8 @@
 	import { onMount } from "svelte"
 	import { finishedLoading, loaderReady, logoLoaded, vidLoaded } from "$lib/loader"
 	import { page } from "$app/stores"
+  	import { isLoading } from "svelte-i18n"
+	
 
 	let step = 0
 	onMount(() => {
@@ -55,15 +57,17 @@
 	]
 
 	let checkLoad = () => {
+
 		if ($loaderReady) {
 			if ($page.route.id?.startsWith("/(landing)")) {
 				if ($page.route.id == "/(landing)/trailer") {
 					finishedLoading.set(true)
 				} else {
-					finishedLoading.set($logoLoaded && $vidLoaded)
+					console.log('logo', $logoLoaded, 'vid', $vidLoaded, 'text', !$isLoading)
+					finishedLoading.set($logoLoaded && $vidLoaded && !$isLoading)
 				}
 			} else {
-				finishedLoading.set(true)
+				finishedLoading.set(true && !$isLoading);
 			}
 		}
 	}
@@ -71,6 +75,8 @@
 	loaderReady.subscribe(checkLoad)
 	logoLoaded.subscribe(checkLoad)
 	vidLoaded.subscribe(checkLoad)
+	isLoading.subscribe(checkLoad)
+
 </script>
 
 {#if !$finishedLoading}

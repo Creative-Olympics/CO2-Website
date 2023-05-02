@@ -1,6 +1,7 @@
 <script>
 	import { onMount, onDestroy } from "svelte"
 	import Img from "@zerodevx/svelte-img"
+	import { _ } from "$lib/i18n"
 
 	import FooterContent from "$cmp/footer/FooterContent.svelte"
 
@@ -37,7 +38,7 @@
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="2"
 				>
-					Event starts in
+					{$_('start_in')}
 				</span>
 				<div
 					class="grid grid-flow-col gap-6 sm:gap-8 text-center auto-cols-max font-bold mb-2 sm:mb-4"
@@ -51,7 +52,7 @@
 						<span class="countdown font-mono text-5xl sm:text-7xl">
 							<span style="--value:{(seconds / 86400) >> 0};" />
 						</span>
-						days
+						{$_('time').split(' ')[0]}
 					</div>
 					<div
 						class="flex flex-col"
@@ -62,7 +63,7 @@
 						<span class="countdown font-mono text-5xl sm:text-7xl">
 							<span style="--value:{((seconds % 86400) / 3600) >> 0};" />
 						</span>
-						hours
+						{$_('time').split(' ')[1]}
 					</div>
 					<div
 						class="flex flex-col"
@@ -73,7 +74,7 @@
 						<span class="countdown font-mono text-5xl sm:text-7xl">
 							<span style="--value:{((seconds % 3600) / 60) >> 0};" />
 						</span>
-						min
+						{$_('time').split(' ')[2]}
 					</div>
 					<div
 						class="flex flex-col"
@@ -84,7 +85,7 @@
 						<span class="countdown font-mono text-5xl sm:text-7xl">
 							<span style="--value:{seconds % 60};" />
 						</span>
-						sec
+						{$_('time').split(' ')[3]}
 					</div>
 				</div>
 				<span
@@ -92,7 +93,7 @@
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="2"
 				>
-					Come back here to see the latest donations & donators or if you too want to become one
+					{$_('come_back_to_see')}
 				</span>
 			</div>
 

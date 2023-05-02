@@ -2,6 +2,8 @@
 	import { goto } from "$app/navigation"
 	import { fly, fade } from "svelte/transition"
 
+	import { _ } from "$lib/i18n"
+
 	import { scrollInstance } from "$lib/scroll"
 	import { loaderReady, logoLoaded } from "$lib/loader"
 
@@ -43,7 +45,7 @@
 					on:introend={() => $scrollInstance.update()}
 					href="about"
 				>
-					Learn about us
+					{$_('learn_button')}
 				</a>
 			{/if}
 		</div>
@@ -57,7 +59,7 @@
 					on:click={watchTrailer}
 					on:introend={() => $scrollInstance.update()}
 				>
-					Watch Trailer
+					{$_('watch_trailer')}
 				</button>
 			{/if}
 		</div>

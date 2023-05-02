@@ -1,6 +1,7 @@
 <script>
 	import { rc_eventDesc_article } from '$lib/firebase';
 	import MediaQuery from './MediaQuery.svelte';
+	import { _ } from "$lib/i18n"
 </script>
 
 <div
@@ -86,7 +87,7 @@
 		data-rahneiln3scroll-call="appbar_showLogo"
 	>
 		<article class="prose py-20 px-10 prose-h1:text-center">
-			{@html $rc_eventDesc_article}
+			{@html $_('eventDesc_article')}
 		</article>
 	</div>
 	<div class="relative h-28">

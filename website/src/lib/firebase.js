@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, OAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import { fetchAndActivate, getRemoteConfig, isSupported, getValue } from 'firebase/remote-config';
+import { fetchAndActivate, getRemoteConfig, isSupported, getValue, activate } from 'firebase/remote-config';
 import { writable } from 'svelte/store';
 
 import { toasts } from '$lib/toasts';
@@ -25,12 +25,26 @@ export const appleAuthProvider = new OAuthProvider('apple.com');
 
 export const db = getFirestore(app);
 
+/** @type {import('@firebase/remote-config').RemoteConfig} */
+let remoteConfig;
+
+let isActivated = false;
+
+/** @type {((value?: any) => void)} */
+let active = () => {};
+let waitActivation = () => new Promise((resolve, relect) => {
+	active = resolve;
+})
+
 isSupported().then((supported) => {
 	if (supported) {
 		let rc = getRemoteConfig(app);
 		rc.settings.minimumFetchIntervalMillis = 3600000; //ONLY FOR DEV
+		
 		fetchAndActivate(rc)
 			.then(() => {
+				remoteConfig = rc;
+
 				rc_discordInvite_url.update((v) => getValue(rc, 'discordInvite_url').asString() || v);
 				rc_eventDesc_article.update((v) => getValue(rc, 'eventDesc_article').asString() || v);
 				rc_eventTimestamp.update((v) => getValue(rc, 'eventTimestamp').asString() || v);
@@ -46,6 +60,9 @@ isSupported().then((supported) => {
 				rc_loginProviders.update((v) => getValue(rc, 'loginProviders').asString() ? JSON.parse(getValue(rc, 'loginProviders').asString()) : v);
 
 				logs.add({ msg: "Fetched RC values from server" }, "info")
+
+				active();
+				isActivated = true;
 			})
 			.catch((err) => {
 				console.log(err);
@@ -70,3 +87,14 @@ export let rc_adminCurrentSprint_url = writable('http://url.creative-olympics.or
 export let rc_trailer_ytbID = writable('2g811Eo7K8U')
 export let rc_feedback_email = writable('co@rahmouni.dev');
 export let rc_loginProviders = writable(JSON.parse('{"Apple":"Disabled","Google":"Enabled","Microsoft":"Hidden"}'));
+
+export async function getTextENfromFirebase(){
+
+	if(!isActivated) await waitActivation();
+
+	let eventDesc_article = '<h1>The Creative Olympics are coming back!</h1><p>Take part in the Creative Olympics, a <b>global charity event</b> running in Minecraft that promotes creativity and teamwork from players all around the world, while raising funds for a worthy cause!<br/>The event will run for <b>7 days</b> and feature a variety of contests to test your skills and challenge your imagination. All proceeds will go to a global charity organization that works to <b>improve the lives of people in need</b>.<p>Join us for an exciting and worthwhile experience and help us <b>make a difference</b> in the world! Check below for the beginning countdown and register for the event.</p><p>You want to know more about who we are and our previous event? <a href="#">Check this link!</a> See what prizes you can win by participating? <a href="#">Here you go!</a> Want to help us as a streamer or partner? <a href="#">Fill in this form!</a></p>';
+
+	return {
+		eventDesc_article: getValue(remoteConfig, 'eventDesc_article').asString() || eventDesc_article
+	}
+}

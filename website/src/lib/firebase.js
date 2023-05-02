@@ -98,3 +98,14 @@ export async function getTextENfromFirebase(){
 		eventDesc_article: getValue(remoteConfig, 'eventDesc_article').asString() || eventDesc_article
 	}
 }
+
+export async function getTextFRfromFirebase(){
+
+	if(!isActivated) await waitActivation();
+
+	let eventDesc_article = `<h1>Les Creative Olympics sont de retour !</h1><p>Participez aux Creative Olympics, un <b>événement caritatif mondial</b> se déroulant dans Minecraft qui promeut la créativité et le travail d'équipe de joueurs du monde entier, tout en collectant des fonds pour une bonne cause !<br/>L'événement durera <b>7 jours</b> et proposera une variété de concours pour tester vos compétences et défier votre imagination. Tous les bénéfices iront à une organisation caritative mondiale qui s'efforce d'<b>améliorer la vie des personnes dans le besoin</b>.<p>Rejoignez-nous pour une expérience passionnante et enrichissante et aidez-nous à <b>faire la différence</b > dans le monde ! Vérifiez ci-dessous le compte à rebours du début et inscrivez-vous à l'événement.</p><p>Vous voulez en savoir plus sur qui nous sommes et sur notre événement précédent ? <a href="#">Consultez ce lien !</a> Voyez quels prix vous pouvez gagner en participant ? <a href="#">C'est parti !</a> Vous voulez nous aider en tant que streamer ou partenaire ? <a href="#">Remplissez ce formulaire !</a></p>`;
+
+	return {
+		eventDesc_article: /*getValue(remoteConfig, 'eventDesc_article').asString() || */ eventDesc_article
+	}
+}

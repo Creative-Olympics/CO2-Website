@@ -4,7 +4,6 @@
 	import { onMount } from "svelte"
 	import { finishedLoading, loaderReady, logoLoaded, vidLoaded } from "$lib/loader"
 	import { page } from "$app/stores"
-  	import { isLoading } from "svelte-i18n"
 	
 
 	let step = 0
@@ -63,11 +62,11 @@
 				if ($page.route.id == "/(landing)/trailer") {
 					finishedLoading.set(true)
 				} else {
-					console.log('logo', $logoLoaded, 'vid', $vidLoaded, 'text', !$isLoading)
-					finishedLoading.set($logoLoaded && $vidLoaded && !$isLoading)
+					console.log('logo', $logoLoaded, 'vid', $vidLoaded);
+					finishedLoading.set($logoLoaded && $vidLoaded)
 				}
 			} else {
-				finishedLoading.set(true && !$isLoading);
+				finishedLoading.set(true);
 			}
 		}
 	}
@@ -75,7 +74,6 @@
 	loaderReady.subscribe(checkLoad)
 	logoLoaded.subscribe(checkLoad)
 	vidLoaded.subscribe(checkLoad)
-	isLoading.subscribe(checkLoad)
 
 </script>
 

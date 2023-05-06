@@ -64,75 +64,61 @@
 	</div>
 
 	<div class="grid grid-cols-12 gap-2 relative">
-		{#if false}
-			<!-- SKELETON -->
-			<div class="card card-compact col-span-7 card-loading">
-				<div class="card-body">
-					<h2 class="card-title text-sm">Socials</h2>
-					<SocialLinks />
-				</div>
+		<!-- SOCIALS -->
+		<div class="card card-compact col-span-8 card-loading {publicData !== null && 'loaded'}">
+			<div class="card-body opacity-100">
+				<h2 class="card-title text-sm">Socials</h2>
+				{#if publicData?.links === undefined}
+					<h3 class="italic h-5 text-opacity-80 text-base-content">
+						No social media links available yet.
+					</h3>
+				{:else}
+					<SocialLinks links={publicData?.links} />
+				{/if}
 			</div>
-			<div class="card card-compact col-span-5 card-loading" />
-			<div class="card card-compact col-span-12 card-loading">
-				<div class="card-body">
-					<h2 class="card-title text-sm">Achievements</h2>
-					<div class="h-24" />
-				</div>
-			</div>
-		{:else}
-			<!-- SOCIALS -->
-			<div class="card card-compact col-span-8 card-loading {publicData !== null && "loaded"}">
-				<div class="card-body opacity-100">
-					<h2 class="card-title text-sm">Socials</h2>
-					{#if publicData?.links === undefined}
-						<h3 class="italic h-5 text-opacity-80 text-base-content">
-							No social media links available yet.
-						</h3>
-					{:else}
-						<SocialLinks links={publicData?.links} />
-					{/if}
-				</div>
-			</div>
+		</div>
 
-			<!-- DONATIONS -->
-			<div class="card card-compact col-span-4 card-loading {publicData !== null && "loaded card-goldenOutline"}">
-				<div class="card-body gap-0">
-					<h2 class="card-title text-sm">Donations</h2>
-					<div class="stat p-0">
-						<div class="stat-value text-3xl">65€</div>
-						<!-- TODO use user amount -->
+		<!-- DONATIONS -->
+		<div
+			class="card card-compact col-span-4 card-loading {publicData !== null &&
+				'loaded card-goldenOutline'}"
+		>
+			<div class="card-body gap-0">
+				<h2 class="card-title text-sm">Donations</h2>
+				<div class="stat p-0">
+					<div class="stat-value text-3xl">65€</div>
+					<!-- TODO use user amount -->
+				</div>
+			</div>
+		</div>
+
+		<!-- ACHIEVEMENTS -->
+		<div class="card card-compact col-span-12 card-loading {publicData !== null && 'loaded'}">
+			<div class="card-body">
+				<h2 class="card-title text-sm">Achievements</h2>
+
+				<div class="flex flex-row gap-2">
+					<div class="card bg-blue-600 shadow-xl w-24 h-24">
+						<figure class="w-full h-full">
+							<img
+								src="https://cdn.discordapp.com/attachments/461490441389604875/1102259205546717194/mc_boat.png"
+								alt="Shoes"
+								style="scale: 1.4"
+							/>
+						</figure>
+					</div>
+					<div class="card bg-[#f7b114] shadow-xl w-24 h-24">
+						<figure class="w-full h-full">
+							<img
+								src="https://media.discordapp.net/attachments/1043189830554746992/1081950997821263902/emoji_fox.png"
+								alt="Shoes"
+								style="scale: .75"
+							/>
+						</figure>
 					</div>
 				</div>
 			</div>
-
-			<!-- ACHIEVEMENTS -->
-			<div class="card card-compact col-span-12 card-loading {publicData !== null && "loaded"}">
-				<div class="card-body">
-					<h2 class="card-title text-sm">Achievements</h2>
-
-					<div class="flex flex-row gap-2">
-						<div class="card bg-blue-600 shadow-xl w-24 h-24">
-							<figure class="w-full h-full">
-								<img
-									src="https://cdn.discordapp.com/attachments/461490441389604875/1102259205546717194/mc_boat.png"
-									alt="Shoes"
-									style="scale: 1.4"
-								/>
-							</figure>
-						</div>
-						<div class="card bg-[#f7b114] shadow-xl w-24 h-24">
-							<figure class="w-full h-full">
-								<img
-									src="https://media.discordapp.net/attachments/1043189830554746992/1081950997821263902/emoji_fox.png"
-									alt="Shoes"
-									style="scale: .75"
-								/>
-							</figure>
-						</div>
-					</div>
-				</div>
-			</div>
-		{/if}
+		</div>
 	</div>
 </div>
 <div class="modal-action">

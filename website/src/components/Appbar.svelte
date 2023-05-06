@@ -69,12 +69,12 @@
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
 				/>
-				{#if $privateData?.contributor || false}
+				{#if $privateData && $privateData?.contributor || false}
 					<button
 						class="btn btn-circle btn-ghost"
 						on:click={() =>
 							toasts.default(
-								"Thanks for contributing to the website, " + $privateData.contributor + "!"
+								"Thanks for contributing to the website, " + $privateData?.contributor + "!"
 							)}
 					>
 						<Icon>HandHeartOutline</Icon>

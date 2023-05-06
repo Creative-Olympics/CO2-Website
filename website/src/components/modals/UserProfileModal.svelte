@@ -65,7 +65,7 @@
 
 	<div class="grid grid-cols-12 gap-2 relative">
 		<!-- SOCIALS -->
-		<div class="card card-compact col-span-8 card-loading {publicData !== null && 'loaded'}">
+		<div class="card card-compact col-span-7 sm:col-span-8 card-loading {publicData !== null && 'loaded'}">
 			<div class="card-body opacity-100">
 				<h2 class="card-title text-sm">Socials</h2>
 				{#if publicData?.links === undefined}
@@ -73,14 +73,14 @@
 						No social media links available yet.
 					</h3>
 				{:else}
-					<SocialLinks links={publicData?.links} />
+					<SocialLinks links={JSON.parse(publicData?.links)} />
 				{/if}
 			</div>
 		</div>
 
 		<!-- DONATIONS -->
 		<div
-			class="card card-compact col-span-4 card-loading {publicData !== null &&
+			class="card card-compact col-span-5 sm:col-span-4 card-loading {publicData !== null &&
 				'loaded card-goldenOutline'}"
 		>
 			<div class="card-body gap-0">

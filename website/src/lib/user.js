@@ -9,9 +9,9 @@ import { auth, db } from '$lib/firebase';
 
 /** @type {import("svelte/store").Writable<import("@firebase/auth").User | null>} */
 export let userData = writable(null)
-/** @type {import("svelte/store").Writable<any | null>} */
+/** @type {import("svelte/store").Writable<import("@firebase/firestore").DocumentData | undefined | null>} */
 export let privateData = writable(null)
-/** @type {import("svelte/store").Writable<any | null>} */
+/** @type {import("svelte/store").Writable<import("@firebase/firestore").DocumentData | undefined | null>} */
 export let publicData = writable(null)
 /** @type {import("svelte/store").Writable<boolean>} */
 export let isAdmin = writable(false)
@@ -29,7 +29,7 @@ onAuthStateChanged(auth, (u) => {
         u.getIdTokenResult().then((idTokenResult) => {
             isAdmin.set(idTokenResult.claims.isAdmin)
         })
-    }else{
+    } else {
         privateData.set(null)
         publicData.set(null)
         isAdmin.set(false)

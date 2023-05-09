@@ -19,7 +19,7 @@
 				aria-label="Send feedback"
 				on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
 			>
-				<Icon>MessageAlertOutline</Icon>
+				<Icon>sms_failed</Icon>
 			</button>
 		</div>
 	{/await}

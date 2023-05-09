@@ -21,14 +21,26 @@ onAuthStateChanged(auth, (u) => {
     if (u) {
         getDoc(doc(db, "users", u.uid, "private", "general")).then((ud) => {
             privateData.set(ud.data())
-        })
+        }).catch((err) => {
+            console.log(err);
+            logs.add(err, "error")
+            toasts.feedbackError("ISjznvVZg0@RahNeil_N3:user:onAuthStateChanged:getDoc:private:general");
+        });
         getDoc(doc(db, "users", u.uid, "public", "general")).then((ud) => {
             publicData.set(ud.data())
-        })
+        }).catch((err) => {
+            console.log(err);
+            logs.add(err, "error")
+            toasts.feedbackError("pLaKcDkLIO@RahNeil_N3:user:onAuthStateChanged:getDoc:public:general");
+        });
 
         u.getIdTokenResult().then((idTokenResult) => {
             isAdmin.set(idTokenResult.claims.isAdmin)
-        })
+        }).catch((err) => {
+            console.log(err);
+            logs.add(err, "error")
+            toasts.feedbackError("OubyBeMopi@RahNeil_N3:user:onAuthStateChanged:getIdTokenResult:claims:isAdmin");
+        });
     } else {
         privateData.set(null)
         publicData.set(null)

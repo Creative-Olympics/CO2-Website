@@ -1,13 +1,11 @@
 <script>
 	import { fly, fade, slide } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
-	import isIos from "is-ios"
 
 	import { rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from "$lib/firebase"
-	import { toasts } from "$lib/toasts"
 	import { showLogo } from "$lib/scroll"
 	import { modal } from "$lib/modals"
-	import { privateData, userData, signOut, isAdmin } from "$lib/user"
+	import { userData, signOut, isAdmin } from "$lib/user"
 	import { currentThemeID, switchToNextTheme, themeList } from "$lib/theme"
 
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
@@ -69,6 +67,7 @@
 					origin="jMixcwRegK@RahNeil_N3:Appbar:content:navbar:end"
 					tooltipDirection="bottom"
 				/>
+				<!--
 				{#if $privateData && $privateData?.contributor || false}
 					<button
 						class="btn btn-circle btn-ghost"
@@ -77,9 +76,9 @@
 								"Thanks for contributing to the website, " + $privateData?.contributor + "!"
 							)}
 					>
-						<Icon>HandHeartOutline</Icon>
+						<Icon>volunteer_activism</Icon>
 					</button>
-				{/if}
+				{/if}-->
 				<div class="ml-2">
 					{#if $userData}
 						<div class="dropdown dropdown-end">
@@ -110,19 +109,19 @@
 									</li>
 									<li>
 										<a href={$rc_adminApp_url} target="_blank" rel="noreferrer">
-											<Icon>ShieldHomeOutline</Icon>
+											<Icon>shield_person</Icon>
 											Admin app
 										</a>
 									</li>
 									<li>
 										<a href={$rc_adminIssueBoard_url} target="_blank" rel="noreferrer">
-											<Icon>PaletteSwatchOutline</Icon>
+											<Icon>style</Icon>
 											Issue board
 										</a>
 									</li>
 									<li>
 										<a href={$rc_adminCurrentSprint_url} target="_blank" rel="noreferrer">
-											<Icon>RunFast</Icon>
+											<Icon>sprint</Icon>
 											Current sprint
 										</a>
 									</li>
@@ -135,15 +134,13 @@
 										on:click={() =>
 											modal.open($modal, UserProfileModal, { userID: $userData?.uid })}
 									>
-										<Icon>AccountOutline</Icon>
+										<Icon>account_circle</Icon>
 										Your profile
 									</button>
 								</li>
 								<li>
 									<button on:click={signOut}>
-										<Icon>
-											Logout{#if isIos}Variant{/if}
-										</Icon>
+										<Icon>logout</Icon>
 										Sign out
 									</button>
 								</li>
@@ -155,9 +152,7 @@
 							on:click={() => modal.open($modal, LoginModal)}
 							aria-label="Login"
 						>
-							<Icon class="text-white">
-								Login{#if isIos}Variant{/if}
-							</Icon>
+							<Icon class="text-white">login</Icon>
 						</button>
 						<button
 							class="btn hidden md:flex text-white"

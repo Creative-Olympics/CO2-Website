@@ -40,7 +40,7 @@
 				class="btn btn-sm my-4 gap-2 btn-accent normal-case"
 				on:click={() => toasts.info("Portfolio available soon :)")}
 			>
-				<Icon>Web</Icon>
+				<Icon>language</Icon>
 				Portfolio
 			</button>
 		{:else}
@@ -50,7 +50,7 @@
 				href={$rc_neilRahmouni.main}
 				rel="noreferrer"
 			>
-				<Icon>Web</Icon>
+				<Icon>language</Icon>
 				Portfolio
 			</a>
 		{/if}

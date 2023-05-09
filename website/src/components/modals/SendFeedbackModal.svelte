@@ -64,7 +64,7 @@
 	<!-- Location Tile -->
 	<SelectTile
 		title={category == "TRANSLATION" ? "Error location" : "Bug location"}
-		icon="ApplicationOutline"
+		icon="web_asset"
 		bind:value={location}
 		disabled={category != "BUG" && category != "TRANSLATION"}
 		options={{
@@ -107,7 +107,7 @@
 		<div class="collapse-content flex flex-col gap-2 focus-within:max-h-screen">
 			<SwitchTile
 				title="Browser"
-				icon="Web"
+				icon="web"
 				disabled={category != "BUG"}
 				value={category == "BUG" && sendBrowser}
 				onChange={() => {
@@ -116,7 +116,7 @@
 			/>
 			<SwitchTile
 				title="Window dimensions"
-				icon="AspectRatio"
+				icon="aspect_ratio"
 				description={windowDimensions}
 				disabled={category != "BUG"}
 				value={category == "BUG" && sendWindowDimensions}
@@ -127,7 +127,7 @@
 			<SwitchTile
 				title="Recent logs"
 				description="Send recent errors and warnings"
-				icon="TimelineAlert"
+				icon="data_alert"
 				disabled={category != "BUG"}
 				value={category == "BUG" && sendLogs}
 				onChange={() => {
@@ -136,13 +136,13 @@
 			/>
 			<SwitchTile
 				title="Send Firebase App Installation ID"
-				icon="Pound"
+				icon="tag"
 				description={firebaseAppID}
 				bind:value={sendFirebaseAppID}
 			/>
 			<SwitchTile
 				title="Accept contributor badge"
-				icon="HandHeartOutline"
+				icon="volunteer_activism"
 				description="Accept to potentially receive a contributor badge as a sign of gratitude for your help"
 				disabled={!sendFirebaseAppID}
 				value={sendFirebaseAppID && contributor}

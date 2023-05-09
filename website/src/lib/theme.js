@@ -12,17 +12,17 @@ export const switchToNextTheme = () => {
 export const themeList = [
     {   // Automatic
         buttonText: "Switch to Dark Theme",
-        buttonIcon: "WeatherNight",
+        buttonIcon: "dark_mode",
         dark: null
     },
     {   // Dark
         buttonText: "Switch to Light Theme",
-        buttonIcon: "WeatherSunny",
+        buttonIcon: "light_mode",
         dark: true
     },
     {   // Light
         buttonText: "Switch to Automatic Theme",
-        buttonIcon: "AutoMode",
+        buttonIcon: "night_sight_auto",
         dark: false
     }
 ]

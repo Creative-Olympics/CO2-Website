@@ -3683,17 +3683,11 @@ html {
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
-.col-span-4 {
-  grid-column: span 4 / span 4;
-}
 .col-span-5 {
   grid-column: span 5 / span 5;
 }
 .col-span-7 {
   grid-column: span 7 / span 7;
-}
-.col-span-8 {
-  grid-column: span 8 / span 8;
 }
 .mx-4 {
   margin-left: 1rem;
@@ -3750,6 +3744,12 @@ html {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
+.mb-0\.5 {
+  margin-bottom: 0.125rem;
 }
 .inline-block {
   display: inline-block;
@@ -3808,6 +3808,15 @@ html {
 .h-screen {
   height: 100vh;
 }
+.h-8 {
+  height: 2rem;
+}
+.h-3 {
+  height: 0.75rem;
+}
+.h-3\.5 {
+  height: 0.875rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3862,6 +3871,15 @@ html {
 }
 .w-screen {
   width: 100vw;
+}
+.w-8 {
+  width: 2rem;
+}
+.w-3 {
+  width: 0.75rem;
+}
+.w-3\.5 {
+  width: 0.875rem;
 }
 .max-w-md {
   max-width: 28rem;
@@ -4113,11 +4131,20 @@ html {
 .pt-8 {
   padding-top: 2rem;
 }
+.pr-0 {
+  padding-right: 0px;
+}
+.pr-0\.5 {
+  padding-right: 0.125rem;
+}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
+}
+.align-baseline {
+  vertical-align: baseline;
 }
 .align-text-bottom {
   vertical-align: text-bottom;
@@ -4458,14 +4485,6 @@ html.has-scroll-dragging {
 }
 
 @media (min-width: 768px) {
-
-  .md\:col-span-8 {
-    grid-column: span 8 / span 8;
-  }
-
-  .md\:col-span-4 {
-    grid-column: span 4 / span 4;
-  }
 
   .md\:flex {
     display: flex;

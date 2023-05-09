@@ -3,6 +3,10 @@
 	export let style = ""
 	export { className as class }
 
+	export let large = false
+	/** @type {string | null} */
+	export let weight = null
+
 	/** @type {HTMLSpanElement} */
 	let slotObj
 </script>
@@ -71,9 +75,19 @@
 		</g>
 	</svg>
 {:else if slotObj}
+	<!--
 	{#await import("@mdi/js").then((C) => C["mdi" + (slotObj?.textContent || "home")[0].toUpperCase() + (slotObj?.textContent || "home").slice(1)]) then path}
-		<svg class="inline-block w-6 h-6 whitespace-nowrap leading-none {className}" {style} viewBox="0 0 24 24">
+		<svg class="inline-block whitespace-nowrap leading-none {className}" {style} viewBox="0 0 24 24">
 			<path fill="currentColor" d={path ? path.toString() : ""} />
 		</svg>
-	{/await}
+	{/await}-->
+
+	<img
+		class={className}
+		{style}
+		src="https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/{slotObj?.textContent}/{weight
+			? 'wght' + weight
+			: 'default'}/{large ? '48' : '24'}px.svg"
+		alt=""
+	/>
 {/if}

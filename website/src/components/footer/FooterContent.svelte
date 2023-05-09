@@ -38,7 +38,7 @@
 	<div>
 		<span class="footer-title mb-1">Credits</span>
 		<div class="flex gap-2 items-center">
-			<Icon>CodeTags</Icon>
+			<Icon>code</Icon>
 			<span>
 				Website by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -47,7 +47,7 @@
 			</span>
 		</div>
 		<div class="flex gap-2 items-center">
-			<Icon>PaletteOutline</Icon>
+			<Icon>palette</Icon>
 			<span>
 				Imagery & assets by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">

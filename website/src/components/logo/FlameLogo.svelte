@@ -2,8 +2,6 @@
 	import { createEventDispatcher, onMount } from "svelte"
 
 	const dispatch = createEventDispatcher()
-
-	onMount(() => dispatch("load"))
 </script>
 
 <picture>
@@ -15,6 +13,7 @@
 		class="absolute w-full h-full left-0 right-0 ml-auto mr-auto"
 		src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f525/512.gif"
 		alt="🔥"
+		on:load={() => dispatch("load")}
 	/>
 </picture>
 <svg

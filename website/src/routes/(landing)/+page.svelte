@@ -50,7 +50,7 @@
 		<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-delay="0.07">
 			{#if loaded && $loaderReady}
 				<button
-					class="btn btn-accent text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90"
+					class="btn btn-gradient"
 					style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 					in:fade={{ delay: 2050 }}
 					out:fade={{ duration: 1000 }}

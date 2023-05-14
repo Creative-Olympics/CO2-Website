@@ -17,12 +17,11 @@ const firebaseConfig = {
 	measurementId: 'G-345HMCZEHS'
 };
 
-export const app = initializeApp(firebaseConfig, "RahNeil_N3:FirebaseApp:v2");
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
 export const appleAuthProvider = new OAuthProvider('apple.com');
-
 export const db = getFirestore(app);
 
 isSupported().then((supported) => {

@@ -1,16 +1,19 @@
 <script>
 	import "../app.css"
-	import ToastsOverlay from "$cmp/toasts/ToastsOverlay.svelte"
-	import Appbar from "$cmp/Appbar.svelte"
-	import { app } from "$lib/firebase"
-	import ModalsOverlay from "$cmp/modals/ModalsOverlay.svelte"
 	import { onMount, onDestroy } from "svelte"
+	import { getPerformance } from "firebase/performance"
 	import { getAnalytics } from "firebase/analytics"
-	import { page } from "$app/stores"
-	import { logs } from "$lib/logs"
-	import Loader from "$cmp/Loader.svelte"
+
+	import { app } from "$lib/firebase"
 	import { scrollInstance, showLogo } from "$lib/scroll"
 	import { themeList, currentThemeID } from "$lib/theme"
+	import { logs } from "$lib/logs"
+
+	import ToastsOverlay from "$cmp/toasts/ToastsOverlay.svelte"
+	import Appbar from "$cmp/Appbar.svelte"
+	import ModalsOverlay from "$cmp/modals/ModalsOverlay.svelte"
+	import { page } from "$app/stores"
+	import Loader from "$cmp/Loader.svelte"
 
 	/** @type any **/ let viewport
 
@@ -35,6 +38,7 @@
 
 	onMount(async () => {
 		getAnalytics(app)
+		getPerformance(app)
 
 		osDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
 
@@ -73,8 +77,8 @@
 <div
 	bind:this={viewport}
 	data-rahneiln3scroll-container
-	class={(themeList[$currentThemeID].dark || osDarkTheme) ? "dark" : "light"}
-	data-theme={(themeList[$currentThemeID].dark || osDarkTheme) ? "dark" : "light"}
+	class={themeList[$currentThemeID].dark || osDarkTheme ? "dark" : "light"}
+	data-theme={themeList[$currentThemeID].dark || osDarkTheme ? "dark" : "light"}
 >
 	<Appbar />
 

@@ -3626,6 +3626,28 @@ html {
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+/*---------- btn-gradient ----------*/
+.btn-gradient {
+  border-color: transparent;
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  --tw-gradient-from: #22c55e var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(34 197 94 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(20 184 166 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #14b8a6 var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+  background-size: 200% 200%;
+  background-position: 10% 10%;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.btn-gradient:hover {
+  border-color: transparent;
+  background-position: 90% 90%;
+}
+.btn-gradient:focus-visible {
+  outline-color: #0d9488;
+}
 .\!invisible {
   visibility: hidden !important;
 }
@@ -3745,12 +3767,6 @@ html {
 .mt-8 {
   margin-top: 2rem;
 }
-.mb-0 {
-  margin-bottom: 0px;
-}
-.mb-0\.5 {
-  margin-bottom: 0.125rem;
-}
 .inline-block {
   display: inline-block;
 }
@@ -3808,15 +3824,6 @@ html {
 .h-screen {
   height: 100vh;
 }
-.h-8 {
-  height: 2rem;
-}
-.h-3 {
-  height: 0.75rem;
-}
-.h-3\.5 {
-  height: 0.875rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3871,15 +3878,6 @@ html {
 }
 .w-screen {
   width: 100vw;
-}
-.w-8 {
-  width: 2rem;
-}
-.w-3 {
-  width: 0.75rem;
-}
-.w-3\.5 {
-  width: 0.875rem;
 }
 .max-w-md {
   max-width: 28rem;
@@ -4125,26 +4123,23 @@ html {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
-.pr-3 {
-  padding-right: 0.75rem;
-}
-.pt-8 {
-  padding-top: 2rem;
-}
 .pr-0 {
   padding-right: 0px;
 }
 .pr-0\.5 {
   padding-right: 0.125rem;
 }
+.pr-3 {
+  padding-right: 0.75rem;
+}
+.pt-8 {
+  padding-top: 2rem;
+}
 .text-left {
   text-align: left;
 }
 .text-center {
   text-align: center;
-}
-.align-baseline {
-  vertical-align: baseline;
 }
 .align-text-bottom {
   vertical-align: text-bottom;

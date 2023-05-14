@@ -139,6 +139,7 @@ html.has-scroll-dragging {
     .card-loading {
         @apply bg-base-200 animate-pulse
     }
+
     .card-loading .card-body * {
         @apply opacity-0
     }
@@ -147,7 +148,13 @@ html.has-scroll-dragging {
     .card-loading.loaded {
         @apply animate-none
     }
+
     .card-loading.loaded .card-body * {
         @apply opacity-100 transition-opacity ease-in-out
+    }
+
+    /*---------- btn-gradient ----------*/
+    .btn-gradient {
+        @apply focus-visible:outline-teal-600 text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90
     }
 }

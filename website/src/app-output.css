@@ -3666,11 +3666,17 @@ html {
 .relative {
   position: relative;
 }
+.-top-28 {
+  top: -7rem;
+}
 .-top-6 {
   top: -1.5rem;
 }
 .bottom-0 {
   bottom: 0px;
+}
+.bottom-28 {
+  bottom: 7rem;
 }
 .left-0 {
   left: 0px;
@@ -3687,11 +3693,11 @@ html {
 .top-2 {
   top: 0.5rem;
 }
-.-top-28 {
-  top: -7rem;
-}
 .-bottom-28 {
   bottom: -7rem;
+}
+.top-\[100\%\] {
+  top: 100%;
 }
 .-z-10 {
   z-index: -10;

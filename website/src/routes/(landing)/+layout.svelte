@@ -5,7 +5,7 @@
 
 	import { rc_eventTimestamp } from "$lib/firebase"
 	import { logs } from "$lib/logs"
-	import { finishedLoading, loaderReady, vidLoaded } from "$lib/loader"
+	import { finishedLoading, vidLoaded } from "$lib/loader"
 
 	import DonationsBanner from "$cmp/DonationsBanner.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
@@ -31,57 +31,20 @@
 	<title>Creative Olympics</title>
 </svelte:head>
 
-<div data-rahneiln3scroll-section>
-	<div>
-		{#if $finishedLoading}
-			<script>
-				document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
-			</script>
-		{/if}
+<div
+	class="relative"
+	style="height: calc(100vh + 7rem); background-image: linear-gradient(to top right in oklab, #f00 0%, #000 0% 20%, #f00 0% 40%, #000 0% 60%, #f00 0% 80%, #000 0% 100%);"
+	data-rahneiln3scroll-section
+/>
 
-		<MediaQuery query="(max-width: 480px)" let:matches>
-			<div class="relative" style="height: calc(100vh + 120px)" data-rahneiln3scroll>
-				<!-- Empty [alt] on purpose because decorative, doesn't need to be described -->
-				<Img
-					src={matches ? banner_final_m : banner_final}
-					class="absolute z-10 h-full w-screen object-center object-cover"
-					alt=""
-				/>
-				{#if !vidEnded && mountedRn}
-					<video
-						class="w-full object-cover z-20 absolute"
-						id="RahNeil_N3:CO:hbgiapv"
-						playsinline
-						disableremoteplayback
-						muted
-						aria-hidden="true"
-						style="height: calc(100vh + 120px)"
-						src="banner/{matches ? 'm_' : ''}in.mp4"
-						preload='auto'
-						on:error={() => vidLoaded.set(true)}
-						on:canplaythrough={() => vidLoaded.set(true)}
-						on:loadedmetadata={() => {
-							if (isIos) vidLoaded.set(true)
-						}}
-						bind:ended={vidEnded}
-						out:fade
-					/>
-				{/if}
-
-				<div class="absolute top-0 left-0 w-full h-screen z-30">
-					<slot />
-				</div>
-			</div>
-		</MediaQuery>
-	</div>
-
-	<EventDesc />
-
-	{#if $rc_eventTimestamp != "null"}
-		<CountdownBanner />
-	{:else}
-		<DonationsBanner />
-	{/if}
-
-	<Footer />
+<div class="relative" data-rahneiln3scroll-section>
+	<div class="absolute bg-blue-600 h-28 w-screen opacity-75 -top-28 left-0" />
+	<div class="bg-green-500 h-96" />
+	<div class="absolute bg-blue-600 h-28 w-screen opacity-75 -bottom-28 left-0" />
 </div>
+
+<div
+	class="relative"
+	style="height: calc(100vh + 7rem); background-image: linear-gradient(to top right in oklab, #ff0 0%, #000 0% 20%, #ff0 0% 40%, #000 0% 60%, #ff0 0% 80%, #000 0% 100%);"
+	data-rahneiln3scroll-section
+/>

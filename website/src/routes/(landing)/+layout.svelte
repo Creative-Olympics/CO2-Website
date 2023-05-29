@@ -1,5 +1,15 @@
 <script>
+	import Img from "@zerodevx/svelte-img"
+
+	import MediaQuery from "$cmp/MediaQuery.svelte"
+
+	import background from "$lib/assets/banner/background.png?run"
+	import background_m from "$lib/assets/banner/background_m.png?run"
+	import foreground from "$lib/assets/banner/foreground.png?run"
+	import foreground_m from "$lib/assets/banner/foreground_m.png?run"
+
 	var innerHeight
+	const DEBUG = false
 </script>
 
 <svelte:head>
@@ -7,10 +17,30 @@
 </svelte:head>
 
 <div data-rahneiln3scroll-section>
-	<div
-		class="relative"
-		style="height: calc(100vh + 7rem); background-image: linear-gradient(to top right in oklab, #f00 0%, #000 0% 20%, #f00 0% 40%, #000 0% 60%, #f00 0% 80%, #000 0% 100%);"
-	/>
+	{#if DEBUG}
+		<div
+			class="relative"
+			style="height: calc(100vh + 7rem); background-image: linear-gradient(to top right in oklab, #f00 0%, #000 0% 20%, #f00 0% 40%, #000 0% 60%, #f00 0% 80%, #000 0% 100%);"
+		/>
+	{:else}
+		<div class="relative" style="height: calc(100vh + 7rem)">
+			<MediaQuery query="(max-width: 480px)" let:matches>
+				<Img
+					src={matches ? background_m : background}
+					class="absolute z-10 h-full w-screen object-center object-cover"
+					alt=""
+				/>
+				<Img
+					src={matches ? foreground_m : foreground}
+					class="absolute z-10 h-full w-screen object-center object-cover"
+					alt=""
+				/>
+				<div class="absolute top-0 left-0 w-full h-screen z-30">
+					<slot />
+				</div>
+			</MediaQuery>
+		</div>
+	{/if}
 
 	<div class="relative">
 		<div
@@ -24,7 +54,7 @@
 			<div class="bg-green-500 w-screen" style="height: 50rem" bind:clientHeight={innerHeight} />
 			<div class="bg-blue-600 h-28 w-screen" />
 		</div>
-		<div style="height: {innerHeight/4}px"/>
+		<div style="height: {(innerHeight / 4)+112}px" />
 	</div>
 
 	<div

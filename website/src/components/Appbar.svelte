@@ -15,7 +15,7 @@
 	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 </script>
 
-<div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
+<div class="fixed z-10 w-full invisible" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
 		<div

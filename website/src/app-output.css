@@ -3666,17 +3666,11 @@ html {
 .relative {
   position: relative;
 }
-.-top-28 {
-  top: -7rem;
-}
 .-top-6 {
   top: -1.5rem;
 }
 .bottom-0 {
   bottom: 0px;
-}
-.bottom-28 {
-  bottom: 7rem;
 }
 .left-0 {
   left: 0px;
@@ -3693,11 +3687,11 @@ html {
 .top-2 {
   top: 0.5rem;
 }
-.-bottom-28 {
-  bottom: -7rem;
+.top-8 {
+  top: 2rem;
 }
-.top-\[100\%\] {
-  top: 100%;
+.-top-8 {
+  top: -2rem;
 }
 .-z-10 {
   z-index: -10;
@@ -3829,9 +3823,6 @@ html {
 }
 .h-80 {
   height: 20rem;
-}
-.h-96 {
-  height: 24rem;
 }
 .h-full {
   height: 100%;

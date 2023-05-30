@@ -70,7 +70,7 @@
 			/>
 			<div class="bg-blue-600 h-28 w-screen" />
 		</div>
-		<div style="height: calc({contentHeight / 2}px - 50vh + 7rem)" />
+		<div style="height: calc({contentHeight / 2}px - 50vh)" />
 	</div>
 
 	<div

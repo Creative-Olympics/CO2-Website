@@ -2545,9 +2545,6 @@ html {
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-accent {
   outline: 2px solid hsl(var(--a));
 }
-.drawer-toggle:focus-visible ~ .drawer-content .drawer-button.glass {
-  outline: 2px solid currentColor;
-}
 .drawer-toggle:focus-visible ~ .drawer-content .drawer-button.btn-ghost {
   outline: 2px solid currentColor;
 }
@@ -3201,28 +3198,6 @@ html {
 }
 .rounded-box {
   border-radius: var(--rounded-box, 1rem);
-}
-.glass,
-  .glass:hover,
-  .glass.btn-active {
-  border: none;
-  -webkit-backdrop-filter: blur(var(--glass-blur, 40px));
-          backdrop-filter: blur(var(--glass-blur, 40px));
-  background-color: transparent;
-  background-image: linear-gradient(
-        135deg,
-        rgb(255 255 255 / var(--glass-opacity, 30%)) 0%,
-        rgb(0 0 0 / 0%) 100%
-      ),
-      linear-gradient(
-        var(--glass-reflex-degree, 100deg),
-        rgb(255 255 255 / var(--glass-reflex-opacity, 10%)) 25%,
-        rgb(0 0 0 / 0%) 25%
-      );
-  box-shadow: 0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%))
-        inset,
-      0 0 0 2px rgb(0 0 0 / 5%);
-  text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
 }
 .min-h-12 {
   min-height: 3rem;
@@ -4260,9 +4235,6 @@ html {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.outline-1 {
-  outline-width: 1px;
 }
 .outline-8 {
   outline-width: 8px;

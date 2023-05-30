@@ -50,7 +50,7 @@
 				el: viewport,
 				name: "rahneiln3scroll",
 				smooth: true,
-				touchMultiplier: 1.5,
+				touchMultiplier: 1,
 				smartphone: {
 					smooth: true
 				},

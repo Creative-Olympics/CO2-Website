@@ -1,9 +1,10 @@
 <script>
 	import { rc_eventDesc_article } from "$lib/firebase"
 	import { scrollInstance } from "$lib/scroll"
+  import { toasts } from "$lib/toasts"
 
 	var contentHeight = 0
-	$: $scrollInstance?.update(), [contentHeight, innerWidth]
+	$: $scrollInstance?.update(), toasts.info(contentHeight.toString()), [contentHeight, innerWidth]
 	$: innerWidth = 0
 </script>
 

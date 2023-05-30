@@ -3687,6 +3687,24 @@ html {
 .top-2 {
   top: 0.5rem;
 }
+.top-28 {
+  top: 7rem;
+}
+.top-14 {
+  top: 3.5rem;
+}
+.top-\[56px\] {
+  top: 56px;
+}
+.-top-14 {
+  top: -3.5rem;
+}
+.-top-0 {
+  top: -0px;
+}
+.-top-28 {
+  top: -7rem;
+}
 .-z-10 {
   z-index: -10;
 }
@@ -3698,6 +3716,9 @@ html {
 }
 .z-30 {
   z-index: 30;
+}
+.z-40 {
+  z-index: 40;
 }
 .col-span-12 {
   grid-column: span 12 / span 12;
@@ -3766,6 +3787,12 @@ html {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mb-28 {
+  margin-bottom: 7rem;
+}
+.mb-96 {
+  margin-bottom: 24rem;
 }
 .inline-block {
   display: inline-block;

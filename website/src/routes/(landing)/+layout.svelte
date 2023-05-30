@@ -8,8 +8,8 @@
 	import foreground from "$lib/assets/banner/foreground.png?run"
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run"
 
-	var innerHeight
-	const DEBUG = false
+	var contentHeight
+	const DEBUG = true
 </script>
 
 <svelte:head>
@@ -42,19 +42,18 @@
 		</div>
 	{/if}
 
-	<div class="relative">
+	<div class="relative z-10" data-rahneiln3scroll-section>
 		<div
-			class="absolute opacity-75 z-10 left-0"
+			class="absolute opacity-75 z-10 left-0 -top-28 w-screen h-screen"
 			data-rahneiln3scroll
-			data-rahneiln3scroll-speed="8"
 			data-rahneiln3scroll-position="top"
 			data-rahneiln3scroll-offset="-112"
 		>
 			<div class="bg-blue-600 h-28 w-screen" />
-			<div class="bg-green-500 w-screen" style="height: 50rem" bind:clientHeight={innerHeight} />
+			<div class="bg-green-500 w-screen min-h-screen" style="height: 300rem" bind:clientHeight={contentHeight} />
 			<div class="bg-blue-600 h-28 w-screen" />
 		</div>
-		<div style="height: {(innerHeight / 4)+112}px" />
+		<div style="height: calc({contentHeight/2}px - 50vh - 7rem)"/>
 	</div>
 
 	<div

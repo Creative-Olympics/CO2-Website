@@ -1,10 +1,9 @@
 <script>
 	import { rc_eventDesc_article } from "$lib/firebase"
 	import { scrollInstance } from "$lib/scroll"
-  import { toasts } from "$lib/toasts"
 
 	var contentHeight = 0
-	$: $scrollInstance?.update(), toasts.info(contentHeight.toString()), [contentHeight, innerWidth]
+	$: $scrollInstance?.update(), [contentHeight, innerWidth]
 	$: innerWidth = 0
 </script>
 
@@ -74,7 +73,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="w-screen" style="height: {contentHeight/2}px" />
+	<div class="w-screen" style="height: {contentHeight / 2}px" />
 </div>
 
 <!-- Space between the first and second section, depending on this component height -->

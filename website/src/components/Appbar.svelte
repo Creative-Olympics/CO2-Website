@@ -20,7 +20,7 @@
 		<!-- p-2 -->
 		<div
 			class="px-4 navbar {$showLogo &&
-				'bg-base-100 shadow-md hover:bg-base-100 hover:shadow-md'} transition-all duration-500 outline-8 stroke-zinc-900"
+				'bg-base-100 shadow-md hover:bg-base-100 hover:shadow-md'} transition-all duration-500 glass"
 		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">

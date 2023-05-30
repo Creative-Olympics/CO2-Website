@@ -33,6 +33,7 @@
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="1"
+					data-rahneiln3scroll-position="top"
 				/>
 				<div class="absolute top-0 left-0 w-full h-screen">
 					<slot />
@@ -43,6 +44,7 @@
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="4"
+					data-rahneiln3scroll-position="top"
 				/>
 				<Img
 					src={matches ? bees_m : bees}
@@ -50,6 +52,7 @@
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="8"
+					data-rahneiln3scroll-position="top"
 				/>
 			</MediaQuery>
 		</div>

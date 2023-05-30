@@ -21,17 +21,18 @@
 </script>
 
 <div
-	class="flex flex-col h-80 items-center justify-center pb-[10%]"
+	class="flex flex-col h-full items-center justify-center pb-[10%]"
 >
 	<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-position="top">
 		{#if loaded && $loaderReady}
 			<div
+				class="h-full"
 				in:fly={{ delay: 1000, y: -450, duration: 900 }}
 				out:fade={{ duration: 750 }}
 				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
 				on:introend={() => $scrollInstance.update()}
 			>
-				<Img src={logo_full} class="w-72 pt-[100%] pointer-events-none" alt="Creative Olympics" />
+				<Img src={logo_full} class="w-60 sm:w-72 pt-[5%] sm:pt-[10%] pointer-events-none" alt="Creative Olympics" />
 				<!--TODO Add load events -->
 			</div>
 		{/if}
@@ -64,7 +65,7 @@
 		>
 			{#if loaded && $loaderReady}
 				<button
-					class="btn btn-gradient"
+					class="btn btn-gradient btn-md"
 					style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
 					in:fade={{ delay: 2050 }}
 					out:fade={{ duration: 1000 }}

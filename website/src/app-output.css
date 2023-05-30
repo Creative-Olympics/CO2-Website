@@ -3253,6 +3253,13 @@ html {
   min-height: 2rem;
   font-size: 0.875rem;
 }
+.btn-md {
+  height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  min-height: 3rem;
+  font-size: 0.875rem;
+}
 .btn-block {
   width: 100%;
 }
@@ -3725,9 +3732,6 @@ html {
 .-mt-2 {
   margin-top: -0.5rem;
 }
-.-mt-\[15\%\] {
-  margin-top: -15%;
-}
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -3769,54 +3773,6 @@ html {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-96 {
-  margin-top: 24rem;
-}
-.mt-72 {
-  margin-top: 18rem;
-}
-.mt-64 {
-  margin-top: 16rem;
-}
-.mt-12 {
-  margin-top: 3rem;
-}
-.mt-14 {
-  margin-top: 3.5rem;
-}
-.mt-0 {
-  margin-top: 0px;
-}
-.-mt-24 {
-  margin-top: -6rem;
-}
-.mt-\[15\%\] {
-  margin-top: 15%;
-}
-.mt-\[5\%\] {
-  margin-top: 5%;
-}
-.mt-\[4\%\] {
-  margin-top: 4%;
-}
-.mb-\[5\%\] {
-  margin-bottom: 5%;
-}
-.mb-\[10\%\] {
-  margin-bottom: 10%;
-}
-.mb-\[20\%\] {
-  margin-bottom: 20%;
-}
-.mt-28 {
-  margin-top: 7rem;
-}
-.mt-\[10\%\] {
-  margin-top: 10%;
-}
-.mt-\[25\%\] {
-  margin-top: 25%;
 }
 .inline-block {
   display: inline-block;
@@ -3875,18 +3831,6 @@ html {
 .h-screen {
   height: 100vh;
 }
-.h-72 {
-  height: 18rem;
-}
-.h-\[20\%\] {
-  height: 20%;
-}
-.h-\[10\%\] {
-  height: 10%;
-}
-.h-\[10vh\] {
-  height: 10vh;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3942,47 +3886,11 @@ html {
 .w-screen {
   width: 100vw;
 }
-.w-28 {
-  width: 7rem;
+.w-56 {
+  width: 14rem;
 }
-.w-96 {
-  width: 24rem;
-}
-.w-\[200\] {
-  width: 200;
-}
-.w-\[150\] {
-  width: 150;
-}
-.w-\[120\] {
-  width: 120;
-}
-.w-\[100\] {
-  width: 100;
-}
-.w-\[100rem\] {
-  width: 100rem;
-}
-.w-\[80rem\] {
-  width: 80rem;
-}
-.w-\[70rem\] {
-  width: 70rem;
-}
-.w-\[60rem\] {
-  width: 60rem;
-}
-.w-\[40rem\] {
-  width: 40rem;
-}
-.w-\[50rem\] {
-  width: 50rem;
-}
-.w-36 {
-  width: 9rem;
-}
-.w-\[20\%\] {
-  width: 20%;
+.w-60 {
+  width: 15rem;
 }
 .max-w-md {
   max-width: 28rem;
@@ -4232,6 +4140,9 @@ html {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
+.pb-\[10\%\] {
+  padding-bottom: 10%;
+}
 .pr-0 {
   padding-right: 0px;
 }
@@ -4244,26 +4155,20 @@ html {
 .pt-8 {
   padding-top: 2rem;
 }
-.pt-20 {
-  padding-top: 5rem;
+.pt-\[100\%\] {
+  padding-top: 100%;
 }
-.pb-\[20\%\] {
-  padding-bottom: 20%;
-}
-.pb-\[10\%\] {
-  padding-bottom: 10%;
-}
-.pt-\[25\%\] {
-  padding-top: 25%;
+.pt-\[110\%\] {
+  padding-top: 110%;
 }
 .pt-\[50\%\] {
   padding-top: 50%;
 }
-.pt-\[75\%\] {
-  padding-top: 75%;
+.pt-\[10\%\] {
+  padding-top: 10%;
 }
-.pt-\[100\%\] {
-  padding-top: 100%;
+.pt-\[5\%\] {
+  padding-top: 5%;
 }
 .text-left {
   text-align: left;
@@ -4595,8 +4500,8 @@ html.has-scroll-dragging {
     margin-bottom: 1rem;
   }
 
-  .sm\:mt-0 {
-    margin-top: 0px;
+  .sm\:w-72 {
+    width: 18rem;
   }
 
   .sm\:grid-cols-7 {
@@ -4607,8 +4512,24 @@ html.has-scroll-dragging {
     gap: 2rem;
   }
 
-  .sm\:pb-\[13\%\] {
-    padding-bottom: 13%;
+  .sm\:pt-\[100\%\] {
+    padding-top: 100%;
+  }
+
+  .sm\:pt-\[60\%\] {
+    padding-top: 60%;
+  }
+
+  .sm\:pt-\[40\%\] {
+    padding-top: 40%;
+  }
+
+  .sm\:pt-\[20\%\] {
+    padding-top: 20%;
+  }
+
+  .sm\:pt-\[10\%\] {
+    padding-top: 10%;
   }
 
   .sm\:text-7xl {

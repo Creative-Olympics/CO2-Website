@@ -3690,6 +3690,9 @@ html {
 .top-28 {
   top: 7rem;
 }
+.top-1\/4 {
+  top: 25%;
+}
 .-z-10 {
   z-index: -10;
 }
@@ -3770,8 +3773,14 @@ html {
 .mt-8 {
   margin-top: 2rem;
 }
-.mb-28 {
-  margin-bottom: 7rem;
+.mt-\[20\%\] {
+  margin-top: 20%;
+}
+.mt-\[5\%\] {
+  margin-top: 5%;
+}
+.mt-\[7\.5\%\] {
+  margin-top: 7.5%;
 }
 .inline-block {
   display: inline-block;
@@ -4133,6 +4142,9 @@ html {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
+.pb-28 {
+  padding-bottom: 7rem;
+}
 .pr-0 {
   padding-right: 0px;
 }
@@ -4144,9 +4156,6 @@ html {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-28 {
-  padding-bottom: 7rem;
 }
 .text-left {
   text-align: left;

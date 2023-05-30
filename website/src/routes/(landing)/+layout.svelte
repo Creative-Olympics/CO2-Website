@@ -2,6 +2,7 @@
 	import Img from "@zerodevx/svelte-img"
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
+	import EventDesc from "$cmp/EventDesc.svelte"
 
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
@@ -9,7 +10,6 @@
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
-	import EventDesc from "$cmp/EventDesc.svelte"
 </script>
 
 <svelte:head>

@@ -15,12 +15,12 @@
 	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 </script>
 
-<div class="fixed z-10 w-full invisible" style="transform:translate3d(0,0,0)">
+<div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
 		<div
-			class="px-4 navbar glass {$showLogo &&
-				'bg-base-100 shadow-md hover:bg-base-100 hover:shadow-md'} transition-all duration-500"
+			class="px-4 navbar {$showLogo &&
+				'bg-base-100 shadow-md hover:bg-base-100 hover:shadow-md'} transition-all duration-500 outline-8 stroke-zinc-900"
 		>
 			<!-- shadow-lg -->
 			<div class="navbar-start relative">

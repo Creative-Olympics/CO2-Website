@@ -3690,9 +3690,6 @@ html {
 .top-2 {
   top: 0.5rem;
 }
-.top-28 {
-  top: 7rem;
-}
 .-z-10 {
   z-index: -10;
 }
@@ -3701,9 +3698,6 @@ html {
 }
 .z-20 {
   z-index: 20;
-}
-.z-30 {
-  z-index: 30;
 }
 .col-span-12 {
   grid-column: span 12 / span 12;
@@ -3914,21 +3908,6 @@ html {
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-@keyframes bounce {
-
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-.animate-bounce {
-  animation: bounce 1s infinite;
-}
 @keyframes pulse {
 
   50% {
@@ -4056,17 +4035,9 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-.bg-red-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
@@ -4121,6 +4092,9 @@ html {
 }
 .stroke-current {
   stroke: currentColor;
+}
+.stroke-zinc-900 {
+  stroke: #18181b;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -4267,9 +4241,6 @@ html {
 .opacity-50 {
   opacity: 0.5;
 }
-.opacity-75 {
-  opacity: 0.75;
-}
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -4289,6 +4260,12 @@ html {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.outline-1 {
+  outline-width: 1px;
+}
+.outline-8 {
+  outline-width: 8px;
 }
 .transition-all {
   transition-property: all;

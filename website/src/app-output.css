@@ -3648,6 +3648,9 @@ html {
 .btn-gradient:focus-visible {
   outline-color: #0d9488;
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .\!invisible {
   visibility: hidden !important;
 }
@@ -3728,6 +3731,9 @@ html {
 .-mt-2 {
   margin-top: -0.5rem;
 }
+.-mt-\[15\%\] {
+  margin-top: -15%;
+}
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -3769,21 +3775,6 @@ html {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mt-\[7\.5\%\] {
-  margin-top: 7.5%;
-}
-.mb-\[15\%\] {
-  margin-bottom: 15%;
-}
-.mb-\[5\%\] {
-  margin-bottom: 5%;
-}
-.-mt-\[20\%\] {
-  margin-top: -20%;
-}
-.-mt-\[15\%\] {
-  margin-top: -15%;
 }
 .inline-block {
   display: inline-block;
@@ -3923,6 +3914,21 @@ html {
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+@keyframes bounce {
+
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
 @keyframes pulse {
 
   50% {
@@ -4058,6 +4064,10 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
@@ -4156,15 +4166,6 @@ html {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pb-\[25\%\] {
-  padding-bottom: 25%;
-}
-.pb-\[20\%\] {
-  padding-bottom: 20%;
-}
-.pb-\[15\%\] {
-  padding-bottom: 15%;
 }
 .text-left {
   text-align: left;
@@ -4499,20 +4500,12 @@ html.has-scroll-dragging {
     margin-bottom: 1rem;
   }
 
-  .sm\:mt-\[7\.5\%\] {
-    margin-top: 7.5%;
-  }
-
   .sm\:mt-0 {
     margin-top: 0px;
   }
 
   .sm\:grid-cols-7 {
     grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
-
-  .sm\:justify-start {
-    justify-content: flex-start;
   }
 
   .sm\:gap-8 {

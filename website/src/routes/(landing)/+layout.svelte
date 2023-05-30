@@ -26,7 +26,7 @@
 		/>
 	{:else}
 		<div class="relative" style="height: calc(100vh + 7rem + 7rem)">
-			<MediaQuery query="(max-width: 480px)" let:matches>
+			<MediaQuery query="(max-width: 640px)" let:matches>
 				<Img
 					src={matches ? background_m : background}
 					class="absolute h-full w-screen object-center object-cover"

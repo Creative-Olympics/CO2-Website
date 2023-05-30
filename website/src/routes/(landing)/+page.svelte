@@ -19,7 +19,7 @@
 	}
 </script>
 
-<div class="flex w-full h-full flex-col items-center mt-[7.5%]">
+<div class="flex w-full h-full flex-col items-center justify-center -mt-[15%] sm:mt-0 sm:pb-[15%]">
 	<div data-rahneiln3scroll data-rahneiln3scroll-speed="2">
 		{#if loaded && $loaderReady}
 			<div

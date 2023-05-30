@@ -3690,9 +3690,6 @@ html {
 .top-28 {
   top: 7rem;
 }
-.top-1\/4 {
-  top: 25%;
-}
 .-z-10 {
   z-index: -10;
 }
@@ -3773,14 +3770,20 @@ html {
 .mt-8 {
   margin-top: 2rem;
 }
-.mt-\[20\%\] {
-  margin-top: 20%;
-}
-.mt-\[5\%\] {
-  margin-top: 5%;
-}
 .mt-\[7\.5\%\] {
   margin-top: 7.5%;
+}
+.mb-\[15\%\] {
+  margin-bottom: 15%;
+}
+.mb-\[5\%\] {
+  margin-bottom: 5%;
+}
+.-mt-\[20\%\] {
+  margin-top: -20%;
+}
+.-mt-\[15\%\] {
+  margin-top: -15%;
 }
 .inline-block {
   display: inline-block;
@@ -4142,9 +4145,6 @@ html {
   padding-top: 5rem;
   padding-bottom: 5rem;
 }
-.pb-28 {
-  padding-bottom: 7rem;
-}
 .pr-0 {
   padding-right: 0px;
 }
@@ -4156,6 +4156,15 @@ html {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pb-\[25\%\] {
+  padding-bottom: 25%;
+}
+.pb-\[20\%\] {
+  padding-bottom: 20%;
+}
+.pb-\[15\%\] {
+  padding-bottom: 15%;
 }
 .text-left {
   text-align: left;
@@ -4490,12 +4499,28 @@ html.has-scroll-dragging {
     margin-bottom: 1rem;
   }
 
+  .sm\:mt-\[7\.5\%\] {
+    margin-top: 7.5%;
+  }
+
+  .sm\:mt-0 {
+    margin-top: 0px;
+  }
+
   .sm\:grid-cols-7 {
     grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
+  .sm\:justify-start {
+    justify-content: flex-start;
+  }
+
   .sm\:gap-8 {
     gap: 2rem;
+  }
+
+  .sm\:pb-\[15\%\] {
+    padding-bottom: 15%;
   }
 
   .sm\:text-7xl {

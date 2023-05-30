@@ -57,7 +57,7 @@
 	</div>
 
 	<div
-		class="relative"
-		style="height: calc(100vh + 7rem); background-image: linear-gradient(to top right in oklab, #ff0 0%, #000 0% 20%, #ff0 0% 40%, #000 0% 60%, #ff0 0% 80%, #000 0% 100%);"
+		class="relative bg-red-600"
+		style="height: calc(100vh + 7rem);"
 	/>
 </div>

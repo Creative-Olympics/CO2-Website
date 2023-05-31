@@ -6,22 +6,22 @@
 	$: $scrollInstance?.update(), [contentHeight, innerWidth]
 	$: innerWidth = 0
 
-	const DEBUG = true
+	const DEBUG = false
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div
-	class="absolute z-10 left-0 w-screen opacity-70"
+	class="absolute z-10 left-0 w-screen"
 	data-rahneiln3scroll
 	data-rahneiln3scroll-position="top"
 	data-rahneiln3scroll-offset="-112"
 >
-	<div class="h-28 w-screen">
+	<div class="h-28 w-screen overflow-hidden">
 		{#if DEBUG}
 			<div class="w-full h-28 bg-blue-700 absolute" />
 		{:else}
-			<div class="flex flex-row absolute">
+			<div class="h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}
 					<svg
 						class="rotate-180"
@@ -58,11 +58,11 @@
 			</article>
 		{/if}
 	</div>
-	<div class="h-28 w-screen">
+	<div class="h-28 w-screen overflow-hidden">
 		{#if DEBUG}
 			<div class="w-full h-28 bg-blue-700 absolute" />
 		{:else}
-			<div class="flex flex-row absolute">
+			<div class="h-28 flex flex-row absolute">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}
 					<svg
 						class="-scale-y-100 rotate-180"

@@ -96,7 +96,7 @@
 				</span>
 			</div>
 
-			<div style="height: calc(100vh + 120px)" />
+			<div style="height: calc(100vh + 7rem);" />
 			<div class="w-screen invisible">
 				<FooterContent />
 			</div>

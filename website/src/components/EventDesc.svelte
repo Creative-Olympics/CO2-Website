@@ -19,9 +19,9 @@
 >
 	<div class="h-28 w-screen">
 		{#if DEBUG}
-			<div class="w-full h-28 bg-blue-700 absolute" />
+			<div class="w-screen h-28 bg-blue-700 absolute" />
 		{:else}
-			<div class="w-full h-28 flex flex-row absolute overflow-hidden">
+			<div class="w-screen h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}
 					<svg
 						class="rotate-180"
@@ -60,9 +60,9 @@
 	</div>
 	<div class="h-28 w-screen">
 		{#if DEBUG}
-			<div class="w-full h-28 bg-blue-700 absolute" />
+			<div class="w-screen h-28 bg-blue-700 absolute" />
 		{:else}
-			<div class="w-full h-28 flex flex-row absolute overflow-hidden">
+			<div class="w-screen h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}
 					<svg
 						class="-scale-y-100 rotate-180"

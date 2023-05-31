@@ -8,6 +8,7 @@
 		"tailwind:watch": "cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/app.css -o src/app-output.css -w",
 		"tailwind:build": "cross-env TAILWIND_MODE=build cross-env NODE_ENV=production postcss src/app.css -o src/app-output.css",
 		"dev": "concurrently \"npm run dev:only\" \"npm run tailwind:watch\"",
+		"devhost": "concurrently \"npm run dev:only -- --host\" \"npm run tailwind:watch\"",
 		"build": "npm run tailwind:build && npm run build:only",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."

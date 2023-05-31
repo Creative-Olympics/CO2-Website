@@ -3831,6 +3831,15 @@ html {
 .h-screen {
   height: 100vh;
 }
+.h-96 {
+  height: 24rem;
+}
+.h-\[500px\] {
+  height: 500px;
+}
+.h-\[1500px\] {
+  height: 1500px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -3864,6 +3873,9 @@ html {
 .w-6 {
   width: 1.5rem;
 }
+.w-60 {
+  width: 15rem;
+}
 .w-64 {
   width: 16rem;
 }
@@ -3885,12 +3897,6 @@ html {
 }
 .w-screen {
   width: 100vw;
-}
-.w-56 {
-  width: 14rem;
-}
-.w-60 {
-  width: 15rem;
 }
 .max-w-md {
   max-width: 28rem;
@@ -4053,6 +4059,30 @@ html {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-teal-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+.bg-yellow-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(202 138 4 / var(--tw-bg-opacity));
+}
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+.bg-blue-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+.bg-teal-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(15 118 110 / var(--tw-bg-opacity));
+}
+.bg-purple-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
@@ -4154,18 +4184,6 @@ html {
 }
 .pt-8 {
   padding-top: 2rem;
-}
-.pt-\[100\%\] {
-  padding-top: 100%;
-}
-.pt-\[110\%\] {
-  padding-top: 110%;
-}
-.pt-\[50\%\] {
-  padding-top: 50%;
-}
-.pt-\[10\%\] {
-  padding-top: 10%;
 }
 .pt-\[5\%\] {
   padding-top: 5%;
@@ -4269,6 +4287,12 @@ html {
 }
 .opacity-50 {
   opacity: 0.5;
+}
+.opacity-30 {
+  opacity: 0.3;
+}
+.opacity-70 {
+  opacity: 0.7;
 }
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -4510,22 +4534,6 @@ html.has-scroll-dragging {
 
   .sm\:gap-8 {
     gap: 2rem;
-  }
-
-  .sm\:pt-\[100\%\] {
-    padding-top: 100%;
-  }
-
-  .sm\:pt-\[60\%\] {
-    padding-top: 60%;
-  }
-
-  .sm\:pt-\[40\%\] {
-    padding-top: 40%;
-  }
-
-  .sm\:pt-\[20\%\] {
-    padding-top: 20%;
   }
 
   .sm\:pt-\[10\%\] {

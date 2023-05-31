@@ -11,7 +11,7 @@
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
 
-	const DEBUG = true
+	const DEBUG = false
 </script>
 
 <svelte:head>

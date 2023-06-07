@@ -10,10 +10,10 @@
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
-  import CountdownBanner from "$cmp/CountdownBanner.svelte"
-  import Footer from "$cmp/footer/Footer.svelte"
+	import CountdownBanner from "$cmp/CountdownBanner.svelte"
+	import Footer from "$cmp/footer/Footer.svelte"
 
-	const DEBUG = false
+	const DEBUG = true
 </script>
 
 <svelte:head>
@@ -64,8 +64,6 @@
 		<EventDesc />
 	</div>
 
-	<!--<div class="relative bg-red-600" style="height: calc(100vh + 7rem);" />-->
-	
 	<CountdownBanner />
 
 	<Footer />

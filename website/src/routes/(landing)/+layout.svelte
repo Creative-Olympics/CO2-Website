@@ -3,17 +3,17 @@
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
-
+	import CountdownBanner from "$cmp/CountdownBanner.svelte"
+	import Footer from "$cmp/footer/Footer.svelte"
+	
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
 	import foreground from "$lib/assets/banner/foreground.png?run&lqip=0"
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
-	import CountdownBanner from "$cmp/CountdownBanner.svelte"
-	import Footer from "$cmp/footer/Footer.svelte"
 
-	const DEBUG = true
+	const DEBUG = false
 </script>
 
 <svelte:head>

@@ -6,7 +6,7 @@
 	$: $scrollInstance?.update(), [contentHeight, innerWidth]
 	$: innerWidth = 0
 
-	const DEBUG = false
+	const DEBUG = true
 </script>
 
 <svelte:window bind:innerWidth />
@@ -91,9 +91,4 @@
 </div>
 
 <!-- Space between the first and second section, depending on this component height -->
-<div
-	style="height: calc({contentHeight / 2}px - 50vh - 7rem)"
-	data-rahneiln3scroll
-	data-rahneiln3scroll-call="appbar_showLogo"
-	data-rahneiln3scroll-repeat
-/>
+<div style="height: calc({contentHeight / 2}px - 50vh - 7rem)" />

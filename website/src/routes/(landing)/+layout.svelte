@@ -30,7 +30,7 @@
 	bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
 	finishedLoading.subscribe((v) => {
 		// @ts-ignore
-		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+		//if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 	})
 </script>
 
@@ -95,6 +95,9 @@
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
+						data-rahneiln3scroll
+						data-rahneiln3scroll-speed="8"
+						data-rahneiln3scroll-position="top"
 					/>
 				{/if}
 			</MediaQuery>

@@ -4,11 +4,11 @@
 	import Img from "@zerodevx/svelte-img"
 
 	import { scrollInstance } from "$lib/scroll"
-	import { loaderReady } from "$lib/loader"
+	import { finishedLoading } from "$lib/loader"
 
 	import logo_full from "$lib/assets/logo/full.gif?run&lqip=0"
 
-	export let loaded = true
+	const DELAY_MIN = 1000
 
 	let watchTrailer = () => {
 		$scrollInstance?.scrollTo("top", {
@@ -20,19 +20,19 @@
 	}
 </script>
 
-<div
-	class="flex flex-col h-full items-center justify-center pb-[10%]"
->
+<div class="flex flex-col h-full items-center justify-center pb-[10%]">
 	<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-position="top">
-		{#if loaded && $loaderReady}
+		{#if $finishedLoading}
 			<div
 				class="h-full"
-				in:fly={{ delay: 1000, y: -450, duration: 900 }}
+				in:fly={{ delay: DELAY_MIN, y: -450, duration: 900 }}
 				out:fade={{ duration: 750 }}
-				on:introstart={() => setTimeout(() => $scrollInstance.update(), 25)}
-				on:introend={() => $scrollInstance.update()}
 			>
-				<Img src={logo_full} class="w-60 sm:w-72 pt-[5%] sm:pt-[10%] pointer-events-none" alt="Creative Olympics" />
+				<Img
+					src={logo_full}
+					class="w-60 sm:w-72 pt-[5%] sm:pt-[10%] pointer-events-none select-none"
+					alt="Creative Olympics"
+				/>
 				<!--TODO Add load events -->
 			</div>
 		{/if}
@@ -45,12 +45,11 @@
 			data-rahneiln3scroll-delay="0.1"
 			data-rahneiln3scroll-position="top"
 		>
-			{#if loaded && $loaderReady}
+			{#if $finishedLoading}
 				<a
 					class="btn"
-					in:fade={{ delay: 1800 }}
+					in:fade={{ delay: DELAY_MIN + 800 }}
 					out:fade={{ duration: 1000 }}
-					on:introend={() => $scrollInstance.update()}
 					href="about"
 				>
 					Learn about us
@@ -63,14 +62,13 @@
 			data-rahneiln3scroll-delay="0.07"
 			data-rahneiln3scroll-position="top"
 		>
-			{#if loaded && $loaderReady}
+			{#if $finishedLoading}
 				<button
 					class="btn btn-gradient btn-md"
 					style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
-					in:fade={{ delay: 2050 }}
+					in:fade={{ delay: DELAY_MIN + 1050 }}
 					out:fade={{ duration: 1000 }}
 					on:click={watchTrailer}
-					on:introend={() => $scrollInstance.update()}
 				>
 					Watch Trailer
 				</button>

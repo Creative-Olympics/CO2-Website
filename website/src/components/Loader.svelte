@@ -2,7 +2,7 @@
 	import { draw, fade } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 	import { onMount } from "svelte"
-	import { finishedLoading, loaderReady, logoLoaded, vidLoaded } from "$lib/loader"
+	import { bannerLoadLevel, finishedLoading, loaderReady } from "$lib/loader"
 	import { page } from "$app/stores"
 
 	let step = 0
@@ -60,7 +60,7 @@
 				if ($page.route.id == "/(landing)/trailer") {
 					finishedLoading.set(true)
 				} else {
-					finishedLoading.set($logoLoaded && $vidLoaded)
+					finishedLoading.set($bannerLoadLevel >= 3) //TODO
 				}
 			} else {
 				finishedLoading.set(true)
@@ -69,8 +69,7 @@
 	}
 
 	loaderReady.subscribe(checkLoad)
-	logoLoaded.subscribe(checkLoad)
-	vidLoaded.subscribe(checkLoad)
+	bannerLoadLevel.subscribe(checkLoad)
 </script>
 
 {#if !$finishedLoading}

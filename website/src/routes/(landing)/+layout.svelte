@@ -1,11 +1,17 @@
 <script>
 	import Img from "@zerodevx/svelte-img"
+	import isIos from "is-ios"
+	import { onMount } from "svelte"
+
+	import { bannerLoadLevel, finishedLoading } from "$lib/loader"
+	import { toasts } from "$lib/toasts"
+	import { scrollInstance } from "$lib/scroll"
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
 	import CountdownBanner from "$cmp/CountdownBanner.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
-	
+
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
 	import foreground from "$lib/assets/banner/foreground.png?run&lqip=0"
@@ -14,6 +20,18 @@
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
 
 	const DEBUG = false
+
+	let vidEnded = false
+
+	onMount(() => {
+		$scrollInstance.update()
+	})
+
+	bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
+	// @ts-ignore
+	finishedLoading.subscribe((v) => {
+		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+	})
 </script>
 
 <svelte:head>
@@ -28,11 +46,12 @@
 			<MediaQuery query="(max-width: 640px)" let:matches>
 				<Img
 					src={matches ? background_m : background}
-					class="absolute h-full w-screen object-center object-cover pointer-events-none"
+					class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="1"
 					data-rahneiln3scroll-position="top"
+					on:load={() => bannerLoadLevel.update((v) => v + 1)}
 				/>
 				<!--TODO Add load events -->
 				<div class="absolute top-0 left-0 w-full h-screen">
@@ -40,22 +59,44 @@
 				</div>
 				<Img
 					src={matches ? foreground_m : foreground}
-					class="absolute h-full w-screen object-center object-cover pointer-events-none"
+					class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="4"
 					data-rahneiln3scroll-position="top"
+					on:load={() => bannerLoadLevel.update((v) => v + 1)}
 				/>
 				<!--TODO Add load events -->
 				<Img
 					src={matches ? bees_m : bees}
-					class="absolute h-full w-screen object-center object-cover pointer-events-none"
+					class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
 					alt=""
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="8"
 					data-rahneiln3scroll-position="top"
+					on:load={() => bannerLoadLevel.update((v) => v + 1)}
 				/>
-				<!--TODO Add load events -->
+				{#if !vidEnded}
+					<video
+						class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
+						id="RahNeil_N3:CO:hbgiapv"
+						playsinline
+						disableremoteplayback
+						muted
+						aria-hidden="true"
+						src="banner/{matches ? 'm_' : ''}in.mp4"
+						preload="auto"
+						on:error={() => {
+							bannerLoadLevel.update((v) => v + 1)
+							vidEnded = true
+						}}
+						on:canplaythrough={() => bannerLoadLevel.update((v) => v + 1)}
+						on:loadedmetadata={() => {
+							if (isIos) bannerLoadLevel.update((v) => v + 1)
+						}}
+						on:ended={() => (vidEnded = true)}
+					/>
+				{/if}
 			</MediaQuery>
 		</div>
 	{/if}

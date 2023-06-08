@@ -30,7 +30,7 @@
 	bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
 	finishedLoading.subscribe((v) => {
 		// @ts-ignore
-		//if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 	})
 </script>
 

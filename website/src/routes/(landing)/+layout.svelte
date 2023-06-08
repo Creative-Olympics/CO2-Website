@@ -84,7 +84,7 @@
 						disableremoteplayback
 						muted
 						aria-hidden="true"
-						src="banner/{matches ? 'm_' : ''}in.mp4"
+						src="banner/in{matches ? '_m' : ''}.mp4"
 						preload="auto"
 						on:error={() => {
 							bannerLoadLevel.update((v) => v + 1)

@@ -18,6 +18,7 @@
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
+  import DonationsBanner from "$cmp/DonationsBanner.svelte"
 
 	const DEBUG = false
 
@@ -78,7 +79,7 @@
 				/>
 				{#if !vidEnded}
 					<video
-						class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
+						class="absolute top-0 left-0 h-full w-screen object-center object-cover pointer-events-none select-none"
 						id="RahNeil_N3:CO:hbgiapv"
 						playsinline
 						disableremoteplayback
@@ -90,14 +91,11 @@
 							bannerLoadLevel.update((v) => v + 1)
 							vidEnded = true
 						}}
-						on:canplaythrough={() => bannerLoadLevel.update((v) => v + 1)}
+						on:canplay={() => bannerLoadLevel.update((v) => v + 1)}
 						on:loadedmetadata={() => {
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
-						data-rahneiln3scroll
-						data-rahneiln3scroll-speed="8"
-						data-rahneiln3scroll-position="top"
 					/>
 				{/if}
 			</MediaQuery>
@@ -108,7 +106,7 @@
 		<EventDesc />
 	</div>
 
-	<CountdownBanner />
+	<DonationsBanner />
 
 	<Footer />
 </div>

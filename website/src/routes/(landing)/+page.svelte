@@ -64,8 +64,7 @@
 		>
 			{#if $finishedLoading}
 				<button
-					class="btn btn-gradient btn-md"
-					style="transition-property: background-position; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 400ms;"
+					class="btn btn-gradient-secondary"
 					in:fade={{ delay: DELAY_MIN + 1050 }}
 					out:fade={{ duration: 1000 }}
 					on:click={watchTrailer}

@@ -2,8 +2,12 @@
 	import { draw, fade } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 	import { onMount } from "svelte"
-	import { bannerLoadLevel, finishedLoading, loaderReady } from "$lib/loader"
+	import Img from "@zerodevx/svelte-img"
 	import { page } from "$app/stores"
+
+	import { bannerLoadLevel, finishedLoading, loaderReady } from "$lib/loader"
+
+	import first from "$lib/assets/banner/first.png?run"
 
 	let step = 0
 	onMount(() => {
@@ -75,6 +79,18 @@
 {#if !$finishedLoading}
 	<div
 		id="loader"
+		class="w-screen absolute top-0 left-0 overflow-hidden z-20"
+		style="height: calc(100vh + 7rem + 7rem)"
+		out:fade={{ duration: 250 }}
+	>
+		<Img
+			src={first}
+			class="absolute h-full w-screen top-0 left-0 object-center object-cover pointer-events-none select-none z-20"
+			alt=""
+		/>
+	</div>
+	<!--<div
+		id="loader"
 		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20 bg-gradient-to-br"
 		style="--tw-gradient-from: #e99913; --tw-gradient-to: #e64116; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);"
 		out:fade={{ duration: 250 }}
@@ -106,5 +122,5 @@
 				{/each}
 			{/if}
 		</svg>
-	</div>
+	</div>-->
 {/if}

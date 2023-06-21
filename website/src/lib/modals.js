@@ -22,6 +22,7 @@ function createModalStore() {
         subscribe,
         close: () => set(null, {}),
         open: (/** @type any */ val, /** @type any */ content, props = {}) => {
+            console.log('hello2')
             if (val == null || val.content == null) {
                 set(content, props)
             } else {

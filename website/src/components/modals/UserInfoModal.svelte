@@ -6,9 +6,14 @@
 	import SocialLinks from '$cmp/SocialLinks.svelte';
 	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
 	import Icon from '$cmp/Icon.svelte';
+	
 
 	/** @type {any} */
 	const user = ($rc_credits).find(u => u.id == userId);
+
+	user.contact = Object.keys(user.contact).map(k => {
+		return {icon: k, url: user.contact[k], description: 'hello world', tooltip: true}
+	})
 
 </script>
 

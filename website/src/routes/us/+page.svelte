@@ -1,5 +1,6 @@
 <script context="module">
-	import DonationsBanner from '$cmp/DonationsBanner.svelte';
+	import CreditHead from '$cmp/CreditHead.svelte'
+import DonationsBanner from '$cmp/DonationsBanner.svelte';
 	import Footer from '$cmp/footer/Footer.svelte';
 
 	import FooterContent from '$cmp/footer/FooterContent.svelte';
@@ -116,20 +117,7 @@
 
 						<div class="flex flex-row justify-around items-center">
 							{#each part.ids as player}
-								<button class="bg-none group w-20 h-20 group tooltip tooltip-bottom" data-tip={player} on:click={() => {modal.open($modal, UserInfoModal); console.log('hello')}}>
-									<div
-										class="relative top-0 left-0 w-full h-full transition duration-500"
-									>
-										<div class="absolute w-full h-full bg-base-content rounded-lg opacity-20 group-hover:opacity-70 group-hover:rotate-12 p-3 transition duration-500 ease-out"/>
-										<div class="absolute w-full h-full">
-											<img
-												src={`https://mc-heads.net/head/${player}`}
-												alt={player}
-												class="m-0"
-											/>
-										</div>
-									</div>
-								</button>
+								<CreditHead player={player}/>
 							{/each}
 						</div>
 					</div>
@@ -141,24 +129,7 @@
 
 					<div class="flex flex-row justify-around items-center">
 						{#each ['donator', 'donator1', 'random'] as donator}
-							<div class="bg-none group w-20 h-20">
-								<div
-									class="relative top-0 left-0 w-full h-full preserve-3d transition group-hover:my-rotate-y-180 duration-500"
-								>
-									<div class="absolute w-full h-full overflow-hidden backface-hidden">
-										<img
-											src={`https://mc-heads.net/head/${donator}`}
-											alt={donator}
-											class="w-full h-full m-0"
-										/>
-									</div>
-									<div
-										class="absolute w-full h-full overflow-hidden backface-hidden my-rotate-y-180 rounded-xl bg-opacity-60 bg-primary flex items-center justify-center"
-									>
-										<p class="text-xl font-heading">{donator}</p>
-									</div>
-								</div>
-							</div>
+							<CreditHead player={donator}/>
 						{/each}
 					</div>
 

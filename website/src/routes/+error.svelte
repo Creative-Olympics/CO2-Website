@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import Footer from '$cmp/footer/Footer.svelte';
 	import FooterContent from '$cmp/footer/FooterContent.svelte';
 	import { onMount } from 'svelte';
@@ -190,3 +190,4 @@
 	</div>
 	<Footer />
 </div>
+ -->

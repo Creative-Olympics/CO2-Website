@@ -1,34 +1,44 @@
 <script>
 	// @ts-nocheck
+	import Img from "@zerodevx/svelte-img"
+	import currentYear from "current-year"
 
-	import AboutUsModal from '../modals/AboutUsModal.svelte';
-	import CopyrightModal from '../modals/CopyrightModal.svelte';
-	import { modal } from '$lib/modals';
-	import Icon from '$cmp/Icon.svelte';
-	import SocialLinks from '$cmp/SocialLinks.svelte';
-	import { rc_footer } from '$lib/firebase';
+	import { rc_footer } from "$lib/firebase"
+	import { modal } from "$lib/modals"
+
+	import AboutUsModal from "$cmp/modals/AboutUsModal.svelte"
+	import CopyrightModal from "$cmp/modals/CopyrightModal.svelte"
+	import Icon from "$cmp/Icon.svelte"
+	import SocialLinks from "$cmp/SocialLinks.svelte"
+	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
+
+	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
 	<div class="flex items-center gap-6">
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
-			<img src="banner/co.gif" class="h-20 swap-off" alt="Creative Olympics" />
-			<img src="banner/turtle.png" class="h-20 swap-on" alt="Creative Olympics's Turtle" />
+			<div class="swap-off w-20 h-20">
+				<FlameLogo />
+			</div>
+			<div class="swap-on w-20 h-20 flex flex-col justify-end">
+				<Img src={turtle} alt="Turtle <3" width={80} height={80} />
+			</div>
 		</label>
 		<div class="flex flex-col mt-4 gap-2">
 			<span class="font-semibold">Creative Olympics</span>
-			<span class="">2023 Edition</span>
+			<span>2023 Edition</span>
 		</div>
 	</div>
 	<div>
-		<span class="footer-title">Social</span>
+		<span class="footer-title mb-1">Social</span>
 		<SocialLinks links={$rc_footer.links} />
 	</div>
 	<div>
-		<span class="footer-title">Credits</span>
-		<div class="flex align-middle gap-2">
-			<Icon spanClass="font-semibold" spanStyle="font-size: 1.25rem">code</Icon>
+		<span class="footer-title mb-1">Credits</span>
+		<div class="flex gap-2 items-center">
+			<Icon>code</Icon>
 			<span>
 				Website by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -36,8 +46,8 @@
 				</button>
 			</span>
 		</div>
-		<div class="flex align-middle gap-2 mb-2">
-			<Icon spanClass="font-semibold" spanStyle="font-size: 1.25rem">palette</Icon>
+		<div class="flex gap-2 items-center">
+			<Icon>palette</Icon>
 			<span>
 				Imagery & assets by
 				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
@@ -46,18 +56,18 @@
 			</span>
 		</div>
 		<button
-			class="btn btn-outline btn-xs normal-case"
+			class="btn btn-outline btn-xs normal-case mt-1"
 			on:click={() => modal.open($modal, AboutUsModal)}
 		>
 			About us
 		</button>
 	</div>
 	<div>
-		<span class="footer-title">Legal</span>
+		<span class="footer-title mb-1">Legal</span>
 		<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-			<div class="flex align-middle gap-2 mb-1">
-				<Icon spanStyle="font-size: 1.25rem">copyright</Icon>
-				<span class="text-start">Copyright 2022</span>
+			<div class="flex gap-2 items-center mb-1">
+				<Icon>copyright</Icon>
+				<span>Copyright 2022 - {currentYear()}</span>
 			</div>
 			<div>
 				<button
@@ -79,22 +89,22 @@
 				>
 					CC BY-NC-ND 4.0
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
 						alt="Copyright"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
 						alt="Attribution"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
 						alt="Non commercial"
 					/>
 					<img
-						style="height:16px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+						class="h-4 w-4 ml-1 align-text-bottom inline"
 						src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
 						alt="No derivatives"
 					/>

@@ -1,20 +1,26 @@
 <script>
-	import { modal } from '$lib/modals';
-	import Icon from './Icon.svelte';
-	import SendFeedbackModal from './modals/SendFeedbackModal.svelte';
+	import { modal } from "$lib/modals"
 
-	/** @type string */ export let origin = 'undefined';
-	/** @type string */ export let tooltipDirection = 'up';
+	import Icon from "$cmp/Icon.svelte"
+	import { finishedLoading } from "$lib/loader"
+
+	/** @type string */ export let origin = "undefined"
+	/** @type string */ export let tooltipDirection = "up"
 </script>
 
-<div
-	class="tooltip {tooltipDirection != 'up' && 'tooltip-' + tooltipDirection}"
-	data-tip="Send feedback"
->
-	<button
-		class="btn btn-circle btn-ghost"
-		on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
-	>
-		<Icon>sms_failed</Icon>
-	</button>
-</div>
+{#if $finishedLoading}
+	{#await import("$cmp/modals/SendFeedbackModal.svelte").then(({default: C}) => C) then SendFeedbackModal}
+		<div
+			class="tooltip {tooltipDirection != 'up' && 'tooltip-' + tooltipDirection}"
+			data-tip="Send feedback"
+		>
+			<button
+				class="btn btn-circle btn-ghost"
+				aria-label="Send feedback"
+				on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
+			>
+				<Icon>sms_failed</Icon>
+			</button>
+		</div>
+	{/await}
+{/if}

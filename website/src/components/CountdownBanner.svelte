@@ -1,17 +1,33 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from "svelte"
+	import Img from "@zerodevx/svelte-img"
 
-	import FooterContent from './footer/FooterContent.svelte';
+	import FooterContent from "$cmp/footer/FooterContent.svelte"
 
-	let seconds = 3600 * 24 + 15; //TODO !
+	import bg_countdown from "$lib/assets/bg_countdown.jpg?run"
+
+	let seconds = 3600 * 24 + 15 //TODO !
+	/** @type {number | null} */
+	let intervalID = null
 
 	onMount(() => {
-		var intervalID = window.setInterval(() => seconds--, 1000);
-	});
+		intervalID = window.setInterval(() => seconds--, 1000)
+	})
+
+	onDestroy(() => {
+		if (intervalID) window.clearInterval(intervalID)
+	})
 </script>
 
 <div data-rahneiln3scroll>
-	<div class="hero bg-cover bg-center" style="background-image: url('banner/donations.jpg')">
+	<div class="hero relative">
+		<!-- Empty [alt] on purpose because decorative, doesn't need to be described -->
+		<Img
+			src={bg_countdown}
+			class="absolute h-full w-screen object-center object-cover -z-10 top-0 left-0"
+			alt=""
+		/>
+
 		<div class="hero-overlay bg-opacity-60" />
 
 		<div class="flex flex-col relative">
@@ -76,11 +92,11 @@
 					data-rahneiln3scroll
 					data-rahneiln3scroll-speed="2"
 				>
-					Come back here to see the latest donations & donators or if you too want to become one</span
-				>
+					Come back here to see the latest donations & donators or if you too want to become one
+				</span>
 			</div>
 
-			<div style="height: calc(100vh + 120px)" />
+			<div style="height: calc(100vh + 7rem);" />
 			<div class="w-screen invisible">
 				<FooterContent />
 			</div>

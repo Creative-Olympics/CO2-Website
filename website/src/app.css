@@ -90,3 +90,71 @@ html.has-scroll-dragging {
     right: auto;
     bottom: 0;
 }
+
+@keyframes borderSpin {
+    from {
+        transform: rotate(120deg)
+    }
+
+    to {
+        transform: rotate(480deg)
+    }
+}
+
+@layer components {
+
+    /*---------- card-goldenOutline ----------*/
+    .card-goldenOutline {
+        @apply relative bg-opacity-100 overflow-hidden after:absolute before:w-full before:h-full before:absolute before:bg-inherit before:bg-opacity-100 before:opacity-100
+    }
+
+    .card-goldenOutline:after {
+        background-image: linear-gradient(to bottom right in oklab,
+                oklch(100% 0.38 82) 0%,
+                oklch(72% 0.5 90) 100%);
+        animation: borderSpin 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        @apply h-1/3 top-1/2 -left-1/4 w-[200%] opacity-100
+    }
+
+    .card-goldenOutline .card-body {
+        padding: calc(var(--padding-card, 2rem) - 0.125rem);
+        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10
+    }
+
+    .card-compact.card-goldenOutline .card-body {
+        @apply m-0.5 rounded-[.9rem] bg-inherit bg-opacity-100 z-10 p-[.875rem]
+    }
+
+    /*---------- badge-loading ----------*/
+    .badge-loading {
+        @apply badge-ghost text-opacity-0 animate-pulse select-none
+    }
+
+    /*---------- text-loading ----------*/
+    .text-loading {
+        @apply text-opacity-0 text-black bg-base-200 w-fit animate-pulse rounded-lg select-none
+    }
+
+    /*---------- card-loading ----------*/
+    .card-loading {
+        @apply bg-base-200 animate-pulse
+    }
+
+    .card-loading .card-body * {
+        @apply opacity-0
+    }
+
+    /*---------- loaded ----------*/
+    .card-loading.loaded {
+        @apply animate-none
+    }
+
+    .card-loading.loaded .card-body * {
+        @apply opacity-100 transition-opacity ease-in-out
+    }
+
+    /*---------- btn-gradient ----------*/
+    .btn-gradient {
+        @apply focus-visible:outline-teal-600 text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90
+    }
+}

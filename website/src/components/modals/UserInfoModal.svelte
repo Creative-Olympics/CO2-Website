@@ -42,7 +42,7 @@
 				class="btn btn-sm my-4 gap-2 btn-accent normal-case"
 				on:click={() => toasts.info('Portfolio available soon :)')}
 			>
-				<Icon type={user.link.type} />
+				<Icon>{user.link.type}</Icon>
 				{user.link.name}
 			</button>
 		</div>

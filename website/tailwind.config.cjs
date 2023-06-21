@@ -20,17 +20,19 @@ const Myclass = plugin(function ({ addUtilities }) {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  mode: 'jit',
+  purge: ["./src/**/*.svelte"],
   theme: {
     extend: {
       animation: {
         fadeIn: 'fadeIn 5s ease-in-out',
       },
-      keyframes: theme => ({
+      keyframes: {
         fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
+          from: { opacity: 0 },
+          to: { opacity: 1 }
         },
-      }),
+      },
       backgroundSize: {
         'size-200': '200% 200%',
       },
@@ -41,7 +43,9 @@ module.exports = {
 
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui"), Myclass],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  darkMode: 'class',
+  lightMode: 'class',
   daisyui: {
     themes: [
       {

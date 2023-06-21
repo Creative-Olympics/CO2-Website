@@ -1,78 +1,79 @@
 <script>
-	import { app, rc_feedback_email } from '$lib/firebase';
-	import SelectTile from '$cmp/tiles/SelectTile.svelte';
-	import SwitchTile from '$cmp/tiles/SwitchTile.svelte';
-	import { fade } from 'svelte/transition';
-	import { getId, getInstallations } from 'firebase/installations';
-	import { logs } from '$lib/logs';
+	import { app, rc_feedback_email } from "$lib/firebase"
+	import SelectTile from "$cmp/tiles/SelectTile.svelte"
+	import SwitchTile from "$cmp/tiles/SwitchTile.svelte"
+	import { fade } from "svelte/transition"
+	import { getId, getInstallations } from "firebase/installations"
+	import { logs } from "$lib/logs"
 
-	let firebaseAppID = 'Loading...';
-	let windowDimensions = innerWidth + ' x ' + innerHeight;
+	let firebaseAppID = "Loading..."
+	let windowDimensions = innerWidth + " x " + innerHeight
 
 	getId(getInstallations(app)).then((id) => {
-		firebaseAppID = id;
-	});
+		firebaseAppID = id
+	})
 
-	export let origin = 'null';
+	export let origin = "null"
 
-	let category = 'null';
-	let location = 'null';
-	let description = '';
-	let sendBrowser = true;
-	let sendWindowDimensions = true;
-	let sendLogs = true;
-	let sendFirebaseAppID = true;
-	let contributor = true;
+	let category = "null"
+	let location = "null"
+	let description = ""
+	let sendBrowser = true
+	let sendWindowDimensions = true
+	let sendLogs = true
+	let sendFirebaseAppID = true
+	let contributor = true
 
 	let send = () => {
 		window.open(
-			'mailto:' +
+			"mailto:" +
 				$rc_feedback_email +
-				'?subject=' +
+				"?subject=" +
 				category +
-				'&body=' +
-				'SCREEN: `' +
-				(location == 'PREVIOUS' ? origin : location) +
-				'`%0A%0ABROWSER: `' +
-				(sendBrowser ? navigator.userAgent : 'denied') +
-				'`%0A%0AWINDOW_SIZE: `' +
-				(sendWindowDimensions ? windowDimensions : 'denied') +
-				'`%0A%0ADESC:%0A> ' +
+				"&body=" +
+				"SCREEN: `" +
+				(location == "PREVIOUS" ? origin : location) +
+				"`%0A%0ABROWSER: `" +
+				(sendBrowser ? navigator.userAgent : "denied") +
+				"`%0A%0AWINDOW_SIZE: `" +
+				(sendWindowDimensions ? windowDimensions : "denied") +
+				"`%0A%0ADESC:%0A> " +
 				description +
-				'%0A%0ALOGS:%0A```json%0A' +
-				(sendLogs ? JSON.stringify($logs) : 'denied') +
-				'%0A```%0A%0AFIREBASE: `' +
-				(sendFirebaseAppID ? firebaseAppID : 'denied') +
-				'`%0A%0ACONTRIBUTOR: `' +
+				"%0A%0ALOGS:%0A```json%0A" +
+				(sendLogs ? JSON.stringify($logs) : "denied") +
+				"%0A```%0A%0AFIREBASE: `" +
+				(sendFirebaseAppID ? firebaseAppID : "denied") +
+				"`%0A%0ACONTRIBUTOR: `" +
 				(sendFirebaseAppID && contributor) +
-				'`',
-			'_blank'
-		);
-	};
+				"`",
+			"_blank"
+		)
+	}
 </script>
 
 <!-- FOLLOWING GUIDELINES FROM RahNeil_N3:AndroidSendFeedbackActivity -->
 <span class="text-md font-bold uppercase w-full">Send feedback</span>
 <div class="flex flex-col mt-4 gap-2">
 	<!-- Category Tile -->
-	<SelectTile title="Category" bind:value={category}>
-		<option value="BUG">Bug report</option>
-		<option value="FEATURE">Feature request</option>
-		<option value="TRANSLATION">Translation error</option>
-	</SelectTile>
+	<SelectTile
+		title="Category"
+		bind:value={category}
+		options={{ BUG: "Bug report", FEATURE: "Feature request", TRANSLATION: "Translation error" }}
+	/>
 
 	<!-- Location Tile -->
 	<SelectTile
-		title={category == 'TRANSLATION' ? 'Error location' : 'Bug location'}
+		title={category == "TRANSLATION" ? "Error location" : "Bug location"}
 		icon="web_asset"
 		bind:value={location}
-		disabled={category != 'BUG' && category != 'TRANSLATION'}
-	>
-		<option value="PREVIOUS">Previous screen</option>
-		<option>Other screen</option>
-		<option>Widget</option>
-		<option>Notification</option>
-	</SelectTile>
+		disabled={category != "BUG" && category != "TRANSLATION"}
+		options={{
+			PREVIOUS: "Previous screen",
+			OTHER_SCREEN: "Other screen",
+			WIDGET: "Widget",
+			NOTIFICATION: "Notification"
+		}}
+	/>
 
 	<div class="form-control gap-1">
 		<textarea
@@ -82,14 +83,14 @@
 		/>
 		<div class="relative h-4">
 			<!-- Required for animations -->
-			{#if category == 'TRANSLATION'}
+			{#if category == "TRANSLATION"}
 				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
 					Describe where the error is and how it should be changed, if possible
 				</span>
-			{:else if category == 'FEATURE'}
-				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}
-					>Describe the feature and how it would work</span
-				>
+			{:else if category == "FEATURE"}
+				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
+					Describe the feature and how it would work
+				</span>
 			{:else}
 				<span class="mx-4 text-xs absolute" transition:fade={{ duration: 250 }}>
 					Describe the issue, as well as steps to reproduce it if possible
@@ -107,30 +108,30 @@
 			<SwitchTile
 				title="Browser"
 				icon="web"
-				disabled={category != 'BUG'}
-				value={category == 'BUG' && sendBrowser}
+				disabled={category != "BUG"}
+				value={category == "BUG" && sendBrowser}
 				onChange={() => {
-					sendBrowser = !sendBrowser;
+					sendBrowser = !sendBrowser
 				}}
 			/>
 			<SwitchTile
 				title="Window dimensions"
 				icon="aspect_ratio"
 				description={windowDimensions}
-				disabled={category != 'BUG'}
-				value={category == 'BUG' && sendWindowDimensions}
+				disabled={category != "BUG"}
+				value={category == "BUG" && sendWindowDimensions}
 				onChange={() => {
-					sendWindowDimensions = !sendWindowDimensions;
+					sendWindowDimensions = !sendWindowDimensions
 				}}
 			/>
 			<SwitchTile
 				title="Recent logs"
 				description="Send recent errors and warnings"
-				icon="breaking_news_alt_1"
-				disabled={category != 'BUG'}
-				value={category == 'BUG' && sendLogs}
+				icon="data_alert"
+				disabled={category != "BUG"}
+				value={category == "BUG" && sendLogs}
 				onChange={() => {
-					sendLogs = !sendLogs;
+					sendLogs = !sendLogs
 				}}
 			/>
 			<SwitchTile
@@ -146,7 +147,7 @@
 				disabled={!sendFirebaseAppID}
 				value={sendFirebaseAppID && contributor}
 				onChange={() => {
-					contributor = !contributor;
+					contributor = !contributor
 				}}
 			/>
 		</div>
@@ -154,9 +155,9 @@
 
 	<button
 		class="btn btn-block btn-primary gap-2 mt-4"
-		disabled={category == 'null' ||
-			(category == 'BUG' && location == 'null') ||
-			(category == 'FEATURE' && description == '')}
+		disabled={category == "null" ||
+			(category == "BUG" && location == "null") ||
+			(category == "FEATURE" && description == "")}
 		on:click={send}
 	>
 		Send

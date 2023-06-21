@@ -1,9 +1,9 @@
 <script>
 	// @ts-nocheck
 
-	import SendFeedbackIconButton from '$cmp/SendFeedbackIconButton.svelte';
-	import { modal } from '$lib/modals';
-	import AboutUsModal from '../modals/AboutUsModal.svelte';
+	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
+	import { modal } from "$lib/modals"
+	import AboutUsModal from "../modals/AboutUsModal.svelte"
 </script>
 
 <div class="absolute top-2 right-2">
@@ -14,7 +14,8 @@
 </div>
 <h3 class="text-lg font-bold self-center mb-4 uppercase">License</h3>
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-	<span property="dct:title">The Creative Olympics website, imagery & assets</span> by
+	<span property="dct:title">The Creative Olympics website, imagery & assets</span>
+	by
 	<button
 		rel="cc:attributionURL dct:creator"
 		property="cc:attributionName"
@@ -42,22 +43,22 @@
 	>
 		<div class="inline-block">
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+				class="h-7 w-7 ml-1 align-text-bottom inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"
 				alt="Copyright"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+				class="h-7 w-7 ml-1 align-text-bottom inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/by.svg"
 				alt="Attribution"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+				class="h-7 w-7 ml-1 align-text-bottom inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/nc.svg"
 				alt="Non commercial"
 			/>
 			<img
-				style="height:28px!important;margin-left:3px;vertical-align:text-bottom;display:inline"
+				class="h-7 w-7 ml-1 align-text-bottom inline"
 				src="https://mirrors.creativecommons.org/presskit/icons/nd.svg"
 				alt="No derivatives"
 			/>

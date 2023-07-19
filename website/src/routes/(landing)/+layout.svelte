@@ -9,8 +9,8 @@
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
-	import CountdownBanner from "$cmp/CountdownBanner.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
+	import DonationsBanner from "$cmp/DonationsBanner.svelte"
 
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
@@ -30,7 +30,7 @@
 	bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
 	finishedLoading.subscribe((v) => {
 		// @ts-ignore
-		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+		//if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 	})
 </script>
 
@@ -78,7 +78,7 @@
 				/>
 				{#if !vidEnded}
 					<video
-						class="absolute h-full w-screen object-center object-cover pointer-events-none select-none"
+						class="absolute top-0 left-0 h-full w-screen object-center object-cover pointer-events-none select-none"
 						id="RahNeil_N3:CO:hbgiapv"
 						playsinline
 						disableremoteplayback
@@ -90,14 +90,11 @@
 							bannerLoadLevel.update((v) => v + 1)
 							vidEnded = true
 						}}
-						on:canplaythrough={() => bannerLoadLevel.update((v) => v + 1)}
+						on:canplay={() => bannerLoadLevel.update((v) => v + 1)}
 						on:loadedmetadata={() => {
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
-						data-rahneiln3scroll
-						data-rahneiln3scroll-speed="8"
-						data-rahneiln3scroll-position="top"
 					/>
 				{/if}
 			</MediaQuery>
@@ -108,7 +105,7 @@
 		<EventDesc />
 	</div>
 
-	<CountdownBanner />
+	<DonationsBanner />
 
 	<Footer />
 </div>

@@ -153,8 +153,19 @@ html.has-scroll-dragging {
         @apply opacity-100 transition-opacity ease-in-out
     }
 
-    /*---------- btn-gradient ----------*/
-    .btn-gradient {
-        @apply focus-visible:outline-teal-600 text-white border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90
+    /*---------- btn-gradient-primary ----------*/
+    .btn-gradient-primary {
+        transition-property: background-position;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 400ms;
+        @apply btn-primary border-transparent hover:border-transparent bg-gradient-to-br from-purple-600 via-pink-600 to-pink-600 bg-size-200 bg-pos-10 hover:bg-pos-90
+    }
+
+    /*---------- btn-gradient-secondary ----------*/
+    .btn-gradient-secondary {
+        transition-property: background-position;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 400ms;
+        @apply btn-secondary border-transparent hover:border-transparent bg-gradient-to-br from-green-500 via-teal-500 to-blue-500 bg-size-200 bg-pos-10 hover:bg-pos-90
     }
 }

@@ -23,7 +23,7 @@
 		logs.add({ msg: "Page location changed", route: $page.route, url: $page.url.href }, "info")
 		if ($scrollInstance) {
 			$scrollInstance.update()
-			showLogo.set(!$page.route.id?.startsWith("/(landing)") && true)
+			showLogo.set(!$page.route.id?.startsWith("/(landing)"))
 			if ($page.route.id == "/(landing)") {
 				$scrollInstance.on("call", (/** @type {string|object} */ signal) => {
 					if (signal === "appbar_showLogo") {

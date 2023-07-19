@@ -87,7 +87,6 @@
 			</div>
 		{/if}
 	</div>
-	<div class="w-screen" style="height: {contentHeight / 2}px" />
 </div>
 
 <!-- Space between the first and second section, depending on this component height -->

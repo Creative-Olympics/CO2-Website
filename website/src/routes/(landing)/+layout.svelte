@@ -9,8 +9,8 @@
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
-	import CountdownBanner from "$cmp/CountdownBanner.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
+	import DonationsBanner from "$cmp/DonationsBanner.svelte"
 
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
@@ -18,7 +18,6 @@
 	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
 	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
 	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
-  import DonationsBanner from "$cmp/DonationsBanner.svelte"
 
 	const DEBUG = false
 
@@ -31,7 +30,7 @@
 	bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
 	finishedLoading.subscribe((v) => {
 		// @ts-ignore
-		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
+		//if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
 	})
 </script>
 

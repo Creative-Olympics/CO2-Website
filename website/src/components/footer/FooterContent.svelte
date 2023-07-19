@@ -10,9 +10,9 @@
 	import CopyrightModal from "$cmp/modals/CopyrightModal.svelte"
 	import Icon from "$cmp/Icon.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
-	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
 
-	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0&w=80"
+	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0"
+	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
@@ -20,10 +20,10 @@
 		<label class="swap swap-rotate text-9xl">
 			<input type="checkbox" tabindex="-1" />
 			<div class="swap-off w-20 h-20">
-				<FlameLogo />
+				<Img src={logo_small} alt="Creative Olympics" />
 			</div>
 			<div class="swap-on w-20 h-20 flex flex-col justify-end">
-				<Img src={turtle} alt="Turtle <3" width={80} height={80} />
+				<Img src={turtle} alt="Turtle <3" />
 			</div>
 		</label>
 		<div class="flex flex-col mt-4 gap-2">

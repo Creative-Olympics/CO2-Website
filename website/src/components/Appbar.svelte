@@ -1,6 +1,7 @@
 <script>
 	import { fly, fade, slide } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
+	import Img from "@zerodevx/svelte-img"
 
 	import { rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from "$lib/firebase"
 	import { showLogo } from "$lib/scroll"
@@ -11,8 +12,9 @@
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
-	import FlameLogo from "$cmp/logo/FlameLogo.svelte"
 	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
+
+	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -46,7 +48,7 @@
 										/> -->
 
 										<div class="relative w-10 h-10">
-											<FlameLogo />
+											<Img src={logo_small} alt="Creative Olympics" />
 										</div>
 									</div>
 								</div>
@@ -131,8 +133,7 @@
 								{/if}
 								<li>
 									<button
-										on:click={() =>
-											modal.open($modal, UserProfileModal, { userID: $userData?.uid })}
+										on:click={() => modal.open($modal, UserProfileModal, { userID: $userData?.uid })}
 									>
 										<Icon>account_circle</Icon>
 										Your profile

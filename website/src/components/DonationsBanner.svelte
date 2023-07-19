@@ -58,6 +58,8 @@
 							</div>
 
 							<!-- Has to have m-[5px] so glass effect doesn't see the transparency on rounded corners thus darkening the corners -->
+							<!-- margins: h-[calc(100%-10px)] m-[5px] -->
+							<!-- full: h-full -->
 							<div
 								class="card h-[calc(100%-10px)] m-[5px] glass shadow-none hover:shadow-none bg-base-100 bg-opacity-30 hover:bg-base-100 hover:bg-opacity-70 transition-colors duration-500"
 							>

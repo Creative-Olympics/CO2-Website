@@ -15,6 +15,8 @@
 	let publicData = null
 	let online = false
 
+	history.pushState(null, '', `/test`);
+
 	if (userID == $currentUser_userData?.uid) {
 		// If the user is looking at his own profile, we don't bother fetching anything and just load its own data
 		userData = $currentUser_userData

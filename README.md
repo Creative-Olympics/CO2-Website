@@ -35,13 +35,13 @@ Website
 Run the website in dev mode:
 ```bash
 npm run dev
-# concurrently \"npm run dev:only\" \"npm run tailwind:watch\"
+# concurrently \"vite build\" \"cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/app.css -o src/app-output.css -w\"
 ```
 
 Build a production version of the website:
 ```bash
 npm run build
-# npm run tailwind:build && npm run build:only
+# npm run cross-env TAILWIND_MODE=build cross-env NODE_ENV=production postcss src/app.css -o src/app-output.css && vite build
 ```
 
 Preview the production version of the website:
@@ -53,6 +53,12 @@ npm run preview
 <details>
 <summary>Other scripts</summary>
 <br/>
+
+ONLY Run the website in dev mode (without Tailwind):
+```bash
+npm run dev:only
+# vite build
+```
 
 ONLY Build a production version of the website (without Tailwind):
 ```bash

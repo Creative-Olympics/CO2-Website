@@ -34,12 +34,16 @@ Admin App
 
 [![Download](https://media.discordapp.net/attachments/346737406591893506/1146859320429006928/co.rahmouni.dev__5.png)](http://url.creative-olympics.org/admin-app)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./android-admin/)
 
+<br/>
+
 - **Technologies:** Koltin, Jetpack Compose
 
 Website
 ====
 
 [![Visit website](https://media.discordapp.net/attachments/346737406591893506/1146855771057963008/co.rahmouni.dev__4.png)](https://co.rahmouni.dev)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)
+
+<br/>
 
 - **Technologies:** Svelte, Vite, Tailwind CSS
 - **Hosting:** Firebase Hosting

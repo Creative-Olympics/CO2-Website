@@ -17,4 +17,4 @@ Admin App
 Website
 ====
 
-![https://co.rahmouni.dev/](https://media.discordapp.net/attachments/346737406591893506/1146851085202497646/image.png)
+[![Go to the website](https://media.discordapp.net/attachments/346737406591893506/1146851085202497646/image.png)](https://co.rahmouni.dev)

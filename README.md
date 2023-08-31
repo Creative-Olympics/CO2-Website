@@ -16,10 +16,19 @@ Repo
 
 <br/>
 
-There are five (5) priorities for issues:
-~P0 ~P1 ~P2 ~P3 ~P4 
+Issues / tasks are all categorized using the following labels:
 
-Those follow the [Google Issue Tracker issue priorities](https://developers.google.com/issue-tracker/concepts/issues#priority) guidelines:
+- **Priorities:** ~P0 ~P1 ~P2 ~P3 ~P4 
+- **Progress:** ~Planned ~Doing ~"A/B" ~Clean
+- **A/B progress:** ~Pending ~"25%" ~"50%" ~"75%"
+- **Main features:** ~Feature
+- **Type (Issue):** ~accessibility ~enhancement ~performance ~SEO
+- **Type (Meta):** ~discussion ~documentation ~refactor
+- **Bugs:** ~bug (+~confirmed if replicable)
+
+Progress labels are used as categories on the [issue board](https://url.creative-olympics.org/board).
+
+Priorities follow the [Google Issue Tracker issue priorities](https://developers.google.com/issue-tracker/concepts/issues#priority) guidelines:
 
 | Priority | Description |
 | ------ | ------ |

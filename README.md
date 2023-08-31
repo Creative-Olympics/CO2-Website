@@ -9,10 +9,16 @@
 
 ---
 
+Repo
+====
+
+[![Issue board](https://media.discordapp.net/attachments/346737406591893506/1146859978813087925/co.rahmouni.dev__7.png)](https://url.creative-olympics.org/board)&nbsp; [![Current Sprint](https://media.discordapp.net/attachments/346737406591893506/1146859651242143825/co.rahmouni.dev__6.png)](https://url.creative-olympics.org/sprint)
+
+
 Admin App
 ====
 
-[![Download](https://media.discordapp.net/attachments/346737406591893506/1146852924757114960/co.rahmouni.dev_.png)](http://url.creative-olympics.org/admin-app)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./android-admin/)
+[![Download](https://media.discordapp.net/attachments/346737406591893506/1146859320429006928/co.rahmouni.dev__5.png)](http://url.creative-olympics.org/admin-app)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./android-admin/)
 
 The Android Admin App is made using Kotlin & Jetpack compose.
 
@@ -22,4 +28,3 @@ Website
 [![Visit website](https://media.discordapp.net/attachments/346737406591893506/1146855771057963008/co.rahmouni.dev__4.png)](https://co.rahmouni.dev)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)
 
 The website was made using Svelte & Vite.
-

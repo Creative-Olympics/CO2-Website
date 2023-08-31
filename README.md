@@ -30,6 +30,67 @@ Website
 - **Technologies:** Svelte, Vite, Tailwind CSS
 - **Hosting:** Firebase Hosting
 
+**Scripts:**
+
+Run the website in dev mode:
+```bash
+npm run dev
+# concurrently \"npm run dev:only\" \"npm run tailwind:watch\"
+```
+
+Build a production version of the website:
+```bash
+npm run build
+# npm run tailwind:build && npm run build:only
+```
+
+Preview the production version of the website:
+```bash
+npm run preview
+# vite preview
+```
+
+<details>
+<summary>Other scripts</summary>
+<br/>
+
+ONLY Build a production version of the website (without Tailwind):
+```bash
+npm run build:only
+# vite build
+```
+
+Tailwind watch:
+```bash
+npm run tailwind:watch
+# cross-env TAILWIND_MODE=watch cross-env NODE_ENV=development postcss src/app.css -o src/app-output.css -w
+```
+
+ONLY Build a production version of Tailwind (without the website):
+```bash
+npm run tailwind:build
+# cross-env TAILWIND_MODE=build cross-env NODE_ENV=production postcss src/app.css -o src/app-output.css
+```
+
+Run the website in dev mode and make it available to the local network (or the whole internet if you open the ports in your router):
+```bash
+npm run devhost
+# concurrently \"npm run dev:only -- --host\" \"npm run tailwind:watch\"
+```
+
+Lint:
+```bash
+npm run lint
+# prettier --plugin-search-dir . --check . && eslint .
+```
+
+Format:
+```bash
+npm run format
+# prettier --plugin-search-dir . --write .
+```
+</details>
+
 Back-end
 ====
 - **Technologies:** Firebase Remote Config, Firestore Database, Firebase Realtime Database, Firebase Cloud Functions, Firebase Cloud Messaging

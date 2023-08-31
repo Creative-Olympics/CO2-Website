@@ -12,9 +12,9 @@
 Admin App
 ====
 
-[![Download](https://media.discordapp.net/attachments/346737406591893506/1146852924757114960/co.rahmouni.dev_.png)](https://co.rahmouni.dev) [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)
+[![Download](https://media.discordapp.net/attachments/346737406591893506/1146852924757114960/co.rahmouni.dev_.png)](https://co.rahmouni.dev)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)
 
 Website
 ====
 
-[![Go to the website](https://media.discordapp.net/attachments/346737406591893506/1146854960584196246/co.rahmouni.dev__3.png)](https://co.rahmouni.dev) [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)
+[![Go to the website](https://media.discordapp.net/attachments/346737406591893506/1146854960584196246/co.rahmouni.dev__3.png)](https://co.rahmouni.dev)&nbsp; [![Explore files](https://media.discordapp.net/attachments/346737406591893506/1146854635550822430/co.rahmouni.dev__2.png)](./website/)

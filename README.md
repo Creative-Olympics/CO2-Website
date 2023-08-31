@@ -50,10 +50,10 @@ npm run preview
 # vite preview
 ```
 
+<br/>
+
 <details>
-<summary>
-![See more scripts](https://media.discordapp.net/attachments/346737406591893506/1146877882354897036/co.rahmouni.dev__8.png)
-</summary>
+<summary><a><img src="https://media.discordapp.net/attachments/346737406591893506/1146877882354897036/co.rahmouni.dev__8.png"/></a></summary>
 <br/>
 
 ONLY Run the website in dev mode (without Tailwind):

@@ -51,7 +51,9 @@ npm run preview
 ```
 
 <details>
-<summary>Other scripts</summary>
+<summary>
+![See more scripts](https://media.discordapp.net/attachments/346737406591893506/1146877882354897036/co.rahmouni.dev__8.png)
+</summary>
 <br/>
 
 ONLY Run the website in dev mode (without Tailwind):

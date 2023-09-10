@@ -7,7 +7,7 @@ Giveaways are stored in a `Firebase Realtime Database` (`RTD`) in Belgium (`euro
 They are available at [`/giveaways`](https://rahneil-n3-co-default-rtdb.europe-west1.firebasedatabase.app/giveaways).
 
 Rules are set as follow:
-<img src="./rules.svg">
+![rules](./rules.svg "Rules"){width=75%}
 <details><summary>Click to see full rules as code</summary>
 
 ```

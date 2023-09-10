@@ -11,6 +11,7 @@ Rules are set as follow:
 ![rules](./rules.svg "Rules"){width=50%}
 
 <details><summary>Click to see full rules as code</summary>
+<br/>
 
 ```
 ".read": false,

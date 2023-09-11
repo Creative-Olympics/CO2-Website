@@ -8,7 +8,7 @@ The achievements an user obtained are stored as a list of IDs, under the user pu
 
 ## First website prototype
 
-![prototype](./prototype.webm)
+<a>![prototype](./prototype.gif "Prototype")</a>
 
 ## Rules
 

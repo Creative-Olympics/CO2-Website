@@ -9,7 +9,7 @@ They are available at [`/giveaways`](https://rahneil-n3-co-default-rtdb.europe-w
 
 ## Rules
 
-![rules](./rules.svg "Rules"){width=700}
+<a>![rules](./rules.svg "Rules"){width=700}</a>
 
 <details><summary>Click to see full rules as code</summary>
 <br/>

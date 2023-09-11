@@ -133,4 +133,4 @@ Back-end
 Docs
 ====
 [![Achievements](https://media.discordapp.net/attachments/458971493280514049/1150810074130944120/ssIBaPN.png)](./docs/achievements/doc.md)
-[![Giveaways](https://media.discordapp.net/attachments/458971493280514049/1150810458555678791/asxisnD.png)](./docs/giveaways/doc.md)
+[![Giveaways](https://media.discordapp.net/attachments/458971493280514049/1150810661388046367/Bv2iIrM.png)](./docs/giveaways/doc.md)

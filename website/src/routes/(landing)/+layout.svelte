@@ -2,15 +2,16 @@
 	import Img from "@zerodevx/svelte-img"
 	import isIos from "is-ios"
 	import { onMount } from "svelte"
+	import { fade } from "svelte/transition";
+	import { quintOut } from "svelte/easing"
 
 	import { bannerLoadLevel, finishedLoading } from "$lib/loader"
-	import { toasts } from "$lib/toasts"
 	import { scrollInstance } from "$lib/scroll"
 
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
-	import DonationsBanner from "$cmp/DonationsBanner.svelte"
+	import CountdownBanner from "$cmp/CountdownBanner.svelte";
 
 	import background from "$lib/assets/banner/background.png?run"
 	import background_m from "$lib/assets/banner/background_m.png?run"
@@ -95,6 +96,7 @@
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
+						out:fade={{ duration: 1500, easing: quintOut }}
 					/>
 				{/if}
 			</MediaQuery>
@@ -105,7 +107,7 @@
 		<EventDesc />
 	</div>
 
-	<DonationsBanner />
+	<CountdownBanner />
 
 	<Footer />
 </div>

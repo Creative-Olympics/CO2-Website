@@ -132,6 +132,3 @@
 		</div>
 	</div>
 </div>
-<div class="modal-action">
-	<button class="btn">Full profile</button>
-</div>

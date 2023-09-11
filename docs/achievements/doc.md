@@ -4,7 +4,7 @@
 
 Achievements are stored in `Firebase Firestore Database` (`FS`)
 
-The achievements an user obtained are stored as a list of IDs, under the user public data space, specifically in document `/users/user/public/general`
+The achievements an user obtained are stored as a list of IDs, under the user public data document (`/users/user/public/general`)
 
 
 ## Rules

@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   mode: 'jit',
   purge: ["./src/**/*.svelte"],
@@ -51,48 +51,12 @@ module.exports = {
 
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("daisyui")],
   darkMode: 'class',
   lightMode: 'class',
   daisyui: {
-    themes: [
-      {
-        "light": {
-          "primary": "#db2777",
-          "secondary": "#10b981",
-          "accent": "#fbbd23",
-          "neutral": "#2b3440",
-          "base-100": "#ffffff",
-          "info": "#3abff8",
-          "success": "#36d399",
-          "warning": "#fbbd23",
-          "error": "#f87272",
-          "primary-content": "#ffffff",
-          "secondary-content": "#ffffff"
-        }
-      },
-      {
-        "dark": {
-          "primary": "#db2777",
-          "secondary": "#10b981",
-          "accent": "#fbbd23",
-          "neutral": "#2a323c",
-          "base-100": "#1d232a",
-          "info": "#3abff8",
-          "success": "#36d399",
-          "warning": "#fbbd23",
-          "error": "#f87272",
-          "primary-content": "#ffffff",
-          "secondary-content": "#ffffff"
-          //...require("daisyui/src/colors/themes")["[data-theme=dark]"],
-          //"base-content": "#fff",
-          //"accent": "#db2777",
-          //'.btn:focus-visible': {
-          //  'outline-color': '#fff',
-          //},
-        }
-      }
-    ],
     logs: false
   }
 }
+
+module.exports = config;

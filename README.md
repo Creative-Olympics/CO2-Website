@@ -132,4 +132,5 @@ Back-end
 
 Docs
 ====
+ - [Achievements](./docs/achievements/doc.md)
  - [Giveaways](./docs/giveaways/doc.md)

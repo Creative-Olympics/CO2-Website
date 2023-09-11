@@ -4,7 +4,7 @@
 
 Giveaways are stored in a `Firebase Realtime Database` (`RTD`) in Belgium (`europe-west1`)
 
-They are available at [`/giveaways`](https://rahneil-n3-co-default-rtdb.europe-west1.firebasedatabase.app/giveaways).
+They are available at [<kbd>/giveaways</kbd>](https://rahneil-n3-co-default-rtdb.europe-west1.firebasedatabase.app/giveaways).
 
 
 ## Rules

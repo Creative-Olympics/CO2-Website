@@ -25,6 +25,7 @@ Issues / tasks are all categorized using the following labels:
 - **Type (Issue):** ~accessibility ~enhancement ~performance ~SEO
 - **Type (Meta):** ~discussion ~documentation ~refactor
 - **Bugs:** ~bug (+~confirmed if replicable)
+- **Blocked:** ~BLOCKED
 
 Progress labels are used as categories on the [issue board](https://url.creative-olympics.org/board).
 

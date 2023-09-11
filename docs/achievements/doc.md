@@ -11,8 +11,4 @@ The achievements an user obtained are stored as a list of IDs, under the user pu
 <a>![prototype](./prototype.gif "Prototype")</a>
 
 ## Rules
-
-<div align='center'><a>
-
-![rules](./rules.svg "Rules"){width=700}
-</a></div>
+<a>![rules](./rules.svg "Rules"){width=700}</a>

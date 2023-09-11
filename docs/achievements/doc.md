@@ -7,4 +7,4 @@ Achievements are stored in `Firebase Firestore Database` (`FS`)
 
 ## Rules
 
-![rules](./rules.svg "Rules"){width=700}
+<a>![rules](./rules.svg "Rules"){width=700}</a>

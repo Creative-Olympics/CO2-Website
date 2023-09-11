@@ -8,7 +8,7 @@ They are available at [`/giveaways`](https://rahneil-n3-co-default-rtdb.europe-w
 
 Rules are set as follow:
 
-![rules](./rules.svg "Rules"){width=50%}
+![rules](./rules.svg "Rules"){width=500}
 
 <details><summary>Click to see full rules as code</summary>
 <br/>
@@ -17,5 +17,6 @@ Rules are set as follow:
 ".read": false,
 ".write": false
 ```
-
 </details>
+
+[contact:neil.rahmouni@gmail.com]

@@ -129,3 +129,7 @@ npm run format
 Back-end
 ====
 - **Technologies:** Firebase Remote Config, Firestore Database, Firebase Realtime Database, Firebase Cloud Functions, Firebase Cloud Messaging
+
+Docs
+====
+ - [Giveaways](./docs/giveaways/doc.md)

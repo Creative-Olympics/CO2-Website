@@ -19,5 +19,3 @@ They are available at [`/giveaways`](https://rahneil-n3-co-default-rtdb.europe-w
 ".write": false
 ```
 </details>
-
-[contact:neil.rahmouni@gmail.com]

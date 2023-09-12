@@ -15,6 +15,10 @@
 	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 
 	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
+	import { goto } from "$app/navigation"
+	import { page } from "$app/stores"
+	import { logs } from "$lib/logs"
+	import { toasts } from "$lib/toasts"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -32,7 +36,12 @@
 							{#if $showLogo}
 								<div
 									in:slide={{ duration: 1000, axis: "x", easing: quintOut }}
-									out:slide={{ duration: 1000, delay: 250, axis: "x", easing: quintOut }}
+									out:slide={{
+										duration: 1000,
+										delay: 250,
+										axis: "x",
+										easing: quintOut
+									}}
 								>
 									<div
 										class="pr-3 mb-2"
@@ -58,6 +67,8 @@
 					</a>
 				</div>
 			</div>
+
+            <!-- endActions -->
 			<div class="navbar-end gap-0.5">
 				<div class="tooltip tooltip-bottom" data-tip={themeList[$currentThemeID].buttonText}>
 					<button class="btn btn-circle btn-ghost" on:click={switchToNextTheme}>
@@ -81,8 +92,12 @@
 						<Icon>volunteer_activism</Icon>
 					</button>
 				{/if}-->
+
+                <!-- userButton -->
 				<div class="ml-2">
 					{#if $userData}
+
+                        <!-- userProfileDropdown -->
 						<div class="dropdown dropdown-end">
 							<div class="tooltip tooltip-left" data-tip={$userData.displayName}>
 								<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
@@ -131,9 +146,19 @@
 										<span>Others</span>
 									</li>
 								{/if}
+
+                                <!-- yourProfileButton -->
 								<li>
 									<button
-										on:click={() => modal.open($modal, UserProfileModal, { userID: $userData?.uid })}
+										on:click={() => {
+                                            logs.add({ msg: "user opened his profile from the appbar" }, "info");
+											if ($userData?.uid != null) {
+												$page.url.searchParams.set("5uY", $userData?.uid)
+												goto(`?${$page.url.searchParams.toString()}`)
+											} else {
+                                                toasts.feedbackError("s6ygzmsG0G@RahNeil_N3:Appbar:endActions:userButton:userProfileDropdown:yourProfileButton:nullUserDataError");
+											}
+										}}
 									>
 										<Icon>account_circle</Icon>
 										Your profile

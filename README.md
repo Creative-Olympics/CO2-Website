@@ -3,7 +3,7 @@
     <a><img src='./website/src/lib/assets/logo/full.gif' width='250' height='250'/></a>
     <p>This is the repository for the Creative Olympics website and Admin App</p>
 
-![Website version](https://badgen.net/badge/Website%20version/Alpha/red?) ![App version](https://badgen.net/badge/App%20version/Alpha/red?)
+<a>![Website version](https://badgen.net/badge/Website%20version/Alpha/red?)</a> <a>![App version](https://badgen.net/badge/App%20version/Alpha/red?)</a>
 
 </div>
 
@@ -12,7 +12,8 @@
 Repo
 ====
 
-[![Issue board](https://media.discordapp.net/attachments/346737406591893506/1146859978813087925/co.rahmouni.dev__7.png)](https://url.creative-olympics.org/board)&nbsp; [![Current Sprint](https://media.discordapp.net/attachments/346737406591893506/1146859651242143825/co.rahmouni.dev__6.png)](https://url.creative-olympics.org/sprint)
+[![Issue board](https://media.discordapp.net/attachments/346737406591893506/1146859978813087925/co.rahmouni.dev__7.png)](https://url.creative-olympics.org/board)&nbsp;
+[![Current Sprint](https://media.discordapp.net/attachments/346737406591893506/1146859651242143825/co.rahmouni.dev__6.png)](https://url.creative-olympics.org/sprint)
 
 <br/>
 

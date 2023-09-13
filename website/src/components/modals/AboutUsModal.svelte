@@ -8,7 +8,7 @@
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
 
-	import pfp_neilRahmouni from "$lib/assets/pfp/neil_rahmouni.jpg?run"
+	import pfp_neilRahmouni from "$lib/assets/pfp/neil_rahmouni.png?run"
 	import pfp_chadrixy from "$lib/assets/pfp/chadrixy.png?run&lqip=0"
 </script>
 

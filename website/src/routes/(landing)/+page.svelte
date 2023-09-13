@@ -64,7 +64,7 @@
 		>
 			{#if $finishedLoading}
 				<button
-					class="btn btn-gradient-secondary"
+					class="btn btn-gradient-secondary text-white"
 					in:fade={{ delay: DELAY_MIN + 1050 }}
 					out:fade={{ duration: 1000 }}
 					on:click={watchTrailer}

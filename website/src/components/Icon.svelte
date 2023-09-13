@@ -82,6 +82,7 @@
 		</svg>
 	{/await}-->
 
+	<!--
 	<img
 		class={className}
 		{style}
@@ -89,5 +90,9 @@
 			? 'wght' + weight
 			: 'default'}/{large ? '48' : '24'}px.svg"
 		alt=""
-	/>
+	/>-->
+
+	<span class="material-symbols-outlined">
+		{slotObj?.textContent}
+	</span>
 {/if}

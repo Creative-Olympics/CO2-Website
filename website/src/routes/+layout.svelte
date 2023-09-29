@@ -4,15 +4,17 @@
 	import { getPerformance } from "firebase/performance"
 	import { getAnalytics } from "firebase/analytics"
 
+	import { page } from "$app/stores"
+
 	import { app } from "$lib/firebase"
 	import { scrollInstance, showLogo } from "$lib/scroll"
 	import { themeList, currentThemeID } from "$lib/theme"
 	import { logs } from "$lib/logs"
+	import { toasts } from "$lib/toasts"
 
 	import ToastsOverlay from "$cmp/toasts/ToastsOverlay.svelte"
 	import Appbar from "$cmp/Appbar.svelte"
 	import ModalsOverlay from "$cmp/modals/ModalsOverlay.svelte"
-	import { page } from "$app/stores"
 	import Loader from "$cmp/Loader.svelte"
 
 	/** @type any **/ let viewport
@@ -26,7 +28,7 @@
 			showLogo.set(!$page.route.id?.startsWith("/(landing)"))
 			if ($page.route.id == "/(landing)") {
 				$scrollInstance.on("call", (/** @type {string|object} */ signal) => {
-					if (signal === "appbar_showLogo") {
+					if (signal === "RahNeil_N3:uVZDSKzNN7") {
 						showLogo.update((t) => !t)
 					}
 				})

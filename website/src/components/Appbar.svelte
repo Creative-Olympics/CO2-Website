@@ -12,7 +12,6 @@
 	import LoginModal from "$cmp/modals/LoginModal.svelte"
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
-	import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 
 	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
 	import { goto } from "$app/navigation"

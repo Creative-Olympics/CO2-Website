@@ -34,7 +34,6 @@
 				})
 			}
 		}
-		toasts.info("Heyyyyyyyyy")
 	}
 
 	$: $page, locationChange()

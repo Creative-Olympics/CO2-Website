@@ -49,6 +49,9 @@
 	<div
 		class="-mt-2 -mb-2 flex flex-col items-center justify-center bg-base-100 w-screen min-h-screen"
 		bind:clientHeight={contentHeight}
+		data-rahneiln3scroll
+		data-rahneiln3scroll-call="RahNeil_N3:uVZDSKzNN7"
+		data-rahneiln3scroll-repeat
 	>
 		{#if DEBUG}
 			<div class="w-full bg-teal-500" style="height: 1500px" />

@@ -1,14 +1,17 @@
 <script>
+	import { blur, fade, fly } from 'svelte/transition';
+
 	import { toasts } from '$lib/toasts';
-	import SendFeedbackToastButton from './SendFeedbackToastButton.svelte';
+
+	import SendFeedbackToastButton from '$cmp/toasts/SendFeedbackToastButton.svelte';
 </script>
 
 <div class="toast items-end" style="z-index: 1000;">
 	{#each $toasts as toast (toast.id)}
 		<div
-			class="alert {toast.type === 'alert-feedbackError' ? 'alert-error' : toast.type} shadow-lg w-fit"
+			class="w-fit h-fit"
 		>
-			<div>
+			<div class="shadow-lg alert {toast.type === 'alert-feedbackError' ? 'alert-error' : toast.type}" in:fly={{y: 200}} out:fade>
 				{#if toast.type == 'alert-info'}
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

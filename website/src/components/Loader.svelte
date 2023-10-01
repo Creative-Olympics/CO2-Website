@@ -1,5 +1,5 @@
 <script>
-	import { draw, fade } from "svelte/transition"
+	import { draw, fade, fly } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 	import { onMount } from "svelte"
 	import Img from "@zerodevx/svelte-img"
@@ -81,24 +81,23 @@
 		id="loader"
 		class="w-screen absolute top-0 left-0 overflow-hidden z-20"
 		style="height: calc(100vh + 7rem + 7rem)"
-		out:fade={{ duration: 250 }}
+		out:fade={{ duration: 500 }}
 	>
 		<Img
 			src={first}
-			class="absolute h-full w-screen top-0 left-0 object-center object-cover pointer-events-none select-none z-20"
+			class="absolute h-full w-screen top-0 left-0 object-center object-cover pointer-events-none select-none"
 			alt=""
 		/>
 	</div>
-	<!--<div
+	<div
 		id="loader"
-		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20 bg-gradient-to-br"
-		style="--tw-gradient-from: #e99913; --tw-gradient-to: #e64116; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);"
-		out:fade={{ duration: 250 }}
+		class="w-screen h-screen absolute top-0 left-0 overflow-hidden z-30 text-white flex items-center"
+		out:fade={{ delay: 1000, duration: 250 }}
 	>
 		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000" class="w-64 h-64 flex-auto">
-			{#if step == 1}
-				{#each pathsBlocks as paths, i}
-					{#each paths as path, i2}
+			{#each pathsBlocks as paths, i}
+				{#each paths as path, i2}
+					{#if step == 1}
 						<path
 							in:draw={{ duration: 1500, easing: quintOut, delay: i * 250 + i2 * 50 }}
 							out:fade={{ duration: 500, delay: i * 250 + i2 * 50 }}
@@ -107,20 +106,29 @@
 							stroke-width="15px"
 							d={path}
 						/>
-					{/each}
+					{/if}
 				{/each}
-			{/if}
-			{#if step > 1}
-				{#each pathsBlocks as paths, i}
-					{#each paths as path, i2}
+			{/each}
+			{#each pathsBlocks as paths, i}
+				{#each paths as path, i2}
+					{#if step > 1}
 						<path
 							in:fade={{ duration: 500, delay: i * 250 + i2 * 50 }}
 							fill="currentColor"
 							d={path}
 						/>
-					{/each}
+					{/if}
 				{/each}
-			{/if}
+			{/each}
 		</svg>
+	</div>
+	<!--
+	<div
+		id="loader"
+		class="h-screen w-screen absolute top-0 left-0 text-white flex items-center overflow-hidden z-20 bg-gradient-to-br"
+		style="--tw-gradient-from: #e99913; --tw-gradient-to: #e64116; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);"
+		out:fade={{ duration: 250 }}
+	>
+		
 	</div>-->
 {/if}

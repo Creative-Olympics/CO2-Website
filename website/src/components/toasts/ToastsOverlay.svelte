@@ -8,7 +8,7 @@
 
 <div class="toast items-end" style="z-index: 1000;">
 	{#each $toasts as toast (toast.id)}
-		<div class="w-fit h-fit">
+		<button class="w-fit h-fit" on:click={() => toasts.remove(toast.id)}>
 			<div
 				class="shadow-lg alert {toast.type === 'alert-feedbackError' ? 'alert-error' : toast.type}"
 				in:fly={{ y: 200 }}
@@ -82,7 +82,7 @@
 					<svelte:component this={toast.content} {...toast.props} />
 				</div>
 			{/if}
-		</div>
+		</button>
 	{/each}
 </div>
 <div class="invisible alert alert-info alert-success alert-warning alert-error" />

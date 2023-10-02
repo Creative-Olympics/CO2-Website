@@ -37,11 +37,22 @@ function createToastStore(timeout) {
             }
         }
     })
+
+    /**
+     * @param {any} id
+     */
+    function remove(id){
+        _toasts.update(state => {
+            return state.filter((/** @type {{ id: any; }} */ s) => s.id != id);
+        })
+    }
+
     const { subscribe } = toasts
 
     return {
         subscribe,
         send,
+        remove,
         default: (/** @type {string} */ msg) => send(msg, undefined),
         error: (/** @type {string} */ msg) => send(msg, "alert-error"),
         warning: (/** @type {string} */ msg) => send(msg, "alert-warning"),

@@ -13,12 +13,12 @@
 	import Footer from "$cmp/footer/Footer.svelte"
 	import CountdownBanner from "$cmp/CountdownBanner.svelte";
 
-	import background from "$lib/assets/banner/background.png?run"
-	import background_m from "$lib/assets/banner/background_m.png?run"
-	import foreground from "$lib/assets/banner/foreground.png?run&lqip=0"
-	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
-	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
-	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
+	import background from "$lib/assets/banner/background.png?as=run"
+	import background_m from "$lib/assets/banner/background_m.png?as=run"
+	import foreground from "$lib/assets/banner/foreground.png?as=run&lqip=0"
+	import foreground_m from "$lib/assets/banner/foreground_m.png?as=run&lqip=0"
+	import bees from "$lib/assets/banner/bees.png?as=run&lqip=0"
+	import bees_m from "$lib/assets/banner/bees_m.png?as=run&lqip=0"
 
 	const DEBUG = false
 
@@ -41,7 +41,7 @@
 
 <div class="flex flex-col" data-rahneiln3scroll-section>
 	{#if DEBUG}
-		<div class="relative bg-purple-500" style="height: calc(100vh + 7rem + 7rem)" />
+		<div class="relative" style="height: calc(100vh + 7rem + 7rem); background-image: linear-gradient(to top right in oklab, #fff 0%, #000 0% 20%, #fff 0% 40%, #000 0% 60%, #fff 0% 80%, #000 0% 100%);" />
 	{:else}
 		<div class="relative" style="height: calc(100vh + 7rem + 7rem)">
 			<MediaQuery query="(max-width: 640px)" let:matches>

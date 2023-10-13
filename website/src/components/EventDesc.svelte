@@ -6,7 +6,7 @@
 	$: $scrollInstance?.update(), [contentHeight, innerWidth]
 	$: innerWidth = 0
 
-	const DEBUG = false
+	const DEBUG = true
 </script>
 
 <svelte:window bind:innerWidth />
@@ -19,7 +19,7 @@
 >
 	<div class="h-28 w-screen">
 		{#if DEBUG}
-			<div class="w-screen h-28 bg-blue-700 absolute" />
+			<div class="w-screen h-28 flex flex-row absolute overflow-hidden bg-blue-700" />
 		{:else}
 			<div class="w-screen h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}

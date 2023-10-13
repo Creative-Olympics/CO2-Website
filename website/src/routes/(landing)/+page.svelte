@@ -6,9 +6,9 @@
 	import { scrollInstance } from "$lib/scroll"
 	import { finishedLoading } from "$lib/loader"
 
-	import logo_full from "$lib/assets/logo/full.gif?run&lqip=0"
+	import logo_full from "$lib/assets/logo/full.gif?as=run&lqip=0"
 
-	const DELAY_MIN = 1000
+	const DELAY_MIN = 3500
 
 	let watchTrailer = () => {
 		$scrollInstance?.scrollTo("top", {
@@ -23,11 +23,7 @@
 <div class="flex flex-col h-full items-center justify-center pb-[10%]">
 	<div data-rahneiln3scroll data-rahneiln3scroll-speed="2" data-rahneiln3scroll-position="top">
 		{#if $finishedLoading}
-			<div
-				class="h-full"
-				in:fly={{ delay: DELAY_MIN, y: -450, duration: 900 }}
-				out:fade={{ duration: 750 }}
-			>
+			<div class="h-full">
 				<Img
 					src={logo_full}
 					class="w-60 sm:w-72 pt-[5%] sm:pt-[10%] pointer-events-none select-none"
@@ -46,14 +42,7 @@
 			data-rahneiln3scroll-position="top"
 		>
 			{#if $finishedLoading}
-				<a
-					class="btn"
-					in:fade={{ delay: DELAY_MIN + 800 }}
-					out:fade={{ duration: 1000 }}
-					href="about"
-				>
-					Learn about us
-				</a>
+				<a class="btn" in:fade={{ delay: DELAY_MIN }} href="about">Learn about us</a>
 			{/if}
 		</div>
 		<div
@@ -65,8 +54,7 @@
 			{#if $finishedLoading}
 				<button
 					class="btn btn-gradient-secondary text-white"
-					in:fade={{ delay: DELAY_MIN + 1050 }}
-					out:fade={{ duration: 1000 }}
+					in:fade={{ delay: DELAY_MIN + 250 }}
 					on:click={watchTrailer}
 				>
 					Watch Trailer

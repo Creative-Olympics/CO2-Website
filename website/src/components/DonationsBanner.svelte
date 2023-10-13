@@ -3,7 +3,7 @@
 
 	import FooterContent from "$cmp/footer/FooterContent.svelte"
 
-	import bg_countdown from "$lib/assets/bg_countdown.jpg?run"
+	import bg_countdown from "$lib/assets/bg_countdown.jpg?as=run"
 	import Icon from "./Icon.svelte"
 	import { toasts } from "$lib/toasts"
 

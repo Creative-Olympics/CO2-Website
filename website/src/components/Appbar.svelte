@@ -17,7 +17,7 @@
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
 
-	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
+	import logo_small from "$lib/assets/logo/small.gif?as=run&lqip=0"
 </script>
 
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
@@ -144,8 +144,8 @@
 										on:click={() => {
                                             logs.add({ msg: "user opened his profile from the appbar" }, "info");
 											if ($userData?.uid != null) {
-												$page.url.searchParams.set("5uY", $userData?.uid)
-												goto(`?${$page.url.searchParams.toString()}`)
+												//$page.url.searchParams.set("5uY", $userData?.uid)
+												//goto(`?${$page.url.searchParams.toString()}`)
 											} else {
                                                 toasts.feedbackError("s6ygzmsG0G@RahNeil_N3:Appbar:endActions:userButton:userProfileDropdown:yourProfileButton:nullUserDataError");
 											}
@@ -165,15 +165,15 @@
 						</div>
 					{:else}
 						<button
-							class="btn btn-square md:hidden"
-							on:click={() => modal.open($modal, LoginModal)}
+							class="btn btn-square md:hidden {$showLogo && "btn-neutral"}"
+							on:click={() => modal.open(LoginModal)}
 							aria-label="Login"
 						>
 							<Icon class="text-white">login</Icon>
 						</button>
 						<button
-							class="btn hidden md:flex text-white"
-							on:click={() => modal.open($modal, LoginModal)}
+							class="btn hidden md:flex {$showLogo && "btn-neutral"}"
+							on:click={() => modal.open(LoginModal)}
 						>
 							Login
 						</button>

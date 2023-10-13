@@ -7,7 +7,7 @@
 
 	import { bannerLoadLevel, finishedLoading, loaderReady } from "$lib/loader"
 
-	import first from "$lib/assets/banner/first.png?run"
+	import first from "$lib/assets/banner/first.png?as=run"
 
 	let step = 0
 	onMount(() => {

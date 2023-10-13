@@ -8,7 +8,7 @@
 <div class="flex-none">
 	<button
 		class="btn btn-sm normal-case"
-		on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
+		on:click={() => modal.open(SendFeedbackModal, { origin: origin })}
 	>
 		Send Feedback
 	</button>

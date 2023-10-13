@@ -89,11 +89,11 @@ export let login = (/** @type {import("@firebase/auth").AuthProvider} */ provide
                         toasts.feedbackError("QursEsQa2C@RahNeil_N3:firebase:login:signInWithPopup:fetchSignInMethodsForEmail:methodPassword");
                         modal.close();
                     } else if (methods[0] === 'google.com') {
-                        modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
+                        modal.open(loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:Xr1pTDZIE4", userCred: pendingCred })
                     } else if (methods[0] === 'microsoft.com') {
-                        modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
+                        modal.open(loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:ZB8aogoHvU", userCred: pendingCred })
                     } else if (methods[0] === 'apple.com') {
-                        modal.open(modal, loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:QBK4b9Vv2y", userCred: pendingCred })
+                        modal.open(loginAndLinkModal, { providerID: "RahNeil_N3:ProviderID:QBK4b9Vv2y", userCred: pendingCred })
                     } else {
                         console.log(error.code)
                         console.log(error.message)

@@ -47,7 +47,7 @@
 		{/if}
 	</div>
 	<div
-		class="-mt-2 -mb-2 flex flex-col items-center justify-center w-screen min-h-screen bg-base-100"
+		class="-mt-2 -mb-2 flex flex-col items-center justify-center w-screen min-h-screen"
 		bind:clientHeight={contentHeight}
 		data-rahneiln3scroll
 		data-rahneiln3scroll-call="RahNeil_N3:uVZDSKzNN7"

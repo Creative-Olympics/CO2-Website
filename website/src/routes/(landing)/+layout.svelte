@@ -2,7 +2,7 @@
 	import Img from "@zerodevx/svelte-img"
 	import isIos from "is-ios"
 	import { onMount } from "svelte"
-	import { fade } from "svelte/transition";
+	import { fade } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 
 	import { bannerLoadLevel, finishedLoading } from "$lib/loader"
@@ -11,16 +11,17 @@
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
-	import CountdownBanner from "$cmp/CountdownBanner.svelte";
+	import CountdownBanner from "$cmp/CountdownBanner.svelte"
 
 	import background from "$lib/assets/banner/background.png?as=run"
 	import background_m from "$lib/assets/banner/background_m.png?as=run"
-	import foreground from "$lib/assets/banner/foreground.png?as=run&lqip=0"
-	import foreground_m from "$lib/assets/banner/foreground_m.png?as=run&lqip=0"
-	import bees from "$lib/assets/banner/bees.png?as=run&lqip=0"
-	import bees_m from "$lib/assets/banner/bees_m.png?as=run&lqip=0"
+	import foreground from "$lib/assets/banner/foreground.png?as=run:0"
+	import foreground_m from "$lib/assets/banner/foreground_m.png?as=run:0"
+	import bees from "$lib/assets/banner/bees.png?as=run:0"
+	import bees_m from "$lib/assets/banner/bees_m.png?as=run:0"
+	import ServerDesc from "$cmp/ServerDesc.svelte"
 
-	const DEBUG = false
+	const DEBUG = true
 
 	let vidEnded = false
 
@@ -41,7 +42,11 @@
 
 <div class="flex flex-col" data-rahneiln3scroll-section>
 	{#if DEBUG}
-		<div class="relative" style="height: calc(100vh + 7rem + 7rem); background-image: linear-gradient(to top right in oklab, #fff 0%, #000 0% 20%, #fff 0% 40%, #000 0% 60%, #fff 0% 80%, #000 0% 100%);" />
+		<div
+			class="relative"
+			data-rahneiln3scroll
+			style="height: calc(100vh + 7rem + 7rem); background-image: linear-gradient(to top right in oklab, #fff 0%, #000 0% 20%, #fff 0% 40%, #000 0% 60%, #fff 0% 80%, #000 0% 100%);"
+		/>
 	{:else}
 		<div class="relative" style="height: calc(100vh + 7rem + 7rem)">
 			<MediaQuery query="(max-width: 640px)" let:matches>

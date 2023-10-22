@@ -6,7 +6,7 @@
 	import { scrollInstance } from "$lib/scroll"
 	import { finishedLoading } from "$lib/loader"
 
-	import logo_full from "$lib/assets/logo/full.gif?as=run&lqip=0"
+	import logo_full from "$lib/assets/logo/full.gif?as=run:0"
 
 	const DELAY_MIN = 3500
 

@@ -1,13 +1,20 @@
 <script>
 	import { fade, fly } from "svelte/transition"
-	import { modal } from "$lib/modals"
-	import { onMount } from 'svelte'
+	import { onMount } from "svelte"
 	import { toasts } from "$lib/toasts"
 
+	import { modal } from "$lib/modals"
+
 	onMount(() => {
-		// @ts-ignore
-		modal.init(document.getElementById("RahNeil_N3:CO:moci2"));
-		toasts.warning("heyy MoCi2");
+		modal.subscribe((m) => {
+			if (m != null && m.content != null) {
+				// @ts-ignore
+				document.getElementById("RahNeil_N3:CO:moci2")?.showModal()
+			} else {
+				// @ts-ignore
+				document.getElementById("RahNeil_N3:CO:moci2")?.close()
+			}
+		})
 	})
 </script>
 
@@ -24,12 +31,11 @@
 
 <dialog id="RahNeil_N3:CO:moci2" class="modal modal-bottom sm:modal-middle">
 	<div class="modal-box">
-		<h3 class="font-bold text-lg">Hello!</h3>
-		<p class="py-4">Press ESC key or click the button below to close</p>
-
-		<form method="dialog" class="modal-backdrop">
-			<!-- if there is a button in form, it will close the modal -->
-			<button class="btn">Close</button>
-		</form>
+		{#if $modal != null && $modal.content != null}
+			<svelte:component this={$modal.content} {...$modal.props} />
+		{/if}
 	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
 </dialog>

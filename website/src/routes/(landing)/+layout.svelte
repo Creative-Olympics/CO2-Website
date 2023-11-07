@@ -21,7 +21,7 @@
 	import bees_m from "$lib/assets/banner/bees_m.png?as=run:0"
 	import ServerDesc from "$cmp/ServerDesc.svelte"
 
-	const DEBUG = true
+	const DEBUG = false
 
 	let vidEnded = false
 

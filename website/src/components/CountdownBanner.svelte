@@ -6,7 +6,7 @@
 
 	import bg_countdown from "$lib/assets/bg_countdown.jpg?as=run"
 
-	const DEBUG = true
+	const DEBUG = false
 
 	let seconds = 3600 * 24 + 15 //TODO !
 	/** @type {number | null} */

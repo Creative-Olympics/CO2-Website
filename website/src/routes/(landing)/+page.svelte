@@ -1,12 +1,12 @@
 <script>
 	import { goto } from "$app/navigation"
-	import { fly, fade } from "svelte/transition"
+	import { fade } from "svelte/transition"
 	import Img from "@zerodevx/svelte-img"
 
 	import { scrollInstance } from "$lib/scroll"
 	import { finishedLoading } from "$lib/loader"
 
-	import logo_full from "$lib/assets/logo/full.gif?as=run:0"
+	import logo_full from "$lib/assets/logo/full.gif?w=288;216;144;72&h=317;238;156;80&format=webp;gif;jpg&as=run:0"
 
 	const DELAY_MIN = 3500
 
@@ -28,6 +28,9 @@
 					src={logo_full}
 					class="w-60 sm:w-72 pt-[5%] sm:pt-[10%] pointer-events-none select-none"
 					alt="Creative Olympics"
+					width={288}
+					height={317}
+					loading="eager"
 				/>
 				<!--TODO Add load events -->
 			</div>

@@ -11,8 +11,8 @@
 	import Icon from "$cmp/Icon.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
 
-	import turtle from "$lib/assets/footer/turtle.png?as=run&lqip=0"
-	import logo_small from "$lib/assets/logo/small.gif?as=run&lqip=0"
+	import turtle from "$lib/assets/footer/turtle.png?w=480;360;240;120&h=419;315;210;105&as=run:0"
+	import logo_small from "$lib/assets/logo/small.gif?w=80;60;40;20&h=72;54;36;18&format=webp;gif;jpg&as=run:0"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">

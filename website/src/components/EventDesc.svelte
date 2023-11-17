@@ -6,7 +6,7 @@
 	$: $scrollInstance?.update(), [contentHeight, innerWidth]
 	$: innerWidth = 0
 
-	const DEBUG = true
+	const DEBUG = false
 </script>
 
 <svelte:window bind:innerWidth />

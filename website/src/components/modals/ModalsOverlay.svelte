@@ -1,7 +1,5 @@
 <script>
-	import { fade, fly } from "svelte/transition"
 	import { onMount } from "svelte"
-	import { toasts } from "$lib/toasts"
 
 	import { modal } from "$lib/modals"
 
@@ -29,13 +27,23 @@
 {/if}
 -->
 
-<dialog id="RahNeil_N3:CO:moci2" class="modal modal-bottom sm:modal-middle">
+<dialog
+	id="RahNeil_N3:CO:moci2"
+	class="modal modal-bottom sm:modal-middle"
+	on:cancel={() => modal.close()}
+>
 	<div class="modal-box">
 		{#if $modal != null && $modal.content != null}
 			<svelte:component this={$modal.content} {...$modal.props} />
 		{/if}
 	</div>
-	<form method="dialog" class="modal-backdrop">
+	<form
+		class="modal-backdrop"
+		on:submit={(e) => {
+			e.preventDefault()
+			modal.close()
+		}}
+	>
 		<button>close</button>
 	</form>
 </dialog>

@@ -19,9 +19,8 @@
 	import foreground_m from "$lib/assets/banner/foreground_m.png?as=run:0"
 	import bees from "$lib/assets/banner/bees.png?as=run:0"
 	import bees_m from "$lib/assets/banner/bees_m.png?as=run:0"
-	import ServerDesc from "$cmp/ServerDesc.svelte"
 
-	const DEBUG = true
+	const DEBUG = false
 
 	let vidEnded = false
 
@@ -90,7 +89,6 @@
 						disableremoteplayback
 						muted
 						aria-hidden="true"
-						src="banner/in{matches ? '_m' : ''}.mp4"
 						preload="auto"
 						on:error={() => {
 							bannerLoadLevel.update((v) => v + 1)
@@ -101,8 +99,11 @@
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
-						out:fade={{ duration: 1500, easing: quintOut }}
-					/>
+						out:fade={{ duration: 2500, easing: quintOut }}
+					>
+						<source src="banner/in{matches ? '_m' : ''}.webm" type="video/webm" />
+						<source src="banner/in{matches ? '_m' : ''}.mp4" type="video/mp4" />
+					</video>
 				{/if}
 			</MediaQuery>
 		</div>

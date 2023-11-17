@@ -2,8 +2,6 @@
 	import { fly, fade, slide } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 	import Img from "@zerodevx/svelte-img"
-	import { goto } from "$app/navigation"
-	import { page } from "$app/stores"
 
 	import { rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from "$lib/firebase"
 	import { showLogo } from "$lib/scroll"
@@ -17,9 +15,12 @@
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import Icon from "$cmp/Icon.svelte"
 
-	import logo_small from "$lib/assets/logo/small.gif?as=run&lqip=0"
+	import logo_small from "$lib/assets/logo/small.gif?format=webp;gif;jpg&w=80;60;40;20&h=72;54;36;18&as=run:0"
+	import { page } from "$app/stores"
+	import { goto } from "$app/navigation"
+	import UserProfileModal from "./modals/UserProfileModal.svelte"
 </script>
-
+	
 <div class="fixed z-10 w-full" style="transform:translate3d(0,0,0)">
 	<div class="">
 		<!-- p-2 -->
@@ -48,7 +49,7 @@
 										out:fade={{ duration: 500, easing: quintOut }}
 									>
 										<div class="relative w-10 h-10">
-											<Img src={logo_small} alt="Creative Olympics" />
+											<Img src={logo_small} alt="Creative Olympics" width={40} height={40} />
 										</div>
 									</div>
 								</div>
@@ -144,8 +145,14 @@
 										on:click={() => {
                                             logs.add({ msg: "user opened his profile from the appbar" }, "info");
 											if ($userData?.uid != null) {
-												//$page.url.searchParams.set("5uY", $userData?.uid)
+												//$page.url.searchParams.set("5uY", $userData?.uid);
 												//goto(`?${$page.url.searchParams.toString()}`)
+
+												const url = new URL(window.location.toString());
+												url.searchParams.set(encodeURIComponent("5uY"), encodeURIComponent($userData?.uid));
+												history.replaceState({}, '', url);
+
+												modal.open(UserProfileModal, { providerID: "RahNeil_N3:ProviderID:ljMlg3eboB", userID: $userData?.uid});
 											} else {
                                                 toasts.feedbackError("s6ygzmsG0G@RahNeil_N3:Appbar:endActions:userButton:userProfileDropdown:yourProfileButton:nullUserDataError");
 											}

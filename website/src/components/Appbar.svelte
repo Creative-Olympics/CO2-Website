@@ -152,7 +152,7 @@
 												url.searchParams.set(encodeURIComponent("5uY"), encodeURIComponent($userData?.uid));
 												history.replaceState({}, '', url);
 
-												modal.open(UserProfileModal, { providerID: "RahNeil_N3:ProviderID:ljMlg3eboB", userID: $userData?.uid});
+												modal.open(UserProfileModal, { providerID: "RahNeil_N3:ProviderID:ljMlg3eboB", userID: $userData?.uid}, "5uY");
 											} else {
                                                 toasts.feedbackError("s6ygzmsG0G@RahNeil_N3:Appbar:endActions:userButton:userProfileDropdown:yourProfileButton:nullUserDataError");
 											}

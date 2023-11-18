@@ -12,7 +12,7 @@ function createModalStore() {
 	/**
 	 * @param {any} content
 	 * @param {any} props
-     * @param {any} queryParamsToClear
+	 * @param {any} queryParamsToClear
 	 */
 	function set(content, props, queryParamsToClear) {
 		_modal.set({ content: content, props: props, queryParamsToClear })
@@ -22,13 +22,19 @@ function createModalStore() {
 		set,
 		subscribe,
 		close: () => {
-			set(null, {}, {});
+			if (get(_modal)?.queryParamsToClear != "") {
+				const url = new URL(window.location.toString())
+				url.searchParams.delete(get(_modal)?.queryParamsToClear)
+				history.replaceState({}, "", url)
+			}
+
+			set(null, {}, "")
 		},
 		open: (/** @type any */ content, props = {}, queryParamsToClear = "") => {
 			if (get(_modal) == null || get(_modal)?.content == null) {
-				set(content, props, queryParamsToClear);
+				set(content, props, queryParamsToClear)
 			} else {
-				close();
+				close()
 				setTimeout(() => set(content, props, queryParamsToClear), 275)
 			}
 		}

@@ -113,7 +113,7 @@
 						<figure class="w-full h-full">
 							<img
 								src="https://cdn.discordapp.com/attachments/461490441389604875/1102259205546717194/mc_boat.png"
-								alt="Shoes"
+								alt="Boat"
 								style="scale: 1.4"
 							/>
 						</figure>
@@ -122,7 +122,7 @@
 						<figure class="w-full h-full">
 							<img
 								src="https://media.discordapp.net/attachments/1043189830554746992/1081950997821263902/emoji_fox.png"
-								alt="Shoes"
+								alt="Fox"
 								style="scale: .75"
 							/>
 						</figure>

@@ -34,7 +34,8 @@ function createModalStore() {
 			if (get(_modal) == null || get(_modal)?.content == null) {
 				set(content, props, queryParamsToClear)
 			} else {
-				close()
+				set(null, {}, "");
+
 				setTimeout(() => set(content, props, queryParamsToClear), 275)
 			}
 		}

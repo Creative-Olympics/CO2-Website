@@ -1,6 +1,10 @@
 <script>
+	import { doc, getDoc } from "firebase/firestore"
+
 	import { userData as currentUser_userData, publicData as currentUser_publicData } from "$lib/user"
 	import { toasts } from "$lib/toasts"
+	import { fsdb } from "$lib/firebase"
+	import { logs } from "$lib/logs"
 
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
@@ -15,7 +19,7 @@
 	let publicData = null
 	let online = false
 
-	toasts.warning(userID);
+	toasts.warning(userID)
 
 	if (userID == $currentUser_userData?.uid) {
 		// If the user is looking at his own profile, we don't bother fetching anything and just load its own data
@@ -23,7 +27,19 @@
 		publicData = $currentUser_publicData
 		online = true
 	} else {
-		//TODO fetch user profile from server
+		// Fetch user
+
+		// publicData
+		getDoc(doc(fsdb, "users", userID, "public", "general"))
+			.then((ud) => {
+				publicData = ud.data()
+			})
+			.catch((err) => {
+				console.log(err)
+				logs.add(err, "error")
+				toasts.feedbackError("oKVMYpJmT0@RahNeil_N3:UserProfileModal:fetchUser:publicData:getDoc")
+			})
+		online = false //TODO?
 	}
 </script>
 
@@ -59,7 +75,7 @@
 				<span class="text-xl font-bold">{userData?.displayName}</span>
 			{/if}
 
-			<UserTags tags={publicData?.tags || null} size="sm" />
+			<UserTags tags={publicData === null ? null : publicData?.tags || {}} size="sm" />
 		</div>
 	</div>
 

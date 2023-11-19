@@ -10,7 +10,6 @@
 	import { scrollInstance, showLogo } from "$lib/scroll"
 	import { themeList, currentThemeID } from "$lib/theme"
 	import { logs } from "$lib/logs"
-	import { toasts } from "$lib/toasts"
 	import { modal } from "$lib/modals"
 
 	import ToastsOverlay from "$cmp/toasts/ToastsOverlay.svelte"
@@ -36,10 +35,6 @@
 				})
 			}
 		}
-
-		/*if ($page.url.searchParams.has('5uY')) {
-			modal.open(UserProfileModal, {userID: $page.url.searchParams.get('5uY')});
-		}*/		
 	}
 
 	$: $page, locationChange()
@@ -74,6 +69,10 @@
 				$scrollInstance?.update()
 			})
 		}, 300)
+
+		if ($page.url.searchParams.has('5uY')) {
+			modal.open(UserProfileModal, {userID: $page.url.searchParams.get('5uY')}, "5uY");
+		}
 	})
 
 	onDestroy(() => {

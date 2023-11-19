@@ -5,7 +5,7 @@ import { doc, getDoc } from "firebase/firestore"
 import { modal } from '$lib/modals';
 import { logs } from '$lib/logs';
 import { toasts } from '$lib/toasts';
-import { auth, db } from '$lib/firebase';
+import { auth, fsdb } from '$lib/firebase';
 
 /** @type {import("svelte/store").Writable<import("@firebase/auth").User | null>} */
 export let userData = writable(null)
@@ -19,14 +19,14 @@ export let isAdmin = writable(false)
 onAuthStateChanged(auth, (u) => {
     userData.set(u)
     if (u) {
-        getDoc(doc(db, "users", u.uid, "private", "general")).then((ud) => {
+        getDoc(doc(fsdb, "users", u.uid, "private", "general")).then((ud) => {
             privateData.set(ud.data())
         }).catch((err) => {
             console.log(err);
             logs.add(err, "error")
             toasts.feedbackError("ISjznvVZg0@RahNeil_N3:user:onAuthStateChanged:getDoc:private:general");
         });
-        getDoc(doc(db, "users", u.uid, "public", "general")).then((ud) => {
+        getDoc(doc(fsdb, "users", u.uid, "public", "general")).then((ud) => {
             publicData.set(ud.data())
         }).catch((err) => {
             console.log(err);

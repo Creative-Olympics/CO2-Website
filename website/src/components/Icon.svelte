@@ -3,10 +3,6 @@
 	export let style = ""
 	export { className as class }
 
-	export let large = false
-	/** @type {string | null} */
-	export let weight = null
-
 	/** @type {HTMLSpanElement} */
 	let slotObj
 </script>

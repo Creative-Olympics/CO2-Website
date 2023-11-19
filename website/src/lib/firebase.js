@@ -22,7 +22,7 @@ export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
 export const appleAuthProvider = new OAuthProvider('apple.com');
-export const db = getFirestore(app);
+export const fsdb = getFirestore(app);
 
 isSupported().then((supported) => {
 	if (supported) {

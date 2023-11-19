@@ -9,7 +9,7 @@
 	import Icon from "$cmp/Icon.svelte"
 
 	import pfp_neilRahmouni from "$lib/assets/pfp/neil_rahmouni.png?as=run"
-	import pfp_chadrixy from "$lib/assets/pfp/chadrixy.png?as=run&lqip=0"
+	import pfp_chadrixy from "$lib/assets/pfp/chadrixy.png?as=run:0"
 </script>
 
 <div class="absolute top-2 right-2">

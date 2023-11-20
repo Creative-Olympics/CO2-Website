@@ -42,7 +42,7 @@ onAuthStateChanged(auth, (u) => {
                 if (!ud.data()) {
                     logs.add({ msg: "Public data is empty, opening AccountSetupModal" }, "info")
         
-                    modal.open(AccountSetupModal)
+                    modal.open(AccountSetupModal, {userID: u.uid})
                 }
 			})
 			.catch((err) => {

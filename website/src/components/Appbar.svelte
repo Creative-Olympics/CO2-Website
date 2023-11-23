@@ -6,7 +6,7 @@
 	import { rc_adminApp_url, rc_adminIssueBoard_url, rc_adminCurrentSprint_url } from "$lib/firebase"
 	import { showLogo } from "$lib/scroll"
 	import { modal } from "$lib/modals"
-	import { userData, signOut, isAdmin } from "$lib/user"
+	import { userData, signOut, isAdmin, openUserProfileModal } from "$lib/user"
 	import { currentThemeID, switchToNextTheme, themeList } from "$lib/theme"
 	import { logs } from "$lib/logs"
 	import { toasts } from "$lib/toasts"
@@ -16,8 +16,6 @@
 	import Icon from "$cmp/Icon.svelte"
 
 	import logo_small from "$lib/assets/logo/small.gif?format=webp;gif;jpg&w=80;60;40;20&h=72;54;36;18&as=run:0"
-	import { page } from "$app/stores"
-	import { goto } from "$app/navigation"
 	import UserProfileModal from "./modals/UserProfileModal.svelte"
 </script>
 	
@@ -142,21 +140,7 @@
                                 <!-- yourProfileButton -->
 								<li>
 									<button
-										on:click={() => {
-                                            logs.add({ msg: "user opened his profile from the appbar" }, "info");
-											if ($userData?.uid != null) {
-												//$page.url.searchParams.set("5uY", $userData?.uid);
-												//goto(`?${$page.url.searchParams.toString()}`)
-
-												const url = new URL(window.location.toString());
-												url.searchParams.set(encodeURIComponent("5uY"), encodeURIComponent($userData?.uid));
-												history.replaceState({}, '', url);
-
-												modal.open(UserProfileModal, { providerID: "RahNeil_N3:ProviderID:ljMlg3eboB", userID: $userData?.uid}, "5uY");
-											} else {
-                                                toasts.feedbackError("s6ygzmsG0G@RahNeil_N3:Appbar:endActions:userButton:userProfileDropdown:yourProfileButton:nullUserDataError");
-											}
-										}}
+										on:click={() => openUserProfileModal("vJuJQ1PJxi", $userData?.uid)}
 									>
 										<Icon>account_circle</Icon>
 										Your profile

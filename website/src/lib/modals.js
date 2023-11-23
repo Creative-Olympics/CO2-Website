@@ -34,6 +34,12 @@ function createModalStore() {
 			if (get(_modal) == null || get(_modal)?.content == null) {
 				set(content, props, queryParamsToClear)
 			} else {
+				if (get(_modal)?.queryParamsToClear != "") {
+					const url = new URL(window.location.toString())
+					url.searchParams.delete(get(_modal)?.queryParamsToClear)
+					history.replaceState({}, "", url)
+				}
+				
 				set(null, {}, "");
 
 				setTimeout(() => set(content, props, queryParamsToClear), 275)

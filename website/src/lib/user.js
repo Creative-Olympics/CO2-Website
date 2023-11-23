@@ -8,18 +8,20 @@ import {
 import { get, writable } from "svelte/store"
 import { doc, getDoc } from "firebase/firestore"
 
+import AccountSetupModal from "$cmp/modals/AccountSetupModal.svelte"
+
 import { modal } from "$lib/modals"
 import { logs } from "$lib/logs"
 import { toasts } from "$lib/toasts"
 import { auth, fsdb } from "$lib/firebase"
-import AccountSetupModal from "$cmp/modals/AccountSetupModal.svelte"
+import UserProfileModal from "$cmp/modals/UserProfileModal.svelte"
 
-/** @type {import("svelte/store").Writable<import("@firebase/auth").User | null>} */
-export let userData = writable(null)
+/** @type {import("svelte/store").Writable<import("@firebase/auth").User | null | undefined>} */
+export let userData = writable(undefined)
 /** @type {import("svelte/store").Writable<import("@firebase/firestore").DocumentData | undefined | null>} */
-export let privateData = writable(null)
+export let privateData = writable(undefined)
 /** @type {import("svelte/store").Writable<import("@firebase/firestore").DocumentData | undefined | null>} */
-export let publicData = writable(null)
+export let publicData = writable(undefined)
 /** @type {import("svelte/store").Writable<boolean>} */
 export let isAdmin = writable(false)
 
@@ -39,11 +41,12 @@ onAuthStateChanged(auth, (u) => {
 			.then((ud) => {
 				publicData.set(ud.data())
 
-                if (!ud.data()) {
-                    logs.add({ msg: "Public data is empty, opening AccountSetupModal" }, "info")
-        
-                    modal.open(AccountSetupModal, {userID: u.uid})
-                }
+				if (!ud.data()) {
+					//TODO REMOVE TRUE
+					logs.add({ msg: "Public data is empty, opening AccountSetupModal" }, "info")
+
+					modal.open(AccountSetupModal, { userID: u.uid })
+				}
 			})
 			.catch((err) => {
 				console.log(err)
@@ -153,4 +156,23 @@ export let login = (
 				modal.close()
 			}
 		})
+}
+
+export let openUserProfileModal = (
+	/** @type string */ providerID,
+	/** @type string | undefined */ userID
+) => {
+	logs.add({ msg: "UserProfileModal opened for "+providerID }, "info")
+
+	if (get(userData)?.uid != null) {
+		const url = new URL(window.location.toString())
+		url.searchParams.set(encodeURIComponent("5uY"), encodeURIComponent(userID || ""))
+		history.replaceState({}, "", url)
+
+		modal.open(UserProfileModal, { userID: userID }, "5uY")
+	} else {
+		toasts.feedbackError(
+			"s6ygzmsG0G@RahNeil_N3:user:openUserProfileModal:from+"+providerID+":invalidUserID"
+		)
+	}
 }

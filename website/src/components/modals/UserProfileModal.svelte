@@ -1,7 +1,11 @@
 <script>
 	import { doc, getDoc } from "firebase/firestore"
 
-	import { userData as currentUser_userData, publicData as currentUser_publicData } from "$lib/user"
+	import {
+		userData as currentUser_userData,
+		publicData as currentUser_publicData,
+		isAdmin
+	} from "$lib/user"
 	import { toasts } from "$lib/toasts"
 	import { fsdb } from "$lib/firebase"
 	import { logs } from "$lib/logs"
@@ -16,6 +20,15 @@
 	/** @type {import("@firebase/firestore").DocumentData | undefined | null} */
 	let publicData = undefined
 	let online = false
+	let canEdit = userID == $currentUser_userData?.uid || isAdmin
+	let editingUsername = false
+	/** @type {HTMLInputElement} */
+	let nameInput
+
+	/** @type {number} */ let a = 7;
+	/** @type {any}*/ let b = 'test';	
+
+	a = b;
 
 	toasts.warning(userID)
 
@@ -66,13 +79,50 @@
 
 		<!-- Name & Badges -->
 		<div class="flex flex-col w-3/4 gap-1">
-			{#if publicData === undefined}
-				<span class="text-xl font-bold text-loading">Loading username</span>
-			{:else}
-				<span class="text-xl font-bold">{publicData?.displayName || "An error occured"}</span>
-			{/if}
+			<div class="flex flex-row gap-1 items-baseline">
+				{#if publicData === undefined}
+					<span class="text-xl font-bold text-loading">Loading username</span>
+				{:else if canEdit}
+					<input
+						type="text"
+						placeholder={publicData?.displayName || "An error occured"}
+						value={publicData?.displayName || "An error occured"}
+						autocorrect="off"
+						spellcheck="false"
+						class="input input-sm -mx-3 text-xl font-bold focus:outline-none focus:underline underline-offset-4"
+						style="margin-bottom: -2px; margin-top: -1px; margin-left: -13px; width: 16ch;"
+						on:blur={() => {
+							editingUsername = false
+							nameInput.value = publicData?.displayName
+						}}
+						on:focus={() => (editingUsername = true)}
+						bind:this={nameInput}
+					/>
 
-			<UserTags tags={publicData === undefined ? undefined : (publicData?.tags === undefined ? null : publicData?.tags)} size="sm" />
+					{#if editingUsername}
+						<div class="pb-1">
+							<button class="btn btn-xs btn-success text-white">Apply</button>
+						</div>
+					{:else}
+						<div class="tooltip tooltip-bottom" data-tip="Edit name">
+							<button class="btn btn-square btn-xs btn-outline" on:click={() => nameInput.focus()}>
+								<Icon style="font-size: 1rem">edit</Icon>
+							</button>
+						</div>
+					{/if}
+				{:else}
+					<span class="text-xl font-bold">{publicData?.displayName || "An error occured"}</span>
+				{/if}
+			</div>
+
+			<UserTags
+				tags={publicData === undefined
+					? undefined
+					: publicData?.tags === undefined
+					? null
+					: publicData?.tags}
+				size="sm"
+			/>
 		</div>
 	</div>
 

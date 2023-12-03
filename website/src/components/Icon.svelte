@@ -88,7 +88,7 @@
 		alt=""
 	/>-->
 
-	<span class="material-symbols-outlined">
+	<span class="material-symbols-outlined {className}" {style}>
 		{slotObj?.textContent}
 	</span>
 {/if}

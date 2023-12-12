@@ -106,13 +106,13 @@ html.has-scroll-dragging {
 }
 
 .apple {
-	background-color: #fff; /* couleur de fond en mode clair */
-	border-color: #8c8c8c; /* couleur de bordure en mode clair */
-	color: #000; /* couleur de texte en mode clair */
+	background-color: #fff;
+	border-color: #8c8c8c;
+	color: #000;
 
-	@apply dark:bg-black; /* couleur de fond en mode sombre */
-	@apply dark:border-black; /* couleur de bordure en mode sombre */
-	@apply dark:text-white; /* couleur de texte en mode sombre */
+	@apply dark:bg-black;
+	@apply dark:border-black;
+	@apply dark:text-white;
 }
 
 .google {

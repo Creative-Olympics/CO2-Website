@@ -1,10 +1,10 @@
 <script>
-	import { createEventDispatcher } from "svelte"
-
-	const dispatch = createEventDispatcher()
-
-	/** @type {any} */
-	export let disabled = false
+	import LoginButton from "./LoginButton.svelte"
 </script>
 
-<button class="btn" on:click={() => dispatch("click")} {disabled}>Log in with Microsoft</button>
+<LoginButton
+	logo="url('banner/microsoft_logo.svg')"
+	text="Sign in with Microsoft"
+	additionalClassName="microsoft-dark dark:microsoft-dark font-microsoft"
+	ariaLabel="Sign in with Microsoft"
+/>

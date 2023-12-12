@@ -1,6 +1,10 @@
 <script>
-	/** @type {any} */
-	export let onClick;
+	import LoginButton from "./LoginButton.svelte"
 </script>
 
-<button class="btn" on:click={onClick}>Log in with Discord</button>
+<LoginButton
+	logo="var(--wo-discord-logo)"
+	text="Sign in with Discord"
+	additionalClassName="discord-dark dark:discord-dark font-discord"
+	ariaLabel="Sign in with Discord"
+/>

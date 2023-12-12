@@ -1,10 +1,10 @@
 <script>
-	import { createEventDispatcher } from "svelte"
-
-	const dispatch = createEventDispatcher()
-
-	/** @type {any} */
-	export let disabled = false
+	import LoginButton from "./LoginButton.svelte"
 </script>
 
-<button class="btn" on:click={() => dispatch("click")} {disabled}>Log in with Apple</button>
+<LoginButton
+	logo="url('banner/apple_logo_dark.svg')"
+	text="Sign in with Apple"
+	additionalClassName="apple-dark dark:apple-dark font-apple"
+	ariaLabel="Sign in with Apple"
+/>

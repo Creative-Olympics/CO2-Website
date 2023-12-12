@@ -99,30 +99,6 @@ html.has-scroll-dragging {
 	bottom: 0;
 }
 
-.discord-dark {
-	background-color: #5865f2;
-	border-color: #5865f2;
-	color: #fff;
-}
-
-.apple-dark {
-	background-color: #000;
-	border-color: #000;
-	color: #fff;
-}
-
-.google-dark {
-	background-color: #4285f4;
-	border-color: #4285f4;
-	color: #fff;
-}
-
-.microsoft-dark {
-	background-color: #2f2f2f;
-	border-color: #2f2f2f;
-	color: #fff;
-}
-
 .discord {
 	background-color: #5865f2;
 	border-color: #5865f2;
@@ -130,21 +106,33 @@ html.has-scroll-dragging {
 }
 
 .apple {
-	background-color: #fff;
-	border-color: #8c8c8c;
-	color: #000;
+	background-color: #fff; /* couleur de fond en mode clair */
+	border-color: #8c8c8c; /* couleur de bordure en mode clair */
+	color: #000; /* couleur de texte en mode clair */
+
+	@apply dark:bg-black; /* couleur de fond en mode sombre */
+	@apply dark:border-black; /* couleur de bordure en mode sombre */
+	@apply dark:text-white; /* couleur de texte en mode sombre */
 }
 
 .google {
 	background-color: #fff;
-	border-color: #8c8c8c;
-	color: #757575;
+	border-color: #747775;
+	color: #1f1f1f;
+
+	@apply dark:bg-[#131314];
+	@apply dark:border-[#8e918f];
+	@apply dark:text-[#e3e3e3];
 }
 
 .microsoft {
 	background-color: #fff;
 	border-color: #8c8c8c;
 	color: #5e5e5e;
+
+	@apply dark:bg-[#2f2f2f];
+	@apply dark:border-[#2f2f2f];
+	@apply dark:text-white;
 }
 
 @keyframes borderSpin {

@@ -3,8 +3,8 @@
 </script>
 
 <LoginButton
-	logo="url('banner/apple_logo_dark.svg')"
+	logo="banner/apple_logo_dark.svg"
 	text="Sign in with Apple"
-	additionalClassName="apple-dark dark:apple-dark font-apple"
+	addClass="apple font-apple"
 	ariaLabel="Sign in with Apple"
 />

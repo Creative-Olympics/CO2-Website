@@ -4,7 +4,7 @@
 	export let logo
 	export let backgroundLogo
 	export let text
-	export let additionalClassName = ""
+	export let addClass = ""
 	export let tabIndex = 0
 	export let ariaLabel
 
@@ -18,15 +18,10 @@
 		dispatch("click")
 	}}
 	{disabled}
-	class={`${additionalClassName} border border-solid h-10 focus:outline-none transition duration-150 inline-flex items-center rounded pl-0.5 pr-2 text-sm font-semibold tracking-wider`}
+	class={`${addClass} border gap-2 border-solid h-10 focus:outline-none inline-flex items-center justify-center rounded pl-0.5 pr-2 text-sm hover:bg-gray-100 hover:text-gray-800`}
 	{tabIndex}
 	aria-label={ariaLabel}
 >
-	<div
-		class="w-9 h-9 mr-2 flex items-center justify-center"
-		style="background-color: {backgroundLogo};"
-	>
-		<span class="w-5 h-5 bg-no-repeat bg-center" style="background-image: {logo};" />
-	</div>
+	<img src={logo} class="w-5 h-5" />
 	{text}
 </button>

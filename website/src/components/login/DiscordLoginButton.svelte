@@ -3,8 +3,8 @@
 </script>
 
 <LoginButton
-	logo="var(--wo-discord-logo)"
+	logo="banner/discord_logo.svg"
 	text="Sign in with Discord"
-	additionalClassName="discord-dark dark:discord-dark font-discord"
+	addClass="discord font-discord"
 	ariaLabel="Sign in with Discord"
 />

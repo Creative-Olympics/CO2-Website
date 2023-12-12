@@ -3,9 +3,8 @@
 </script>
 
 <LoginButton
-	logo="url('banner/google_logo.svg')"
-	backgroundLogo="white"
+	logo="banner/google_logo.svg"
 	text="Sign in with Google"
-	additionalClassName="google-dark dark:google-dark font-google"
+	addClass="google font-google"
 	ariaLabel="Sign in with Google"
 />

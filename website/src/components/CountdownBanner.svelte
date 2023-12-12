@@ -8,12 +8,27 @@
 
 	const DEBUG = false
 
-	let seconds = 3600 * 24 + 15 //TODO !
+	let targetDate = new Date("2024-01-01")
+	let seconds
+
+	function calculateTimeLeft() {
+		let now = new Date()
+		let difference = targetDate - now
+		return Math.floor(difference / 1000)
+	}
+
 	/** @type {number | null} */
 	let intervalID = null
 
 	onMount(() => {
-		intervalID = window.setInterval(() => seconds--, 1000)
+		seconds = calculateTimeLeft()
+		intervalID = window.setInterval(() => {
+			seconds = calculateTimeLeft()
+			if (seconds <= 0) {
+				clearInterval(intervalID)
+				// Gérer le cas où le compte à rebours est terminé
+			}
+		}, 1000)
 	})
 
 	onDestroy(() => {

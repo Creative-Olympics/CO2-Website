@@ -9,13 +9,13 @@
 
 	const DEBUG = false
 
-	let targetDate = new Date($rc_eventTimestamp * 1000)
 	/** @type {number} */
 	let seconds = 0
 
 	function calculateTimeLeft() {
+		let targetDate = $rc_eventTimestamp * 1000
 		let now = new Date()
-		let difference = targetDate.getTime() - now.getTime()
+		let difference = targetDate - now.getTime()
 		return Math.floor(difference / 1000)
 	}
 

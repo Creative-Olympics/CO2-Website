@@ -5,10 +5,11 @@
 	import FooterContent from "$cmp/footer/FooterContent.svelte"
 
 	import bg_countdown from "$lib/assets/bg_countdown.jpg?as=run"
+	import { rc_eventTimestamp } from "$lib/firebase"
 
 	const DEBUG = false
 
-	let targetDate = new Date("2024-01-01")
+	let targetDate = new Date($rc_eventTimestamp * 1000)
 	/** @type {number} */
 	let seconds = 0
 

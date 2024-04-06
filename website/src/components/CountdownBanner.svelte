@@ -16,7 +16,6 @@
 	function calculateTimeLeft() {
 		let now = new Date()
 		let difference = targetDate.getTime() - now.getTime()
-		console.debug(Math.floor(difference / 1000));
 		return Math.floor(difference / 1000)
 	}
 

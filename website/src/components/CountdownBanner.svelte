@@ -9,11 +9,13 @@
 	const DEBUG = false
 
 	let targetDate = new Date("2024-01-01")
-	let seconds
+	/** @type {number} */
+	let seconds = 0
 
 	function calculateTimeLeft() {
 		let now = new Date()
-		let difference = targetDate - now
+		let difference = targetDate.getTime() - now.getTime()
+		console.debug(Math.floor(difference / 1000));
 		return Math.floor(difference / 1000)
 	}
 
@@ -24,7 +26,7 @@
 		seconds = calculateTimeLeft()
 		intervalID = window.setInterval(() => {
 			seconds = calculateTimeLeft()
-			if (seconds <= 0) {
+			if (seconds <= 0 && intervalID !== null) {
 				clearInterval(intervalID)
 				// Gérer le cas où le compte à rebours est terminé
 			}

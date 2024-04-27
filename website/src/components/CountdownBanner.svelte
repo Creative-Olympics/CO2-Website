@@ -5,15 +5,32 @@
 	import FooterContent from "$cmp/footer/FooterContent.svelte"
 
 	import bg_countdown from "$lib/assets/bg_countdown.jpg?as=run"
+	import { rc_eventTimestamp } from "$lib/firebase"
 
 	const DEBUG = false
 
-	let seconds = 3600 * 24 + 15 //TODO !
+	/** @type {number} */
+	let seconds = 0
+
+	function calculateTimeLeft() {
+		let targetDate = $rc_eventTimestamp * 1000
+		let now = new Date()
+		let difference = targetDate - now.getTime()
+		return Math.floor(difference / 1000)
+	}
+
 	/** @type {number | null} */
 	let intervalID = null
 
 	onMount(() => {
-		intervalID = window.setInterval(() => seconds--, 1000)
+		seconds = calculateTimeLeft()
+		intervalID = window.setInterval(() => {
+			seconds = calculateTimeLeft()
+			if (seconds <= 0 && intervalID !== null) {
+				clearInterval(intervalID)
+				// Gérer le cas où le compte à rebours est terminé
+			}
+		}, 1000)
 	})
 
 	onDestroy(() => {

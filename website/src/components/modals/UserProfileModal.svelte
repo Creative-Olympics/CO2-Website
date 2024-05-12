@@ -1,6 +1,10 @@
 <script>
+	import { doc, getDoc } from "firebase/firestore"
+
 	import { userData as currentUser_userData, publicData as currentUser_publicData } from "$lib/user"
 	import { toasts } from "$lib/toasts"
+	import { fsdb } from "$lib/firebase"
+	import { logs } from "$lib/logs"
 
 	import SendFeedbackIconButton from "$cmp/SendFeedbackIconButton.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
@@ -9,19 +13,30 @@
 
 	/**  @type {String} */ export let userID
 
-	/** @type {import("@firebase/auth").User | null} */
-	let userData = null
 	/** @type {import("@firebase/firestore").DocumentData | undefined | null} */
-	let publicData = null
+	let publicData = undefined
 	let online = false
+
+	toasts.warning(userID)
 
 	if (userID == $currentUser_userData?.uid) {
 		// If the user is looking at his own profile, we don't bother fetching anything and just load its own data
-		userData = $currentUser_userData
 		publicData = $currentUser_publicData
 		online = true
 	} else {
-		//TODO fetch user profile from server
+		// Fetch user
+
+		// publicData
+		getDoc(doc(fsdb, "users", userID, "public", "general"))
+			.then((ud) => {
+				publicData = ud.data()
+			})
+			.catch((err) => {
+				console.log(err)
+				logs.add(err, "error")
+				toasts.feedbackError("oKVMYpJmT0@RahNeil_N3:UserProfileModal:fetchUser:publicData:getDoc")
+			})
+		online = false //TODO?
 	}
 </script>
 
@@ -36,12 +51,12 @@
 		<!-- AVATAR -->
 		<div class="avatar {online ? 'online' : 'offline'}">
 			<div class="w-20 h-20 mask mask-circle">
-				{#if userData === null}
+				{#if publicData === undefined}
 					<div class="w-full h-full bg-base-200 animate-pulse" />
 				{:else}
 					<img
-						src={userData?.photoURL}
-						alt="{userData?.displayName} profile picture"
+						src={publicData?.photoURL}
+						alt="{publicData?.displayName} profile picture"
 						width="5rem"
 						height="5rem"
 					/>
@@ -51,20 +66,20 @@
 
 		<!-- Name & Badges -->
 		<div class="flex flex-col w-3/4 gap-1">
-			{#if userData === null}
+			{#if publicData === undefined}
 				<span class="text-xl font-bold text-loading">Loading username</span>
 			{:else}
-				<span class="text-xl font-bold">{userData?.displayName}</span>
+				<span class="text-xl font-bold">{publicData?.displayName || "An error occured"}</span>
 			{/if}
 
-			<UserTags tags={publicData?.tags || null} size="sm" />
+			<UserTags tags={publicData === undefined ? undefined : (publicData?.tags === undefined ? null : publicData?.tags)} size="sm" />
 		</div>
 	</div>
 
 	<div class="grid grid-cols-12 gap-2 relative">
 		<!-- SOCIALS -->
 		<div
-			class="card card-compact col-span-7 sm:col-span-8 card-loading {publicData !== null &&
+			class="card card-compact col-span-7 sm:col-span-8 card-loading {publicData !== undefined &&
 				'loaded'}"
 		>
 			<div class="card-body opacity-100">
@@ -81,7 +96,7 @@
 
 		<!-- DONATIONS -->
 		<div
-			class="card card-compact col-span-5 sm:col-span-4 card-loading {publicData !== null &&
+			class="card card-compact col-span-5 sm:col-span-4 card-loading {publicData !== undefined &&
 				'loaded card-goldenOutline'}"
 		>
 			<div class="card-body gap-0">
@@ -94,7 +109,7 @@
 		</div>
 
 		<!-- ACHIEVEMENTS -->
-		<div class="card card-compact col-span-12 card-loading {publicData !== null && 'loaded'}">
+		<div class="card card-compact col-span-12 card-loading {publicData !== undefined && 'loaded'}">
 			<div class="card-body">
 				<div class="flex justify-between">
 					<h2 class="card-title text-sm">Achievements</h2>
@@ -111,7 +126,7 @@
 						<figure class="w-full h-full">
 							<img
 								src="https://cdn.discordapp.com/attachments/461490441389604875/1102259205546717194/mc_boat.png"
-								alt="Shoes"
+								alt="Boat"
 								style="scale: 1.4"
 							/>
 						</figure>
@@ -120,7 +135,7 @@
 						<figure class="w-full h-full">
 							<img
 								src="https://media.discordapp.net/attachments/1043189830554746992/1081950997821263902/emoji_fox.png"
-								alt="Shoes"
+								alt="Fox"
 								style="scale: .75"
 							/>
 						</figure>

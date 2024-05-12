@@ -17,7 +17,7 @@
 			<button
 				class="btn btn-circle btn-ghost"
 				aria-label="Send feedback"
-				on:click={() => modal.open($modal, SendFeedbackModal, { origin: origin })}
+				on:click={() => modal.open(SendFeedbackModal, { origin: origin })}
 			>
 				<Icon>sms_failed</Icon>
 			</button>

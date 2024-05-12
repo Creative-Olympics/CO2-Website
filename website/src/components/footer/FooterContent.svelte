@@ -11,8 +11,8 @@
 	import Icon from "$cmp/Icon.svelte"
 	import SocialLinks from "$cmp/SocialLinks.svelte"
 
-	import turtle from "$lib/assets/footer/turtle.png?run&lqip=0"
-	import logo_small from "$lib/assets/logo/small.gif?run&lqip=0"
+	import turtle from "$lib/assets/footer/turtle.png?w=480;360;240;120&h=419;315;210;105&as=run:0"
+	import logo_small from "$lib/assets/logo/small.gif?w=80;60;40;20&h=72;54;36;18&format=webp;gif;jpg&as=run:0"
 </script>
 
 <div class="footer p-5 px-10" data-theme="dark">
@@ -41,7 +41,7 @@
 			<Icon>code</Icon>
 			<span>
 				Website by
-				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
+				<button on:click={() => modal.open(AboutUsModal)} class="link link-hover">
 					Neïl Rahmouni
 				</button>
 			</span>
@@ -50,14 +50,14 @@
 			<Icon>palette</Icon>
 			<span>
 				Imagery & assets by
-				<button on:click={() => modal.open($modal, AboutUsModal)} class="link link-hover">
+				<button on:click={() => modal.open(AboutUsModal)} class="link link-hover">
 					Chadrixy
 				</button>
 			</span>
 		</div>
 		<button
 			class="btn btn-outline btn-xs normal-case mt-1"
-			on:click={() => modal.open($modal, AboutUsModal)}
+			on:click={() => modal.open(AboutUsModal)}
 		>
 			About us
 		</button>
@@ -74,7 +74,7 @@
 					rel="cc:attributionURL dct:creator"
 					property="cc:attributionName"
 					class="link link-hover text-xs"
-					on:click={() => modal.open($modal, AboutUsModal)}
+					on:click={() => modal.open(AboutUsModal)}
 				>
 					Neïl Rahmouni & Adrien "Chadrixy" Greco
 				</button>
@@ -113,7 +113,7 @@
 			<div class="mt-2">
 				<button
 					class="btn btn-outline btn-xs normal-case ring-500"
-					on:click={() => modal.open($modal, CopyrightModal)}
+					on:click={() => modal.open(CopyrightModal)}
 				>
 					Learn more
 				</button>

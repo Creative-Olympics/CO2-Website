@@ -8,9 +8,9 @@
 	export let tooltipDirection = "up"
 
 	export let links = [
-		{ icon: "home", url: "https://test.com/", description: "Example link", tooltip: true },
-		{ icon: "home", url: "https://test.com/", description: "Example link", tooltip: true },
-		{ icon: "home", url: "https://test.com/", description: "Example link", tooltip: true }
+		{ icon: "home", url: "https://neil.rahmouni.dev/", description: "Example link", tooltip: true },
+		{ icon: "home", url: "https://neil.rahmouni.dev/", description: "Example link", tooltip: true },
+		{ icon: "home", url: "https://neil.rahmouni.dev/", description: "Example link", tooltip: true }
 	]
 </script>
 

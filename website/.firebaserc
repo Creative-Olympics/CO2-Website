@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "rahneil-n3-co"
-  }
+  },
+  "targets": {
+    "rahneil-n3-co": {
+      "hosting": {
+        "rahneil-n3-co": [
+          "rahneil-n3-co"
+        ],
+        "rahneil-n3-co-url": [
+          "rahneil-n3-co-url"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

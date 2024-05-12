@@ -22,7 +22,7 @@ export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const microsoftAuthProvider = new OAuthProvider('microsoft.com');
 export const appleAuthProvider = new OAuthProvider('apple.com');
-export const db = getFirestore(app);
+export const fsdb = getFirestore(app);
 
 isSupported().then((supported) => {
 	if (supported) {
@@ -32,7 +32,7 @@ isSupported().then((supported) => {
 			.then(() => {
 				rc_discordInvite_url.update((v) => getValue(rc, 'discordInvite_url').asString() || v);
 				rc_eventDesc_article.update((v) => getValue(rc, 'eventDesc_article').asString() || v);
-				rc_eventTimestamp.update((v) => getValue(rc, 'eventTimestamp').asString() || v);
+				rc_eventTimestamp.update((v) => getValue(rc, 'eventTimestamp').asNumber() || v);
 				rc_neilRahmouni.update((v) => getValue(rc, 'neilRahmouni').asString() ? JSON.parse(getValue(rc, 'neilRahmouni').asString()) : v);
 				rc_chadrixy.update((v) => getValue(rc, 'chadrixy').asString() ? JSON.parse(getValue(rc, 'chadrixy').asString()) : v);
 				rc_feedback_email.update((v) => getValue(rc, 'feedback_email').asString() || v);
@@ -58,7 +58,7 @@ export let rc_discordInvite_url = writable('http://url.creative-olympics.org/dis
 export let rc_eventDesc_article = writable(
 	'<h1>The Creative Olympics are coming back!</h1><p>Take part in the Creative Olympics, a <b>global charity event</b> running in Minecraft that promotes creativity and teamwork from players all around the world, while raising funds for a worthy cause!<br/>The event will run for <b>7 days</b> and feature a variety of contests to test your skills and challenge your imagination. All proceeds will go to a global charity organization that works to <b>improve the lives of people in need</b>.<p>Join us for an exciting and worthwhile experience and help us <b>make a difference</b> in the world! Check below for the beginning countdown and register for the event.</p><p>You want to know more about who we are and our previous event? <a href="#">Check this link!</a> See what prizes you can win by participating? <a href="#">Here you go!</a> Want to help us as a streamer or partner? <a href="#">Fill in this form!</a></p>'
 );
-export let rc_eventTimestamp = writable('120');
+export let rc_eventTimestamp = writable(1717275600);
 export let rc_neilRahmouni = writable(JSON.parse('{"pfp":null,"main":null,"links":[{"icon":"twitter","url":"http://neil.rahmouni.dev/twitter","description":"Neïl Rahmouni\'s Twitter profile"},{"icon":"instagram","url":"http://neil.rahmouni.dev/instagram","description":"Neïl Rahmouni\'s Instagram profile"},{"icon":"gitlab","url":"http://neil.rahmouni.dev/gitlab","description":"Neïl Rahmouni\'s Gitlab profile"},{"icon":"matrix","url":"http://neil.rahmouni.dev/matrix","description":"Neïl Rahmouni\'s Matrix account"}]}'));
 export let rc_chadrixy = writable(JSON.parse('{"pfp":null,"main":"http://url.creative-olympics.org/chadrixy_artstation","links":[{"icon":"twitter","url":"http://url.creative-olympics.org/chadrixy_twitter","description":"Chadrixy\'s Twitter profile"}]}'));
 export let rc_footer = writable(JSON.parse('{"links":[{"icon":"twitter","url":"http://url.creative-olympics.org/gunivers_twitter"},{"icon":"gunivers","url":"http://url.creative-olympics.org/gunivers_website"},{"icon":"discord","url":"http://url.creative-olympics.org/discord2"}]}'));

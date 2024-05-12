@@ -1,5 +1,6 @@
 {
-  "hosting": {
+  "hosting": [{
+    "target": "rahneil-n3-co",
     "source": ".",
     "ignore": [
       "firebase.json",
@@ -8,6 +9,29 @@
     ],
     "frameworksBackend": {
       "region": "europe-west1"
-    }
-  }
+    },
+    "headers": [{
+      "source": "/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source":
+        "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css|eot|otf|ttf|ttc|woff|woff2|font.css)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }
+      ]
+    }]
+  },{
+    "target": "rahneil-n3-co-url",
+    "appAssociation": "AUTO",
+    "rewrites": [ { "source": "/**", "dynamicLinks": true }, { "source": "/dbt/**", "dynamicLinks": true } ]
+  }]
 }

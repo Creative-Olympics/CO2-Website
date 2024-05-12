@@ -12,14 +12,14 @@
 <svelte:window bind:innerWidth />
 
 <div
-	class="absolute z-10 left-0 w-screen"
+	class="absolute z-10 left-0 top-0 w-screen"
 	data-rahneiln3scroll
 	data-rahneiln3scroll-position="top"
 	data-rahneiln3scroll-offset="-112"
 >
 	<div class="h-28 w-screen">
 		{#if DEBUG}
-			<div class="w-screen h-28 bg-blue-700 absolute" />
+			<div class="w-screen h-28 flex flex-row absolute overflow-hidden bg-blue-700 bg-opacity-50" />
 		{:else}
 			<div class="w-screen h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}
@@ -47,14 +47,14 @@
 		{/if}
 	</div>
 	<div
-		class="-mt-2 -mb-2 flex flex-col items-center justify-center bg-base-100 w-screen min-h-screen"
+		class="-mt-2 -mb-2 flex flex-col items-center justify-center w-screen min-h-screen bg-base-100"
 		bind:clientHeight={contentHeight}
 		data-rahneiln3scroll
 		data-rahneiln3scroll-call="RahNeil_N3:uVZDSKzNN7"
 		data-rahneiln3scroll-repeat
 	>
 		{#if DEBUG}
-			<div class="w-full bg-teal-500" style="height: 1500px" />
+			<div class="w-full bg-teal-500 bg-opacity-50" style="height: 1500px; opacity: 50%" />
 		{:else}
 			<article class="prose py-20 px-10 prose-h1:text-center">
 				{@html $rc_eventDesc_article}
@@ -63,7 +63,7 @@
 	</div>
 	<div class="h-28 w-screen">
 		{#if DEBUG}
-			<div class="w-screen h-28 bg-blue-700 absolute" />
+			<div class="w-screen h-28 flex flex-row bg-blue-700 absolute overflow-hidden opacity-50" />
 		{:else}
 			<div class="w-screen h-28 flex flex-row absolute overflow-hidden">
 				{#each { length: Math.ceil(innerWidth / 700) } as _}

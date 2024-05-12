@@ -19,7 +19,7 @@
 	<button
 		rel="cc:attributionURL dct:creator"
 		property="cc:attributionName"
-		on:click={() => modal.open($modal, AboutUsModal)}
+		on:click={() => modal.open(AboutUsModal)}
 		class="inline link"
 	>
 		Neïl Rahmouni and Adrien "Chadrixy" Greco

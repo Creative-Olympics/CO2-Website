@@ -2,7 +2,7 @@
 	import Img from "@zerodevx/svelte-img"
 	import isIos from "is-ios"
 	import { onMount } from "svelte"
-	import { fade } from "svelte/transition";
+	import { fade } from "svelte/transition"
 	import { quintOut } from "svelte/easing"
 
 	import { bannerLoadLevel, finishedLoading } from "$lib/loader"
@@ -11,14 +11,14 @@
 	import MediaQuery from "$cmp/MediaQuery.svelte"
 	import EventDesc from "$cmp/EventDesc.svelte"
 	import Footer from "$cmp/footer/Footer.svelte"
-	import CountdownBanner from "$cmp/CountdownBanner.svelte";
+	import CountdownBanner from "$cmp/CountdownBanner.svelte"
 
-	import background from "$lib/assets/banner/background.png?run"
-	import background_m from "$lib/assets/banner/background_m.png?run"
-	import foreground from "$lib/assets/banner/foreground.png?run&lqip=0"
-	import foreground_m from "$lib/assets/banner/foreground_m.png?run&lqip=0"
-	import bees from "$lib/assets/banner/bees.png?run&lqip=0"
-	import bees_m from "$lib/assets/banner/bees_m.png?run&lqip=0"
+	import background from "$lib/assets/banner/background.png?as=run"
+	import background_m from "$lib/assets/banner/background_m.png?as=run"
+	import foreground from "$lib/assets/banner/foreground.png?as=run:0"
+	import foreground_m from "$lib/assets/banner/foreground_m.png?as=run:0"
+	import bees from "$lib/assets/banner/bees.png?as=run:0"
+	import bees_m from "$lib/assets/banner/bees_m.png?as=run:0"
 
 	const DEBUG = false
 
@@ -28,7 +28,6 @@
 		$scrollInstance.update()
 	})
 
-	//bannerLoadLevel.subscribe((v) => toasts.warning(v.toString()))
 	finishedLoading.subscribe((v) => {
 		// @ts-ignore
 		if (v) document.getElementById("RahNeil_N3:CO:hbgiapv")?.play()
@@ -41,7 +40,11 @@
 
 <div class="flex flex-col" data-rahneiln3scroll-section>
 	{#if DEBUG}
-		<div class="relative bg-purple-500" style="height: calc(100vh + 7rem + 7rem)" />
+		<div
+			class="relative"
+			data-rahneiln3scroll
+			style="height: calc(100vh + 7rem + 7rem); background-image: linear-gradient(to top right in oklab, #fff 0%, #000 0% 20%, #fff 0% 40%, #000 0% 60%, #fff 0% 80%, #000 0% 100%);"
+		/>
 	{:else}
 		<div class="relative" style="height: calc(100vh + 7rem + 7rem)">
 			<MediaQuery query="(max-width: 640px)" let:matches>
@@ -85,7 +88,6 @@
 						disableremoteplayback
 						muted
 						aria-hidden="true"
-						src="banner/in{matches ? '_m' : ''}.mp4"
 						preload="auto"
 						on:error={() => {
 							bannerLoadLevel.update((v) => v + 1)
@@ -96,8 +98,11 @@
 							if (isIos) bannerLoadLevel.update((v) => v + 1)
 						}}
 						on:ended={() => (vidEnded = true)}
-						out:fade={{ duration: 1500, easing: quintOut }}
-					/>
+						out:fade={{ duration: 2500, easing: quintOut }}
+					>
+						<source src="banner/in{matches ? '_m' : ''}.webm" type="video/webm" />
+						<source src="banner/in{matches ? '_m' : ''}.mp4" type="video/mp4" />
+					</video>
 				{/if}
 			</MediaQuery>
 		</div>

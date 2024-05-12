@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": "file:///home/john/CO/.gitlab-ci.yml"
-    }
-}
